@@ -1,0 +1,10 @@
+# SendinblueApiv3::GetAccountRelayData
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**user_name** | **String** | Email to use as login on SMTP | 
+**relay** | **String** | URL of the SMTP Relay | 
+**port** | **Integer** | Port used for SMTP Relay | 
+
+
