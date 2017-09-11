@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetAccount
+# SibApiV3Sdk::GetAccount
 
 ## Properties
 Name | Type | Description | Notes

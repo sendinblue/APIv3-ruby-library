@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetExtendedClientAddress
+# SibApiV3Sdk::GetExtendedClientAddress
 
 ## Properties
 Name | Type | Description | Notes

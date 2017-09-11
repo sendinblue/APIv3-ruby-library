@@ -1,4 +1,4 @@
-# SendinblueApiv3::DeleteHardbounces
+# SibApiV3Sdk::DeleteHardbounces
 
 ## Properties
 Name | Type | Description | Notes

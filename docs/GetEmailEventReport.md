@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetEmailEventReport
+# SibApiV3Sdk::GetEmailEventReport
 
 ## Properties
 Name | Type | Description | Notes

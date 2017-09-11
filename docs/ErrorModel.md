@@ -1,4 +1,4 @@
-# SendinblueApiv3::ErrorModel
+# SibApiV3Sdk::ErrorModel
 
 ## Properties
 Name | Type | Description | Notes

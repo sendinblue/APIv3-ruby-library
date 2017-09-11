@@ -1,4 +1,4 @@
-# SendinblueApiv3::UpdateEmailCampaign
+# SibApiV3Sdk::UpdateEmailCampaign
 
 ## Properties
 Name | Type | Description | Notes
@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the campaign | [optional] 
 **html_content** | **String** | Body of the message (HTML version). REQUIRED if htmlUrl is empty | [optional] 
 **html_url** | **String** | Url which contents the body of the email message. REQUIRED if htmlContent is empty | [optional] 
-**scheduled_at** | **String** | Date and time on which the campaign has to run | [optional] 
+**scheduled_at** | **String** | Date and time on which the campaign has to run (YYYY-MM-DD HH:mm:ss) | [optional] 
 **subject** | **String** | Subject of the campaign | [optional] 
 **reply_to** | **String** | Email on which campaign recipients will be able to reply to | [optional] 
 **to_field** | **String** | This is to personalize the «To» Field. If you want to include the first name and last name of your recipient, add [FNAME] [LNAME]. To use the contact attributes here, these must already exist in SendinBlue account | [optional] 

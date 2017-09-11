@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetSmsCampaigns
+# SibApiV3Sdk::GetSmsCampaigns
 
 ## Properties
 Name | Type | Description | Notes

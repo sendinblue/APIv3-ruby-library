@@ -1,4 +1,4 @@
-# SendinblueApiv3::CreateAttributeEnumemaration
+# SibApiV3Sdk::CreateAttributeEnumemaration
 
 ## Properties
 Name | Type | Description | Notes

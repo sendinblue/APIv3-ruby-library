@@ -1,4 +1,4 @@
-# SendinblueApiv3::RequestSMSRecipientExport
+# SibApiV3Sdk::RequestSMSRecipientExport
 
 ## Properties
 Name | Type | Description | Notes

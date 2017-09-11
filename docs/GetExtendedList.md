@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetExtendedList
+# SibApiV3Sdk::GetExtendedList
 
 ## Properties
 Name | Type | Description | Notes
@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **total_blacklisted** | **Integer** | Number of blacklisted contacts in the list | 
 **total_subscribers** | **Integer** | Number of contacts in the list | 
 **folder_id** | **Integer** | ID of the folder | 
-**created_at** | **Date** | Creation Date of the list | 
+**created_at** | **String** | Creation Date of the list (YYYY-MM-DD) | 
 **campaign_stats** | [**Array&lt;GetExtendedListCampaignStats&gt;**](GetExtendedListCampaignStats.md) |  | [optional] 
 **dynamic_list** | **BOOLEAN** | Status telling if the list is dynamic or not (true&#x3D;dynamic, false&#x3D;not dynamic) | [optional] 
 

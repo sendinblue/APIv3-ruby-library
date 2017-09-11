@@ -1,4 +1,4 @@
-# SendinblueApiv3::CreateChild
+# SibApiV3Sdk::CreateChild
 
 ## Properties
 Name | Type | Description | Notes

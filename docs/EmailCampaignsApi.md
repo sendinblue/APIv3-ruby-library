@@ -1,4 +1,4 @@
-# SendinblueApiv3::EmailCampaignsApi
+# SibApiV3Sdk::EmailCampaignsApi
 
 All URIs are relative to *https://api.sendinblue.com/v3*
 
@@ -24,25 +24,25 @@ Create an email campaign
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::EmailCampaignsApi.new
+api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
-email_campaigns = SendinblueApiv3::CreateEmailCampaign.new # CreateEmailCampaign | Values to create a campaign
+email_campaigns = SibApiV3Sdk::CreateEmailCampaign.new # CreateEmailCampaign | Values to create a campaign
 
 
 begin
   #Create an email campaign
   result = api_instance.create_email_campaign(email_campaigns)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->create_email_campaign: #{e}"
 end
 ```
@@ -76,16 +76,16 @@ Delete an email campaign
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::EmailCampaignsApi.new
+api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | id of the campaign
 
@@ -93,7 +93,7 @@ campaign_id = "campaign_id_example" # String | id of the campaign
 begin
   #Delete an email campaign
   api_instance.delete_email_campaigns(campaign_id)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->delete_email_campaigns: #{e}"
 end
 ```
@@ -127,28 +127,28 @@ Export the recipients of a campaign
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::EmailCampaignsApi.new
+api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | Id of the campaign
 
 opts = { 
-  recipient_export: SendinblueApiv3::EmailExportRecipients.new # EmailExportRecipients | Values to send for a recipient export request
+  recipient_export: SibApiV3Sdk::EmailExportRecipients.new # EmailExportRecipients | Values to send for a recipient export request
 }
 
 begin
   #Export the recipients of a campaign
   result = api_instance.email_export_recipients(campaign_id, opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->email_export_recipients: #{e}"
 end
 ```
@@ -183,16 +183,16 @@ Get campaign informations
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::EmailCampaignsApi.new
+api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | Id of the campaign
 
@@ -201,7 +201,7 @@ begin
   #Get campaign informations
   result = api_instance.get_email_campaign(campaign_id)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->get_email_campaign: #{e}"
 end
 ```
@@ -235,16 +235,16 @@ Return all your created campaigns
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::EmailCampaignsApi.new
+api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
 opts = { 
   type: "type_example", # String | Filter on the type of the campaigns
@@ -257,7 +257,7 @@ begin
   #Return all your created campaigns
   result = api_instance.get_email_campaigns(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->get_email_campaigns: #{e}"
 end
 ```
@@ -294,16 +294,16 @@ Send an email campaign id of the campaign immediately
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::EmailCampaignsApi.new
+api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | Id of the campaign
 
@@ -311,7 +311,7 @@ campaign_id = "campaign_id_example" # String | Id of the campaign
 begin
   #Send an email campaign id of the campaign immediately
   api_instance.send_email_campaign_now(campaign_id)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->send_email_campaign_now: #{e}"
 end
 ```
@@ -347,26 +347,26 @@ A PDF will be sent to the specified email addresses
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::EmailCampaignsApi.new
+api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | Id of the campaign
 
-send_report = SendinblueApiv3::SendReport.new # SendReport | Values for send a report
+send_report = SibApiV3Sdk::SendReport.new # SendReport | Values for send a report
 
 
 begin
   #Send the report of a campaigns
   api_instance.send_report(campaign_id, send_report)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->send_report: #{e}"
 end
 ```
@@ -401,26 +401,26 @@ Send an email campaign to your test list
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::EmailCampaignsApi.new
+api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | Id of the campaign
 
-email_to = SendinblueApiv3::SendTestEmail.new # SendTestEmail | 
+email_to = SibApiV3Sdk::SendTestEmail.new # SendTestEmail | 
 
 
 begin
   #Send an email campaign to your test list
   api_instance.send_test_email(campaign_id, email_to)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->send_test_email: #{e}"
 end
 ```
@@ -455,26 +455,26 @@ Update a campaign status
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::EmailCampaignsApi.new
+api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | Id of the campaign
 
-status = SendinblueApiv3::UpdateCampaignStatus.new # UpdateCampaignStatus | Status of the campaign
+status = SibApiV3Sdk::UpdateCampaignStatus.new # UpdateCampaignStatus | Status of the campaign
 
 
 begin
   #Update a campaign status
   api_instance.update_campaign_status(campaign_id, status)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->update_campaign_status: #{e}"
 end
 ```
@@ -509,26 +509,26 @@ Update a campaign
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::EmailCampaignsApi.new
+api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | Id of the campaign
 
-email_campaign = SendinblueApiv3::UpdateEmailCampaign.new # UpdateEmailCampaign | Values to update a campaign
+email_campaign = SibApiV3Sdk::UpdateEmailCampaign.new # UpdateEmailCampaign | Values to update a campaign
 
 
 begin
   #Update a campaign
   api_instance.update_email_campaigns(campaign_id, email_campaign)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->update_email_campaigns: #{e}"
 end
 ```

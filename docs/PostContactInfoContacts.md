@@ -1,4 +1,4 @@
-# SendinblueApiv3::PostContactInfoContacts
+# SibApiV3Sdk::PostContactInfoContacts
 
 ## Properties
 Name | Type | Description | Notes

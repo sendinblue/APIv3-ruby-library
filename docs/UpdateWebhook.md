@@ -1,4 +1,4 @@
-# SendinblueApiv3::UpdateWebhook
+# SibApiV3Sdk::UpdateWebhook
 
 ## Properties
 Name | Type | Description | Notes

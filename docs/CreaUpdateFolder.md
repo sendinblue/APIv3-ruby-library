@@ -1,4 +1,4 @@
-# SendinblueApiv3::CreaUpdateFolder
+# SibApiV3Sdk::CreaUpdateFolder
 
 ## Properties
 Name | Type | Description | Notes

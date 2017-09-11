@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetSendersListSenders
+# SibApiV3Sdk::GetSendersListSenders
 
 ## Properties
 Name | Type | Description | Notes

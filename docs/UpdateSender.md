@@ -1,4 +1,4 @@
-# SendinblueApiv3::UpdateSender
+# SibApiV3Sdk::UpdateSender
 
 ## Properties
 Name | Type | Description | Notes

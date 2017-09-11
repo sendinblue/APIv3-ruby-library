@@ -1,4 +1,4 @@
-# SendinblueApiv3::RequestContactImport
+# SibApiV3Sdk::RequestContactImport
 
 ## Properties
 Name | Type | Description | Notes

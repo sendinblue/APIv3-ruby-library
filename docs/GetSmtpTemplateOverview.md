@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetSmtpTemplateOverview
+# SibApiV3Sdk::GetSmtpTemplateOverview
 
 ## Properties
 Name | Type | Description | Notes
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **to_field** | **String** | Customisation of the \&quot;to\&quot; field for the template | 
 **tag** | **String** | Tag of the template | 
 **html_content** | **String** | HTML content of the template | 
-**created_at** | **String** | Creation date of the template | 
-**modified_at** | **String** | Last modification date of the template | 
+**created_at** | **String** | Creation date of the template (YYYY-MM-DD HH:mm:ss) | 
+**modified_at** | **String** | Last modification date of the template (YYYY-MM-DD HH:mm:ss) | 
 
 

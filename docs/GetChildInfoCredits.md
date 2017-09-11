@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetChildInfoCredits
+# SibApiV3Sdk::GetChildInfoCredits
 
 ## Properties
 Name | Type | Description | Notes

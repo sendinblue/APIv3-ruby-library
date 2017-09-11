@@ -1,4 +1,4 @@
-# SendinblueApiv3::AttributesApi
+# SibApiV3Sdk::AttributesApi
 
 All URIs are relative to *https://api.sendinblue.com/v3*
 
@@ -17,25 +17,25 @@ Creates contact attributes
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::AttributesApi.new
+api_instance = SibApiV3Sdk::AttributesApi.new
 
-create_attribute = SendinblueApiv3::CreateAttribute.new # CreateAttribute | Values to create an attribute
+create_attribute = SibApiV3Sdk::CreateAttribute.new # CreateAttribute | Values to create an attribute
 
 
 begin
   #Creates contact attributes
   result = api_instance.create_attribute(create_attribute)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling AttributesApi->create_attribute: #{e}"
 end
 ```
@@ -69,16 +69,16 @@ Deletes an attribute
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::AttributesApi.new
+api_instance = SibApiV3Sdk::AttributesApi.new
 
 attribute_id = "attribute_id_example" # String | id of the attribute
 
@@ -86,7 +86,7 @@ attribute_id = "attribute_id_example" # String | id of the attribute
 begin
   #Deletes an attribute
   api_instance.delete_attribute(attribute_id)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling AttributesApi->delete_attribute: #{e}"
 end
 ```
@@ -120,22 +120,22 @@ Lists all attributes
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::AttributesApi.new
+api_instance = SibApiV3Sdk::AttributesApi.new
 
 begin
   #Lists all attributes
   result = api_instance.get_attributes
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling AttributesApi->get_attributes: #{e}"
 end
 ```

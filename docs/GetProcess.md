@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetProcess
+# SibApiV3Sdk::GetProcess
 
 ## Properties
 Name | Type | Description | Notes

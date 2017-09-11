@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetAccountMarketingAutomation
+# SibApiV3Sdk::GetAccountMarketingAutomation
 
 ## Properties
 Name | Type | Description | Notes

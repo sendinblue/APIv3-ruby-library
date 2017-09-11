@@ -1,4 +1,4 @@
-# SendinblueApiv3::SendSmtpEmail
+# SibApiV3Sdk::SendSmtpEmail
 
 ## Properties
 Name | Type | Description | Notes

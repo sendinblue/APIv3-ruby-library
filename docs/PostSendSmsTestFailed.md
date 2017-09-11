@@ -1,4 +1,4 @@
-# SendinblueApiv3::PostSendSmsTestFailed
+# SibApiV3Sdk::PostSendSmsTestFailed
 
 ## Properties
 Name | Type | Description | Notes

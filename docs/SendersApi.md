@@ -1,4 +1,4 @@
-# SendinblueApiv3::SendersApi
+# SibApiV3Sdk::SendersApi
 
 All URIs are relative to *https://api.sendinblue.com/v3*
 
@@ -20,26 +20,26 @@ Create a new sender
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SendersApi.new
+api_instance = SibApiV3Sdk::SendersApi.new
 
 opts = { 
-  sender: SendinblueApiv3::CreateSender.new # CreateSender | sender's name
+  sender: SibApiV3Sdk::CreateSender.new # CreateSender | sender's name
 }
 
 begin
   #Create a new sender
   result = api_instance.create_sender(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SendersApi->create_sender: #{e}"
 end
 ```
@@ -73,16 +73,16 @@ Delete a sender
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SendersApi.new
+api_instance = SibApiV3Sdk::SendersApi.new
 
 sender_id = "sender_id_example" # String | Id of the sender
 
@@ -90,7 +90,7 @@ sender_id = "sender_id_example" # String | Id of the sender
 begin
   #Delete a sender
   api_instance.delete_sender(sender_id)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SendersApi->delete_sender: #{e}"
 end
 ```
@@ -124,22 +124,22 @@ Return all the dedicated IPs for your account
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SendersApi.new
+api_instance = SibApiV3Sdk::SendersApi.new
 
 begin
   #Return all the dedicated IPs for your account
   result = api_instance.get_ips
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SendersApi->get_ips: #{e}"
 end
 ```
@@ -170,16 +170,16 @@ Return all the dedicated IPs for a sender
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SendersApi.new
+api_instance = SibApiV3Sdk::SendersApi.new
 
 sender_id = "sender_id_example" # String | Id of the sender
 
@@ -188,7 +188,7 @@ begin
   #Return all the dedicated IPs for a sender
   result = api_instance.get_ips_from_sender(sender_id)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SendersApi->get_ips_from_sender: #{e}"
 end
 ```
@@ -222,16 +222,16 @@ Get the list of all your senders
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SendersApi.new
+api_instance = SibApiV3Sdk::SendersApi.new
 
 opts = { 
   ip: "ip_example", # String | Filter your senders for a specific ip (available for dedicated IP usage only)
@@ -242,7 +242,7 @@ begin
   #Get the list of all your senders
   result = api_instance.get_senders(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SendersApi->get_senders: #{e}"
 end
 ```
@@ -277,27 +277,27 @@ Update a sender
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SendersApi.new
+api_instance = SibApiV3Sdk::SendersApi.new
 
 sender_id = "sender_id_example" # String | Id of the sender
 
 opts = { 
-  sender: SendinblueApiv3::UpdateSender.new # UpdateSender | sender's name
+  sender: SibApiV3Sdk::UpdateSender.new # UpdateSender | sender's name
 }
 
 begin
   #Update a sender
   api_instance.update_sender(sender_id, opts)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SendersApi->update_sender: #{e}"
 end
 ```

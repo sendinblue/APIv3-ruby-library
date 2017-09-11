@@ -1,4 +1,4 @@
-# SendinblueApiv3::SendTestSms
+# SibApiV3Sdk::SendTestSms
 
 ## Properties
 Name | Type | Description | Notes

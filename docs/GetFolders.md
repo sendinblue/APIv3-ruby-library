@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetFolders
+# SibApiV3Sdk::GetFolders
 
 ## Properties
 Name | Type | Description | Notes

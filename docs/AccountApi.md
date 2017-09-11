@@ -1,4 +1,4 @@
-# SendinblueApiv3::AccountApi
+# SibApiV3Sdk::AccountApi
 
 All URIs are relative to *https://api.sendinblue.com/v3*
 
@@ -15,22 +15,22 @@ Get your account informations, plans and credits details
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::AccountApi.new
+api_instance = SibApiV3Sdk::AccountApi.new
 
 begin
   #Get your account informations, plans and credits details
   result = api_instance.get_account
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling AccountApi->get_account: #{e}"
 end
 ```

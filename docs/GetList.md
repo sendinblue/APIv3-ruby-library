@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetList
+# SibApiV3Sdk::GetList
 
 ## Properties
 Name | Type | Description | Notes

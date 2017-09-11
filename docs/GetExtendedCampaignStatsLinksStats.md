@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetExtendedCampaignStatsLinksStats
+# SibApiV3Sdk::GetExtendedCampaignStatsLinksStats
 
 ## Properties
 Name | Type | Description | Notes

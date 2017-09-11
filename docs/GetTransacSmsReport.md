@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetTransacSmsReport
+# SibApiV3Sdk::GetTransacSmsReport
 
 ## Properties
 Name | Type | Description | Notes
