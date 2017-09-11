@@ -1,4 +1,4 @@
-# SendinblueApiv3::SendReportEmail
+# SibApiV3Sdk::SendReportEmail
 
 ## Properties
 Name | Type | Description | Notes

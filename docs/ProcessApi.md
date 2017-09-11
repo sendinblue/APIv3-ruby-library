@@ -1,4 +1,4 @@
-# SendinblueApiv3::ProcessApi
+# SibApiV3Sdk::ProcessApi
 
 All URIs are relative to *https://api.sendinblue.com/v3*
 
@@ -16,16 +16,16 @@ Return the informations for a process
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::ProcessApi.new
+api_instance = SibApiV3Sdk::ProcessApi.new
 
 process_id = "process_id_example" # String | Id of the process
 
@@ -34,7 +34,7 @@ begin
   #Return the informations for a process
   result = api_instance.get_process(process_id)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ProcessApi->get_process: #{e}"
 end
 ```
@@ -68,16 +68,16 @@ Return all the processes for your account
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::ProcessApi.new
+api_instance = SibApiV3Sdk::ProcessApi.new
 
 opts = { 
   limit: 10, # Integer | Number limitation for the result returned
@@ -88,7 +88,7 @@ begin
   #Return all the processes for your account
   result = api_instance.get_processes(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ProcessApi->get_processes: #{e}"
 end
 ```

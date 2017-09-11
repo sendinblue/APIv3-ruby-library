@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetContactCampaignStatsUnsubscriptions
+# SibApiV3Sdk::GetContactCampaignStatsUnsubscriptions
 
 ## Properties
 Name | Type | Description | Notes

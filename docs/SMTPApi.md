@@ -1,4 +1,4 @@
-# SendinblueApiv3::SMTPApi
+# SibApiV3Sdk::SMTPApi
 
 All URIs are relative to *https://api.sendinblue.com/v3*
 
@@ -25,25 +25,25 @@ Create an smtp template
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMTPApi.new
+api_instance = SibApiV3Sdk::SMTPApi.new
 
-smtp_template = SendinblueApiv3::CreateSmtpTemplate.new # CreateSmtpTemplate | values to update in smtp template
+smtp_template = SibApiV3Sdk::CreateSmtpTemplate.new # CreateSmtpTemplate | values to update in smtp template
 
 
 begin
   #Create an smtp template
   result = api_instance.create_smtp_template(smtp_template)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMTPApi->create_smtp_template: #{e}"
 end
 ```
@@ -79,25 +79,25 @@ Delete hardbounces. To use carefully (e.g. in case of temporary ISP failures)
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMTPApi.new
+api_instance = SibApiV3Sdk::SMTPApi.new
 
 opts = { 
-  delete_hardbounces: SendinblueApiv3::DeleteHardbounces.new # DeleteHardbounces | values to delete hardbounces
+  delete_hardbounces: SibApiV3Sdk::DeleteHardbounces.new # DeleteHardbounces | values to delete hardbounces
 }
 
 begin
   #Delete hardbounces
   api_instance.delete_hardbounces(opts)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMTPApi->delete_hardbounces: #{e}"
 end
 ```
@@ -131,16 +131,16 @@ Get your SMTP activity aggregated over a period of time
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMTPApi.new
+api_instance = SibApiV3Sdk::SMTPApi.new
 
 opts = { 
   start_date: Date.parse("2013-10-20"), # Date | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
@@ -153,7 +153,7 @@ begin
   #Get your SMTP activity aggregated over a period of time
   result = api_instance.get_aggregated_smtp_report(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMTPApi->get_aggregated_smtp_report: #{e}"
 end
 ```
@@ -190,16 +190,16 @@ Get all your SMTP activity (unaggregated events)
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMTPApi.new
+api_instance = SibApiV3Sdk::SMTPApi.new
 
 opts = { 
   limit: 50, # Integer | Number limitation for the result returned
@@ -218,7 +218,7 @@ begin
   #Get all your SMTP activity (unaggregated events)
   result = api_instance.get_email_event_report(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMTPApi->get_email_event_report: #{e}"
 end
 ```
@@ -261,16 +261,16 @@ Get your SMTP activity aggregated per day
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMTPApi.new
+api_instance = SibApiV3Sdk::SMTPApi.new
 
 opts = { 
   limit: 50, # Integer | Number of documents returned per page
@@ -285,7 +285,7 @@ begin
   #Get your SMTP activity aggregated per day
   result = api_instance.get_smtp_report(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMTPApi->get_smtp_report: #{e}"
 end
 ```
@@ -324,16 +324,16 @@ Returns the template informations
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMTPApi.new
+api_instance = SibApiV3Sdk::SMTPApi.new
 
 template_id = "template_id_example" # String | id of the template
 
@@ -342,7 +342,7 @@ begin
   #Returns the template informations
   result = api_instance.get_smtp_template(template_id)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMTPApi->get_smtp_template: #{e}"
 end
 ```
@@ -376,16 +376,16 @@ Get the list of SMTP templates
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMTPApi.new
+api_instance = SibApiV3Sdk::SMTPApi.new
 
 opts = { 
   template_status: true, # BOOLEAN | Filter on the status of the template. Active = true, inactive = false
@@ -397,7 +397,7 @@ begin
   #Get the list of SMTP templates
   result = api_instance.get_smtp_templates(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMTPApi->get_smtp_templates: #{e}"
 end
 ```
@@ -433,27 +433,27 @@ Send a template
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMTPApi.new
+api_instance = SibApiV3Sdk::SMTPApi.new
 
 template_id = "template_id_example" # String | Id of the template
 
-send_email = SendinblueApiv3::SendEmail.new # SendEmail | 
+send_email = SibApiV3Sdk::SendEmail.new # SendEmail | 
 
 
 begin
   #Send a template
   result = api_instance.send_template(template_id, send_email)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMTPApi->send_template: #{e}"
 end
 ```
@@ -488,26 +488,26 @@ Send a template to your test list
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMTPApi.new
+api_instance = SibApiV3Sdk::SMTPApi.new
 
 template_id = "template_id_example" # String | Id of the template
 
-send_test_email = SendinblueApiv3::SendTestEmail.new # SendTestEmail | 
+send_test_email = SibApiV3Sdk::SendTestEmail.new # SendTestEmail | 
 
 
 begin
   #Send a template to your test list
   api_instance.send_test_template(template_id, send_test_email)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMTPApi->send_test_template: #{e}"
 end
 ```
@@ -542,25 +542,25 @@ Send a transactional email
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMTPApi.new
+api_instance = SibApiV3Sdk::SMTPApi.new
 
-send_smtp_email = SendinblueApiv3::SendSmtpEmail.new # SendSmtpEmail | Values to send a transactional email
+send_smtp_email = SibApiV3Sdk::SendSmtpEmail.new # SendSmtpEmail | Values to send a transactional email
 
 
 begin
   #Send a transactional email
   result = api_instance.send_transac_email(send_smtp_email)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMTPApi->send_transac_email: #{e}"
 end
 ```
@@ -594,26 +594,26 @@ Updates an smtp templates
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMTPApi.new
+api_instance = SibApiV3Sdk::SMTPApi.new
 
 template_id = "template_id_example" # String | id of the template
 
-smtp_template = SendinblueApiv3::UpdateSmtpTemplate.new # UpdateSmtpTemplate | values to update in smtp template
+smtp_template = SibApiV3Sdk::UpdateSmtpTemplate.new # UpdateSmtpTemplate | values to update in smtp template
 
 
 begin
   #Updates an smtp templates
   api_instance.update_smtp_template(template_id, smtp_template)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMTPApi->update_smtp_template: #{e}"
 end
 ```

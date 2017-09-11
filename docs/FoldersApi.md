@@ -1,4 +1,4 @@
-# SendinblueApiv3::FoldersApi
+# SibApiV3Sdk::FoldersApi
 
 All URIs are relative to *https://api.sendinblue.com/v3*
 
@@ -20,25 +20,25 @@ Create a folder
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::FoldersApi.new
+api_instance = SibApiV3Sdk::FoldersApi.new
 
-name = SendinblueApiv3::CreaUpdateFolder.new # CreaUpdateFolder | Name of the folder
+name = SibApiV3Sdk::CreaUpdateFolder.new # CreaUpdateFolder | Name of the folder
 
 
 begin
   #Create a folder
   result = api_instance.create_folder(name)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling FoldersApi->create_folder: #{e}"
 end
 ```
@@ -72,16 +72,16 @@ Delete a folder (and all its lists)
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::FoldersApi.new
+api_instance = SibApiV3Sdk::FoldersApi.new
 
 folder_id = "folder_id_example" # String | Id of the folder
 
@@ -89,7 +89,7 @@ folder_id = "folder_id_example" # String | Id of the folder
 begin
   #Delete a folder (and all its lists)
   api_instance.delete_folder(folder_id)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling FoldersApi->delete_folder: #{e}"
 end
 ```
@@ -123,16 +123,16 @@ Returns folder details
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::FoldersApi.new
+api_instance = SibApiV3Sdk::FoldersApi.new
 
 folder_id = "folder_id_example" # String | id of the folder
 
@@ -141,7 +141,7 @@ begin
   #Returns folder details
   result = api_instance.get_folder(folder_id)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling FoldersApi->get_folder: #{e}"
 end
 ```
@@ -175,16 +175,16 @@ Get the lists in a folder
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::FoldersApi.new
+api_instance = SibApiV3Sdk::FoldersApi.new
 
 folder_id = "folder_id_example" # String | Id of the folder
 
@@ -197,7 +197,7 @@ begin
   #Get the lists in a folder
   result = api_instance.get_folder_lists(folder_id, opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling FoldersApi->get_folder_lists: #{e}"
 end
 ```
@@ -233,16 +233,16 @@ Get all the folders
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::FoldersApi.new
+api_instance = SibApiV3Sdk::FoldersApi.new
 
 limit = 10 # Integer | Number of documents per page
 
@@ -253,7 +253,7 @@ begin
   #Get all the folders
   result = api_instance.get_folders(limit, offset)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling FoldersApi->get_folders: #{e}"
 end
 ```
@@ -288,26 +288,26 @@ Update a contact folder
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::FoldersApi.new
+api_instance = SibApiV3Sdk::FoldersApi.new
 
 folder_id = "folder_id_example" # String | Id of the folder
 
-name = SendinblueApiv3::CreaUpdateFolder.new # CreaUpdateFolder | Name of the folder
+name = SibApiV3Sdk::CreaUpdateFolder.new # CreaUpdateFolder | Name of the folder
 
 
 begin
   #Update a contact folder
   api_instance.update_folder(folder_id, name)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling FoldersApi->update_folder: #{e}"
 end
 ```

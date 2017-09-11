@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetCampaignRecipientsLists
+# SibApiV3Sdk::GetCampaignRecipientsLists
 
 ## Properties
 Name | Type | Description | Notes

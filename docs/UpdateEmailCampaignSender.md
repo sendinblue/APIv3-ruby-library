@@ -1,4 +1,4 @@
-# SendinblueApiv3::UpdateEmailCampaignSender
+# SibApiV3Sdk::UpdateEmailCampaignSender
 
 ## Properties
 Name | Type | Description | Notes

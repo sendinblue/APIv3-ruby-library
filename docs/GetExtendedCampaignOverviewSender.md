@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetExtendedCampaignOverviewSender
+# SibApiV3Sdk::GetExtendedCampaignOverviewSender
 
 ## Properties
 Name | Type | Description | Notes

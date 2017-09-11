@@ -1,4 +1,4 @@
-# SendinblueApiv3::CreateSender
+# SibApiV3Sdk::CreateSender
 
 ## Properties
 Name | Type | Description | Notes

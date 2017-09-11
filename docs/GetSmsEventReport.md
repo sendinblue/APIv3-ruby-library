@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetSmsEventReport
+# SibApiV3Sdk::GetSmsEventReport
 
 ## Properties
 Name | Type | Description | Notes

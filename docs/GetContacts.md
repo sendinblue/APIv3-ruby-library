@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetContacts
+# SibApiV3Sdk::GetContacts
 
 ## Properties
 Name | Type | Description | Notes

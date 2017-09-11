@@ -1,4 +1,4 @@
-# SendinblueApiv3::SMSCampaignsApi
+# SibApiV3Sdk::SMSCampaignsApi
 
 All URIs are relative to *https://api.sendinblue.com/v3*
 
@@ -24,25 +24,25 @@ Creates a SMS campaign
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMSCampaignsApi.new
+api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
-create_sms_campaign = SendinblueApiv3::CreateSmsCampaign.new # CreateSmsCampaign | Values to create an SMS Campaign
+create_sms_campaign = SibApiV3Sdk::CreateSmsCampaign.new # CreateSmsCampaign | Values to create an SMS Campaign
 
 
 begin
   #Creates a SMS campaign
   result = api_instance.create_sms_campaign(create_sms_campaign)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMSCampaignsApi->create_sms_campaign: #{e}"
 end
 ```
@@ -76,16 +76,16 @@ Delete the SMS campaign
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMSCampaignsApi.new
+api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | id of the SMS campaign
 
@@ -93,7 +93,7 @@ campaign_id = "campaign_id_example" # String | id of the SMS campaign
 begin
   #Delete the SMS campaign
   api_instance.delete_sms_campaigns(campaign_id)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMSCampaignsApi->delete_sms_campaigns: #{e}"
 end
 ```
@@ -127,27 +127,27 @@ Get a SMS campaign
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMSCampaignsApi.new
+api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | id of the SMS campaign
 
-get_sms_campaign = SendinblueApiv3::GetSmsCampaign.new # GetSmsCampaign | Values to update an SMS Campaign
+get_sms_campaign = SibApiV3Sdk::GetSmsCampaign.new # GetSmsCampaign | Values to update an SMS Campaign
 
 
 begin
   #Get a SMS campaign
   result = api_instance.get_sms_campaign(campaign_id, get_sms_campaign)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMSCampaignsApi->get_sms_campaign: #{e}"
 end
 ```
@@ -182,16 +182,16 @@ Returns the informations for all your created SMS campaigns
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMSCampaignsApi.new
+api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
 opts = { 
   status: "status_example", # String | Status of campaign.
@@ -203,7 +203,7 @@ begin
   #Returns the informations for all your created SMS campaigns
   result = api_instance.get_sms_campaigns(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMSCampaignsApi->get_sms_campaigns: #{e}"
 end
 ```
@@ -241,28 +241,28 @@ It returns the background process ID which on completion calls the notify URL th
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMSCampaignsApi.new
+api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | id of the campaign
 
 opts = { 
-  recipient_export: SendinblueApiv3::RequestSMSRecipientExport.new # RequestSMSRecipientExport | Values to send for a recipient export request
+  recipient_export: SibApiV3Sdk::RequestSMSRecipientExport.new # RequestSMSRecipientExport | Values to send for a recipient export request
 }
 
 begin
   #Exports the recipients of the specified campaign.
   result = api_instance.request_sms_recipient_export(campaign_id, opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMSCampaignsApi->request_sms_recipient_export: #{e}"
 end
 ```
@@ -297,16 +297,16 @@ Send your SMS campaign immediately
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMSCampaignsApi.new
+api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | id of the campaign
 
@@ -314,7 +314,7 @@ campaign_id = "campaign_id_example" # String | id of the campaign
 begin
   #Send your SMS campaign immediately
   api_instance.send_sms_campaign_now(campaign_id)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMSCampaignsApi->send_sms_campaign_now: #{e}"
 end
 ```
@@ -350,26 +350,26 @@ Send report of Sent and Archived campaign, to the specified email addresses, wit
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMSCampaignsApi.new
+api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | id of the campaign
 
-send_report = SendinblueApiv3::SendReport.new # SendReport | Values for send a report
+send_report = SibApiV3Sdk::SendReport.new # SendReport | Values for send a report
 
 
 begin
   #Send report of SMS campaigns
   api_instance.send_sms_report(campaign_id, send_report)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMSCampaignsApi->send_sms_report: #{e}"
 end
 ```
@@ -404,26 +404,26 @@ Send an SMS
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMSCampaignsApi.new
+api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | Id of the SMS campaign
 
-send_test_sms = SendinblueApiv3::SendTestSms.new # SendTestSms | Mobile number to which send the test
+send_test_sms = SibApiV3Sdk::SendTestSms.new # SendTestSms | Mobile number to which send the test
 
 
 begin
   #Send an SMS
   api_instance.send_test_sms(campaign_id, send_test_sms)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMSCampaignsApi->send_test_sms: #{e}"
 end
 ```
@@ -458,26 +458,26 @@ Updates a SMS campaign
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMSCampaignsApi.new
+api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | id of the SMS campaign
 
-update_sms_campaign = SendinblueApiv3::UpdateSmsCampaign.new # UpdateSmsCampaign | Values to update an SMS Campaign
+update_sms_campaign = SibApiV3Sdk::UpdateSmsCampaign.new # UpdateSmsCampaign | Values to update an SMS Campaign
 
 
 begin
   #Updates a SMS campaign
   api_instance.update_sms_campaign(campaign_id, update_sms_campaign)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMSCampaignsApi->update_sms_campaign: #{e}"
 end
 ```
@@ -512,26 +512,26 @@ Update the campaign status
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::SMSCampaignsApi.new
+api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
 campaign_id = "campaign_id_example" # String | id of the campaign
 
-status = SendinblueApiv3::UpdateCampaignStatus.new # UpdateCampaignStatus | Status of the campaign.
+status = SibApiV3Sdk::UpdateCampaignStatus.new # UpdateCampaignStatus | Status of the campaign.
 
 
 begin
   #Update the campaign status
   api_instance.update_sms_campaign_status(campaign_id, status)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMSCampaignsApi->update_sms_campaign_status: #{e}"
 end
 ```

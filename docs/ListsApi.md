@@ -1,4 +1,4 @@
-# SendinblueApiv3::ListsApi
+# SibApiV3Sdk::ListsApi
 
 All URIs are relative to *https://api.sendinblue.com/v3*
 
@@ -23,27 +23,27 @@ Add existing contacts to a list
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::ListsApi.new
+api_instance = SibApiV3Sdk::ListsApi.new
 
 list_id = "list_id_example" # String | Id of the list
 
-contact_emails = SendinblueApiv3::AddRemoveContactToList.new # AddRemoveContactToList | Emails addresses of the contacts
+contact_emails = SibApiV3Sdk::AddRemoveContactToList.new # AddRemoveContactToList | Emails addresses of the contacts
 
 
 begin
   #Add existing contacts to a list
   result = api_instance.add_contact_to_list(list_id, contact_emails)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ListsApi->add_contact_to_list: #{e}"
 end
 ```
@@ -78,25 +78,25 @@ Create a list
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::ListsApi.new
+api_instance = SibApiV3Sdk::ListsApi.new
 
-create_list = SendinblueApiv3::CreateList.new # CreateList | Values to create a list
+create_list = SibApiV3Sdk::CreateList.new # CreateList | Values to create a list
 
 
 begin
   #Create a list
   result = api_instance.create_list(create_list)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ListsApi->create_list: #{e}"
 end
 ```
@@ -130,16 +130,16 @@ Delete a list
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::ListsApi.new
+api_instance = SibApiV3Sdk::ListsApi.new
 
 list_id = "list_id_example" # String | Id of the list
 
@@ -147,7 +147,7 @@ list_id = "list_id_example" # String | Id of the list
 begin
   #Delete a list
   api_instance.delete_list(list_id)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ListsApi->delete_list: #{e}"
 end
 ```
@@ -181,16 +181,16 @@ Get the contacts in a list
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::ListsApi.new
+api_instance = SibApiV3Sdk::ListsApi.new
 
 list_id = "list_id_example" # String | Id of the list
 
@@ -204,7 +204,7 @@ begin
   #Get the contacts in a list
   result = api_instance.get_contacts_from_list(list_id, opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ListsApi->get_contacts_from_list: #{e}"
 end
 ```
@@ -241,16 +241,16 @@ Get the lists in a folder
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::ListsApi.new
+api_instance = SibApiV3Sdk::ListsApi.new
 
 folder_id = "folder_id_example" # String | Id of the folder
 
@@ -263,7 +263,7 @@ begin
   #Get the lists in a folder
   result = api_instance.get_folder_lists(folder_id, opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ListsApi->get_folder_lists: #{e}"
 end
 ```
@@ -299,16 +299,16 @@ Get the details of a list
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::ListsApi.new
+api_instance = SibApiV3Sdk::ListsApi.new
 
 list_id = "list_id_example" # String | Id of the list
 
@@ -317,7 +317,7 @@ begin
   #Get the details of a list
   result = api_instance.get_list(list_id)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ListsApi->get_list: #{e}"
 end
 ```
@@ -351,16 +351,16 @@ Get all the lists
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::ListsApi.new
+api_instance = SibApiV3Sdk::ListsApi.new
 
 opts = { 
   limit: 10, # Integer | Number of documents per page
@@ -371,7 +371,7 @@ begin
   #Get all the lists
   result = api_instance.get_lists(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ListsApi->get_lists: #{e}"
 end
 ```
@@ -406,27 +406,27 @@ Remove existing contacts from a list
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::ListsApi.new
+api_instance = SibApiV3Sdk::ListsApi.new
 
 list_id = "list_id_example" # String | Id of the list
 
-contact_emails = SendinblueApiv3::AddRemoveContactToList.new # AddRemoveContactToList | Emails adresses of the contact
+contact_emails = SibApiV3Sdk::AddRemoveContactToList.new # AddRemoveContactToList | Emails adresses of the contact
 
 
 begin
   #Remove existing contacts from a list
   result = api_instance.remove_contact_to_list(list_id, contact_emails)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ListsApi->remove_contact_to_list: #{e}"
 end
 ```
@@ -461,26 +461,26 @@ Update a list
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::ListsApi.new
+api_instance = SibApiV3Sdk::ListsApi.new
 
 list_id = "list_id_example" # String | Id of the list
 
-update_list = SendinblueApiv3::UpdateList.new # UpdateList | Values to update a list
+update_list = SibApiV3Sdk::UpdateList.new # UpdateList | Values to update a list
 
 
 begin
   #Update a list
   api_instance.update_list(list_id, update_list)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ListsApi->update_list: #{e}"
 end
 ```

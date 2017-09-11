@@ -1,4 +1,4 @@
-# SendinblueApiv3::WebhooksApi
+# SibApiV3Sdk::WebhooksApi
 
 All URIs are relative to *https://api.sendinblue.com/v3*
 
@@ -19,25 +19,25 @@ Create a webhook
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::WebhooksApi.new
+api_instance = SibApiV3Sdk::WebhooksApi.new
 
-create_webhook = SendinblueApiv3::CreateWebhook.new # CreateWebhook | Values to create a webhook
+create_webhook = SibApiV3Sdk::CreateWebhook.new # CreateWebhook | Values to create a webhook
 
 
 begin
   #Create a webhook
   result = api_instance.create_webhook(create_webhook)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling WebhooksApi->create_webhook: #{e}"
 end
 ```
@@ -71,16 +71,16 @@ Delete a webhook
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::WebhooksApi.new
+api_instance = SibApiV3Sdk::WebhooksApi.new
 
 webhook_id = "webhook_id_example" # String | Id of the webhook
 
@@ -88,7 +88,7 @@ webhook_id = "webhook_id_example" # String | Id of the webhook
 begin
   #Delete a webhook
   api_instance.delete_webhook(webhook_id)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling WebhooksApi->delete_webhook: #{e}"
 end
 ```
@@ -122,16 +122,16 @@ Get a webhook details
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::WebhooksApi.new
+api_instance = SibApiV3Sdk::WebhooksApi.new
 
 webhook_id = "webhook_id_example" # String | Id of the webhook
 
@@ -140,7 +140,7 @@ begin
   #Get a webhook details
   result = api_instance.get_webhook(webhook_id)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling WebhooksApi->get_webhook: #{e}"
 end
 ```
@@ -174,16 +174,16 @@ Get all webhooks
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::WebhooksApi.new
+api_instance = SibApiV3Sdk::WebhooksApi.new
 
 opts = { 
   type: "transactional" # String | Filter on webhook type
@@ -193,7 +193,7 @@ begin
   #Get all webhooks
   result = api_instance.get_webhooks(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling WebhooksApi->get_webhooks: #{e}"
 end
 ```
@@ -227,26 +227,26 @@ Update a webhook
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::WebhooksApi.new
+api_instance = SibApiV3Sdk::WebhooksApi.new
 
 webhook_id = "webhook_id_example" # String | Id of the webhook
 
-update_webhook = SendinblueApiv3::UpdateWebhook.new # UpdateWebhook | Values to update a webhook
+update_webhook = SibApiV3Sdk::UpdateWebhook.new # UpdateWebhook | Values to update a webhook
 
 
 begin
   #Update a webhook
   api_instance.update_webhook(webhook_id, update_webhook)
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling WebhooksApi->update_webhook: #{e}"
 end
 ```

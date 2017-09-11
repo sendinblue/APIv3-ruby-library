@@ -1,4 +1,4 @@
-# SendinblueApiv3::GetIps
+# SibApiV3Sdk::GetIps
 
 ## Properties
 Name | Type | Description | Notes

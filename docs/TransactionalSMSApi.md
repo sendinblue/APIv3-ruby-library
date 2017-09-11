@@ -1,4 +1,4 @@
-# SendinblueApiv3::TransactionalSMSApi
+# SibApiV3Sdk::TransactionalSMSApi
 
 All URIs are relative to *https://api.sendinblue.com/v3*
 
@@ -18,16 +18,16 @@ Get all the SMS activity (unaggregated events)
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::TransactionalSMSApi.new
+api_instance = SibApiV3Sdk::TransactionalSMSApi.new
 
 opts = { 
   limit: 50, # Integer | Number of documents per page
@@ -44,7 +44,7 @@ begin
   #Get all the SMS activity (unaggregated events)
   result = api_instance.get_sms_events(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling TransactionalSMSApi->get_sms_events: #{e}"
 end
 ```
@@ -85,16 +85,16 @@ Get your SMS activity aggregated over a period of time
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::TransactionalSMSApi.new
+api_instance = SibApiV3Sdk::TransactionalSMSApi.new
 
 opts = { 
   start_date: Date.parse("2013-10-20"), # Date | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
@@ -107,7 +107,7 @@ begin
   #Get your SMS activity aggregated over a period of time
   result = api_instance.get_transac_aggregated_sms_report(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling TransactionalSMSApi->get_transac_aggregated_sms_report: #{e}"
 end
 ```
@@ -144,16 +144,16 @@ Get your SMS activity aggregated per day
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::TransactionalSMSApi.new
+api_instance = SibApiV3Sdk::TransactionalSMSApi.new
 
 opts = { 
   start_date: Date.parse("2013-10-20"), # Date | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
@@ -166,7 +166,7 @@ begin
   #Get your SMS activity aggregated per day
   result = api_instance.get_transac_sms_report(opts)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling TransactionalSMSApi->get_transac_sms_report: #{e}"
 end
 ```
@@ -203,25 +203,25 @@ Send the SMS campaign to the specified mobile number
 ### Example
 ```ruby
 # load the gem
-require 'sendinblue-apiv3'
+require 'sib-api-v3-sdk'
 # setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::TransactionalSMSApi.new
+api_instance = SibApiV3Sdk::TransactionalSMSApi.new
 
-send_transac_sms = SendinblueApiv3::SendTransacSms.new # SendTransacSms | Values to send a transactional SMS
+send_transac_sms = SibApiV3Sdk::SendTransacSms.new # SendTransacSms | Values to send a transactional SMS
 
 
 begin
   #Send the SMS campaign to the specified mobile number
   result = api_instance.send_transac_sms(send_transac_sms)
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling TransactionalSMSApi->send_transac_sms: #{e}"
 end
 ```

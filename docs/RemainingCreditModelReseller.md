@@ -1,4 +1,4 @@
-# SendinblueApiv3::RemainingCreditModelReseller
+# SibApiV3Sdk::RemainingCreditModelReseller
 
 ## Properties
 Name | Type | Description | Notes

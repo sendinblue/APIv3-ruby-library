@@ -1,4 +1,4 @@
-# SendinblueApiv3::RemoveCredits
+# SibApiV3Sdk::RemoveCredits
 
 ## Properties
 Name | Type | Description | Notes

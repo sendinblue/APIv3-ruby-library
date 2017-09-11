@@ -1,4 +1,4 @@
-# SendinblueApiv3::CreateSmtpTemplate
+# SibApiV3Sdk::CreateSmtpTemplate
 
 ## Properties
 Name | Type | Description | Notes
