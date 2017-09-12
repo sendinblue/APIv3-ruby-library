@@ -137,8 +137,8 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'status', status cannot be nil.")
       end
 
-      if !@scheduled_at.nil? && @scheduled_at !~ Regexp.new(/^([1-9]\\d{3}-\\d{2}-\\d{2} [0-2]\\d:[0-5]\\d:[0-5]\\d)?$/)
-        invalid_properties.push("invalid value for 'scheduled_at', must conform to the pattern /^([1-9]\\d{3}-\\d{2}-\\d{2} [0-2]\\d:[0-5]\\d:[0-5]\\d)?$/.")
+      if !@scheduled_at.nil? && @scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
+        invalid_properties.push("invalid value for 'scheduled_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
       end
 
       return invalid_properties
