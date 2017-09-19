@@ -21,6 +21,9 @@ module SibApiV3Sdk
     # Date on which the event has been generated
     attr_accessor :date
 
+    # Subject of the event
+    attr_accessor :subject
+
     # Message ID which generated the event
     attr_accessor :message_id
 
@@ -35,6 +38,9 @@ module SibApiV3Sdk
 
     # IP from which the user has opened the email or clicked on the link (only availble if the event is opened or clicks)
     attr_accessor :ip
+
+    # The link which is sent to the user (only availble if the event is requests or opened or clicks)
+    attr_accessor :link
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -63,11 +69,13 @@ module SibApiV3Sdk
       {
         :'email' => :'email',
         :'date' => :'date',
+        :'subject' => :'subject',
         :'message_id' => :'messageId',
         :'event' => :'event',
         :'reason' => :'reason',
         :'tag' => :'tag',
-        :'ip' => :'ip'
+        :'ip' => :'ip',
+        :'link' => :'link'
       }
     end
 
@@ -76,11 +84,13 @@ module SibApiV3Sdk
       {
         :'email' => :'String',
         :'date' => :'Date',
+        :'subject' => :'String',
         :'message_id' => :'String',
         :'event' => :'String',
         :'reason' => :'String',
         :'tag' => :'String',
-        :'ip' => :'String'
+        :'ip' => :'String',
+        :'link' => :'String'
       }
     end
 
@@ -98,6 +108,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'date')
         self.date = attributes[:'date']
+      end
+
+      if attributes.has_key?(:'subject')
+        self.subject = attributes[:'subject']
       end
 
       if attributes.has_key?(:'messageId')
@@ -118,6 +132,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'ip')
         self.ip = attributes[:'ip']
+      end
+
+      if attributes.has_key?(:'link')
+        self.link = attributes[:'link']
       end
 
     end
@@ -184,11 +202,13 @@ module SibApiV3Sdk
       self.class == o.class &&
           email == o.email &&
           date == o.date &&
+          subject == o.subject &&
           message_id == o.message_id &&
           event == o.event &&
           reason == o.reason &&
           tag == o.tag &&
-          ip == o.ip
+          ip == o.ip &&
+          link == o.link
     end
 
     # @see the `==` method
@@ -200,7 +220,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, date, message_id, event, reason, tag, ip].hash
+      [email, date, subject, message_id, event, reason, tag, ip, link].hash
     end
 
     # Builds the object from hash

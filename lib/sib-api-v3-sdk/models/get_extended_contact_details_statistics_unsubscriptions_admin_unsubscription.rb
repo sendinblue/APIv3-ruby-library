@@ -14,27 +14,27 @@ require 'date'
 
 module SibApiV3Sdk
 
-  class GetListsFolder
-    # ID of the folder
-    attr_accessor :id
+  class GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription
+    # Date of the event
+    attr_accessor :event_time
 
-    # Name of the folder
-    attr_accessor :name
+    # IP from which the user has been unsubscribed
+    attr_accessor :ip
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name'
+        :'event_time' => :'eventTime',
+        :'ip' => :'ip'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'Integer',
-        :'name' => :'String'
+        :'event_time' => :'String',
+        :'ip' => :'String'
       }
     end
 
@@ -46,12 +46,12 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'eventTime')
+        self.event_time = attributes[:'eventTime']
       end
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.has_key?(:'ip')
+        self.ip = attributes[:'ip']
       end
 
     end
@@ -60,12 +60,16 @@ module SibApiV3Sdk
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push("invalid value for 'id', id cannot be nil.")
+      if @event_time.nil?
+        invalid_properties.push("invalid value for 'event_time', event_time cannot be nil.")
       end
 
-      if @name.nil?
-        invalid_properties.push("invalid value for 'name', name cannot be nil.")
+      if @event_time !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
+        invalid_properties.push("invalid value for 'event_time', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
+      end
+
+      if @ip.nil?
+        invalid_properties.push("invalid value for 'ip', ip cannot be nil.")
       end
 
       return invalid_properties
@@ -74,9 +78,24 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
-      return false if @name.nil?
+      return false if @event_time.nil?
+      return false if @event_time !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
+      return false if @ip.nil?
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] event_time Value to be assigned
+    def event_time=(event_time)
+      if event_time.nil?
+        fail ArgumentError, "event_time cannot be nil"
+      end
+
+      if event_time !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
+        fail ArgumentError, "invalid value for 'event_time', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
+      end
+
+      @event_time = event_time
     end
 
     # Checks equality by comparing each attribute.
@@ -84,8 +103,8 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          name == o.name
+          event_time == o.event_time &&
+          ip == o.ip
     end
 
     # @see the `==` method
@@ -97,7 +116,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name].hash
+      [event_time, ip].hash
     end
 
     # Builds the object from hash

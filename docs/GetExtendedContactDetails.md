@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **list_ids** | **Array&lt;Integer&gt;** |  | 
 **list_unsubscribed** | **Array&lt;Integer&gt;** |  | [optional] 
 **attributes** | **Hash&lt;String, String&gt;** |  | 
+**statistics** | [**GetExtendedContactDetailsStatistics**](GetExtendedContactDetailsStatistics.md) |  | [optional] 
 
 

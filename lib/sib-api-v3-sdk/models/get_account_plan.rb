@@ -60,7 +60,7 @@ module SibApiV3Sdk
       {
         :'type' => :'String',
         :'credits_type' => :'String',
-        :'credits' => :'Integer'
+        :'credits' => :'Float'
       }
     end
 

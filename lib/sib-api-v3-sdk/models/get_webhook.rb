@@ -29,10 +29,10 @@ module SibApiV3Sdk
     # Type of webhook (marketing or transac)
     attr_accessor :type
 
-    # Creation date of the webhook (YYYY-MM-DD)
+    # Creation date of the webhook (YYYY-MM-DD HH:mm:ss)
     attr_accessor :created_at
 
-    # Last modification date of the webhook (YYYY-MM-DD)
+    # Last modification date of the webhook (YYYY-MM-DD HH:mm:ss)
     attr_accessor :modified_at
 
     class EnumAttributeValidator
@@ -151,16 +151,16 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'created_at', created_at cannot be nil.")
       end
 
-      if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2})?$/)
-        invalid_properties.push("invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2})?$/.")
+      if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
+        invalid_properties.push("invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
       end
 
       if @modified_at.nil?
         invalid_properties.push("invalid value for 'modified_at', modified_at cannot be nil.")
       end
 
-      if @modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2})?$/)
-        invalid_properties.push("invalid value for 'modified_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2})?$/.")
+      if @modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
+        invalid_properties.push("invalid value for 'modified_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
       end
 
       return invalid_properties
@@ -177,9 +177,9 @@ module SibApiV3Sdk
       type_validator = EnumAttributeValidator.new('String', ["marketing", "transac"])
       return false unless type_validator.valid?(@type)
       return false if @created_at.nil?
-      return false if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2})?$/)
+      return false if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return false if @modified_at.nil?
-      return false if @modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2})?$/)
+      return false if @modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return true
     end
 
@@ -200,8 +200,8 @@ module SibApiV3Sdk
         fail ArgumentError, "created_at cannot be nil"
       end
 
-      if created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2})?$/)
-        fail ArgumentError, "invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2})?$/."
+      if created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
+        fail ArgumentError, "invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
       end
 
       @created_at = created_at
@@ -214,8 +214,8 @@ module SibApiV3Sdk
         fail ArgumentError, "modified_at cannot be nil"
       end
 
-      if modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2})?$/)
-        fail ArgumentError, "invalid value for 'modified_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2})?$/."
+      if modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
+        fail ArgumentError, "invalid value for 'modified_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
       end
 
       @modified_at = modified_at

@@ -14,27 +14,27 @@ require 'date'
 
 module SibApiV3Sdk
 
-  class GetLists
-    # Listing of all the lists available in your account
-    attr_accessor :lists
+  class GetExtendedContactDetailsStatisticsClicked
+    # ID of the campaign which generated the event
+    attr_accessor :campaign_id
 
-    # Number of lists in your account
-    attr_accessor :count
+    # Listing of the clicked links for the campaign
+    attr_accessor :links
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'lists' => :'lists',
-        :'count' => :'count'
+        :'campaign_id' => :'campaignId',
+        :'links' => :'links'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'lists' => :'Array<Object>',
-        :'count' => :'Integer'
+        :'campaign_id' => :'Integer',
+        :'links' => :'Array<GetExtendedContactDetailsStatisticsLinks>'
       }
     end
 
@@ -46,14 +46,14 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'lists')
-        if (value = attributes[:'lists']).is_a?(Array)
-          self.lists = value
-        end
+      if attributes.has_key?(:'campaignId')
+        self.campaign_id = attributes[:'campaignId']
       end
 
-      if attributes.has_key?(:'count')
-        self.count = attributes[:'count']
+      if attributes.has_key?(:'links')
+        if (value = attributes[:'links']).is_a?(Array)
+          self.links = value
+        end
       end
 
     end
@@ -62,12 +62,12 @@ module SibApiV3Sdk
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @lists.nil?
-        invalid_properties.push("invalid value for 'lists', lists cannot be nil.")
+      if @campaign_id.nil?
+        invalid_properties.push("invalid value for 'campaign_id', campaign_id cannot be nil.")
       end
 
-      if @count.nil?
-        invalid_properties.push("invalid value for 'count', count cannot be nil.")
+      if @links.nil?
+        invalid_properties.push("invalid value for 'links', links cannot be nil.")
       end
 
       return invalid_properties
@@ -76,8 +76,8 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @lists.nil?
-      return false if @count.nil?
+      return false if @campaign_id.nil?
+      return false if @links.nil?
       return true
     end
 
@@ -86,8 +86,8 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          lists == o.lists &&
-          count == o.count
+          campaign_id == o.campaign_id &&
+          links == o.links
     end
 
     # @see the `==` method
@@ -99,7 +99,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [lists, count].hash
+      [campaign_id, links].hash
     end
 
     # Builds the object from hash

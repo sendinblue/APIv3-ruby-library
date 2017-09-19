@@ -13,22 +13,28 @@ Swagger Codegen version: 2.2.3
 require 'date'
 
 module SibApiV3Sdk
+  # Listing of the unsubscription for the contact
+  class GetExtendedContactDetailsStatisticsUnsubscriptions
+    # Contact unsubscribe via unsubscription link in a campaign
+    attr_accessor :user_unsubscription
 
-  class GetListsLists
-    attr_accessor :folder
+    # Contact has been unsubscribed from the administrator
+    attr_accessor :admin_unsubscription
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'folder' => :'folder'
+        :'user_unsubscription' => :'userUnsubscription',
+        :'admin_unsubscription' => :'adminUnsubscription'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'folder' => :'GetListsFolder'
+        :'user_unsubscription' => :'Array<GetExtendedContactDetailsStatisticsUnsubscriptionsUserUnsubscription>',
+        :'admin_unsubscription' => :'Array<GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription>'
       }
     end
 
@@ -40,8 +46,16 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'folder')
-        self.folder = attributes[:'folder']
+      if attributes.has_key?(:'userUnsubscription')
+        if (value = attributes[:'userUnsubscription']).is_a?(Array)
+          self.user_unsubscription = value
+        end
+      end
+
+      if attributes.has_key?(:'adminUnsubscription')
+        if (value = attributes[:'adminUnsubscription']).is_a?(Array)
+          self.admin_unsubscription = value
+        end
       end
 
     end
@@ -50,12 +64,22 @@ module SibApiV3Sdk
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @user_unsubscription.nil?
+        invalid_properties.push("invalid value for 'user_unsubscription', user_unsubscription cannot be nil.")
+      end
+
+      if @admin_unsubscription.nil?
+        invalid_properties.push("invalid value for 'admin_unsubscription', admin_unsubscription cannot be nil.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @user_unsubscription.nil?
+      return false if @admin_unsubscription.nil?
       return true
     end
 
@@ -64,7 +88,8 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          folder == o.folder
+          user_unsubscription == o.user_unsubscription &&
+          admin_unsubscription == o.admin_unsubscription
     end
 
     # @see the `==` method
@@ -76,7 +101,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [folder].hash
+      [user_unsubscription, admin_unsubscription].hash
     end
 
     # Builds the object from hash
