@@ -30,7 +30,7 @@ module SibApiV3Sdk
     # ID of the folder
     attr_accessor :folder_id
 
-    # Creation Date of the list (YYYY-MM-DD)
+    # Creation Date of the list (YYYY-MM-DD HH:mm:ss)
     attr_accessor :created_at
 
     attr_accessor :campaign_stats
@@ -139,8 +139,8 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'created_at', created_at cannot be nil.")
       end
 
-      if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2})?$/)
-        invalid_properties.push("invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2})?$/.")
+      if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
+        invalid_properties.push("invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
       end
 
       return invalid_properties
@@ -155,7 +155,7 @@ module SibApiV3Sdk
       return false if @total_subscribers.nil?
       return false if @folder_id.nil?
       return false if @created_at.nil?
-      return false if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2})?$/)
+      return false if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return true
     end
 
@@ -166,8 +166,8 @@ module SibApiV3Sdk
         fail ArgumentError, "created_at cannot be nil"
       end
 
-      if created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2})?$/)
-        fail ArgumentError, "invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2})?$/."
+      if created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
+        fail ArgumentError, "invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
       end
 
       @created_at = created_at

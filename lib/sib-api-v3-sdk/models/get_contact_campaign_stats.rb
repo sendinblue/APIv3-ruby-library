@@ -49,10 +49,10 @@ module SibApiV3Sdk
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'messages_sent' => :'Array<GetContactCampaignStatsMessagesSent>',
-        :'hard_bounces' => :'Array<GetContactCampaignStatsMessagesSent>',
-        :'soft_bounces' => :'Array<GetContactCampaignStatsMessagesSent>',
-        :'complaints' => :'Array<GetContactCampaignStatsMessagesSent>',
+        :'messages_sent' => :'Array<GetExtendedContactDetailsStatisticsMessagesSent>',
+        :'hard_bounces' => :'Array<GetExtendedContactDetailsStatisticsMessagesSent>',
+        :'soft_bounces' => :'Array<GetExtendedContactDetailsStatisticsMessagesSent>',
+        :'complaints' => :'Array<GetExtendedContactDetailsStatisticsMessagesSent>',
         :'unsubscriptions' => :'GetContactCampaignStatsUnsubscriptions',
         :'opened' => :'Array<GetContactCampaignStatsOpened>',
         :'clicked' => :'Array<GetContactCampaignStatsClicked>',

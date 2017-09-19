@@ -33,8 +33,8 @@ module SibApiV3Sdk
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'user_unsubscription' => :'Array<GetContactCampaignStatsUnsubscriptionsUserUnsubscription>',
-        :'admin_unsubscription' => :'Array<GetContactCampaignStatsUnsubscriptionsAdminUnsubscription>'
+        :'user_unsubscription' => :'Array<GetExtendedContactDetailsStatisticsUnsubscriptionsUserUnsubscription>',
+        :'admin_unsubscription' => :'Array<GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription>'
       }
     end
 

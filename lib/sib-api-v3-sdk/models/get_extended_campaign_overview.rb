@@ -290,10 +290,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'html_content', html_content cannot be nil.")
       end
 
-      if @share_link.nil?
-        invalid_properties.push("invalid value for 'share_link', share_link cannot be nil.")
-      end
-
       if @tag.nil?
         invalid_properties.push("invalid value for 'tag', tag cannot be nil.")
       end
@@ -336,7 +332,6 @@ module SibApiV3Sdk
       return false if @reply_to.nil?
       return false if @to_field.nil?
       return false if @html_content.nil?
-      return false if @share_link.nil?
       return false if @tag.nil?
       return false if @created_at.nil?
       return false if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)

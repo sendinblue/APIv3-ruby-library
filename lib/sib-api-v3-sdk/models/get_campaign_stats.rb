@@ -150,10 +150,6 @@ module SibApiV3Sdk
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @list_id.nil?
-        invalid_properties.push("invalid value for 'list_id', list_id cannot be nil.")
-      end
-
       if @unique_clicks.nil?
         invalid_properties.push("invalid value for 'unique_clicks', unique_clicks cannot be nil.")
       end
@@ -204,7 +200,6 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @list_id.nil?
       return false if @unique_clicks.nil?
       return false if @clickers.nil?
       return false if @complaints.nil?

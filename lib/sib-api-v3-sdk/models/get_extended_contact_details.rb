@@ -36,6 +36,8 @@ module SibApiV3Sdk
 
     attr_accessor :attributes
 
+    attr_accessor :statistics
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -47,7 +49,8 @@ module SibApiV3Sdk
         :'modified_at' => :'modifiedAt',
         :'list_ids' => :'listIds',
         :'list_unsubscribed' => :'listUnsubscribed',
-        :'attributes' => :'attributes'
+        :'attributes' => :'attributes',
+        :'statistics' => :'statistics'
       }
     end
 
@@ -61,7 +64,8 @@ module SibApiV3Sdk
         :'modified_at' => :'String',
         :'list_ids' => :'Array<Integer>',
         :'list_unsubscribed' => :'Array<Integer>',
-        :'attributes' => :'Hash<String, String>'
+        :'attributes' => :'Hash<String, String>',
+        :'statistics' => :'GetExtendedContactDetailsStatistics'
       }
     end
 
@@ -109,6 +113,10 @@ module SibApiV3Sdk
         if (value = attributes[:'attributes']).is_a?(Array)
           self.attributes = value
         end
+      end
+
+      if attributes.has_key?(:'statistics')
+        self.statistics = attributes[:'statistics']
       end
 
     end
@@ -192,7 +200,8 @@ module SibApiV3Sdk
           modified_at == o.modified_at &&
           list_ids == o.list_ids &&
           list_unsubscribed == o.list_unsubscribed &&
-          attributes == o.attributes
+          attributes == o.attributes &&
+          statistics == o.statistics
     end
 
     # @see the `==` method
@@ -204,7 +213,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, id, email_blacklisted, sms_blacklisted, modified_at, list_ids, list_unsubscribed, attributes].hash
+      [email, id, email_blacklisted, sms_blacklisted, modified_at, list_ids, list_unsubscribed, attributes, statistics].hash
     end
 
     # Builds the object from hash

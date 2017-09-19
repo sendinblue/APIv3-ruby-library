@@ -54,20 +54,20 @@ Please follow the [installation](#installation) procedure and then run the follo
 require 'sib-api-v3-sdk'
 
 # Setup authorization
-SendinblueApiv3.configure do |config|
+SibApiV3Sdk.configure do |config|
   # Configure API key authorization: api-key
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
 end
 
-api_instance = SendinblueApiv3::AccountApi.new
+api_instance = SibApiV3Sdk::AccountApi.new
 
 begin
   #Get your account informations, plans and credits details
   result = api_instance.get_account
   p result
-rescue SendinblueApiv3::ApiError => e
+rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling AccountApi->get_account: #{e}"
 end
 
@@ -229,13 +229,9 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetClient](docs/GetClient.md)
  - [SibApiV3Sdk::GetContactCampaignStats](docs/GetContactCampaignStats.md)
  - [SibApiV3Sdk::GetContactCampaignStatsClicked](docs/GetContactCampaignStatsClicked.md)
- - [SibApiV3Sdk::GetContactCampaignStatsLinks](docs/GetContactCampaignStatsLinks.md)
- - [SibApiV3Sdk::GetContactCampaignStatsMessagesSent](docs/GetContactCampaignStatsMessagesSent.md)
  - [SibApiV3Sdk::GetContactCampaignStatsOpened](docs/GetContactCampaignStatsOpened.md)
  - [SibApiV3Sdk::GetContactCampaignStatsTransacAttributes](docs/GetContactCampaignStatsTransacAttributes.md)
  - [SibApiV3Sdk::GetContactCampaignStatsUnsubscriptions](docs/GetContactCampaignStatsUnsubscriptions.md)
- - [SibApiV3Sdk::GetContactCampaignStatsUnsubscriptionsAdminUnsubscription](docs/GetContactCampaignStatsUnsubscriptionsAdminUnsubscription.md)
- - [SibApiV3Sdk::GetContactCampaignStatsUnsubscriptionsUserUnsubscription](docs/GetContactCampaignStatsUnsubscriptionsUserUnsubscription.md)
  - [SibApiV3Sdk::GetContactDetails](docs/GetContactDetails.md)
  - [SibApiV3Sdk::GetContacts](docs/GetContacts.md)
  - [SibApiV3Sdk::GetEmailCampaigns](docs/GetEmailCampaigns.md)
@@ -245,6 +241,14 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetExtendedCampaignStats](docs/GetExtendedCampaignStats.md)
  - [SibApiV3Sdk::GetExtendedCampaignStatsLinksStats](docs/GetExtendedCampaignStatsLinksStats.md)
  - [SibApiV3Sdk::GetExtendedClientAddress](docs/GetExtendedClientAddress.md)
+ - [SibApiV3Sdk::GetExtendedContactDetailsStatistics](docs/GetExtendedContactDetailsStatistics.md)
+ - [SibApiV3Sdk::GetExtendedContactDetailsStatisticsClicked](docs/GetExtendedContactDetailsStatisticsClicked.md)
+ - [SibApiV3Sdk::GetExtendedContactDetailsStatisticsLinks](docs/GetExtendedContactDetailsStatisticsLinks.md)
+ - [SibApiV3Sdk::GetExtendedContactDetailsStatisticsMessagesSent](docs/GetExtendedContactDetailsStatisticsMessagesSent.md)
+ - [SibApiV3Sdk::GetExtendedContactDetailsStatisticsOpened](docs/GetExtendedContactDetailsStatisticsOpened.md)
+ - [SibApiV3Sdk::GetExtendedContactDetailsStatisticsUnsubscriptions](docs/GetExtendedContactDetailsStatisticsUnsubscriptions.md)
+ - [SibApiV3Sdk::GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription](docs/GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription.md)
+ - [SibApiV3Sdk::GetExtendedContactDetailsStatisticsUnsubscriptionsUserUnsubscription](docs/GetExtendedContactDetailsStatisticsUnsubscriptionsUserUnsubscription.md)
  - [SibApiV3Sdk::GetExtendedListCampaignStats](docs/GetExtendedListCampaignStats.md)
  - [SibApiV3Sdk::GetFolder](docs/GetFolder.md)
  - [SibApiV3Sdk::GetFolderLists](docs/GetFolderLists.md)
@@ -255,8 +259,6 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetIpsFromSender](docs/GetIpsFromSender.md)
  - [SibApiV3Sdk::GetList](docs/GetList.md)
  - [SibApiV3Sdk::GetLists](docs/GetLists.md)
- - [SibApiV3Sdk::GetListsFolder](docs/GetListsFolder.md)
- - [SibApiV3Sdk::GetListsLists](docs/GetListsLists.md)
  - [SibApiV3Sdk::GetProcess](docs/GetProcess.md)
  - [SibApiV3Sdk::GetProcesses](docs/GetProcesses.md)
  - [SibApiV3Sdk::GetReports](docs/GetReports.md)

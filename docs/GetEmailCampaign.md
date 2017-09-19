@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **reply_to** | **String** | Email defined as the \&quot;Reply to\&quot; of the campaign | 
 **to_field** | **String** | Customisation of the \&quot;to\&quot; field of the campaign | 
 **html_content** | **String** | HTML content of the campaign | 
-**share_link** | **String** | Link to share the campaign on social medias | 
+**share_link** | **String** | Link to share the campaign on social medias | [optional] 
 **tag** | **String** | Tag of the campaign | 
 **created_at** | **String** | Creation date of the campaign (YYYY-MM-DD HH:mm:ss) | 
 **modified_at** | **String** | Date of last modification of the campaign (YYYY-MM-DD HH:mm:ss) | 

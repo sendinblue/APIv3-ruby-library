@@ -33,7 +33,7 @@ module SibApiV3Sdk
     def self.swagger_types
       {
         :'campaign_id' => :'Integer',
-        :'links' => :'Array<GetContactCampaignStatsLinks>'
+        :'links' => :'Array<GetExtendedContactDetailsStatisticsLinks>'
       }
     end
 
