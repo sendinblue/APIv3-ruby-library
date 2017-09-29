@@ -24,12 +24,36 @@ module SibApiV3Sdk
     # Content of the message. If more than 160 characters long, multiple text messages will be sent
     attr_accessor :content
 
+    # Type of the SMS
+    attr_accessor :type
+
     # Tag of the message
     attr_accessor :tag
 
     # Webhook to call for each event triggered by the message (delivered etc.)
     attr_accessor :web_url
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -37,6 +61,7 @@ module SibApiV3Sdk
         :'sender' => :'sender',
         :'recipient' => :'recipient',
         :'content' => :'content',
+        :'type' => :'type',
         :'tag' => :'tag',
         :'web_url' => :'webUrl'
       }
@@ -48,6 +73,7 @@ module SibApiV3Sdk
         :'sender' => :'String',
         :'recipient' => :'String',
         :'content' => :'String',
+        :'type' => :'String',
         :'tag' => :'String',
         :'web_url' => :'String'
       }
@@ -71,6 +97,12 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'content')
         self.content = attributes[:'content']
+      end
+
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
+      else
+        self.type = "transactional"
       end
 
       if attributes.has_key?(:'tag')
@@ -118,6 +150,8 @@ module SibApiV3Sdk
       return false if @recipient.nil?
       return false if @content.nil?
       return false if @content.to_s.length > 160
+      type_validator = EnumAttributeValidator.new('String', ["transactional", "marketing"])
+      return false unless type_validator.valid?(@type)
       return true
     end
 
@@ -149,6 +183,16 @@ module SibApiV3Sdk
       @content = content
     end
 
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] type Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('String', ["transactional", "marketing"])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for 'type', must be one of #{validator.allowable_values}."
+      end
+      @type = type
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -157,6 +201,7 @@ module SibApiV3Sdk
           sender == o.sender &&
           recipient == o.recipient &&
           content == o.content &&
+          type == o.type &&
           tag == o.tag &&
           web_url == o.web_url
     end
@@ -170,7 +215,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [sender, recipient, content, tag, web_url].hash
+      [sender, recipient, content, type, tag, web_url].hash
     end
 
     # Builds the object from hash

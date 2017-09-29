@@ -29,7 +29,7 @@ module SibApiV3Sdk
     # Mandatory if htmlContent is empty. Url to the message (HTML)
     attr_accessor :html_url
 
-    # Sending date and time (YYYY-MM-DD HH:mm:ss)
+    # Sending date and time (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :scheduled_at
 
     # Subject of the campaign
@@ -121,7 +121,7 @@ module SibApiV3Sdk
         :'name' => :'String',
         :'html_content' => :'String',
         :'html_url' => :'String',
-        :'scheduled_at' => :'String',
+        :'scheduled_at' => :'DateTime',
         :'subject' => :'String',
         :'reply_to' => :'String',
         :'to_field' => :'String',
@@ -231,10 +231,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'name', name cannot be nil.")
       end
 
-      if !@scheduled_at.nil? && @scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'scheduled_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
-      end
-
       if @subject.nil?
         invalid_properties.push("invalid value for 'subject', subject cannot be nil.")
       end
@@ -250,23 +246,11 @@ module SibApiV3Sdk
     # @return true if the model is valid
     def valid?
       return false if @name.nil?
-      return false if !@scheduled_at.nil? && @scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return false if @subject.nil?
       return false if @type.nil?
       type_validator = EnumAttributeValidator.new('String', ["classic", "trigger"])
       return false unless type_validator.valid?(@type)
       return true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] scheduled_at Value to be assigned
-    def scheduled_at=(scheduled_at)
-
-      if !scheduled_at.nil? && scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'scheduled_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @scheduled_at = scheduled_at
     end
 
     # Custom attribute writer method checking allowed values (enum).

@@ -27,19 +27,19 @@ module SibApiV3Sdk
     # Message ID which generated the event
     attr_accessor :message_id
 
-    # Event which occured
+    # Event which occurred
     attr_accessor :event
 
-    # Reason of bounce (only availble if the event is hardbounce or softbounce)
+    # Reason of bounce (only available if the event is hardbounce or softbounce)
     attr_accessor :reason
 
     # Tag of the email which generated the event
     attr_accessor :tag
 
-    # IP from which the user has opened the email or clicked on the link (only availble if the event is opened or clicks)
+    # IP from which the user has opened the email or clicked on the link (only available if the event is opened or clicks)
     attr_accessor :ip
 
-    # The link which is sent to the user (only availble if the event is requests or opened or clicks)
+    # The link which is sent to the user (only available if the event is requests or opened or clicks)
     attr_accessor :link
 
     class EnumAttributeValidator

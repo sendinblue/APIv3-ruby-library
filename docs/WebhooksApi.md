@@ -82,7 +82,7 @@ end
 
 api_instance = SibApiV3Sdk::WebhooksApi.new
 
-webhook_id = "webhook_id_example" # String | Id of the webhook
+webhook_id = 789 # Integer | Id of the webhook
 
 
 begin
@@ -97,7 +97,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook_id** | **String**| Id of the webhook | 
+ **webhook_id** | **Integer**| Id of the webhook | 
 
 ### Return type
 
@@ -133,7 +133,7 @@ end
 
 api_instance = SibApiV3Sdk::WebhooksApi.new
 
-webhook_id = "webhook_id_example" # String | Id of the webhook
+webhook_id = 789 # Integer | Id of the webhook
 
 
 begin
@@ -149,7 +149,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook_id** | **String**| Id of the webhook | 
+ **webhook_id** | **Integer**| Id of the webhook | 
 
 ### Return type
 
@@ -238,7 +238,7 @@ end
 
 api_instance = SibApiV3Sdk::WebhooksApi.new
 
-webhook_id = "webhook_id_example" # String | Id of the webhook
+webhook_id = 789 # Integer | Id of the webhook
 
 update_webhook = SibApiV3Sdk::UpdateWebhook.new # UpdateWebhook | Values to update a webhook
 
@@ -255,7 +255,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook_id** | **String**| Id of the webhook | 
+ **webhook_id** | **Integer**| Id of the webhook | 
  **update_webhook** | [**UpdateWebhook**](UpdateWebhook.md)| Values to update a webhook | 
 
 ### Return type

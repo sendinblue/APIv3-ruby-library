@@ -30,7 +30,7 @@ module SibApiV3Sdk
     # ID of the folder
     attr_accessor :folder_id
 
-    # Creation Date of the list (YYYY-MM-DD HH:mm:ss)
+    # Creation Date of the list (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :created_at
 
     attr_accessor :campaign_stats
@@ -61,7 +61,7 @@ module SibApiV3Sdk
         :'total_blacklisted' => :'Integer',
         :'total_subscribers' => :'Integer',
         :'folder_id' => :'Integer',
-        :'created_at' => :'String',
+        :'created_at' => :'DateTime',
         :'campaign_stats' => :'Array<GetExtendedListCampaignStats>',
         :'dynamic_list' => :'BOOLEAN'
       }
@@ -139,10 +139,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'created_at', created_at cannot be nil.")
       end
 
-      if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
-      end
-
       return invalid_properties
     end
 
@@ -155,22 +151,7 @@ module SibApiV3Sdk
       return false if @total_subscribers.nil?
       return false if @folder_id.nil?
       return false if @created_at.nil?
-      return false if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] created_at Value to be assigned
-    def created_at=(created_at)
-      if created_at.nil?
-        fail ArgumentError, "created_at cannot be nil"
-      end
-
-      if created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @created_at = created_at
     end
 
     # Checks equality by comparing each attribute.

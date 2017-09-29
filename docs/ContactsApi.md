@@ -49,7 +49,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-list_id = "list_id_example" # String | Id of the list
+list_id = 789 # Integer | Id of the list
 
 contact_emails = SibApiV3Sdk::AddRemoveContactToList.new # AddRemoveContactToList | Emails addresses of the contacts
 
@@ -67,7 +67,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **String**| Id of the list | 
+ **list_id** | **Integer**| Id of the list | 
  **contact_emails** | [**AddRemoveContactToList**](AddRemoveContactToList.md)| Emails addresses of the contacts | 
 
 ### Return type
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 
 # **create_folder**
-> CreateModel create_folder(name)
+> CreateModel create_folder(create_folder)
 
 Create a folder
 
@@ -208,12 +208,12 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-name = SibApiV3Sdk::CreaUpdateFolder.new # CreaUpdateFolder | Name of the folder
+create_folder = SibApiV3Sdk::CreateUpdateFolder.new # CreateUpdateFolder | Name of the folder
 
 
 begin
   #Create a folder
-  result = api_instance.create_folder(name)
+  result = api_instance.create_folder(create_folder)
   p result
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->create_folder: #{e}"
@@ -224,7 +224,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | [**CreaUpdateFolder**](CreaUpdateFolder.md)| Name of the folder | 
+ **create_folder** | [**CreateUpdateFolder**](CreateUpdateFolder.md)| Name of the folder | 
 
 ### Return type
 
@@ -312,7 +312,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-attribute_id = "attribute_id_example" # String | id of the attribute
+attribute_id = 789 # Integer | id of the attribute
 
 
 begin
@@ -327,7 +327,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attribute_id** | **String**| id of the attribute | 
+ **attribute_id** | **Integer**| id of the attribute | 
 
 ### Return type
 
@@ -363,7 +363,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-folder_id = "folder_id_example" # String | Id of the folder
+folder_id = 789 # Integer | Id of the folder
 
 
 begin
@@ -378,7 +378,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **folder_id** | **String**| Id of the folder | 
+ **folder_id** | **Integer**| Id of the folder | 
 
 ### Return type
 
@@ -414,7 +414,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-list_id = "list_id_example" # String | Id of the list
+list_id = 789 # Integer | Id of the list
 
 
 begin
@@ -429,7 +429,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **String**| Id of the list | 
+ **list_id** | **Integer**| Id of the list | 
 
 ### Return type
 
@@ -670,10 +670,10 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-list_id = "list_id_example" # String | Id of the list
+list_id = 789 # Integer | Id of the list
 
 opts = { 
-  modified_since: "modified_since_example", # String | Filter the contacts modified after a given date (YYYY-MM-DD HH:mm:ss)
+  modified_since: DateTime.parse("2013-10-20T19:20:30+01:00"), # DateTime | Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
   limit: 50, # Integer | Number of documents per page
   offset: 0 # Integer | Index of the first document of the page
 }
@@ -691,8 +691,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **String**| Id of the list | 
- **modified_since** | **String**| Filter the contacts modified after a given date (YYYY-MM-DD HH:mm:ss) | [optional] 
+ **list_id** | **Integer**| Id of the list | 
+ **modified_since** | **DateTime**| Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) | [optional] 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
 
@@ -730,7 +730,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-folder_id = "folder_id_example" # String | id of the folder
+folder_id = 789 # Integer | id of the folder
 
 
 begin
@@ -746,7 +746,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **folder_id** | **String**| id of the folder | 
+ **folder_id** | **Integer**| id of the folder | 
 
 ### Return type
 
@@ -782,7 +782,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-folder_id = "folder_id_example" # String | Id of the folder
+folder_id = 789 # Integer | Id of the folder
 
 opts = { 
   limit: 10, # Integer | Number of documents per page
@@ -802,7 +802,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **folder_id** | **String**| Id of the folder | 
+ **folder_id** | **Integer**| Id of the folder | 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 10]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
 
@@ -895,7 +895,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-list_id = "list_id_example" # String | Id of the list
+list_id = 789 # Integer | Id of the list
 
 
 begin
@@ -911,7 +911,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **String**| Id of the list | 
+ **list_id** | **Integer**| Id of the list | 
 
 ### Return type
 
@@ -1056,7 +1056,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-list_id = "list_id_example" # String | Id of the list
+list_id = 789 # Integer | Id of the list
 
 contact_emails = SibApiV3Sdk::AddRemoveContactToList.new # AddRemoveContactToList | Emails adresses of the contact
 
@@ -1074,7 +1074,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **String**| Id of the list | 
+ **list_id** | **Integer**| Id of the list | 
  **contact_emails** | [**AddRemoveContactToList**](AddRemoveContactToList.md)| Emails adresses of the contact | 
 
 ### Return type
@@ -1201,7 +1201,7 @@ nil (empty response body)
 
 
 # **update_folder**
-> update_folder(folder_id, name)
+> update_folder(folder_id, update_folder)
 
 Update a contact folder
 
@@ -1219,14 +1219,14 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-folder_id = "folder_id_example" # String | Id of the folder
+folder_id = 789 # Integer | Id of the folder
 
-name = SibApiV3Sdk::CreaUpdateFolder.new # CreaUpdateFolder | Name of the folder
+update_folder = SibApiV3Sdk::CreateUpdateFolder.new # CreateUpdateFolder | Name of the folder
 
 
 begin
   #Update a contact folder
-  api_instance.update_folder(folder_id, name)
+  api_instance.update_folder(folder_id, update_folder)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->update_folder: #{e}"
 end
@@ -1236,8 +1236,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **folder_id** | **String**| Id of the folder | 
- **name** | [**CreaUpdateFolder**](CreaUpdateFolder.md)| Name of the folder | 
+ **folder_id** | **Integer**| Id of the folder | 
+ **update_folder** | [**CreateUpdateFolder**](CreateUpdateFolder.md)| Name of the folder | 
 
 ### Return type
 
@@ -1273,7 +1273,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-list_id = "list_id_example" # String | Id of the list
+list_id = 789 # Integer | Id of the list
 
 update_list = SibApiV3Sdk::UpdateList.new # UpdateList | Values to update a list
 
@@ -1290,7 +1290,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **String**| Id of the list | 
+ **list_id** | **Integer**| Id of the list | 
  **update_list** | [**UpdateList**](UpdateList.md)| Values to update a list | 
 
 ### Return type

@@ -30,7 +30,7 @@ module SibApiV3Sdk
     # Status of the campaign
     attr_accessor :status
 
-    # Date on which campaign is scheduled (YYYY-MM-DD HH:mm:ss)
+    # Date on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :scheduled_at
 
     # Retrieved the status of test email sending. (true=Test email has been sent  false=Test email has not been sent)
@@ -59,10 +59,10 @@ module SibApiV3Sdk
     # Tag of the campaign
     attr_accessor :tag
 
-    # Creation date of the campaign (YYYY-MM-DD HH:mm:ss)
+    # Creation date of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :created_at
 
-    # Date of last modification of the campaign (YYYY-MM-DD HH:mm:ss)
+    # Date of last modification of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :modified_at
 
     # Status of inline image. inlineImageActivation = false means image can’t be embedded, & inlineImageActivation = true means image can be embedded, in the email.
@@ -130,7 +130,7 @@ module SibApiV3Sdk
         :'subject' => :'String',
         :'type' => :'String',
         :'status' => :'String',
-        :'scheduled_at' => :'String',
+        :'scheduled_at' => :'DateTime',
         :'test_sent' => :'BOOLEAN',
         :'header' => :'String',
         :'footer' => :'String',
@@ -140,8 +140,8 @@ module SibApiV3Sdk
         :'html_content' => :'String',
         :'share_link' => :'String',
         :'tag' => :'String',
-        :'created_at' => :'String',
-        :'modified_at' => :'String',
+        :'created_at' => :'DateTime',
+        :'modified_at' => :'DateTime',
         :'inline_image_activation' => :'BOOLEAN',
         :'mirror_active' => :'BOOLEAN',
         :'recurring' => :'BOOLEAN'
@@ -262,10 +262,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'status', status cannot be nil.")
       end
 
-      if !@scheduled_at.nil? && @scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'scheduled_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
-      end
-
       if @test_sent.nil?
         invalid_properties.push("invalid value for 'test_sent', test_sent cannot be nil.")
       end
@@ -298,16 +294,8 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'created_at', created_at cannot be nil.")
       end
 
-      if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
-      end
-
       if @modified_at.nil?
         invalid_properties.push("invalid value for 'modified_at', modified_at cannot be nil.")
-      end
-
-      if @modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'modified_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
       end
 
       return invalid_properties
@@ -325,7 +313,6 @@ module SibApiV3Sdk
       return false if @status.nil?
       status_validator = EnumAttributeValidator.new('String', ["draft", "sent", "archive", "queued", "suspended", "in_process"])
       return false unless status_validator.valid?(@status)
-      return false if !@scheduled_at.nil? && @scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return false if @test_sent.nil?
       return false if @header.nil?
       return false if @footer.nil?
@@ -334,9 +321,7 @@ module SibApiV3Sdk
       return false if @html_content.nil?
       return false if @tag.nil?
       return false if @created_at.nil?
-      return false if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return false if @modified_at.nil?
-      return false if @modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return true
     end
 
@@ -358,45 +343,6 @@ module SibApiV3Sdk
         fail ArgumentError, "invalid value for 'status', must be one of #{validator.allowable_values}."
       end
       @status = status
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] scheduled_at Value to be assigned
-    def scheduled_at=(scheduled_at)
-
-      if !scheduled_at.nil? && scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'scheduled_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @scheduled_at = scheduled_at
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] created_at Value to be assigned
-    def created_at=(created_at)
-      if created_at.nil?
-        fail ArgumentError, "created_at cannot be nil"
-      end
-
-      if created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @created_at = created_at
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] modified_at Value to be assigned
-    def modified_at=(modified_at)
-      if modified_at.nil?
-        fail ArgumentError, "modified_at cannot be nil"
-      end
-
-      if modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'modified_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @modified_at = modified_at
     end
 
     # Checks equality by comparing each attribute.

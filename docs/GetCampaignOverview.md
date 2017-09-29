@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **subject** | **String** | Subject of the campaign | 
 **type** | **String** | Type of campaign | 
 **status** | **String** | Status of the campaign | 
-**scheduled_at** | **String** | Date on which campaign is scheduled (YYYY-MM-DD HH:mm:ss) | [optional] 
+**scheduled_at** | **DateTime** | Date on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ) | [optional] 
 
 

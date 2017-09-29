@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_folder**
-> CreateModel create_folder(name)
+> CreateModel create_folder(create_folder)
 
 Create a folder
 
@@ -31,12 +31,12 @@ end
 
 api_instance = SibApiV3Sdk::FoldersApi.new
 
-name = SibApiV3Sdk::CreaUpdateFolder.new # CreaUpdateFolder | Name of the folder
+create_folder = SibApiV3Sdk::CreateUpdateFolder.new # CreateUpdateFolder | Name of the folder
 
 
 begin
   #Create a folder
-  result = api_instance.create_folder(name)
+  result = api_instance.create_folder(create_folder)
   p result
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling FoldersApi->create_folder: #{e}"
@@ -47,7 +47,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | [**CreaUpdateFolder**](CreaUpdateFolder.md)| Name of the folder | 
+ **create_folder** | [**CreateUpdateFolder**](CreateUpdateFolder.md)| Name of the folder | 
 
 ### Return type
 
@@ -83,7 +83,7 @@ end
 
 api_instance = SibApiV3Sdk::FoldersApi.new
 
-folder_id = "folder_id_example" # String | Id of the folder
+folder_id = 789 # Integer | Id of the folder
 
 
 begin
@@ -98,7 +98,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **folder_id** | **String**| Id of the folder | 
+ **folder_id** | **Integer**| Id of the folder | 
 
 ### Return type
 
@@ -134,7 +134,7 @@ end
 
 api_instance = SibApiV3Sdk::FoldersApi.new
 
-folder_id = "folder_id_example" # String | id of the folder
+folder_id = 789 # Integer | id of the folder
 
 
 begin
@@ -150,7 +150,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **folder_id** | **String**| id of the folder | 
+ **folder_id** | **Integer**| id of the folder | 
 
 ### Return type
 
@@ -186,7 +186,7 @@ end
 
 api_instance = SibApiV3Sdk::FoldersApi.new
 
-folder_id = "folder_id_example" # String | Id of the folder
+folder_id = 789 # Integer | Id of the folder
 
 opts = { 
   limit: 10, # Integer | Number of documents per page
@@ -206,7 +206,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **folder_id** | **String**| Id of the folder | 
+ **folder_id** | **Integer**| Id of the folder | 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 10]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
 
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 
 
 # **update_folder**
-> update_folder(folder_id, name)
+> update_folder(folder_id, update_folder)
 
 Update a contact folder
 
@@ -299,14 +299,14 @@ end
 
 api_instance = SibApiV3Sdk::FoldersApi.new
 
-folder_id = "folder_id_example" # String | Id of the folder
+folder_id = 789 # Integer | Id of the folder
 
-name = SibApiV3Sdk::CreaUpdateFolder.new # CreaUpdateFolder | Name of the folder
+update_folder = SibApiV3Sdk::CreateUpdateFolder.new # CreateUpdateFolder | Name of the folder
 
 
 begin
   #Update a contact folder
-  api_instance.update_folder(folder_id, name)
+  api_instance.update_folder(folder_id, update_folder)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling FoldersApi->update_folder: #{e}"
 end
@@ -316,8 +316,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **folder_id** | **String**| Id of the folder | 
- **name** | [**CreaUpdateFolder**](CreaUpdateFolder.md)| Name of the folder | 
+ **folder_id** | **Integer**| Id of the folder | 
+ **update_folder** | [**CreateUpdateFolder**](CreateUpdateFolder.md)| Name of the folder | 
 
 ### Return type
 

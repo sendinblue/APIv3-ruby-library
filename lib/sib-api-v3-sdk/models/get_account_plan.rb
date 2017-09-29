@@ -24,6 +24,12 @@ module SibApiV3Sdk
     # Remaining credits of the user. This can either be \"User Limit\" or \"Send Limit\" depending on the plan.
     attr_accessor :credits
 
+    # Date of the period from which the plan will start (only available for \"subscription\", \"unlimited\" and \"reseller\" plan type)
+    attr_accessor :start_date
+
+    # Date of the period from which the plan will end (only available for \"subscription\", \"unlimited\" and \"reseller\" plan type)
+    attr_accessor :end_date
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -51,7 +57,9 @@ module SibApiV3Sdk
       {
         :'type' => :'type',
         :'credits_type' => :'creditsType',
-        :'credits' => :'credits'
+        :'credits' => :'credits',
+        :'start_date' => :'startDate',
+        :'end_date' => :'endDate'
       }
     end
 
@@ -60,7 +68,9 @@ module SibApiV3Sdk
       {
         :'type' => :'String',
         :'credits_type' => :'String',
-        :'credits' => :'Float'
+        :'credits' => :'Float',
+        :'start_date' => :'Date',
+        :'end_date' => :'Date'
       }
     end
 
@@ -82,6 +92,14 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'credits')
         self.credits = attributes[:'credits']
+      end
+
+      if attributes.has_key?(:'startDate')
+        self.start_date = attributes[:'startDate']
+      end
+
+      if attributes.has_key?(:'endDate')
+        self.end_date = attributes[:'endDate']
       end
 
     end
@@ -145,7 +163,9 @@ module SibApiV3Sdk
       self.class == o.class &&
           type == o.type &&
           credits_type == o.credits_type &&
-          credits == o.credits
+          credits == o.credits &&
+          start_date == o.start_date &&
+          end_date == o.end_date
     end
 
     # @see the `==` method
@@ -157,7 +177,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type, credits_type, credits].hash
+      [type, credits_type, credits, start_date, end_date].hash
     end
 
     # Builds the object from hash

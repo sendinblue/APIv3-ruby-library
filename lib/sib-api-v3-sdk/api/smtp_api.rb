@@ -198,7 +198,7 @@ module SibApiV3Sdk
     # @option opts [String] :event Filter the report for a specific event type
     # @option opts [String] :tags Filter the report for tags (serialized and urlencoded array)
     # @option opts [String] :message_id Filter on a specific message id
-    # @option opts [String] :template_id Filter on a specific template id
+    # @option opts [Integer] :template_id Filter on a specific template id
     # @return [GetEmailEventReport]
     def get_email_event_report(opts = {})
       data, _status_code, _headers = get_email_event_report_with_http_info(opts)
@@ -217,7 +217,7 @@ module SibApiV3Sdk
     # @option opts [String] :event Filter the report for a specific event type
     # @option opts [String] :tags Filter the report for tags (serialized and urlencoded array)
     # @option opts [String] :message_id Filter on a specific message id
-    # @option opts [String] :template_id Filter on a specific template id
+    # @option opts [Integer] :template_id Filter on a specific template id
     # @return [Array<(GetEmailEventReport, Fixnum, Hash)>] GetEmailEventReport data, response status code and response headers
     def get_email_event_report_with_http_info(opts = {})
       if @api_client.config.debugging

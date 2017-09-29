@@ -38,7 +38,7 @@ module SibApiV3Sdk
     def self.swagger_types
       {
         :'campaign_id' => :'Integer',
-        :'event_time' => :'String',
+        :'event_time' => :'DateTime',
         :'ip' => :'String'
       }
     end
@@ -77,10 +77,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'event_time', event_time cannot be nil.")
       end
 
-      if @event_time !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'event_time', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
-      end
-
       if @ip.nil?
         invalid_properties.push("invalid value for 'ip', ip cannot be nil.")
       end
@@ -93,23 +89,8 @@ module SibApiV3Sdk
     def valid?
       return false if @campaign_id.nil?
       return false if @event_time.nil?
-      return false if @event_time !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return false if @ip.nil?
       return true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] event_time Value to be assigned
-    def event_time=(event_time)
-      if event_time.nil?
-        fail ArgumentError, "event_time cannot be nil"
-      end
-
-      if event_time !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'event_time', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @event_time = event_time
     end
 
     # Checks equality by comparing each attribute.

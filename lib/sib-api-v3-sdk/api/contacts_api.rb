@@ -193,26 +193,26 @@ module SibApiV3Sdk
 
     # Create a folder
     # 
-    # @param name Name of the folder
+    # @param create_folder Name of the folder
     # @param [Hash] opts the optional parameters
     # @return [CreateModel]
-    def create_folder(name, opts = {})
-      data, _status_code, _headers = create_folder_with_http_info(name, opts)
+    def create_folder(create_folder, opts = {})
+      data, _status_code, _headers = create_folder_with_http_info(create_folder, opts)
       return data
     end
 
     # Create a folder
     # 
-    # @param name Name of the folder
+    # @param create_folder Name of the folder
     # @param [Hash] opts the optional parameters
     # @return [Array<(CreateModel, Fixnum, Hash)>] CreateModel data, response status code and response headers
-    def create_folder_with_http_info(name, opts = {})
+    def create_folder_with_http_info(create_folder, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ContactsApi.create_folder ..."
       end
-      # verify the required parameter 'name' is set
-      if @api_client.config.client_side_validation && name.nil?
-        fail ArgumentError, "Missing the required parameter 'name' when calling ContactsApi.create_folder"
+      # verify the required parameter 'create_folder' is set
+      if @api_client.config.client_side_validation && create_folder.nil?
+        fail ArgumentError, "Missing the required parameter 'create_folder' when calling ContactsApi.create_folder"
       end
       # resource path
       local_var_path = "/contacts/folders"
@@ -231,7 +231,7 @@ module SibApiV3Sdk
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(name)
+      post_body = @api_client.object_to_http_body(create_folder)
       auth_names = ['api-key']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -685,7 +685,7 @@ module SibApiV3Sdk
     # 
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :modified_since Filter the contacts modified after a given date (YYYY-MM-DD HH:mm:ss)
+    # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
     # @option opts [Integer] :limit Number of documents per page (default to 50)
     # @option opts [Integer] :offset Index of the first document of the page (default to 0)
     # @return [GetContacts]
@@ -698,7 +698,7 @@ module SibApiV3Sdk
     # 
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :modified_since Filter the contacts modified after a given date (YYYY-MM-DD HH:mm:ss)
+    # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [Integer] :offset Index of the first document of the page
     # @return [Array<(GetContacts, Fixnum, Hash)>] GetContacts data, response status code and response headers
@@ -710,10 +710,6 @@ module SibApiV3Sdk
       if @api_client.config.client_side_validation && list_id.nil?
         fail ArgumentError, "Missing the required parameter 'list_id' when calling ContactsApi.get_contacts_from_list"
       end
-      if @api_client.config.client_side_validation && !opts[:'modified_since'].nil? && opts[:'modified_since'] !~ Regexp.new(/YYYY-MM-DD HH:mm:ss/)
-        fail ArgumentError, "invalid value for 'opts[:\"modified_since\"]' when calling ContactsApi.get_contacts_from_list, must conform to the pattern /YYYY-MM-DD HH:mm:ss/."
-      end
-
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContactsApi.get_contacts_from_list, must be smaller than or equal to 500.'
       end
@@ -1288,21 +1284,21 @@ module SibApiV3Sdk
     # Update a contact folder
     # 
     # @param folder_id Id of the folder
-    # @param name Name of the folder
+    # @param update_folder Name of the folder
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def update_folder(folder_id, name, opts = {})
-      update_folder_with_http_info(folder_id, name, opts)
+    def update_folder(folder_id, update_folder, opts = {})
+      update_folder_with_http_info(folder_id, update_folder, opts)
       return nil
     end
 
     # Update a contact folder
     # 
     # @param folder_id Id of the folder
-    # @param name Name of the folder
+    # @param update_folder Name of the folder
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def update_folder_with_http_info(folder_id, name, opts = {})
+    def update_folder_with_http_info(folder_id, update_folder, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ContactsApi.update_folder ..."
       end
@@ -1310,9 +1306,9 @@ module SibApiV3Sdk
       if @api_client.config.client_side_validation && folder_id.nil?
         fail ArgumentError, "Missing the required parameter 'folder_id' when calling ContactsApi.update_folder"
       end
-      # verify the required parameter 'name' is set
-      if @api_client.config.client_side_validation && name.nil?
-        fail ArgumentError, "Missing the required parameter 'name' when calling ContactsApi.update_folder"
+      # verify the required parameter 'update_folder' is set
+      if @api_client.config.client_side_validation && update_folder.nil?
+        fail ArgumentError, "Missing the required parameter 'update_folder' when calling ContactsApi.update_folder"
       end
       # resource path
       local_var_path = "/contacts/folders/{folderId}".sub('{' + 'folderId' + '}', folder_id.to_s)
@@ -1331,7 +1327,7 @@ module SibApiV3Sdk
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(name)
+      post_body = @api_client.object_to_http_body(update_folder)
       auth_names = ['api-key']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,

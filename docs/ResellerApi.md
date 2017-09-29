@@ -34,7 +34,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_id = 56 # Integer | id of reseller's child
+child_id = 789 # Integer | id of reseller's child
 
 add_credits = SibApiV3Sdk::AddCredits.new # AddCredits | Values to post to add credit to a specific child account
 
@@ -89,7 +89,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_id = 56 # Integer | id of reseller's child
+child_id = 789 # Integer | id of reseller's child
 
 ip_id = SibApiV3Sdk::ManageIp.new # ManageIp | IP's id
 
@@ -196,7 +196,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_id = 56 # Integer | id of reseller's child
+child_id = 789 # Integer | id of reseller's child
 
 
 begin
@@ -247,7 +247,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_id = 56 # Integer | id of reseller's child
+child_id = 789 # Integer | id of reseller's child
 
 ip_id = SibApiV3Sdk::ManageIp.new # ManageIp | IP's id
 
@@ -301,7 +301,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_id = 56 # Integer | id of reseller's child
+child_id = 789 # Integer | id of reseller's child
 
 
 begin
@@ -399,7 +399,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_id = 56 # Integer | id of reseller's child
+child_id = 789 # Integer | id of reseller's child
 
 remove_credits = SibApiV3Sdk::RemoveCredits.new # RemoveCredits | Values to post to remove email or SMS credits from a specific child account
 
@@ -454,7 +454,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_id = 56 # Integer | id of reseller's child
+child_id = 789 # Integer | id of reseller's child
 
 reseller_child = SibApiV3Sdk::UpdateChild.new # UpdateChild | values to update in child profile
 

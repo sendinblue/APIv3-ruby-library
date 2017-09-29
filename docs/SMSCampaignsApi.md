@@ -87,7 +87,7 @@ end
 
 api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | id of the SMS campaign
+campaign_id = 789 # Integer | id of the SMS campaign
 
 
 begin
@@ -102,7 +102,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| id of the SMS campaign | 
+ **campaign_id** | **Integer**| id of the SMS campaign | 
 
 ### Return type
 
@@ -138,7 +138,7 @@ end
 
 api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | id of the SMS campaign
+campaign_id = 789 # Integer | id of the SMS campaign
 
 get_sms_campaign = SibApiV3Sdk::GetSmsCampaign.new # GetSmsCampaign | Values to update an SMS Campaign
 
@@ -156,7 +156,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| id of the SMS campaign | 
+ **campaign_id** | **Integer**| id of the SMS campaign | 
  **get_sms_campaign** | [**GetSmsCampaign**](GetSmsCampaign.md)| Values to update an SMS Campaign | 
 
 ### Return type
@@ -252,7 +252,7 @@ end
 
 api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | id of the campaign
+campaign_id = 789 # Integer | id of the campaign
 
 opts = { 
   recipient_export: SibApiV3Sdk::RequestSMSRecipientExport.new # RequestSMSRecipientExport | Values to send for a recipient export request
@@ -271,7 +271,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| id of the campaign | 
+ **campaign_id** | **Integer**| id of the campaign | 
  **recipient_export** | [**RequestSMSRecipientExport**](RequestSMSRecipientExport.md)| Values to send for a recipient export request | [optional] 
 
 ### Return type
@@ -308,7 +308,7 @@ end
 
 api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | id of the campaign
+campaign_id = 789 # Integer | id of the campaign
 
 
 begin
@@ -323,7 +323,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| id of the campaign | 
+ **campaign_id** | **Integer**| id of the campaign | 
 
 ### Return type
 
@@ -361,7 +361,7 @@ end
 
 api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | id of the campaign
+campaign_id = 789 # Integer | id of the campaign
 
 send_report = SibApiV3Sdk::SendReport.new # SendReport | Values for send a report
 
@@ -378,7 +378,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| id of the campaign | 
+ **campaign_id** | **Integer**| id of the campaign | 
  **send_report** | [**SendReport**](SendReport.md)| Values for send a report | 
 
 ### Return type
@@ -415,7 +415,7 @@ end
 
 api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | Id of the SMS campaign
+campaign_id = 789 # Integer | Id of the SMS campaign
 
 send_test_sms = SibApiV3Sdk::SendTestSms.new # SendTestSms | Mobile number to which send the test
 
@@ -432,7 +432,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| Id of the SMS campaign | 
+ **campaign_id** | **Integer**| Id of the SMS campaign | 
  **send_test_sms** | [**SendTestSms**](SendTestSms.md)| Mobile number to which send the test | 
 
 ### Return type
@@ -469,7 +469,7 @@ end
 
 api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | id of the SMS campaign
+campaign_id = 789 # Integer | id of the SMS campaign
 
 update_sms_campaign = SibApiV3Sdk::UpdateSmsCampaign.new # UpdateSmsCampaign | Values to update an SMS Campaign
 
@@ -486,7 +486,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| id of the SMS campaign | 
+ **campaign_id** | **Integer**| id of the SMS campaign | 
  **update_sms_campaign** | [**UpdateSmsCampaign**](UpdateSmsCampaign.md)| Values to update an SMS Campaign | 
 
 ### Return type
@@ -523,7 +523,7 @@ end
 
 api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | id of the campaign
+campaign_id = 789 # Integer | id of the campaign
 
 status = SibApiV3Sdk::UpdateCampaignStatus.new # UpdateCampaignStatus | Status of the campaign.
 
@@ -540,7 +540,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| id of the campaign | 
+ **campaign_id** | **Integer**| id of the campaign | 
  **status** | [**UpdateCampaignStatus**](UpdateCampaignStatus.md)| Status of the campaign. | 
 
 ### Return type

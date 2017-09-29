@@ -14,7 +14,7 @@ require 'date'
 
 module SibApiV3Sdk
 
-  class CreaUpdateFolder
+  class CreateUpdateFolder
     # Name of the folder
     attr_accessor :name
 

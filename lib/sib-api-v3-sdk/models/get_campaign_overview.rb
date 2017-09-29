@@ -30,7 +30,7 @@ module SibApiV3Sdk
     # Status of the campaign
     attr_accessor :status
 
-    # Date on which campaign is scheduled (YYYY-MM-DD HH:mm:ss)
+    # Date on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :scheduled_at
 
     class EnumAttributeValidator
@@ -75,7 +75,7 @@ module SibApiV3Sdk
         :'subject' => :'String',
         :'type' => :'String',
         :'status' => :'String',
-        :'scheduled_at' => :'String'
+        :'scheduled_at' => :'DateTime'
       }
     end
 
@@ -137,10 +137,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'status', status cannot be nil.")
       end
 
-      if !@scheduled_at.nil? && @scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'scheduled_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
-      end
-
       return invalid_properties
     end
 
@@ -156,7 +152,6 @@ module SibApiV3Sdk
       return false if @status.nil?
       status_validator = EnumAttributeValidator.new('String', ["draft", "sent", "archive", "queued", "suspended", "in_process"])
       return false unless status_validator.valid?(@status)
-      return false if !@scheduled_at.nil? && @scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return true
     end
 
@@ -178,17 +173,6 @@ module SibApiV3Sdk
         fail ArgumentError, "invalid value for 'status', must be one of #{validator.allowable_values}."
       end
       @status = status
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] scheduled_at Value to be assigned
-    def scheduled_at=(scheduled_at)
-
-      if !scheduled_at.nil? && scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'scheduled_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @scheduled_at = scheduled_at
     end
 
     # Checks equality by comparing each attribute.

@@ -72,7 +72,7 @@ describe 'ContactsApi' do
   # unit tests for create_folder
   # Create a folder
   # 
-  # @param name Name of the folder
+  # @param create_folder Name of the folder
   # @param [Hash] opts the optional parameters
   # @return [CreateModel]
   describe 'create_folder test' do
@@ -182,7 +182,7 @@ describe 'ContactsApi' do
   # 
   # @param list_id Id of the list
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :modified_since Filter the contacts modified after a given date (YYYY-MM-DD HH:mm:ss)
+  # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [Integer] :offset Index of the first document of the page
   # @return [GetContacts]
@@ -310,7 +310,7 @@ describe 'ContactsApi' do
   # Update a contact folder
   # 
   # @param folder_id Id of the folder
-  # @param name Name of the folder
+  # @param update_folder Name of the folder
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'update_folder test' do
