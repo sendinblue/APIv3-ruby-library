@@ -35,7 +35,7 @@ describe 'FoldersApi' do
   # unit tests for create_folder
   # Create a folder
   # 
-  # @param name Name of the folder
+  # @param create_folder Name of the folder
   # @param [Hash] opts the optional parameters
   # @return [CreateModel]
   describe 'create_folder test' do
@@ -99,7 +99,7 @@ describe 'FoldersApi' do
   # Update a contact folder
   # 
   # @param folder_id Id of the folder
-  # @param name Name of the folder
+  # @param update_folder Name of the folder
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'update_folder test' do

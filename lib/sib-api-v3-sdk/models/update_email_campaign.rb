@@ -29,7 +29,7 @@ module SibApiV3Sdk
     # Url which contents the body of the email message. REQUIRED if htmlContent is empty
     attr_accessor :html_url
 
-    # Date and time on which the campaign has to run (YYYY-MM-DD HH:mm:ss)
+    # Date and time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :scheduled_at
 
     # Subject of the campaign
@@ -96,7 +96,7 @@ module SibApiV3Sdk
         :'name' => :'String',
         :'html_content' => :'String',
         :'html_url' => :'String',
-        :'scheduled_at' => :'String',
+        :'scheduled_at' => :'DateTime',
         :'subject' => :'String',
         :'reply_to' => :'String',
         :'to_field' => :'String',
@@ -197,29 +197,13 @@ module SibApiV3Sdk
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@scheduled_at.nil? && @scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'scheduled_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@scheduled_at.nil? && @scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] scheduled_at Value to be assigned
-    def scheduled_at=(scheduled_at)
-
-      if !scheduled_at.nil? && scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'scheduled_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @scheduled_at = scheduled_at
     end
 
     # Checks equality by comparing each attribute.

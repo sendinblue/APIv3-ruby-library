@@ -87,7 +87,7 @@ end
 
 api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | id of the campaign
+campaign_id = 789 # Integer | id of the campaign
 
 
 begin
@@ -102,7 +102,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| id of the campaign | 
+ **campaign_id** | **Integer**| id of the campaign | 
 
 ### Return type
 
@@ -138,7 +138,7 @@ end
 
 api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | Id of the campaign
+campaign_id = 789 # Integer | Id of the campaign
 
 opts = { 
   recipient_export: SibApiV3Sdk::EmailExportRecipients.new # EmailExportRecipients | Values to send for a recipient export request
@@ -157,7 +157,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| Id of the campaign | 
+ **campaign_id** | **Integer**| Id of the campaign | 
  **recipient_export** | [**EmailExportRecipients**](EmailExportRecipients.md)| Values to send for a recipient export request | [optional] 
 
 ### Return type
@@ -194,7 +194,7 @@ end
 
 api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | Id of the campaign
+campaign_id = 789 # Integer | Id of the campaign
 
 
 begin
@@ -210,7 +210,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| Id of the campaign | 
+ **campaign_id** | **Integer**| Id of the campaign | 
 
 ### Return type
 
@@ -305,7 +305,7 @@ end
 
 api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | Id of the campaign
+campaign_id = 789 # Integer | Id of the campaign
 
 
 begin
@@ -320,7 +320,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| Id of the campaign | 
+ **campaign_id** | **Integer**| Id of the campaign | 
 
 ### Return type
 
@@ -358,7 +358,7 @@ end
 
 api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | Id of the campaign
+campaign_id = 789 # Integer | Id of the campaign
 
 send_report = SibApiV3Sdk::SendReport.new # SendReport | Values for send a report
 
@@ -375,7 +375,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| Id of the campaign | 
+ **campaign_id** | **Integer**| Id of the campaign | 
  **send_report** | [**SendReport**](SendReport.md)| Values for send a report | 
 
 ### Return type
@@ -412,7 +412,7 @@ end
 
 api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | Id of the campaign
+campaign_id = 789 # Integer | Id of the campaign
 
 email_to = SibApiV3Sdk::SendTestEmail.new # SendTestEmail | 
 
@@ -429,7 +429,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| Id of the campaign | 
+ **campaign_id** | **Integer**| Id of the campaign | 
  **email_to** | [**SendTestEmail**](SendTestEmail.md)|  | 
 
 ### Return type
@@ -466,7 +466,7 @@ end
 
 api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | Id of the campaign
+campaign_id = 789 # Integer | Id of the campaign
 
 status = SibApiV3Sdk::UpdateCampaignStatus.new # UpdateCampaignStatus | Status of the campaign
 
@@ -483,7 +483,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| Id of the campaign | 
+ **campaign_id** | **Integer**| Id of the campaign | 
  **status** | [**UpdateCampaignStatus**](UpdateCampaignStatus.md)| Status of the campaign | 
 
 ### Return type
@@ -520,7 +520,7 @@ end
 
 api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 
-campaign_id = "campaign_id_example" # String | Id of the campaign
+campaign_id = 789 # Integer | Id of the campaign
 
 email_campaign = SibApiV3Sdk::UpdateEmailCampaign.new # UpdateEmailCampaign | Values to update a campaign
 
@@ -537,7 +537,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_id** | **String**| Id of the campaign | 
+ **campaign_id** | **Integer**| Id of the campaign | 
  **email_campaign** | [**UpdateEmailCampaign**](UpdateEmailCampaign.md)| Values to update a campaign | 
 
 ### Return type

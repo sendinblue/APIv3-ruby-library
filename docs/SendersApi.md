@@ -84,7 +84,7 @@ end
 
 api_instance = SibApiV3Sdk::SendersApi.new
 
-sender_id = "sender_id_example" # String | Id of the sender
+sender_id = 789 # Integer | Id of the sender
 
 
 begin
@@ -99,7 +99,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sender_id** | **String**| Id of the sender | 
+ **sender_id** | **Integer**| Id of the sender | 
 
 ### Return type
 
@@ -181,7 +181,7 @@ end
 
 api_instance = SibApiV3Sdk::SendersApi.new
 
-sender_id = "sender_id_example" # String | Id of the sender
+sender_id = 789 # Integer | Id of the sender
 
 
 begin
@@ -197,7 +197,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sender_id** | **String**| Id of the sender | 
+ **sender_id** | **Integer**| Id of the sender | 
 
 ### Return type
 
@@ -288,7 +288,7 @@ end
 
 api_instance = SibApiV3Sdk::SendersApi.new
 
-sender_id = "sender_id_example" # String | Id of the sender
+sender_id = 789 # Integer | Id of the sender
 
 opts = { 
   sender: SibApiV3Sdk::UpdateSender.new # UpdateSender | sender's name
@@ -306,7 +306,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sender_id** | **String**| Id of the sender | 
+ **sender_id** | **Integer**| Id of the sender | 
  **sender** | [**UpdateSender**](UpdateSender.md)| sender&#39;s name | [optional] 
 
 ### Return type

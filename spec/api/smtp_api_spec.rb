@@ -84,7 +84,7 @@ describe 'SMTPApi' do
   # @option opts [String] :event Filter the report for a specific event type
   # @option opts [String] :tags Filter the report for tags (serialized and urlencoded array)
   # @option opts [String] :message_id Filter on a specific message id
-  # @option opts [String] :template_id Filter on a specific template id
+  # @option opts [Integer] :template_id Filter on a specific template id
   # @return [GetEmailEventReport]
   describe 'get_email_event_report test' do
     it "should work" do

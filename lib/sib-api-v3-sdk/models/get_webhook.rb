@@ -29,10 +29,10 @@ module SibApiV3Sdk
     # Type of webhook (marketing or transac)
     attr_accessor :type
 
-    # Creation date of the webhook (YYYY-MM-DD HH:mm:ss)
+    # Creation date of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :created_at
 
-    # Last modification date of the webhook (YYYY-MM-DD HH:mm:ss)
+    # Last modification date of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :modified_at
 
     class EnumAttributeValidator
@@ -78,8 +78,8 @@ module SibApiV3Sdk
         :'description' => :'String',
         :'events' => :'Array<String>',
         :'type' => :'String',
-        :'created_at' => :'String',
-        :'modified_at' => :'String'
+        :'created_at' => :'DateTime',
+        :'modified_at' => :'DateTime'
       }
     end
 
@@ -151,16 +151,8 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'created_at', created_at cannot be nil.")
       end
 
-      if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
-      end
-
       if @modified_at.nil?
         invalid_properties.push("invalid value for 'modified_at', modified_at cannot be nil.")
-      end
-
-      if @modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'modified_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
       end
 
       return invalid_properties
@@ -177,9 +169,7 @@ module SibApiV3Sdk
       type_validator = EnumAttributeValidator.new('String', ["marketing", "transac"])
       return false unless type_validator.valid?(@type)
       return false if @created_at.nil?
-      return false if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return false if @modified_at.nil?
-      return false if @modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return true
     end
 
@@ -191,34 +181,6 @@ module SibApiV3Sdk
         fail ArgumentError, "invalid value for 'type', must be one of #{validator.allowable_values}."
       end
       @type = type
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] created_at Value to be assigned
-    def created_at=(created_at)
-      if created_at.nil?
-        fail ArgumentError, "created_at cannot be nil"
-      end
-
-      if created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @created_at = created_at
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] modified_at Value to be assigned
-    def modified_at=(modified_at)
-      if modified_at.nil?
-        fail ArgumentError, "modified_at cannot be nil"
-      end
-
-      if modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'modified_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @modified_at = modified_at
     end
 
     # Checks equality by comparing each attribute.

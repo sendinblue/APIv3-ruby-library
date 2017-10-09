@@ -27,7 +27,7 @@ end
 
 api_instance = SibApiV3Sdk::ProcessApi.new
 
-process_id = "process_id_example" # String | Id of the process
+process_id = 789 # Integer | Id of the process
 
 
 begin
@@ -43,7 +43,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **process_id** | **String**| Id of the process | 
+ **process_id** | **Integer**| Id of the process | 
 
 ### Return type
 

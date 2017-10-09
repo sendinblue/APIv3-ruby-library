@@ -74,7 +74,7 @@ describe 'ListsApi' do
   # 
   # @param list_id Id of the list
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :modified_since Filter the contacts modified after a given date (YYYY-MM-DD HH:mm:ss)
+  # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [Integer] :offset Index of the first document of the page
   # @return [GetContacts]

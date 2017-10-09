@@ -44,10 +44,10 @@ module SibApiV3Sdk
     # HTML content of the template
     attr_accessor :html_content
 
-    # Creation date of the template (YYYY-MM-DD HH:mm:ss)
+    # Creation date of the template (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :created_at
 
-    # Last modification date of the template (YYYY-MM-DD HH:mm:ss)
+    # Last modification date of the template (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :modified_at
 
 
@@ -82,8 +82,8 @@ module SibApiV3Sdk
         :'to_field' => :'String',
         :'tag' => :'String',
         :'html_content' => :'String',
-        :'created_at' => :'String',
-        :'modified_at' => :'String'
+        :'created_at' => :'DateTime',
+        :'modified_at' => :'DateTime'
       }
     end
 
@@ -189,16 +189,8 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'created_at', created_at cannot be nil.")
       end
 
-      if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
-      end
-
       if @modified_at.nil?
         invalid_properties.push("invalid value for 'modified_at', modified_at cannot be nil.")
-      end
-
-      if @modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'modified_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
       end
 
       return invalid_properties
@@ -217,38 +209,8 @@ module SibApiV3Sdk
       return false if @tag.nil?
       return false if @html_content.nil?
       return false if @created_at.nil?
-      return false if @created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return false if @modified_at.nil?
-      return false if @modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] created_at Value to be assigned
-    def created_at=(created_at)
-      if created_at.nil?
-        fail ArgumentError, "created_at cannot be nil"
-      end
-
-      if created_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'created_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @created_at = created_at
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] modified_at Value to be assigned
-    def modified_at=(modified_at)
-      if modified_at.nil?
-        fail ArgumentError, "modified_at cannot be nil"
-      end
-
-      if modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'modified_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @modified_at = modified_at
     end
 
     # Checks equality by comparing each attribute.

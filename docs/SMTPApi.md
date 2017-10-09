@@ -211,7 +211,7 @@ opts = {
   event: "event_example", # String | Filter the report for a specific event type
   tags: "tags_example", # String | Filter the report for tags (serialized and urlencoded array)
   message_id: "message_id_example", # String | Filter on a specific message id
-  template_id: "template_id_example" # String | Filter on a specific template id
+  template_id: 789 # Integer | Filter on a specific template id
 }
 
 begin
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
  **event** | **String**| Filter the report for a specific event type | [optional] 
  **tags** | **String**| Filter the report for tags (serialized and urlencoded array) | [optional] 
  **message_id** | **String**| Filter on a specific message id | [optional] 
- **template_id** | **String**| Filter on a specific template id | [optional] 
+ **template_id** | **Integer**| Filter on a specific template id | [optional] 
 
 ### Return type
 
@@ -335,7 +335,7 @@ end
 
 api_instance = SibApiV3Sdk::SMTPApi.new
 
-template_id = "template_id_example" # String | id of the template
+template_id = 789 # Integer | id of the template
 
 
 begin
@@ -351,7 +351,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **template_id** | **String**| id of the template | 
+ **template_id** | **Integer**| id of the template | 
 
 ### Return type
 
@@ -444,7 +444,7 @@ end
 
 api_instance = SibApiV3Sdk::SMTPApi.new
 
-template_id = "template_id_example" # String | Id of the template
+template_id = 789 # Integer | Id of the template
 
 send_email = SibApiV3Sdk::SendEmail.new # SendEmail | 
 
@@ -462,7 +462,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **template_id** | **String**| Id of the template | 
+ **template_id** | **Integer**| Id of the template | 
  **send_email** | [**SendEmail**](SendEmail.md)|  | 
 
 ### Return type
@@ -499,7 +499,7 @@ end
 
 api_instance = SibApiV3Sdk::SMTPApi.new
 
-template_id = "template_id_example" # String | Id of the template
+template_id = 789 # Integer | Id of the template
 
 send_test_email = SibApiV3Sdk::SendTestEmail.new # SendTestEmail | 
 
@@ -516,7 +516,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **template_id** | **String**| Id of the template | 
+ **template_id** | **Integer**| Id of the template | 
  **send_test_email** | [**SendTestEmail**](SendTestEmail.md)|  | 
 
 ### Return type
@@ -605,7 +605,7 @@ end
 
 api_instance = SibApiV3Sdk::SMTPApi.new
 
-template_id = "template_id_example" # String | id of the template
+template_id = 789 # Integer | id of the template
 
 smtp_template = SibApiV3Sdk::UpdateSmtpTemplate.new # UpdateSmtpTemplate | values to update in smtp template
 
@@ -622,7 +622,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **template_id** | **String**| id of the template | 
+ **template_id** | **Integer**| id of the template | 
  **smtp_template** | [**UpdateSmtpTemplate**](UpdateSmtpTemplate.md)| values to update in smtp template | 
 
 ### Return type

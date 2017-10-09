@@ -26,7 +26,7 @@ module SibApiV3Sdk
 
     attr_accessor :recipients
 
-    # Date and time on which the campaign has to run (YYYY-MM-DD HH:mm:ss)
+    # Date and time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :scheduled_at
 
 
@@ -48,7 +48,7 @@ module SibApiV3Sdk
         :'sender' => :'String',
         :'content' => :'String',
         :'recipients' => :'CreateSmsCampaignRecipients',
-        :'scheduled_at' => :'String'
+        :'scheduled_at' => :'DateTime'
       }
     end
 
@@ -90,10 +90,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'sender', the character length must be smaller than or equal to 11.")
       end
 
-      if !@scheduled_at.nil? && @scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'scheduled_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
-      end
-
       return invalid_properties
     end
 
@@ -101,7 +97,6 @@ module SibApiV3Sdk
     # @return true if the model is valid
     def valid?
       return false if !@sender.nil? && @sender.to_s.length > 11
-      return false if !@scheduled_at.nil? && @scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return true
     end
 
@@ -114,17 +109,6 @@ module SibApiV3Sdk
       end
 
       @sender = sender
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] scheduled_at Value to be assigned
-    def scheduled_at=(scheduled_at)
-
-      if !scheduled_at.nil? && scheduled_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'scheduled_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @scheduled_at = scheduled_at
     end
 
     # Checks equality by comparing each attribute.

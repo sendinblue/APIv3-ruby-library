@@ -34,7 +34,7 @@ end
 
 api_instance = SibApiV3Sdk::ListsApi.new
 
-list_id = "list_id_example" # String | Id of the list
+list_id = 789 # Integer | Id of the list
 
 contact_emails = SibApiV3Sdk::AddRemoveContactToList.new # AddRemoveContactToList | Emails addresses of the contacts
 
@@ -52,7 +52,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **String**| Id of the list | 
+ **list_id** | **Integer**| Id of the list | 
  **contact_emails** | [**AddRemoveContactToList**](AddRemoveContactToList.md)| Emails addresses of the contacts | 
 
 ### Return type
@@ -141,7 +141,7 @@ end
 
 api_instance = SibApiV3Sdk::ListsApi.new
 
-list_id = "list_id_example" # String | Id of the list
+list_id = 789 # Integer | Id of the list
 
 
 begin
@@ -156,7 +156,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **String**| Id of the list | 
+ **list_id** | **Integer**| Id of the list | 
 
 ### Return type
 
@@ -192,10 +192,10 @@ end
 
 api_instance = SibApiV3Sdk::ListsApi.new
 
-list_id = "list_id_example" # String | Id of the list
+list_id = 789 # Integer | Id of the list
 
 opts = { 
-  modified_since: "modified_since_example", # String | Filter the contacts modified after a given date (YYYY-MM-DD HH:mm:ss)
+  modified_since: DateTime.parse("2013-10-20T19:20:30+01:00"), # DateTime | Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
   limit: 50, # Integer | Number of documents per page
   offset: 0 # Integer | Index of the first document of the page
 }
@@ -213,8 +213,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **String**| Id of the list | 
- **modified_since** | **String**| Filter the contacts modified after a given date (YYYY-MM-DD HH:mm:ss) | [optional] 
+ **list_id** | **Integer**| Id of the list | 
+ **modified_since** | **DateTime**| Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) | [optional] 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
 
@@ -252,7 +252,7 @@ end
 
 api_instance = SibApiV3Sdk::ListsApi.new
 
-folder_id = "folder_id_example" # String | Id of the folder
+folder_id = 789 # Integer | Id of the folder
 
 opts = { 
   limit: 10, # Integer | Number of documents per page
@@ -272,7 +272,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **folder_id** | **String**| Id of the folder | 
+ **folder_id** | **Integer**| Id of the folder | 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 10]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
 
@@ -310,7 +310,7 @@ end
 
 api_instance = SibApiV3Sdk::ListsApi.new
 
-list_id = "list_id_example" # String | Id of the list
+list_id = 789 # Integer | Id of the list
 
 
 begin
@@ -326,7 +326,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **String**| Id of the list | 
+ **list_id** | **Integer**| Id of the list | 
 
 ### Return type
 
@@ -417,7 +417,7 @@ end
 
 api_instance = SibApiV3Sdk::ListsApi.new
 
-list_id = "list_id_example" # String | Id of the list
+list_id = 789 # Integer | Id of the list
 
 contact_emails = SibApiV3Sdk::AddRemoveContactToList.new # AddRemoveContactToList | Emails adresses of the contact
 
@@ -435,7 +435,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **String**| Id of the list | 
+ **list_id** | **Integer**| Id of the list | 
  **contact_emails** | [**AddRemoveContactToList**](AddRemoveContactToList.md)| Emails adresses of the contact | 
 
 ### Return type
@@ -472,7 +472,7 @@ end
 
 api_instance = SibApiV3Sdk::ListsApi.new
 
-list_id = "list_id_example" # String | Id of the list
+list_id = 789 # Integer | Id of the list
 
 update_list = SibApiV3Sdk::UpdateList.new # UpdateList | Values to update a list
 
@@ -489,7 +489,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **String**| Id of the list | 
+ **list_id** | **Integer**| Id of the list | 
  **update_list** | [**UpdateList**](UpdateList.md)| Values to update a list | 
 
 ### Return type

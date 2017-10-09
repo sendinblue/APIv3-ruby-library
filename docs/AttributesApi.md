@@ -80,7 +80,7 @@ end
 
 api_instance = SibApiV3Sdk::AttributesApi.new
 
-attribute_id = "attribute_id_example" # String | id of the attribute
+attribute_id = 789 # Integer | id of the attribute
 
 
 begin
@@ -95,7 +95,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attribute_id** | **String**| id of the attribute | 
+ **attribute_id** | **Integer**| id of the attribute | 
 
 ### Return type
 

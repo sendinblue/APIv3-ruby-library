@@ -24,10 +24,10 @@ module SibApiV3Sdk
     # Message ID which generated the event
     attr_accessor :message_id
 
-    # Event which occured
+    # Event which occurred
     attr_accessor :event
 
-    # Reason of bounce (only availble if the event is hardbounce or softbounce)
+    # Reason of bounce (only available if the event is hardbounce or softbounce)
     attr_accessor :reason
 
     attr_accessor :reply

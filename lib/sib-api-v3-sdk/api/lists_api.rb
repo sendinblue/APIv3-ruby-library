@@ -194,7 +194,7 @@ module SibApiV3Sdk
     # 
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :modified_since Filter the contacts modified after a given date (YYYY-MM-DD HH:mm:ss)
+    # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
     # @option opts [Integer] :limit Number of documents per page (default to 50)
     # @option opts [Integer] :offset Index of the first document of the page (default to 0)
     # @return [GetContacts]
@@ -207,7 +207,7 @@ module SibApiV3Sdk
     # 
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :modified_since Filter the contacts modified after a given date (YYYY-MM-DD HH:mm:ss)
+    # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [Integer] :offset Index of the first document of the page
     # @return [Array<(GetContacts, Fixnum, Hash)>] GetContacts data, response status code and response headers
@@ -219,10 +219,6 @@ module SibApiV3Sdk
       if @api_client.config.client_side_validation && list_id.nil?
         fail ArgumentError, "Missing the required parameter 'list_id' when calling ListsApi.get_contacts_from_list"
       end
-      if @api_client.config.client_side_validation && !opts[:'modified_since'].nil? && opts[:'modified_since'] !~ Regexp.new(/YYYY-MM-DD HH:mm:ss/)
-        fail ArgumentError, "invalid value for 'opts[:\"modified_since\"]' when calling ListsApi.get_contacts_from_list, must conform to the pattern /YYYY-MM-DD HH:mm:ss/."
-      end
-
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ListsApi.get_contacts_from_list, must be smaller than or equal to 500.'
       end

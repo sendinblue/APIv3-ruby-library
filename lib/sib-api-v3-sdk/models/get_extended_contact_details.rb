@@ -27,7 +27,7 @@ module SibApiV3Sdk
     # Blacklist status for SMS campaigns (true=blacklisted, false=not blacklisted)
     attr_accessor :sms_blacklisted
 
-    # Last modification date of the contact (YYYY-MM-DD HH:mm:ss)
+    # Last modification date of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :modified_at
 
     attr_accessor :list_ids
@@ -61,7 +61,7 @@ module SibApiV3Sdk
         :'id' => :'Integer',
         :'email_blacklisted' => :'BOOLEAN',
         :'sms_blacklisted' => :'BOOLEAN',
-        :'modified_at' => :'String',
+        :'modified_at' => :'DateTime',
         :'list_ids' => :'Array<Integer>',
         :'list_unsubscribed' => :'Array<Integer>',
         :'attributes' => :'Hash<String, String>',
@@ -145,10 +145,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'modified_at', modified_at cannot be nil.")
       end
 
-      if @modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        invalid_properties.push("invalid value for 'modified_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/.")
-      end
-
       if @list_ids.nil?
         invalid_properties.push("invalid value for 'list_ids', list_ids cannot be nil.")
       end
@@ -168,24 +164,9 @@ module SibApiV3Sdk
       return false if @email_blacklisted.nil?
       return false if @sms_blacklisted.nil?
       return false if @modified_at.nil?
-      return false if @modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
       return false if @list_ids.nil?
       return false if @attributes.nil?
       return true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] modified_at Value to be assigned
-    def modified_at=(modified_at)
-      if modified_at.nil?
-        fail ArgumentError, "modified_at cannot be nil"
-      end
-
-      if modified_at !~ Regexp.new(/^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/)
-        fail ArgumentError, "invalid value for 'modified_at', must conform to the pattern /^([1-9]\d{3}-\d{2}-\d{2} [0-2]\d:[0-5]\d:[0-5]\d)?$/."
-      end
-
-      @modified_at = modified_at
     end
 
     # Checks equality by comparing each attribute.
