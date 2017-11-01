@@ -42,6 +42,9 @@ module SibApiV3Sdk
     # The link which is sent to the user (only available if the event is requests or opened or clicks)
     attr_accessor :link
 
+    # Sender email from which the emails are sent
+    attr_accessor :from
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -75,7 +78,8 @@ module SibApiV3Sdk
         :'reason' => :'reason',
         :'tag' => :'tag',
         :'ip' => :'ip',
-        :'link' => :'link'
+        :'link' => :'link',
+        :'from' => :'from'
       }
     end
 
@@ -83,14 +87,15 @@ module SibApiV3Sdk
     def self.swagger_types
       {
         :'email' => :'String',
-        :'date' => :'Date',
+        :'date' => :'DateTime',
         :'subject' => :'String',
         :'message_id' => :'String',
         :'event' => :'String',
         :'reason' => :'String',
         :'tag' => :'String',
         :'ip' => :'String',
-        :'link' => :'String'
+        :'link' => :'String',
+        :'from' => :'String'
       }
     end
 
@@ -138,6 +143,10 @@ module SibApiV3Sdk
         self.link = attributes[:'link']
       end
 
+      if attributes.has_key?(:'from')
+        self.from = attributes[:'from']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -160,12 +169,12 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'event', event cannot be nil.")
       end
 
-      if @reason.nil?
-        invalid_properties.push("invalid value for 'reason', reason cannot be nil.")
-      end
-
       if @tag.nil?
         invalid_properties.push("invalid value for 'tag', tag cannot be nil.")
+      end
+
+      if @from.nil?
+        invalid_properties.push("invalid value for 'from', from cannot be nil.")
       end
 
       return invalid_properties
@@ -180,8 +189,8 @@ module SibApiV3Sdk
       return false if @event.nil?
       event_validator = EnumAttributeValidator.new('String', ["bounces", "hardBounces", "softBounces", "delivered", "spam", "requests", "opened", "clicks", "invalid", "deferred", "blocked"])
       return false unless event_validator.valid?(@event)
-      return false if @reason.nil?
       return false if @tag.nil?
+      return false if @from.nil?
       return true
     end
 
@@ -208,7 +217,8 @@ module SibApiV3Sdk
           reason == o.reason &&
           tag == o.tag &&
           ip == o.ip &&
-          link == o.link
+          link == o.link &&
+          from == o.from
     end
 
     # @see the `==` method
@@ -220,7 +230,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, date, subject, message_id, event, reason, tag, ip, link].hash
+      [email, date, subject, message_id, event, reason, tag, ip, link, from].hash
     end
 
     # Builds the object from hash
