@@ -170,6 +170,7 @@ describe 'ContactsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [Integer] :offset Index of the first document of the page
+  # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
   # @return [GetContacts]
   describe 'get_contacts test' do
     it "should work" do
