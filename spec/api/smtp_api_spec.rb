@@ -56,6 +56,18 @@ describe 'SMTPApi' do
     end
   end
 
+  # unit tests for delete_smtp_template
+  # Delete an inactive smtp template
+  # 
+  # @param template_id id of the template
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_smtp_template test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_aggregated_smtp_report
   # Get your SMTP activity aggregated over a period of time
   # 

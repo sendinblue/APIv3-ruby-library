@@ -33,7 +33,7 @@ describe 'SMSCampaignsApi' do
   end
 
   # unit tests for create_sms_campaign
-  # Creates a SMS campaign
+  # Creates an SMS campaign
   # 
   # @param create_sms_campaign Values to create an SMS Campaign
   # @param [Hash] opts the optional parameters
@@ -57,7 +57,7 @@ describe 'SMSCampaignsApi' do
   end
 
   # unit tests for get_sms_campaign
-  # Get a SMS campaign
+  # Get an SMS campaign
   # 
   # @param campaign_id id of the SMS campaign
   # @param get_sms_campaign Values to update an SMS Campaign
@@ -135,7 +135,7 @@ describe 'SMSCampaignsApi' do
   end
 
   # unit tests for update_sms_campaign
-  # Updates a SMS campaign
+  # Updates an SMS campaign
   # 
   # @param campaign_id id of the SMS campaign
   # @param update_sms_campaign Values to update an SMS Campaign

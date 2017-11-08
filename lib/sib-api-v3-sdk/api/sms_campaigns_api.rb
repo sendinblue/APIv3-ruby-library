@@ -20,7 +20,7 @@ module SibApiV3Sdk
       @api_client = api_client
     end
 
-    # Creates a SMS campaign
+    # Creates an SMS campaign
     # 
     # @param create_sms_campaign Values to create an SMS Campaign
     # @param [Hash] opts the optional parameters
@@ -30,7 +30,7 @@ module SibApiV3Sdk
       return data
     end
 
-    # Creates a SMS campaign
+    # Creates an SMS campaign
     # 
     # @param create_sms_campaign Values to create an SMS Campaign
     # @param [Hash] opts the optional parameters
@@ -129,7 +129,7 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
 
-    # Get a SMS campaign
+    # Get an SMS campaign
     # 
     # @param campaign_id id of the SMS campaign
     # @param get_sms_campaign Values to update an SMS Campaign
@@ -140,7 +140,7 @@ module SibApiV3Sdk
       return data
     end
 
-    # Get a SMS campaign
+    # Get an SMS campaign
     # 
     # @param campaign_id id of the SMS campaign
     # @param get_sms_campaign Values to update an SMS Campaign
@@ -213,8 +213,8 @@ module SibApiV3Sdk
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SMSCampaignsApi.get_sms_campaigns ..."
       end
-      if @api_client.config.client_side_validation && opts[:'status'] && !['suspended', 'archived', 'darchived', 'sent', 'queued', 'replicate', 'draft', 'inProcess'].include?(opts[:'status'])
-        fail ArgumentError, 'invalid value for "status", must be one of suspended, archived, darchived, sent, queued, replicate, draft, inProcess'
+      if @api_client.config.client_side_validation && opts[:'status'] && !['suspended', 'archived', 'sent', 'queued', 'draft', 'inProcess'].include?(opts[:'status'])
+        fail ArgumentError, 'invalid value for "status", must be one of suspended, archived, sent, queued, draft, inProcess'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SMSCampaignsApi.get_sms_campaigns, must be smaller than or equal to 1000.'
@@ -486,7 +486,7 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
 
-    # Updates a SMS campaign
+    # Updates an SMS campaign
     # 
     # @param campaign_id id of the SMS campaign
     # @param update_sms_campaign Values to update an SMS Campaign
@@ -497,7 +497,7 @@ module SibApiV3Sdk
       return nil
     end
 
-    # Updates a SMS campaign
+    # Updates an SMS campaign
     # 
     # @param campaign_id id of the SMS campaign
     # @param update_sms_campaign Values to update an SMS Campaign

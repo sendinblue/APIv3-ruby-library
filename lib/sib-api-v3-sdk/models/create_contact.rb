@@ -30,6 +30,9 @@ module SibApiV3Sdk
     # Ids of the lists to add the contact to
     attr_accessor :list_ids
 
+    # Facilitate to update existing contact in same request (updateEnabled = true)
+    attr_accessor :update_enabled
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -38,7 +41,8 @@ module SibApiV3Sdk
         :'attributes' => :'attributes',
         :'email_blacklisted' => :'emailBlacklisted',
         :'sms_blacklisted' => :'smsBlacklisted',
-        :'list_ids' => :'listIds'
+        :'list_ids' => :'listIds',
+        :'update_enabled' => :'updateEnabled'
       }
     end
 
@@ -49,7 +53,8 @@ module SibApiV3Sdk
         :'attributes' => :'Object',
         :'email_blacklisted' => :'BOOLEAN',
         :'sms_blacklisted' => :'BOOLEAN',
-        :'list_ids' => :'Array<Integer>'
+        :'list_ids' => :'Array<Integer>',
+        :'update_enabled' => :'BOOLEAN'
       }
     end
 
@@ -83,6 +88,12 @@ module SibApiV3Sdk
         end
       end
 
+      if attributes.has_key?(:'updateEnabled')
+        self.update_enabled = attributes[:'updateEnabled']
+      else
+        self.update_enabled = false
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -107,7 +118,8 @@ module SibApiV3Sdk
           attributes == o.attributes &&
           email_blacklisted == o.email_blacklisted &&
           sms_blacklisted == o.sms_blacklisted &&
-          list_ids == o.list_ids
+          list_ids == o.list_ids &&
+          update_enabled == o.update_enabled
     end
 
     # @see the `==` method
@@ -119,7 +131,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, attributes, email_blacklisted, sms_blacklisted, list_ids].hash
+      [email, attributes, email_blacklisted, sms_blacklisted, list_ids, update_enabled].hash
     end
 
     # Builds the object from hash

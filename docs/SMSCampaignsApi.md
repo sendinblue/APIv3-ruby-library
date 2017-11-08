@@ -4,22 +4,22 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_sms_campaign**](SMSCampaignsApi.md#create_sms_campaign) | **POST** /smsCampaigns | Creates a SMS campaign
+[**create_sms_campaign**](SMSCampaignsApi.md#create_sms_campaign) | **POST** /smsCampaigns | Creates an SMS campaign
 [**delete_sms_campaigns**](SMSCampaignsApi.md#delete_sms_campaigns) | **DELETE** /smsCampaigns/{campaignId} | Delete the SMS campaign
-[**get_sms_campaign**](SMSCampaignsApi.md#get_sms_campaign) | **GET** /smsCampaigns/{campaignId} | Get a SMS campaign
+[**get_sms_campaign**](SMSCampaignsApi.md#get_sms_campaign) | **GET** /smsCampaigns/{campaignId} | Get an SMS campaign
 [**get_sms_campaigns**](SMSCampaignsApi.md#get_sms_campaigns) | **GET** /smsCampaigns | Returns the informations for all your created SMS campaigns
 [**request_sms_recipient_export**](SMSCampaignsApi.md#request_sms_recipient_export) | **POST** /smsCampaigns/{campaignId}/exportRecipients | Exports the recipients of the specified campaign.
 [**send_sms_campaign_now**](SMSCampaignsApi.md#send_sms_campaign_now) | **POST** /smsCampaigns/{campaignId}/sendNow | Send your SMS campaign immediately
 [**send_sms_report**](SMSCampaignsApi.md#send_sms_report) | **POST** /smsCampaigns/{campaignId}/sendReport | Send report of SMS campaigns
 [**send_test_sms**](SMSCampaignsApi.md#send_test_sms) | **POST** /smsCampaigns/{campaignId}/sendTest | Send an SMS
-[**update_sms_campaign**](SMSCampaignsApi.md#update_sms_campaign) | **PUT** /smsCampaigns/{campaignId} | Updates a SMS campaign
+[**update_sms_campaign**](SMSCampaignsApi.md#update_sms_campaign) | **PUT** /smsCampaigns/{campaignId} | Updates an SMS campaign
 [**update_sms_campaign_status**](SMSCampaignsApi.md#update_sms_campaign_status) | **PUT** /smsCampaigns/{campaignId}/status | Update the campaign status
 
 
 # **create_sms_campaign**
 > CreateModel create_sms_campaign(create_sms_campaign)
 
-Creates a SMS campaign
+Creates an SMS campaign
 
 ### Example
 ```ruby
@@ -39,7 +39,7 @@ create_sms_campaign = SibApiV3Sdk::CreateSmsCampaign.new # CreateSmsCampaign | V
 
 
 begin
-  #Creates a SMS campaign
+  #Creates an SMS campaign
   result = api_instance.create_sms_campaign(create_sms_campaign)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -122,7 +122,7 @@ nil (empty response body)
 # **get_sms_campaign**
 > GetSmsCampaign get_sms_campaign(campaign_id, get_sms_campaign)
 
-Get a SMS campaign
+Get an SMS campaign
 
 ### Example
 ```ruby
@@ -144,7 +144,7 @@ get_sms_campaign = SibApiV3Sdk::GetSmsCampaign.new # GetSmsCampaign | Values to 
 
 
 begin
-  #Get a SMS campaign
+  #Get an SMS campaign
   result = api_instance.get_sms_campaign(campaign_id, get_sms_campaign)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -453,7 +453,7 @@ nil (empty response body)
 # **update_sms_campaign**
 > update_sms_campaign(campaign_id, update_sms_campaign)
 
-Updates a SMS campaign
+Updates an SMS campaign
 
 ### Example
 ```ruby
@@ -475,7 +475,7 @@ update_sms_campaign = SibApiV3Sdk::UpdateSmsCampaign.new # UpdateSmsCampaign | V
 
 
 begin
-  #Updates a SMS campaign
+  #Updates an SMS campaign
   api_instance.update_sms_campaign(campaign_id, update_sms_campaign)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMSCampaignsApi->update_sms_campaign: #{e}"

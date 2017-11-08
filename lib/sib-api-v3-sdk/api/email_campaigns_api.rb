@@ -269,8 +269,8 @@ module SibApiV3Sdk
       if @api_client.config.client_side_validation && opts[:'type'] && !['classic', 'trigger'].include?(opts[:'type'])
         fail ArgumentError, 'invalid value for "type", must be one of classic, trigger'
       end
-      if @api_client.config.client_side_validation && opts[:'status'] && !['suspended', 'archive', 'darchive', 'sent', 'queued', 'replicate', 'draft', 'inProcess'].include?(opts[:'status'])
-        fail ArgumentError, 'invalid value for "status", must be one of suspended, archive, darchive, sent, queued, replicate, draft, inProcess'
+      if @api_client.config.client_side_validation && opts[:'status'] && !['suspended', 'archive', 'sent', 'queued', 'draft', 'inProcess'].include?(opts[:'status'])
+        fail ArgumentError, 'invalid value for "status", must be one of suspended, archive, sent, queued, draft, inProcess'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling EmailCampaignsApi.get_email_campaigns, must be smaller than or equal to 1000.'

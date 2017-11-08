@@ -125,6 +125,60 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
 
+    # Delete an inactive smtp template
+    # 
+    # @param template_id id of the template
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_smtp_template(template_id, opts = {})
+      delete_smtp_template_with_http_info(template_id, opts)
+      return nil
+    end
+
+    # Delete an inactive smtp template
+    # 
+    # @param template_id id of the template
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def delete_smtp_template_with_http_info(template_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SMTPApi.delete_smtp_template ..."
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling SMTPApi.delete_smtp_template"
+      end
+      # resource path
+      local_var_path = "/smtp/templates/{templateId}".sub('{' + 'templateId' + '}', template_id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SMTPApi#delete_smtp_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get your SMTP activity aggregated over a period of time
     # 
     # @param [Hash] opts the optional parameters
