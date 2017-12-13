@@ -15,9 +15,6 @@ require 'date'
 module SibApiV3Sdk
 
   class GetAttributesAttributes
-    # ID of the attribute
-    attr_accessor :id
-
     # Name of the attribute
     attr_accessor :name
 
@@ -58,7 +55,6 @@ module SibApiV3Sdk
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
         :'name' => :'name',
         :'category' => :'category',
         :'type' => :'type',
@@ -70,7 +66,6 @@ module SibApiV3Sdk
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'Integer',
         :'name' => :'String',
         :'category' => :'String',
         :'type' => :'String',
@@ -86,10 +81,6 @@ module SibApiV3Sdk
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
-
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
@@ -119,10 +110,6 @@ module SibApiV3Sdk
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push("invalid value for 'id', id cannot be nil.")
-      end
-
       if @name.nil?
         invalid_properties.push("invalid value for 'name', name cannot be nil.")
       end
@@ -137,7 +124,6 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
       return false if @name.nil?
       return false if @category.nil?
       category_validator = EnumAttributeValidator.new('String', ["normal", "transactional", "category", "calculated", "global"])
@@ -172,7 +158,6 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
           name == o.name &&
           category == o.category &&
           type == o.type &&
@@ -189,7 +174,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, category, type, enumeration, calculated_value].hash
+      [name, category, type, enumeration, calculated_value].hash
     end
 
     # Builds the object from hash

@@ -17,18 +17,22 @@ module SibApiV3Sdk
   class SendSms
     attr_accessor :reference
 
+    attr_accessor :message_id
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'reference' => :'reference'
+        :'reference' => :'reference',
+        :'message_id' => :'messageId'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'reference' => :'String'
+        :'reference' => :'String',
+        :'message_id' => :'Integer'
       }
     end
 
@@ -44,6 +48,10 @@ module SibApiV3Sdk
         self.reference = attributes[:'reference']
       end
 
+      if attributes.has_key?(:'messageId')
+        self.message_id = attributes[:'messageId']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -54,6 +62,10 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'reference', reference cannot be nil.")
       end
 
+      if @message_id.nil?
+        invalid_properties.push("invalid value for 'message_id', message_id cannot be nil.")
+      end
+
       return invalid_properties
     end
 
@@ -61,6 +73,7 @@ module SibApiV3Sdk
     # @return true if the model is valid
     def valid?
       return false if @reference.nil?
+      return false if @message_id.nil?
       return true
     end
 
@@ -69,7 +82,8 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          reference == o.reference
+          reference == o.reference &&
+          message_id == o.message_id
     end
 
     # @see the `==` method
@@ -81,7 +95,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [reference].hash
+      [reference, message_id].hash
     end
 
     # Builds the object from hash

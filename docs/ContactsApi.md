@@ -5,11 +5,11 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_contact_to_list**](ContactsApi.md#add_contact_to_list) | **POST** /contacts/lists/{listId}/contacts/add | Add existing contacts to a list
-[**create_attribute**](ContactsApi.md#create_attribute) | **POST** /contacts/attributes | Creates contact attributes
+[**create_attribute**](ContactsApi.md#create_attribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Creates contact attribute
 [**create_contact**](ContactsApi.md#create_contact) | **POST** /contacts | Create a contact
 [**create_folder**](ContactsApi.md#create_folder) | **POST** /contacts/folders | Create a folder
 [**create_list**](ContactsApi.md#create_list) | **POST** /contacts/lists | Create a list
-[**delete_attribute**](ContactsApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeId} | Deletes an attribute
+[**delete_attribute**](ContactsApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Deletes an attribute
 [**delete_folder**](ContactsApi.md#delete_folder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
 [**delete_list**](ContactsApi.md#delete_list) | **DELETE** /contacts/lists/{listId} | Delete a list
 [**get_attributes**](ContactsApi.md#get_attributes) | **GET** /contacts/attributes | Lists all attributes
@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**import_contacts**](ContactsApi.md#import_contacts) | **POST** /contacts/import | Import contacts
 [**remove_contact_to_list**](ContactsApi.md#remove_contact_to_list) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
 [**request_contact_export**](ContactsApi.md#request_contact_export) | **POST** /contacts/export | Export contacts
+[**update_attribute**](ContactsApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Updates contact attribute
 [**update_contact**](ContactsApi.md#update_contact) | **PUT** /contacts/{email} | Updates a contact
 [**update_folder**](ContactsApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a contact folder
 [**update_list**](ContactsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
@@ -86,9 +87,9 @@ Name | Type | Description  | Notes
 
 
 # **create_attribute**
-> CreateModel create_attribute(create_attribute)
+> create_attribute(attribute_category, attribute_name, create_attribute)
 
-Creates contact attributes
+Creates contact attribute
 
 ### Example
 ```ruby
@@ -104,13 +105,16 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
+attribute_category = "attribute_category_example" # String | Category of the attribute
+
+attribute_name = "attribute_name_example" # String | Name of the attribute
+
 create_attribute = SibApiV3Sdk::CreateAttribute.new # CreateAttribute | Values to create an attribute
 
 
 begin
-  #Creates contact attributes
-  result = api_instance.create_attribute(create_attribute)
-  p result
+  #Creates contact attribute
+  api_instance.create_attribute(attribute_category, attribute_name, create_attribute)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->create_attribute: #{e}"
 end
@@ -120,11 +124,13 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **attribute_category** | **String**| Category of the attribute | 
+ **attribute_name** | **String**| Name of the attribute | 
  **create_attribute** | [**CreateAttribute**](CreateAttribute.md)| Values to create an attribute | 
 
 ### Return type
 
-[**CreateModel**](CreateModel.md)
+nil (empty response body)
 
 ### Authorization
 
@@ -294,7 +300,7 @@ Name | Type | Description  | Notes
 
 
 # **delete_attribute**
-> delete_attribute(attribute_id)
+> delete_attribute(attribute_category, attribute_name)
 
 Deletes an attribute
 
@@ -312,12 +318,14 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-attribute_id = 789 # Integer | id of the attribute
+attribute_category = "attribute_category_example" # String | Category of the attribute
+
+attribute_name = "attribute_name_example" # String | Name of the existing attribute
 
 
 begin
   #Deletes an attribute
-  api_instance.delete_attribute(attribute_id)
+  api_instance.delete_attribute(attribute_category, attribute_name)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->delete_attribute: #{e}"
 end
@@ -327,7 +335,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attribute_id** | **Integer**| id of the attribute | 
+ **attribute_category** | **String**| Category of the attribute | 
+ **attribute_name** | **String**| Name of the existing attribute | 
 
 ### Return type
 
@@ -1136,6 +1145,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreatedProcessId**](CreatedProcessId.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **update_attribute**
+> update_attribute(attribute_category, attribute_name, update_attribute)
+
+Updates contact attribute
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::ContactsApi.new
+
+attribute_category = "attribute_category_example" # String | Category of the attribute
+
+attribute_name = "attribute_name_example" # String | Name of the existing attribute
+
+update_attribute = SibApiV3Sdk::UpdateAttribute.new # UpdateAttribute | Values to update an attribute
+
+
+begin
+  #Updates contact attribute
+  api_instance.update_attribute(attribute_category, attribute_name, update_attribute)
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling ContactsApi->update_attribute: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **attribute_category** | **String**| Category of the attribute | 
+ **attribute_name** | **String**| Name of the existing attribute | 
+ **update_attribute** | [**UpdateAttribute**](UpdateAttribute.md)| Values to update an attribute | 
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 

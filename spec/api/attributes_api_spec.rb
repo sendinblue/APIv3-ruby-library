@@ -33,11 +33,13 @@ describe 'AttributesApi' do
   end
 
   # unit tests for create_attribute
-  # Creates contact attributes
+  # Creates contact attribute
   # 
+  # @param attribute_category Category of the attribute
+  # @param attribute_name Name of the attribute
   # @param create_attribute Values to create an attribute
   # @param [Hash] opts the optional parameters
-  # @return [CreateModel]
+  # @return [nil]
   describe 'create_attribute test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -47,7 +49,8 @@ describe 'AttributesApi' do
   # unit tests for delete_attribute
   # Deletes an attribute
   # 
-  # @param attribute_id id of the attribute
+  # @param attribute_category Category of the attribute
+  # @param attribute_name Name of the existing attribute
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_attribute test' do
@@ -62,6 +65,20 @@ describe 'AttributesApi' do
   # @param [Hash] opts the optional parameters
   # @return [GetAttributes]
   describe 'get_attributes test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_attribute
+  # Updates contact attribute
+  # 
+  # @param attribute_category Category of the attribute
+  # @param attribute_name Name of the existing attribute
+  # @param update_attribute Values to update an attribute
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'update_attribute test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

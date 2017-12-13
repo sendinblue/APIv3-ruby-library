@@ -15,19 +15,13 @@ require 'date'
 module SibApiV3Sdk
 
   class CreateAttribute
-    # Attribute categorisation.
-    attr_accessor :category
-
-    # Name of the attribute
-    attr_accessor :name
-
-    # Value of the attribute
+    # Value of the attribute. Use only if the attribute's category is calculated or global
     attr_accessor :value
 
     # Values that the attribute can take. Use only if the attribute's category is category
-    attr_accessor :enumemaration
+    attr_accessor :enumeration
 
-    # Type of the attribute
+    # Type of the attribute. Use only if the attribute's category is normal, category or transactional ( type 'id' only available if the category is 'transactional' attribute & type 'category' only available if the category is 'category' attribute )
     attr_accessor :type
 
     class EnumAttributeValidator
@@ -55,10 +49,8 @@ module SibApiV3Sdk
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'category' => :'category',
-        :'name' => :'name',
         :'value' => :'value',
-        :'enumemaration' => :'enumemaration',
+        :'enumeration' => :'enumeration',
         :'type' => :'type'
       }
     end
@@ -66,10 +58,8 @@ module SibApiV3Sdk
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'category' => :'String',
-        :'name' => :'String',
         :'value' => :'String',
-        :'enumemaration' => :'Array<CreateAttributeEnumemaration>',
+        :'enumeration' => :'Array<CreateAttributeEnumeration>',
         :'type' => :'String'
       }
     end
@@ -82,21 +72,13 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'category')
-        self.category = attributes[:'category']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
       if attributes.has_key?(:'value')
         self.value = attributes[:'value']
       end
 
-      if attributes.has_key?(:'enumemaration')
-        if (value = attributes[:'enumemaration']).is_a?(Array)
-          self.enumemaration = value
+      if attributes.has_key?(:'enumeration')
+        if (value = attributes[:'enumeration']).is_a?(Array)
+          self.enumeration = value
         end
       end
 
@@ -110,48 +92,21 @@ module SibApiV3Sdk
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @category.nil?
-        invalid_properties.push("invalid value for 'category', category cannot be nil.")
-      end
-
-      if @name.nil?
-        invalid_properties.push("invalid value for 'name', name cannot be nil.")
-      end
-
-      if @value.nil?
-        invalid_properties.push("invalid value for 'value', value cannot be nil.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @category.nil?
-      category_validator = EnumAttributeValidator.new('String', ["normal", "transactional", "category", "calculated", "global"])
-      return false unless category_validator.valid?(@category)
-      return false if @name.nil?
-      return false if @value.nil?
-      type_validator = EnumAttributeValidator.new('String', ["text", "date", "float", "id"])
+      type_validator = EnumAttributeValidator.new('String', ["text", "date", "float", "id", "category"])
       return false unless type_validator.valid?(@type)
       return true
     end
 
     # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] category Object to be assigned
-    def category=(category)
-      validator = EnumAttributeValidator.new('String', ["normal", "transactional", "category", "calculated", "global"])
-      unless validator.valid?(category)
-        fail ArgumentError, "invalid value for 'category', must be one of #{validator.allowable_values}."
-      end
-      @category = category
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ["text", "date", "float", "id"])
+      validator = EnumAttributeValidator.new('String', ["text", "date", "float", "id", "category"])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for 'type', must be one of #{validator.allowable_values}."
       end
@@ -163,10 +118,8 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          category == o.category &&
-          name == o.name &&
           value == o.value &&
-          enumemaration == o.enumemaration &&
+          enumeration == o.enumeration &&
           type == o.type
     end
 
@@ -179,7 +132,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [category, name, value, enumemaration, type].hash
+      [value, enumeration, type].hash
     end
 
     # Builds the object from hash
