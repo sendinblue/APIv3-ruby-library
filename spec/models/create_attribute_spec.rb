@@ -32,29 +32,13 @@ describe 'CreateAttribute' do
       expect(@instance).to be_instance_of(SibApiV3Sdk::CreateAttribute)
     end
   end
-  describe 'test attribute "category"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["normal", "transactional", "category", "calculated", "global"])
-       #validator.allowable_values.each do |value|
-       #  expect { @instance.category = value }.not_to raise_error
-       #end
-    end
-  end
-
-  describe 'test attribute "name"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   describe 'test attribute "value"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "enumemaration"' do
+  describe 'test attribute "enumeration"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -63,7 +47,7 @@ describe 'CreateAttribute' do
   describe 'test attribute "type"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["text", "date", "float", "id"])
+       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["text", "date", "float", "id", "category"])
        #validator.allowable_values.each do |value|
        #  expect { @instance.type = value }.not_to raise_error
        #end

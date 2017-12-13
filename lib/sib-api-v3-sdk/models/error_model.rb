@@ -96,7 +96,7 @@ module SibApiV3Sdk
     # @return true if the model is valid
     def valid?
       return false if @code.nil?
-      code_validator = EnumAttributeValidator.new('String', ["invalid_parameter", "missing_parameter", "out_of_range", "campaign_processing", "campaign_sent", "document_not_found", "reseller_permission", "not_enough_credits", "permission_denied", "duplicate_parameter", "method_not_allowed", "unauthorized", "account_under_validation", "not_acceptable"])
+      code_validator = EnumAttributeValidator.new('String', ["invalid_parameter", "missing_parameter", "out_of_range", "campaign_processing", "campaign_sent", "document_not_found", "reseller_permission", "not_enough_credits", "permission_denied", "duplicate_parameter", "duplicate_request", "method_not_allowed", "unauthorized", "account_under_validation", "not_acceptable"])
       return false unless code_validator.valid?(@code)
       return false if @message.nil?
       return true
@@ -105,7 +105,7 @@ module SibApiV3Sdk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] code Object to be assigned
     def code=(code)
-      validator = EnumAttributeValidator.new('String', ["invalid_parameter", "missing_parameter", "out_of_range", "campaign_processing", "campaign_sent", "document_not_found", "reseller_permission", "not_enough_credits", "permission_denied", "duplicate_parameter", "method_not_allowed", "unauthorized", "account_under_validation", "not_acceptable"])
+      validator = EnumAttributeValidator.new('String', ["invalid_parameter", "missing_parameter", "out_of_range", "campaign_processing", "campaign_sent", "document_not_found", "reseller_permission", "not_enough_credits", "permission_denied", "duplicate_parameter", "duplicate_request", "method_not_allowed", "unauthorized", "account_under_validation", "not_acceptable"])
       unless validator.valid?(code)
         fail ArgumentError, "invalid value for 'code', must be one of #{validator.allowable_values}."
       end
