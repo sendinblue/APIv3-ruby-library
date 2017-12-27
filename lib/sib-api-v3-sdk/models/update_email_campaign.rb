@@ -29,7 +29,7 @@ module SibApiV3Sdk
     # Url which contents the body of the email message. REQUIRED if htmlContent is empty
     attr_accessor :html_url
 
-    # Date and time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # UTC date-time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :scheduled_at
 
     # Subject of the campaign

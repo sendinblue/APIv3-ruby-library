@@ -27,7 +27,7 @@ module SibApiV3Sdk
     # Content of the SMS Campaign
     attr_accessor :content
 
-    # Date on which SMS campaign is scheduled. Should be in YYYY-MM-DDTHH:mm:ss.SSSZ format
+    # UTC date-time on which SMS campaign is scheduled. Should be in YYYY-MM-DDTHH:mm:ss.SSSZ format
     attr_accessor :scheduled_at
 
     # Retrieved the status of test SMS sending. (true=Test SMS has been sent  false=Test SMS has not been sent)
@@ -36,10 +36,10 @@ module SibApiV3Sdk
     # Sender of the SMS Campaign
     attr_accessor :sender
 
-    # Creation date of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # Creation UTC date-time of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :created_at
 
-    # Date of last modification of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # UTC date-time of last modification of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :modified_at
 
     class EnumAttributeValidator

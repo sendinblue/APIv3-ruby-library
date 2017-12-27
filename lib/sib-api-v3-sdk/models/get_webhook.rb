@@ -29,10 +29,10 @@ module SibApiV3Sdk
     # Type of webhook (marketing or transac)
     attr_accessor :type
 
-    # Creation date of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # Creation UTC date-time of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :created_at
 
-    # Last modification date of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # Last modification UTC date-time of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :modified_at
 
     class EnumAttributeValidator

@@ -18,7 +18,7 @@ module SibApiV3Sdk
     # Number of clicks on this link for the campaign
     attr_accessor :count
 
-    # Date of the event
+    # UTC date-time of the event
     attr_accessor :event_time
 
     # IP from which the user has clicked on the link

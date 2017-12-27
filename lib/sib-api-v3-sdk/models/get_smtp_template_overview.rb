@@ -44,10 +44,10 @@ module SibApiV3Sdk
     # HTML content of the template
     attr_accessor :html_content
 
-    # Creation date of the template (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # Creation UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :created_at
 
-    # Last modification date of the template (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # Last modification UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :modified_at
 
 

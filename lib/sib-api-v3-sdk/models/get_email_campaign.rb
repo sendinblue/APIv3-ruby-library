@@ -30,7 +30,7 @@ module SibApiV3Sdk
     # Status of the campaign
     attr_accessor :status
 
-    # Date on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # UTC date-time on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :scheduled_at
 
     # Retrieved the status of test email sending. (true=Test email has been sent  false=Test email has not been sent)
@@ -59,10 +59,10 @@ module SibApiV3Sdk
     # Tag of the campaign
     attr_accessor :tag
 
-    # Creation date of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # Creation UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :created_at
 
-    # Date of last modification of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # UTC date-time of last modification of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :modified_at
 
     # Status of inline image. inlineImageActivation = false means image can’t be embedded, & inlineImageActivation = true means image can be embedded, in the email.

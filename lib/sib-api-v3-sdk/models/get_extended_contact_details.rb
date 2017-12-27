@@ -27,7 +27,7 @@ module SibApiV3Sdk
     # Blacklist status for SMS campaigns (true=blacklisted, false=not blacklisted)
     attr_accessor :sms_blacklisted
 
-    # Last modification date of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :modified_at
 
     attr_accessor :list_ids
