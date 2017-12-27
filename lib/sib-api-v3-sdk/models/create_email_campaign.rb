@@ -29,7 +29,7 @@ module SibApiV3Sdk
     # Mandatory if htmlContent is empty. Url to the message (HTML)
     attr_accessor :html_url
 
-    # Sending date and time (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # Sending UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :scheduled_at
 
     # Subject of the campaign

@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **String** | Email address which generates the event | 
-**date** | **DateTime** | Date on which the event has been generated | 
+**date** | **DateTime** | UTC date-time on which the event has been generated | 
 **subject** | **String** | Subject of the event | [optional] 
 **message_id** | **String** | Message ID which generated the event | 
 **event** | **String** | Event which occurred | 

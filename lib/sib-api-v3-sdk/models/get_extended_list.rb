@@ -30,7 +30,7 @@ module SibApiV3Sdk
     # ID of the folder
     attr_accessor :folder_id
 
-    # Creation Date of the list (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # Creation UTC date-time of the list (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :created_at
 
     attr_accessor :campaign_stats

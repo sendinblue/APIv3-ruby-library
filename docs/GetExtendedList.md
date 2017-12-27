@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **total_blacklisted** | **Integer** | Number of blacklisted contacts in the list | 
 **total_subscribers** | **Integer** | Number of contacts in the list | 
 **folder_id** | **Integer** | ID of the folder | 
-**created_at** | **DateTime** | Creation Date of the list (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
+**created_at** | **DateTime** | Creation UTC date-time of the list (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
 **campaign_stats** | [**Array&lt;GetExtendedListCampaignStats&gt;**](GetExtendedListCampaignStats.md) |  | [optional] 
 **dynamic_list** | **BOOLEAN** | Status telling if the list is dynamic or not (true&#x3D;dynamic, false&#x3D;not dynamic) | [optional] 
 

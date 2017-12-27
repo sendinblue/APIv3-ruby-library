@@ -18,7 +18,7 @@ module SibApiV3Sdk
     # ID of the campaign which generated the event
     attr_accessor :campaign_id
 
-    # Date of the event
+    # UTC date-time of the event
     attr_accessor :event_time
 
     # IP from which the user has unsubscribed

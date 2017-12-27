@@ -30,7 +30,7 @@ module SibApiV3Sdk
     # Status of the campaign
     attr_accessor :status
 
-    # Date on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # UTC date-time on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :scheduled_at
 
     class EnumAttributeValidator

@@ -652,7 +652,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page (default to 50)
     # @option opts [Integer] :offset Index of the first document of the page (default to 0)
-    # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
     # @return [GetContacts]
     def get_contacts(opts = {})
       data, _status_code, _headers = get_contacts_with_http_info(opts)
@@ -664,7 +664,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [Integer] :offset Index of the first document of the page
-    # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
     # @return [Array<(GetContacts, Fixnum, Hash)>] GetContacts data, response status code and response headers
     def get_contacts_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -713,7 +713,7 @@ module SibApiV3Sdk
     # 
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
     # @option opts [Integer] :limit Number of documents per page (default to 50)
     # @option opts [Integer] :offset Index of the first document of the page (default to 0)
     # @return [GetContacts]
@@ -726,7 +726,7 @@ module SibApiV3Sdk
     # 
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [Integer] :offset Index of the first document of the page
     # @return [Array<(GetContacts, Fixnum, Hash)>] GetContacts data, response status code and response headers

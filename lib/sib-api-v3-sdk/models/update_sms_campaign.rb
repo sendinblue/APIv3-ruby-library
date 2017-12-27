@@ -26,7 +26,7 @@ module SibApiV3Sdk
 
     attr_accessor :recipients
 
-    # Date and time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    # UTC date-time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :scheduled_at
 
 

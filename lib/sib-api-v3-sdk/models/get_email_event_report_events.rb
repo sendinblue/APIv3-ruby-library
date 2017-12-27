@@ -18,7 +18,7 @@ module SibApiV3Sdk
     # Email address which generates the event
     attr_accessor :email
 
-    # Date on which the event has been generated
+    # UTC date-time on which the event has been generated
     attr_accessor :date
 
     # Subject of the event

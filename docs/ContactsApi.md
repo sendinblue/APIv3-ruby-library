@@ -627,7 +627,7 @@ api_instance = SibApiV3Sdk::ContactsApi.new
 opts = { 
   limit: 50, # Integer | Number of documents per page
   offset: 0, # Integer | Index of the first document of the page
-  modified_since: DateTime.parse("2013-10-20T19:20:30+01:00") # DateTime | Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
+  modified_since: DateTime.parse("2013-10-20T19:20:30+01:00") # DateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
 }
 
 begin
@@ -645,7 +645,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Number of documents per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
- **modified_since** | **DateTime**| Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) | [optional] 
+ **modified_since** | **DateTime**| Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) | [optional] 
 
 ### Return type
 
@@ -684,7 +684,7 @@ api_instance = SibApiV3Sdk::ContactsApi.new
 list_id = 789 # Integer | Id of the list
 
 opts = { 
-  modified_since: DateTime.parse("2013-10-20T19:20:30+01:00"), # DateTime | Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
+  modified_since: DateTime.parse("2013-10-20T19:20:30+01:00"), # DateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ)
   limit: 50, # Integer | Number of documents per page
   offset: 0 # Integer | Index of the first document of the page
 }
@@ -703,7 +703,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **Integer**| Id of the list | 
- **modified_since** | **DateTime**| Filter (urlencoded) the contacts modified after a given date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) | [optional] 
+ **modified_since** | **DateTime**| Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) | [optional] 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
 

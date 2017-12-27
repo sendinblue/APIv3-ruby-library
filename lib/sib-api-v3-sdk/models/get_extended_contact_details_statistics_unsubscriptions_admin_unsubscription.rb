@@ -15,7 +15,7 @@ require 'date'
 module SibApiV3Sdk
 
   class GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription
-    # Date of the event
+    # UTC date-time of the event
     attr_accessor :event_time
 
     # IP from which the user has been unsubscribed
