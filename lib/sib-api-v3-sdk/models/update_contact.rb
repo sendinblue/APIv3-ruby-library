@@ -61,7 +61,7 @@ module SibApiV3Sdk
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
       if attributes.has_key?(:'attributes')
-        if (value = attributes[:'attributes']).is_a?(Array)
+        if (value = attributes[:'attributes']).is_a?(Hash)
           self.attributes = value
         end
       end
