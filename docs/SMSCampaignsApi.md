@@ -5,7 +5,7 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_sms_campaign**](SMSCampaignsApi.md#create_sms_campaign) | **POST** /smsCampaigns | Creates an SMS campaign
-[**delete_sms_campaigns**](SMSCampaignsApi.md#delete_sms_campaigns) | **DELETE** /smsCampaigns/{campaignId} | Delete the SMS campaign
+[**delete_sms_campaign**](SMSCampaignsApi.md#delete_sms_campaign) | **DELETE** /smsCampaigns/{campaignId} | Delete the SMS campaign
 [**get_sms_campaign**](SMSCampaignsApi.md#get_sms_campaign) | **GET** /smsCampaigns/{campaignId} | Get an SMS campaign
 [**get_sms_campaigns**](SMSCampaignsApi.md#get_sms_campaigns) | **GET** /smsCampaigns | Returns the informations for all your created SMS campaigns
 [**request_sms_recipient_export**](SMSCampaignsApi.md#request_sms_recipient_export) | **POST** /smsCampaigns/{campaignId}/exportRecipients | Exports the recipients of the specified campaign.
@@ -68,8 +68,8 @@ Name | Type | Description  | Notes
 
 
 
-# **delete_sms_campaigns**
-> delete_sms_campaigns(campaign_id)
+# **delete_sms_campaign**
+> delete_sms_campaign(campaign_id)
 
 Delete the SMS campaign
 
@@ -92,9 +92,9 @@ campaign_id = 789 # Integer | id of the SMS campaign
 
 begin
   #Delete the SMS campaign
-  api_instance.delete_sms_campaigns(campaign_id)
+  api_instance.delete_sms_campaign(campaign_id)
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMSCampaignsApi->delete_sms_campaigns: #{e}"
+  puts "Exception when calling SMSCampaignsApi->delete_sms_campaign: #{e}"
 end
 ```
 
@@ -255,7 +255,7 @@ api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 campaign_id = 789 # Integer | id of the campaign
 
 opts = { 
-  recipient_export: SibApiV3Sdk::RequestSMSRecipientExport.new # RequestSMSRecipientExport | Values to send for a recipient export request
+  recipient_export: SibApiV3Sdk::RequestSmsRecipientExport.new # RequestSmsRecipientExport | Values to send for a recipient export request
 }
 
 begin
@@ -272,7 +272,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaign_id** | **Integer**| id of the campaign | 
- **recipient_export** | [**RequestSMSRecipientExport**](RequestSMSRecipientExport.md)| Values to send for a recipient export request | [optional] 
+ **recipient_export** | [**RequestSmsRecipientExport**](RequestSmsRecipientExport.md)| Values to send for a recipient export request | [optional] 
 
 ### Return type
 

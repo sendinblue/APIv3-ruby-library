@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **first_name** | **String** | First Name | 
 **last_name** | **String** | Last Name | 
 **company_name** | **String** | Name of the company | 
-**address** | [**GetExtendedClientAddress**](GetExtendedClientAddress.md) |  | [optional] 
+**address** | [**GetExtendedClientAddress**](GetExtendedClientAddress.md) |  | 
 
 

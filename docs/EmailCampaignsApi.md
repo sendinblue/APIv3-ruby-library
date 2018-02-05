@@ -5,7 +5,7 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_email_campaign**](EmailCampaignsApi.md#create_email_campaign) | **POST** /emailCampaigns | Create an email campaign
-[**delete_email_campaigns**](EmailCampaignsApi.md#delete_email_campaigns) | **DELETE** /emailCampaigns/{campaignId} | Delete an email campaign
+[**delete_email_campaign**](EmailCampaignsApi.md#delete_email_campaign) | **DELETE** /emailCampaigns/{campaignId} | Delete an email campaign
 [**email_export_recipients**](EmailCampaignsApi.md#email_export_recipients) | **POST** /emailCampaigns/{campaignId}/exportRecipients | Export the recipients of a campaign
 [**get_email_campaign**](EmailCampaignsApi.md#get_email_campaign) | **GET** /emailCampaigns/{campaignId} | Get campaign informations
 [**get_email_campaigns**](EmailCampaignsApi.md#get_email_campaigns) | **GET** /emailCampaigns | Return all your created campaigns
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**send_report**](EmailCampaignsApi.md#send_report) | **POST** /emailCampaigns/{campaignId}/sendReport | Send the report of a campaigns
 [**send_test_email**](EmailCampaignsApi.md#send_test_email) | **POST** /emailCampaigns/{campaignId}/sendTest | Send an email campaign to your test list
 [**update_campaign_status**](EmailCampaignsApi.md#update_campaign_status) | **PUT** /emailCampaigns/{campaignId}/status | Update a campaign status
-[**update_email_campaigns**](EmailCampaignsApi.md#update_email_campaigns) | **PUT** /emailCampaigns/{campaignId} | Update a campaign
+[**update_email_campaign**](EmailCampaignsApi.md#update_email_campaign) | **PUT** /emailCampaigns/{campaignId} | Update a campaign
 
 
 # **create_email_campaign**
@@ -68,8 +68,8 @@ Name | Type | Description  | Notes
 
 
 
-# **delete_email_campaigns**
-> delete_email_campaigns(campaign_id)
+# **delete_email_campaign**
+> delete_email_campaign(campaign_id)
 
 Delete an email campaign
 
@@ -92,9 +92,9 @@ campaign_id = 789 # Integer | id of the campaign
 
 begin
   #Delete an email campaign
-  api_instance.delete_email_campaigns(campaign_id)
+  api_instance.delete_email_campaign(campaign_id)
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling EmailCampaignsApi->delete_email_campaigns: #{e}"
+  puts "Exception when calling EmailCampaignsApi->delete_email_campaign: #{e}"
 end
 ```
 
@@ -501,8 +501,8 @@ nil (empty response body)
 
 
 
-# **update_email_campaigns**
-> update_email_campaigns(campaign_id, email_campaign)
+# **update_email_campaign**
+> update_email_campaign(campaign_id, email_campaign)
 
 Update a campaign
 
@@ -527,9 +527,9 @@ email_campaign = SibApiV3Sdk::UpdateEmailCampaign.new # UpdateEmailCampaign | Va
 
 begin
   #Update a campaign
-  api_instance.update_email_campaigns(campaign_id, email_campaign)
+  api_instance.update_email_campaign(campaign_id, email_campaign)
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling EmailCampaignsApi->update_email_campaigns: #{e}"
+  puts "Exception when calling EmailCampaignsApi->update_email_campaign: #{e}"
 end
 ```
 
