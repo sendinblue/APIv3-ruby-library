@@ -169,14 +169,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'event', event cannot be nil.")
       end
 
-      if @tag.nil?
-        invalid_properties.push("invalid value for 'tag', tag cannot be nil.")
-      end
-
-      if @from.nil?
-        invalid_properties.push("invalid value for 'from', from cannot be nil.")
-      end
-
       return invalid_properties
     end
 
@@ -189,8 +181,6 @@ module SibApiV3Sdk
       return false if @event.nil?
       event_validator = EnumAttributeValidator.new('String', ["bounces", "hardBounces", "softBounces", "delivered", "spam", "requests", "opened", "clicks", "invalid", "deferred", "blocked"])
       return false unless event_validator.valid?(@event)
-      return false if @tag.nil?
-      return false if @from.nil?
       return true
     end
 
