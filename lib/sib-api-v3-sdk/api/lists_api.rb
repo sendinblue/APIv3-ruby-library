@@ -443,8 +443,8 @@ module SibApiV3Sdk
     # @param contact_emails Emails adresses of the contact
     # @param [Hash] opts the optional parameters
     # @return [PostContactInfo]
-    def remove_contact_to_list(list_id, contact_emails, opts = {})
-      data, _status_code, _headers = remove_contact_to_list_with_http_info(list_id, contact_emails, opts)
+    def remove_contact_from_list(list_id, contact_emails, opts = {})
+      data, _status_code, _headers = remove_contact_from_list_with_http_info(list_id, contact_emails, opts)
       return data
     end
 
@@ -454,17 +454,17 @@ module SibApiV3Sdk
     # @param contact_emails Emails adresses of the contact
     # @param [Hash] opts the optional parameters
     # @return [Array<(PostContactInfo, Fixnum, Hash)>] PostContactInfo data, response status code and response headers
-    def remove_contact_to_list_with_http_info(list_id, contact_emails, opts = {})
+    def remove_contact_from_list_with_http_info(list_id, contact_emails, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ListsApi.remove_contact_to_list ..."
+        @api_client.config.logger.debug "Calling API: ListsApi.remove_contact_from_list ..."
       end
       # verify the required parameter 'list_id' is set
       if @api_client.config.client_side_validation && list_id.nil?
-        fail ArgumentError, "Missing the required parameter 'list_id' when calling ListsApi.remove_contact_to_list"
+        fail ArgumentError, "Missing the required parameter 'list_id' when calling ListsApi.remove_contact_from_list"
       end
       # verify the required parameter 'contact_emails' is set
       if @api_client.config.client_side_validation && contact_emails.nil?
-        fail ArgumentError, "Missing the required parameter 'contact_emails' when calling ListsApi.remove_contact_to_list"
+        fail ArgumentError, "Missing the required parameter 'contact_emails' when calling ListsApi.remove_contact_from_list"
       end
       # resource path
       local_var_path = "/contacts/lists/{listId}/contacts/remove".sub('{' + 'listId' + '}', list_id.to_s)
@@ -493,7 +493,7 @@ module SibApiV3Sdk
         :auth_names => auth_names,
         :return_type => 'PostContactInfo')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ListsApi#remove_contact_to_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ListsApi#remove_contact_from_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

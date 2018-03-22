@@ -103,7 +103,7 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::ContactsApi* | [**get_list**](docs/ContactsApi.md#get_list) | **GET** /contacts/lists/{listId} | Get the details of a list
 *SibApiV3Sdk::ContactsApi* | [**get_lists**](docs/ContactsApi.md#get_lists) | **GET** /contacts/lists | Get all the lists
 *SibApiV3Sdk::ContactsApi* | [**import_contacts**](docs/ContactsApi.md#import_contacts) | **POST** /contacts/import | Import contacts
-*SibApiV3Sdk::ContactsApi* | [**remove_contact_to_list**](docs/ContactsApi.md#remove_contact_to_list) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
+*SibApiV3Sdk::ContactsApi* | [**remove_contact_from_list**](docs/ContactsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
 *SibApiV3Sdk::ContactsApi* | [**request_contact_export**](docs/ContactsApi.md#request_contact_export) | **POST** /contacts/export | Export contacts
 *SibApiV3Sdk::ContactsApi* | [**update_attribute**](docs/ContactsApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Updates contact attribute
 *SibApiV3Sdk::ContactsApi* | [**update_contact**](docs/ContactsApi.md#update_contact) | **PUT** /contacts/{email} | Updates a contact
@@ -132,19 +132,19 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::ListsApi* | [**get_folder_lists**](docs/ListsApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get the lists in a folder
 *SibApiV3Sdk::ListsApi* | [**get_list**](docs/ListsApi.md#get_list) | **GET** /contacts/lists/{listId} | Get the details of a list
 *SibApiV3Sdk::ListsApi* | [**get_lists**](docs/ListsApi.md#get_lists) | **GET** /contacts/lists | Get all the lists
-*SibApiV3Sdk::ListsApi* | [**remove_contact_to_list**](docs/ListsApi.md#remove_contact_to_list) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
+*SibApiV3Sdk::ListsApi* | [**remove_contact_from_list**](docs/ListsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
 *SibApiV3Sdk::ListsApi* | [**update_list**](docs/ListsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
 *SibApiV3Sdk::ProcessApi* | [**get_process**](docs/ProcessApi.md#get_process) | **GET** /processes/{processId} | Return the informations for a process
 *SibApiV3Sdk::ProcessApi* | [**get_processes**](docs/ProcessApi.md#get_processes) | **GET** /processes | Return all the processes for your account
-*SibApiV3Sdk::ResellerApi* | [**add_credits**](docs/ResellerApi.md#add_credits) | **POST** /reseller/children/{childId}/credits/add | Add Email and/or SMS credits to a specific child account
-*SibApiV3Sdk::ResellerApi* | [**associate_ip_to_child**](docs/ResellerApi.md#associate_ip_to_child) | **POST** /reseller/children/{childId}/ips/associate | Associate a dedicated IP to the child
+*SibApiV3Sdk::ResellerApi* | [**add_credits**](docs/ResellerApi.md#add_credits) | **POST** /reseller/children/{childAuthKey}/credits/add | Add Email and/or SMS credits to a specific child account
+*SibApiV3Sdk::ResellerApi* | [**associate_ip_to_child**](docs/ResellerApi.md#associate_ip_to_child) | **POST** /reseller/children/{childAuthKey}/ips/associate | Associate a dedicated IP to the child
 *SibApiV3Sdk::ResellerApi* | [**create_reseller_child**](docs/ResellerApi.md#create_reseller_child) | **POST** /reseller/children | Creates a reseller child
-*SibApiV3Sdk::ResellerApi* | [**delete_reseller_child**](docs/ResellerApi.md#delete_reseller_child) | **DELETE** /reseller/children/{childId} | Deletes a single reseller child based on the childId supplied
-*SibApiV3Sdk::ResellerApi* | [**dissociate_ip_from_child**](docs/ResellerApi.md#dissociate_ip_from_child) | **POST** /reseller/children/{childId}/ips/dissociate | Dissociate a dedicated IP to the child
-*SibApiV3Sdk::ResellerApi* | [**get_child_info**](docs/ResellerApi.md#get_child_info) | **GET** /reseller/children/{childId} | Gets the info about a specific child account
+*SibApiV3Sdk::ResellerApi* | [**delete_reseller_child**](docs/ResellerApi.md#delete_reseller_child) | **DELETE** /reseller/children/{childAuthKey} | Deletes a single reseller child based on the childAuthKey supplied
+*SibApiV3Sdk::ResellerApi* | [**dissociate_ip_from_child**](docs/ResellerApi.md#dissociate_ip_from_child) | **POST** /reseller/children/{childAuthKey}/ips/dissociate | Dissociate a dedicated IP to the child
+*SibApiV3Sdk::ResellerApi* | [**get_child_info**](docs/ResellerApi.md#get_child_info) | **GET** /reseller/children/{childAuthKey} | Gets the info about a specific child account
 *SibApiV3Sdk::ResellerApi* | [**get_reseller_childs**](docs/ResellerApi.md#get_reseller_childs) | **GET** /reseller/children | Gets the list of all reseller's children accounts
-*SibApiV3Sdk::ResellerApi* | [**remove_credits**](docs/ResellerApi.md#remove_credits) | **POST** /reseller/children/{childId}/credits/remove | Remove Email and/or SMS credits from a specific child account
-*SibApiV3Sdk::ResellerApi* | [**update_reseller_child**](docs/ResellerApi.md#update_reseller_child) | **PUT** /reseller/children/{childId} | Updates infos of reseller's child based on the childId supplied
+*SibApiV3Sdk::ResellerApi* | [**remove_credits**](docs/ResellerApi.md#remove_credits) | **POST** /reseller/children/{childAuthKey}/credits/remove | Remove Email and/or SMS credits from a specific child account
+*SibApiV3Sdk::ResellerApi* | [**update_reseller_child**](docs/ResellerApi.md#update_reseller_child) | **PUT** /reseller/children/{childAuthKey} | Updates infos of reseller's child based on the childAuthKey supplied
 *SibApiV3Sdk::SMSCampaignsApi* | [**create_sms_campaign**](docs/SMSCampaignsApi.md#create_sms_campaign) | **POST** /smsCampaigns | Creates an SMS campaign
 *SibApiV3Sdk::SMSCampaignsApi* | [**delete_sms_campaign**](docs/SMSCampaignsApi.md#delete_sms_campaign) | **DELETE** /smsCampaigns/{campaignId} | Delete the SMS campaign
 *SibApiV3Sdk::SMSCampaignsApi* | [**get_sms_campaign**](docs/SMSCampaignsApi.md#get_sms_campaign) | **GET** /smsCampaigns/{campaignId} | Get an SMS campaign
@@ -186,8 +186,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [SibApiV3Sdk::AddContactToList](docs/AddContactToList.md)
  - [SibApiV3Sdk::AddCredits](docs/AddCredits.md)
- - [SibApiV3Sdk::AddRemoveContactToList](docs/AddRemoveContactToList.md)
  - [SibApiV3Sdk::CreateAttribute](docs/CreateAttribute.md)
  - [SibApiV3Sdk::CreateAttributeEnumeration](docs/CreateAttributeEnumeration.md)
  - [SibApiV3Sdk::CreateChild](docs/CreateChild.md)
@@ -197,6 +197,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::CreateEmailCampaignSender](docs/CreateEmailCampaignSender.md)
  - [SibApiV3Sdk::CreateList](docs/CreateList.md)
  - [SibApiV3Sdk::CreateModel](docs/CreateModel.md)
+ - [SibApiV3Sdk::CreateReseller](docs/CreateReseller.md)
  - [SibApiV3Sdk::CreateSender](docs/CreateSender.md)
  - [SibApiV3Sdk::CreateSenderIps](docs/CreateSenderIps.md)
  - [SibApiV3Sdk::CreateSenderModel](docs/CreateSenderModel.md)
@@ -223,8 +224,9 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetCampaignRecipients](docs/GetCampaignRecipients.md)
  - [SibApiV3Sdk::GetCampaignStats](docs/GetCampaignStats.md)
  - [SibApiV3Sdk::GetChildInfoApiKeys](docs/GetChildInfoApiKeys.md)
+ - [SibApiV3Sdk::GetChildInfoApiKeysV2](docs/GetChildInfoApiKeysV2.md)
+ - [SibApiV3Sdk::GetChildInfoApiKeysV3](docs/GetChildInfoApiKeysV3.md)
  - [SibApiV3Sdk::GetChildInfoCredits](docs/GetChildInfoCredits.md)
- - [SibApiV3Sdk::GetChildInfoIps](docs/GetChildInfoIps.md)
  - [SibApiV3Sdk::GetChildInfoStatistics](docs/GetChildInfoStatistics.md)
  - [SibApiV3Sdk::GetChildrenList](docs/GetChildrenList.md)
  - [SibApiV3Sdk::GetClient](docs/GetClient.md)
@@ -289,6 +291,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::RemainingCreditModel](docs/RemainingCreditModel.md)
  - [SibApiV3Sdk::RemainingCreditModelChild](docs/RemainingCreditModelChild.md)
  - [SibApiV3Sdk::RemainingCreditModelReseller](docs/RemainingCreditModelReseller.md)
+ - [SibApiV3Sdk::RemoveContactFromList](docs/RemoveContactFromList.md)
  - [SibApiV3Sdk::RemoveCredits](docs/RemoveCredits.md)
  - [SibApiV3Sdk::RequestContactExport](docs/RequestContactExport.md)
  - [SibApiV3Sdk::RequestContactImport](docs/RequestContactImport.md)

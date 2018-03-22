@@ -74,6 +74,10 @@ module SibApiV3Sdk
     # FOR TRIGGER ONLY ! Type of trigger campaign.recurring = false means contact can receive the same Trigger campaign only once, & recurring = true means contact can receive the same Trigger campaign several times
     attr_accessor :recurring
 
+    attr_accessor :recipients
+
+    attr_accessor :statistics
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -118,7 +122,9 @@ module SibApiV3Sdk
         :'modified_at' => :'modifiedAt',
         :'inline_image_activation' => :'inlineImageActivation',
         :'mirror_active' => :'mirrorActive',
-        :'recurring' => :'recurring'
+        :'recurring' => :'recurring',
+        :'recipients' => :'recipients',
+        :'statistics' => :'statistics'
       }
     end
 
@@ -144,7 +150,9 @@ module SibApiV3Sdk
         :'modified_at' => :'DateTime',
         :'inline_image_activation' => :'BOOLEAN',
         :'mirror_active' => :'BOOLEAN',
-        :'recurring' => :'BOOLEAN'
+        :'recurring' => :'BOOLEAN',
+        :'recipients' => :'Object',
+        :'statistics' => :'Object'
       }
     end
 
@@ -236,6 +244,14 @@ module SibApiV3Sdk
         self.recurring = attributes[:'recurring']
       end
 
+      if attributes.has_key?(:'recipients')
+        self.recipients = attributes[:'recipients']
+      end
+
+      if attributes.has_key?(:'statistics')
+        self.statistics = attributes[:'statistics']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -302,6 +318,14 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'modified_at', modified_at cannot be nil.")
       end
 
+      if @recipients.nil?
+        invalid_properties.push("invalid value for 'recipients', recipients cannot be nil.")
+      end
+
+      if @statistics.nil?
+        invalid_properties.push("invalid value for 'statistics', statistics cannot be nil.")
+      end
+
       return invalid_properties
     end
 
@@ -327,6 +351,8 @@ module SibApiV3Sdk
       return false if @tag.nil?
       return false if @created_at.nil?
       return false if @modified_at.nil?
+      return false if @recipients.nil?
+      return false if @statistics.nil?
       return true
     end
 
@@ -374,7 +400,9 @@ module SibApiV3Sdk
           modified_at == o.modified_at &&
           inline_image_activation == o.inline_image_activation &&
           mirror_active == o.mirror_active &&
-          recurring == o.recurring
+          recurring == o.recurring &&
+          recipients == o.recipients &&
+          statistics == o.statistics
     end
 
     # @see the `==` method
@@ -386,7 +414,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, subject, type, status, scheduled_at, test_sent, header, footer, sender, reply_to, to_field, html_content, share_link, tag, created_at, modified_at, inline_image_activation, mirror_active, recurring].hash
+      [id, name, subject, type, status, scheduled_at, test_sent, header, footer, sender, reply_to, to_field, html_content, share_link, tag, created_at, modified_at, inline_image_activation, mirror_active, recurring, recipients, statistics].hash
     end
 
     # Builds the object from hash

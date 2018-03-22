@@ -32,19 +32,13 @@ describe 'GetChildInfoApiKeys' do
       expect(@instance).to be_instance_of(SibApiV3Sdk::GetChildInfoApiKeys)
     end
   end
-  describe 'test attribute "name"' do
+  describe 'test attribute "v2"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "key"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "secret"' do
+  describe 'test attribute "v3"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

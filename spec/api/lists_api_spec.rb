@@ -123,14 +123,14 @@ describe 'ListsApi' do
     end
   end
 
-  # unit tests for remove_contact_to_list
+  # unit tests for remove_contact_from_list
   # Remove existing contacts from a list
   # 
   # @param list_id Id of the list
   # @param contact_emails Emails adresses of the contact
   # @param [Hash] opts the optional parameters
   # @return [PostContactInfo]
-  describe 'remove_contact_to_list test' do
+  describe 'remove_contact_from_list test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

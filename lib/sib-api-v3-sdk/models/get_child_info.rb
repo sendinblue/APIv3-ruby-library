@@ -37,7 +37,6 @@ module SibApiV3Sdk
     # IP(s) associated to a child account user
     attr_accessor :ips
 
-    # API Keys associated to child account
     attr_accessor :api_keys
 
 
@@ -66,8 +65,8 @@ module SibApiV3Sdk
         :'credits' => :'GetChildInfoCredits',
         :'statistics' => :'GetChildInfoStatistics',
         :'password' => :'String',
-        :'ips' => :'Array<GetChildInfoIps>',
-        :'api_keys' => :'Array<GetChildInfoApiKeys>'
+        :'ips' => :'Array<String>',
+        :'api_keys' => :'GetChildInfoApiKeys'
       }
     end
 
@@ -114,9 +113,7 @@ module SibApiV3Sdk
       end
 
       if attributes.has_key?(:'apiKeys')
-        if (value = attributes[:'apiKeys']).is_a?(Array)
-          self.api_keys = value
-        end
+        self.api_keys = attributes[:'apiKeys']
       end
 
     end

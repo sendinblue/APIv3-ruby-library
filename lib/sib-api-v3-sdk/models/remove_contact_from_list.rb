@@ -14,27 +14,27 @@ require 'date'
 
 module SibApiV3Sdk
 
-  class GetChildInfoIps
-    # ID of the IP
-    attr_accessor :id
+  class RemoveContactFromList
+    # Required if 'all' is false. Emails to remove from a list
+    attr_accessor :emails
 
-    # IP associated to the child account user
-    attr_accessor :ip
+    # Required if 'emails' is empty. Remove all existing contacts from a list
+    attr_accessor :all
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'ip' => :'ip'
+        :'emails' => :'emails',
+        :'all' => :'all'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'Integer',
-        :'ip' => :'String'
+        :'emails' => :'Array<String>',
+        :'all' => :'BOOLEAN'
       }
     end
 
@@ -46,12 +46,14 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'emails')
+        if (value = attributes[:'emails']).is_a?(Array)
+          self.emails = value
+        end
       end
 
-      if attributes.has_key?(:'ip')
-        self.ip = attributes[:'ip']
+      if attributes.has_key?(:'all')
+        self.all = attributes[:'all']
       end
 
     end
@@ -60,22 +62,12 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push("invalid value for 'id', id cannot be nil.")
-      end
-
-      if @ip.nil?
-        invalid_properties.push("invalid value for 'ip', ip cannot be nil.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
-      return false if @ip.nil?
       return true
     end
 
@@ -84,8 +76,8 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          ip == o.ip
+          emails == o.emails &&
+          all == o.all
     end
 
     # @see the `==` method
@@ -97,7 +89,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, ip].hash
+      [emails, all].hash
     end
 
     # Builds the object from hash

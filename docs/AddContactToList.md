@@ -1,8 +1,8 @@
-# SibApiV3Sdk::ManageIp
+# SibApiV3Sdk::AddContactToList
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ip** | **String** | Dedicated ID | [optional] 
+**emails** | **Array&lt;String&gt;** | Emails to add to a list | [optional] 
 
 

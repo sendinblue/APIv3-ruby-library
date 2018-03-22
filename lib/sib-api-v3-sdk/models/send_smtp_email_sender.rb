@@ -13,7 +13,7 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module SibApiV3Sdk
-
+  # Sender from which emails are sent. Mandatory if 'templateId' is not passed
   class SendSmtpEmailSender
     # Sender Name from which the emails are sent
     attr_accessor :name

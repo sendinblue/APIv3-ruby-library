@@ -26,21 +26,26 @@ module SibApiV3Sdk
     # Email addresses and names of the recipients in cc
     attr_accessor :cc
 
-    # HTML body of the message
+    # HTML body of the message ( Mandatory if 'templateId' is not passed, ignored if 'templateId' is passed )
     attr_accessor :html_content
 
-    # Plain Text body of the message
+    # Plain Text body of the message ( Ignored if 'templateId' is passed )
     attr_accessor :text_content
 
-    # Subject of the message
+    # Subject of the message. Mandatory if 'templateId' is not passed
     attr_accessor :subject
 
     attr_accessor :reply_to
 
-    # Pass the absolute URL (no local file) or the base64 content of the attachment. Name can be used in both cases to define the attachment name. It is mandatory in case of content. Extension allowed: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps
+    # Pass the absolute URL (no local file) or the base64 content of the attachment. Name can be used in both cases to define the attachment name. It is mandatory in case of content. Extension allowed: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps ( Ignored if 'templateId' is passed )
     attr_accessor :attachment
 
     attr_accessor :headers
+
+    # Id of the template
+    attr_accessor :template_id
+
+    attr_accessor :params
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -55,7 +60,9 @@ module SibApiV3Sdk
         :'subject' => :'subject',
         :'reply_to' => :'replyTo',
         :'attachment' => :'attachment',
-        :'headers' => :'headers'
+        :'headers' => :'headers',
+        :'template_id' => :'templateId',
+        :'params' => :'params'
       }
     end
 
@@ -71,7 +78,9 @@ module SibApiV3Sdk
         :'subject' => :'String',
         :'reply_to' => :'SendSmtpEmailReplyTo',
         :'attachment' => :'Array<SendSmtpEmailAttachment>',
-        :'headers' => :'Hash<String, String>'
+        :'headers' => :'Hash<String, String>',
+        :'template_id' => :'Integer',
+        :'params' => :'Hash<String, String>'
       }
     end
 
@@ -133,26 +142,24 @@ module SibApiV3Sdk
         end
       end
 
+      if attributes.has_key?(:'templateId')
+        self.template_id = attributes[:'templateId']
+      end
+
+      if attributes.has_key?(:'params')
+        if (value = attributes[:'params']).is_a?(Hash)
+          self.params = value
+        end
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @sender.nil?
-        invalid_properties.push("invalid value for 'sender', sender cannot be nil.")
-      end
-
       if @to.nil?
         invalid_properties.push("invalid value for 'to', to cannot be nil.")
-      end
-
-      if @html_content.nil?
-        invalid_properties.push("invalid value for 'html_content', html_content cannot be nil.")
-      end
-
-      if @subject.nil?
-        invalid_properties.push("invalid value for 'subject', subject cannot be nil.")
       end
 
       return invalid_properties
@@ -161,10 +168,7 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @sender.nil?
       return false if @to.nil?
-      return false if @html_content.nil?
-      return false if @subject.nil?
       return true
     end
 
@@ -182,7 +186,9 @@ module SibApiV3Sdk
           subject == o.subject &&
           reply_to == o.reply_to &&
           attachment == o.attachment &&
-          headers == o.headers
+          headers == o.headers &&
+          template_id == o.template_id &&
+          params == o.params
     end
 
     # @see the `==` method
@@ -194,7 +200,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [sender, to, bcc, cc, html_content, text_content, subject, reply_to, attachment, headers].hash
+      [sender, to, bcc, cc, html_content, text_content, subject, reply_to, attachment, headers, template_id, params].hash
     end
 
     # Builds the object from hash

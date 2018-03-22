@@ -12,5 +12,7 @@ Name | Type | Description | Notes
 **sender** | **String** | Sender of the SMS Campaign | 
 **created_at** | **DateTime** | Creation UTC date-time of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
 **modified_at** | **DateTime** | UTC date-time of last modification of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
+**recipients** | **Object** |  | 
+**statistics** | **Object** |  | 
 
 

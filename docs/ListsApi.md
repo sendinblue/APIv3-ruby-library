@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**get_folder_lists**](ListsApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get the lists in a folder
 [**get_list**](ListsApi.md#get_list) | **GET** /contacts/lists/{listId} | Get the details of a list
 [**get_lists**](ListsApi.md#get_lists) | **GET** /contacts/lists | Get all the lists
-[**remove_contact_to_list**](ListsApi.md#remove_contact_to_list) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
+[**remove_contact_from_list**](ListsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
 [**update_list**](ListsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
 
 
@@ -36,7 +36,7 @@ api_instance = SibApiV3Sdk::ListsApi.new
 
 list_id = 789 # Integer | Id of the list
 
-contact_emails = SibApiV3Sdk::AddRemoveContactToList.new # AddRemoveContactToList | Emails addresses of the contacts
+contact_emails = SibApiV3Sdk::AddContactToList.new # AddContactToList | Emails addresses of the contacts
 
 
 begin
@@ -53,7 +53,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **Integer**| Id of the list | 
- **contact_emails** | [**AddRemoveContactToList**](AddRemoveContactToList.md)| Emails addresses of the contacts | 
+ **contact_emails** | [**AddContactToList**](AddContactToList.md)| Emails addresses of the contacts | 
 
 ### Return type
 
@@ -398,8 +398,8 @@ Name | Type | Description  | Notes
 
 
 
-# **remove_contact_to_list**
-> PostContactInfo remove_contact_to_list(list_id, contact_emails)
+# **remove_contact_from_list**
+> PostContactInfo remove_contact_from_list(list_id, contact_emails)
 
 Remove existing contacts from a list
 
@@ -419,15 +419,15 @@ api_instance = SibApiV3Sdk::ListsApi.new
 
 list_id = 789 # Integer | Id of the list
 
-contact_emails = SibApiV3Sdk::AddRemoveContactToList.new # AddRemoveContactToList | Emails adresses of the contact
+contact_emails = SibApiV3Sdk::RemoveContactFromList.new # RemoveContactFromList | Emails adresses of the contact
 
 
 begin
   #Remove existing contacts from a list
-  result = api_instance.remove_contact_to_list(list_id, contact_emails)
+  result = api_instance.remove_contact_from_list(list_id, contact_emails)
   p result
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling ListsApi->remove_contact_to_list: #{e}"
+  puts "Exception when calling ListsApi->remove_contact_from_list: #{e}"
 end
 ```
 
@@ -436,7 +436,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **Integer**| Id of the list | 
- **contact_emails** | [**AddRemoveContactToList**](AddRemoveContactToList.md)| Emails adresses of the contact | 
+ **contact_emails** | [**RemoveContactFromList**](RemoveContactFromList.md)| Emails adresses of the contact | 
 
 ### Return type
 
