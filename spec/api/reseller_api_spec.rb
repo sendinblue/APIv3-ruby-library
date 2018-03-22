@@ -35,7 +35,7 @@ describe 'ResellerApi' do
   # unit tests for add_credits
   # Add Email and/or SMS credits to a specific child account
   # 
-  # @param child_id id of reseller&#39;s child
+  # @param child_auth_key auth key of reseller&#39;s child
   # @param add_credits Values to post to add credit to a specific child account
   # @param [Hash] opts the optional parameters
   # @return [RemainingCreditModel]
@@ -48,8 +48,8 @@ describe 'ResellerApi' do
   # unit tests for associate_ip_to_child
   # Associate a dedicated IP to the child
   # 
-  # @param child_id id of reseller&#39;s child
-  # @param ip_id IP&#39;s id
+  # @param child_auth_key auth key of reseller&#39;s child
+  # @param ip IP to associate
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'associate_ip_to_child test' do
@@ -63,7 +63,7 @@ describe 'ResellerApi' do
   # 
   # @param [Hash] opts the optional parameters
   # @option opts [CreateChild] :reseller_child reseller child to add
-  # @return [CreateModel]
+  # @return [CreateReseller]
   describe 'create_reseller_child test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -71,9 +71,9 @@ describe 'ResellerApi' do
   end
 
   # unit tests for delete_reseller_child
-  # Deletes a single reseller child based on the childId supplied
+  # Deletes a single reseller child based on the childAuthKey supplied
   # 
-  # @param child_id id of reseller&#39;s child
+  # @param child_auth_key auth key of reseller&#39;s child
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_reseller_child test' do
@@ -85,8 +85,8 @@ describe 'ResellerApi' do
   # unit tests for dissociate_ip_from_child
   # Dissociate a dedicated IP to the child
   # 
-  # @param child_id id of reseller&#39;s child
-  # @param ip_id IP&#39;s id
+  # @param child_auth_key auth key of reseller&#39;s child
+  # @param ip IP to dissociate
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'dissociate_ip_from_child test' do
@@ -98,7 +98,7 @@ describe 'ResellerApi' do
   # unit tests for get_child_info
   # Gets the info about a specific child account
   # 
-  # @param child_id id of reseller&#39;s child
+  # @param child_auth_key auth key of reseller&#39;s child
   # @param [Hash] opts the optional parameters
   # @return [GetChildInfo]
   describe 'get_child_info test' do
@@ -121,7 +121,7 @@ describe 'ResellerApi' do
   # unit tests for remove_credits
   # Remove Email and/or SMS credits from a specific child account
   # 
-  # @param child_id id of reseller&#39;s child
+  # @param child_auth_key auth key of reseller&#39;s child
   # @param remove_credits Values to post to remove email or SMS credits from a specific child account
   # @param [Hash] opts the optional parameters
   # @return [RemainingCreditModel]
@@ -132,9 +132,9 @@ describe 'ResellerApi' do
   end
 
   # unit tests for update_reseller_child
-  # Updates infos of reseller&#39;s child based on the childId supplied
+  # Updates infos of reseller&#39;s child based on the childAuthKey supplied
   # 
-  # @param child_id id of reseller&#39;s child
+  # @param child_auth_key auth key of reseller&#39;s child
   # @param reseller_child values to update in child profile
   # @param [Hash] opts the optional parameters
   # @return [nil]

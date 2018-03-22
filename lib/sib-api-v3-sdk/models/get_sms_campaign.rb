@@ -42,6 +42,10 @@ module SibApiV3Sdk
     # UTC date-time of last modification of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :modified_at
 
+    attr_accessor :recipients
+
+    attr_accessor :statistics
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -75,7 +79,9 @@ module SibApiV3Sdk
         :'test_sent' => :'testSent',
         :'sender' => :'sender',
         :'created_at' => :'createdAt',
-        :'modified_at' => :'modifiedAt'
+        :'modified_at' => :'modifiedAt',
+        :'recipients' => :'recipients',
+        :'statistics' => :'statistics'
       }
     end
 
@@ -90,7 +96,9 @@ module SibApiV3Sdk
         :'test_sent' => :'BOOLEAN',
         :'sender' => :'String',
         :'created_at' => :'DateTime',
-        :'modified_at' => :'DateTime'
+        :'modified_at' => :'DateTime',
+        :'recipients' => :'Object',
+        :'statistics' => :'Object'
       }
     end
 
@@ -138,6 +146,14 @@ module SibApiV3Sdk
         self.modified_at = attributes[:'modifiedAt']
       end
 
+      if attributes.has_key?(:'recipients')
+        self.recipients = attributes[:'recipients']
+      end
+
+      if attributes.has_key?(:'statistics')
+        self.statistics = attributes[:'statistics']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -180,6 +196,14 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'modified_at', modified_at cannot be nil.")
       end
 
+      if @recipients.nil?
+        invalid_properties.push("invalid value for 'recipients', recipients cannot be nil.")
+      end
+
+      if @statistics.nil?
+        invalid_properties.push("invalid value for 'statistics', statistics cannot be nil.")
+      end
+
       return invalid_properties
     end
 
@@ -197,6 +221,8 @@ module SibApiV3Sdk
       return false if @sender.nil?
       return false if @created_at.nil?
       return false if @modified_at.nil?
+      return false if @recipients.nil?
+      return false if @statistics.nil?
       return true
     end
 
@@ -223,7 +249,9 @@ module SibApiV3Sdk
           test_sent == o.test_sent &&
           sender == o.sender &&
           created_at == o.created_at &&
-          modified_at == o.modified_at
+          modified_at == o.modified_at &&
+          recipients == o.recipients &&
+          statistics == o.statistics
     end
 
     # @see the `==` method
@@ -235,7 +263,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, status, content, scheduled_at, test_sent, sender, created_at, modified_at].hash
+      [id, name, status, content, scheduled_at, test_sent, sender, created_at, modified_at, recipients, statistics].hash
     end
 
     # Builds the object from hash

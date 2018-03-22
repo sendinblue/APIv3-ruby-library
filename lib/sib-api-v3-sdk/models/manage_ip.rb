@@ -15,21 +15,21 @@ require 'date'
 module SibApiV3Sdk
 
   class ManageIp
-    # ID of the IP
-    attr_accessor :ip_id
+    # Dedicated ID
+    attr_accessor :ip
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'ip_id' => :'ipId'
+        :'ip' => :'ip'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'ip_id' => :'Integer'
+        :'ip' => :'String'
       }
     end
 
@@ -41,8 +41,8 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'ipId')
-        self.ip_id = attributes[:'ipId']
+      if attributes.has_key?(:'ip')
+        self.ip = attributes[:'ip']
       end
 
     end
@@ -65,7 +65,7 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          ip_id == o.ip_id
+          ip == o.ip
     end
 
     # @see the `==` method
@@ -77,7 +77,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [ip_id].hash
+      [ip].hash
     end
 
     # Builds the object from hash

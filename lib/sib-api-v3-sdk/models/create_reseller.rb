@@ -14,27 +14,22 @@ require 'date'
 
 module SibApiV3Sdk
 
-  class RemoveCredits
-    # Required if email credits are empty. SMS credits to be removed from the child account
-    attr_accessor :sms
-
-    # Required if sms credits are empty. Email credits to be removed from the child account
-    attr_accessor :email
+  class CreateReseller
+    # AuthKey of Reseller child created
+    attr_accessor :auth_key
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'sms' => :'sms',
-        :'email' => :'email'
+        :'auth_key' => :'authKey'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'sms' => :'Integer',
-        :'email' => :'Integer'
+        :'auth_key' => :'String'
       }
     end
 
@@ -46,12 +41,8 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'sms')
-        self.sms = attributes[:'sms']
-      end
-
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
+      if attributes.has_key?(:'authKey')
+        self.auth_key = attributes[:'authKey']
       end
 
     end
@@ -60,12 +51,17 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @auth_key.nil?
+        invalid_properties.push("invalid value for 'auth_key', auth_key cannot be nil.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @auth_key.nil?
       return true
     end
 
@@ -74,8 +70,7 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          sms == o.sms &&
-          email == o.email
+          auth_key == o.auth_key
     end
 
     # @see the `==` method
@@ -87,7 +82,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [sms, email].hash
+      [auth_key].hash
     end
 
     # Builds the object from hash

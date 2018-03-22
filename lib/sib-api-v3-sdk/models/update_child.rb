@@ -30,8 +30,6 @@ module SibApiV3Sdk
     # New password for the child account to login
     attr_accessor :password
 
-    attr_accessor :ips
-
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -40,8 +38,7 @@ module SibApiV3Sdk
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
         :'company_name' => :'companyName',
-        :'password' => :'password',
-        :'ips' => :'ips'
+        :'password' => :'password'
       }
     end
 
@@ -52,8 +49,7 @@ module SibApiV3Sdk
         :'first_name' => :'String',
         :'last_name' => :'String',
         :'company_name' => :'String',
-        :'password' => :'String',
-        :'ips' => :'Array<Integer>'
+        :'password' => :'String'
       }
     end
 
@@ -85,12 +81,6 @@ module SibApiV3Sdk
         self.password = attributes[:'password']
       end
 
-      if attributes.has_key?(:'ips')
-        if (value = attributes[:'ips']).is_a?(Array)
-          self.ips = value
-        end
-      end
-
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -115,8 +105,7 @@ module SibApiV3Sdk
           first_name == o.first_name &&
           last_name == o.last_name &&
           company_name == o.company_name &&
-          password == o.password &&
-          ips == o.ips
+          password == o.password
     end
 
     # @see the `==` method
@@ -128,7 +117,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, first_name, last_name, company_name, password, ips].hash
+      [email, first_name, last_name, company_name, password].hash
     end
 
     # Builds the object from hash

@@ -14,27 +14,27 @@ require 'date'
 
 module SibApiV3Sdk
 
-  class RemoveCredits
-    # Required if email credits are empty. SMS credits to be removed from the child account
-    attr_accessor :sms
+  class GetChildInfoApiKeysV2
+    # Name of the key for version 2
+    attr_accessor :name
 
-    # Required if sms credits are empty. Email credits to be removed from the child account
-    attr_accessor :email
+    # API Key for version 2
+    attr_accessor :key
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'sms' => :'sms',
-        :'email' => :'email'
+        :'name' => :'name',
+        :'key' => :'key'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'sms' => :'Integer',
-        :'email' => :'Integer'
+        :'name' => :'String',
+        :'key' => :'String'
       }
     end
 
@@ -46,12 +46,12 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'sms')
-        self.sms = attributes[:'sms']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
+      if attributes.has_key?(:'key')
+        self.key = attributes[:'key']
       end
 
     end
@@ -60,12 +60,22 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @name.nil?
+        invalid_properties.push("invalid value for 'name', name cannot be nil.")
+      end
+
+      if @key.nil?
+        invalid_properties.push("invalid value for 'key', key cannot be nil.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @name.nil?
+      return false if @key.nil?
       return true
     end
 
@@ -74,8 +84,8 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          sms == o.sms &&
-          email == o.email
+          name == o.name &&
+          key == o.key
     end
 
     # @see the `==` method
@@ -87,7 +97,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [sms, email].hash
+      [name, key].hash
     end
 
     # Builds the object from hash

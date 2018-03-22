@@ -3,8 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of the key | 
-**key** | **String** | API Key | 
-**secret** | **String** | Secret Key associated to the API Key (in case v1 Key is used only) | [optional] 
+**v2** | [**Array&lt;GetChildInfoApiKeysV2&gt;**](GetChildInfoApiKeysV2.md) |  | 
+**v3** | [**Array&lt;GetChildInfoApiKeysV3&gt;**](GetChildInfoApiKeysV3.md) |  | [optional] 
 
 

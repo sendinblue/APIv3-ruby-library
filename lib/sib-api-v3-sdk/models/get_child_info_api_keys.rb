@@ -13,33 +13,26 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module SibApiV3Sdk
-
+  # API Keys associated to child account
   class GetChildInfoApiKeys
-    # Name of the key
-    attr_accessor :name
+    attr_accessor :v2
 
-    # API Key
-    attr_accessor :key
-
-    # Secret Key associated to the API Key (in case v1 Key is used only)
-    attr_accessor :secret
+    attr_accessor :v3
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'key' => :'key',
-        :'secret' => :'secret'
+        :'v2' => :'v2',
+        :'v3' => :'v3'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'name' => :'String',
-        :'key' => :'String',
-        :'secret' => :'String'
+        :'v2' => :'Array<GetChildInfoApiKeysV2>',
+        :'v3' => :'Array<GetChildInfoApiKeysV3>'
       }
     end
 
@@ -51,16 +44,16 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.has_key?(:'v2')
+        if (value = attributes[:'v2']).is_a?(Array)
+          self.v2 = value
+        end
       end
 
-      if attributes.has_key?(:'key')
-        self.key = attributes[:'key']
-      end
-
-      if attributes.has_key?(:'secret')
-        self.secret = attributes[:'secret']
+      if attributes.has_key?(:'v3')
+        if (value = attributes[:'v3']).is_a?(Array)
+          self.v3 = value
+        end
       end
 
     end
@@ -69,12 +62,8 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push("invalid value for 'name', name cannot be nil.")
-      end
-
-      if @key.nil?
-        invalid_properties.push("invalid value for 'key', key cannot be nil.")
+      if @v2.nil?
+        invalid_properties.push("invalid value for 'v2', v2 cannot be nil.")
       end
 
       return invalid_properties
@@ -83,8 +72,7 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
-      return false if @key.nil?
+      return false if @v2.nil?
       return true
     end
 
@@ -93,9 +81,8 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          key == o.key &&
-          secret == o.secret
+          v2 == o.v2 &&
+          v3 == o.v3
     end
 
     # @see the `==` method
@@ -107,7 +94,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, key, secret].hash
+      [v2, v3].hash
     end
 
     # Builds the object from hash

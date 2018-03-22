@@ -32,7 +32,7 @@ describe 'ManageIp' do
       expect(@instance).to be_instance_of(SibApiV3Sdk::ManageIp)
     end
   end
-  describe 'test attribute "ip_id"' do
+  describe 'test attribute "ip"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

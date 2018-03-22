@@ -15,10 +15,10 @@ require 'date'
 module SibApiV3Sdk
 
   class AddCredits
-    # SMS credits to be added to the child account
+    # Required if email credits are empty. SMS credits to be added to the child account
     attr_accessor :sms
 
-    # Email credits to be added to the child account
+    # Required if sms credits are empty. Email credits to be added to the child account
     attr_accessor :email
 
 

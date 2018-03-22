@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **credits** | [**GetChildInfoCredits**](GetChildInfoCredits.md) |  | [optional] 
 **statistics** | [**GetChildInfoStatistics**](GetChildInfoStatistics.md) |  | [optional] 
 **password** | **String** | The encrypted password of child account | 
-**ips** | [**Array&lt;GetChildInfoIps&gt;**](GetChildInfoIps.md) | IP(s) associated to a child account user | [optional] 
-**api_keys** | [**Array&lt;GetChildInfoApiKeys&gt;**](GetChildInfoApiKeys.md) | API Keys associated to child account | [optional] 
+**ips** | **Array&lt;String&gt;** | IP(s) associated to a child account user | [optional] 
+**api_keys** | [**GetChildInfoApiKeys**](GetChildInfoApiKeys.md) |  | [optional] 
 
 

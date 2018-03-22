@@ -1,8 +1,8 @@
-# SibApiV3Sdk::ManageIp
+# SibApiV3Sdk::CreateReseller
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ip** | **String** | Dedicated ID | [optional] 
+**auth_key** | **String** | AuthKey of Reseller child created | 
 
 
