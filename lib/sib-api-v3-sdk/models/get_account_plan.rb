@@ -18,17 +18,20 @@ module SibApiV3Sdk
     # Displays the plan type of the user
     attr_accessor :type
 
-    # This is the type of the credit, \"User Limit\" or \"Send Limit\" are two possible types of credit of a user. \"User Limit\" implies the total number of subscribers you can add to your account, and \"Send Limit\" implies the total number of emails you can send to the subscribers in your account.
+    # This is the type of the credit, \"Send Limit\" is one of the possible types of credit of a user. \"Send Limit\" implies the total number of emails you can send to the subscribers in your account.
     attr_accessor :credits_type
 
-    # Remaining credits of the user. This can either be \"User Limit\" or \"Send Limit\" depending on the plan.
+    # Remaining credits of the user
     attr_accessor :credits
 
-    # Date of the period from which the plan will start (only available for \"subscription\", \"unlimited\" and \"reseller\" plan type)
+    # Date of the period from which the plan will start (only available for \"subscription\" and \"reseller\" plan type)
     attr_accessor :start_date
 
-    # Date of the period from which the plan will end (only available for \"subscription\", \"unlimited\" and \"reseller\" plan type)
+    # Date of the period from which the plan will end (only available for \"subscription\" and \"reseller\" plan type)
     attr_accessor :end_date
+
+    # Only in case of reseller account. It implies the total number of child accounts you can add to your account.
+    attr_accessor :user_limit
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -59,7 +62,8 @@ module SibApiV3Sdk
         :'credits_type' => :'creditsType',
         :'credits' => :'credits',
         :'start_date' => :'startDate',
-        :'end_date' => :'endDate'
+        :'end_date' => :'endDate',
+        :'user_limit' => :'userLimit'
       }
     end
 
@@ -70,7 +74,8 @@ module SibApiV3Sdk
         :'credits_type' => :'String',
         :'credits' => :'Float',
         :'start_date' => :'Date',
-        :'end_date' => :'Date'
+        :'end_date' => :'Date',
+        :'user_limit' => :'Integer'
       }
     end
 
@@ -102,6 +107,10 @@ module SibApiV3Sdk
         self.end_date = attributes[:'endDate']
       end
 
+      if attributes.has_key?(:'userLimit')
+        self.user_limit = attributes[:'userLimit']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -127,10 +136,10 @@ module SibApiV3Sdk
     # @return true if the model is valid
     def valid?
       return false if @type.nil?
-      type_validator = EnumAttributeValidator.new('String', ["payAsYouGo", "unlimited", "free", "subscription", "sms", "reseller"])
+      type_validator = EnumAttributeValidator.new('String', ["payAsYouGo", "free", "subscription", "sms", "reseller"])
       return false unless type_validator.valid?(@type)
       return false if @credits_type.nil?
-      credits_type_validator = EnumAttributeValidator.new('String', ["userLimit", "sendLimit"])
+      credits_type_validator = EnumAttributeValidator.new('String', ["sendLimit"])
       return false unless credits_type_validator.valid?(@credits_type)
       return false if @credits.nil?
       return true
@@ -139,7 +148,7 @@ module SibApiV3Sdk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ["payAsYouGo", "unlimited", "free", "subscription", "sms", "reseller"])
+      validator = EnumAttributeValidator.new('String', ["payAsYouGo", "free", "subscription", "sms", "reseller"])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for 'type', must be one of #{validator.allowable_values}."
       end
@@ -149,7 +158,7 @@ module SibApiV3Sdk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] credits_type Object to be assigned
     def credits_type=(credits_type)
-      validator = EnumAttributeValidator.new('String', ["userLimit", "sendLimit"])
+      validator = EnumAttributeValidator.new('String', ["sendLimit"])
       unless validator.valid?(credits_type)
         fail ArgumentError, "invalid value for 'credits_type', must be one of #{validator.allowable_values}."
       end
@@ -165,7 +174,8 @@ module SibApiV3Sdk
           credits_type == o.credits_type &&
           credits == o.credits &&
           start_date == o.start_date &&
-          end_date == o.end_date
+          end_date == o.end_date &&
+          user_limit == o.user_limit
     end
 
     # @see the `==` method
@@ -177,7 +187,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type, credits_type, credits, start_date, end_date].hash
+      [type, credits_type, credits, start_date, end_date, user_limit].hash
     end
 
     # Builds the object from hash
