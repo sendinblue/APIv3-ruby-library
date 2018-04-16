@@ -90,6 +90,7 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::ContactsApi* | [**create_folder**](docs/ContactsApi.md#create_folder) | **POST** /contacts/folders | Create a folder
 *SibApiV3Sdk::ContactsApi* | [**create_list**](docs/ContactsApi.md#create_list) | **POST** /contacts/lists | Create a list
 *SibApiV3Sdk::ContactsApi* | [**delete_attribute**](docs/ContactsApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Deletes an attribute
+*SibApiV3Sdk::ContactsApi* | [**delete_contact**](docs/ContactsApi.md#delete_contact) | **DELETE** /contacts/{email} | Deletes a contact
 *SibApiV3Sdk::ContactsApi* | [**delete_folder**](docs/ContactsApi.md#delete_folder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
 *SibApiV3Sdk::ContactsApi* | [**delete_list**](docs/ContactsApi.md#delete_list) | **DELETE** /contacts/lists/{listId} | Delete a list
 *SibApiV3Sdk::ContactsApi* | [**get_attributes**](docs/ContactsApi.md#get_attributes) | **GET** /contacts/attributes | Lists all attributes
@@ -354,4 +355,8 @@ Be sure to visit the SendinBlue official [documentation website](https://sendinb
 If you find a bug, please post the issue on [Github](https://github.com/sendinblue/APIv3-ruby-library/issues).
 
 As always, if you need additional assistance, drop us a note [here](https://account.sendinblue.com/support).
+
+## Recommendation
+
+Please follow camelCase convention for variables in the API's. For example, use customVariable instead of custom_variable.
 

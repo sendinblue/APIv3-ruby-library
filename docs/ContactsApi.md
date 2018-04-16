@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**create_folder**](ContactsApi.md#create_folder) | **POST** /contacts/folders | Create a folder
 [**create_list**](ContactsApi.md#create_list) | **POST** /contacts/lists | Create a list
 [**delete_attribute**](ContactsApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Deletes an attribute
+[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /contacts/{email} | Deletes a contact
 [**delete_folder**](ContactsApi.md#delete_folder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
 [**delete_list**](ContactsApi.md#delete_list) | **DELETE** /contacts/lists/{listId} | Delete a list
 [**get_attributes**](ContactsApi.md#get_attributes) | **GET** /contacts/attributes | Lists all attributes
@@ -337,6 +338,57 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attribute_category** | **String**| Category of the attribute | 
  **attribute_name** | **String**| Name of the existing attribute | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **delete_contact**
+> delete_contact(email)
+
+Deletes a contact
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::ContactsApi.new
+
+email = "email_example" # String | Email (urlencoded) of the contact
+
+
+begin
+  #Deletes a contact
+  api_instance.delete_contact(email)
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling ContactsApi->delete_contact: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **String**| Email (urlencoded) of the contact | 
 
 ### Return type
 

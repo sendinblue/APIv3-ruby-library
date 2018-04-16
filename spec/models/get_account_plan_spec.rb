@@ -35,7 +35,7 @@ describe 'GetAccountPlan' do
   describe 'test attribute "type"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["payAsYouGo", "unlimited", "free", "subscription", "sms", "reseller"])
+       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["payAsYouGo", "free", "subscription", "sms", "reseller"])
        #validator.allowable_values.each do |value|
        #  expect { @instance.type = value }.not_to raise_error
        #end
@@ -45,7 +45,7 @@ describe 'GetAccountPlan' do
   describe 'test attribute "credits_type"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["userLimit", "sendLimit"])
+       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["sendLimit"])
        #validator.allowable_values.each do |value|
        #  expect { @instance.credits_type = value }.not_to raise_error
        #end
@@ -65,6 +65,12 @@ describe 'GetAccountPlan' do
   end
 
   describe 'test attribute "end_date"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "user_limit"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
