@@ -13,7 +13,7 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module SibApiV3Sdk
-
+  # List ids to include/exclude from campaign
   class UpdateEmailCampaignRecipients
     # List ids which have to be excluded from a campaign
     attr_accessor :exclusion_list_ids

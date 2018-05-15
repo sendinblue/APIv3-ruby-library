@@ -18,7 +18,7 @@ module SibApiV3Sdk
     # Name of the list
     attr_accessor :name
 
-    # Id of the folder in which to create the list
+    # Id of the parent folder in which this list is to be created
     attr_accessor :folder_id
 
 

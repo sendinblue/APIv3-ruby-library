@@ -15,10 +15,10 @@ require 'date'
 module SibApiV3Sdk
 
   class DeleteHardbounces
-    # Starting date (YYYY-MM-DD) of the period from which the hardbounces will be deleted. Must be lower than equal to endDate
+    # Starting date (YYYY-MM-DD) of the time period for deletion. The hardbounces occurred after this date will be deleted. Must be less than or equal to the endDate
     attr_accessor :start_date
 
-    # Ending date (YYYY-MM-DD) of the period from which the hardbounces will be deleted. Must be greater than equal to startDate
+    # Ending date (YYYY-MM-DD) of the time period for deletion. The hardbounces until this date will be deleted. Must be greater than or equal to the startDate
     attr_accessor :end_date
 
     # Target a specific email address

@@ -15,27 +15,32 @@ require 'date'
 module SibApiV3Sdk
 
   class SendEmail
-    # Email addresses of the recipients
+    # List of the email addresses of the recipients. For example, ['abc@example.com', 'asd@example.com'].
     attr_accessor :email_to
 
-    # Email addresses of the recipients in bcc
+    # List of the email addresses of the recipients in bcc
     attr_accessor :email_bcc
 
-    # Email addresses of the recipients in cc
+    # List of the email addresses of the recipients in cc
     attr_accessor :email_cc
 
-    # Email on which campaign recipients will be able to reply to
+    # Email address which shall be used by campaign recipients to reply back
     attr_accessor :reply_to
 
     # Absolute url of the attachment (no local file). Extension allowed: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps
     attr_accessor :attachment_url
 
-    # Pass the base64 content of the attachment. Extension allowed: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps
+    # Pass the list of content (base64 encoded) and name of the attachment. For example, [{'content':'base64 encoded content 1', 'name':'attcahment1'}, {'content':'base64 encoded content 2', 'name':'attcahment2'}].
     attr_accessor :attachment
 
+    # Pass the set of headers that shall be sent along the mail headers in the original email. 'X-Mailin-IP' header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. For example, {'Content-Type':'text/html', 'charset':'iso-8859-1', 'X-Mailin-IP':'1.2.3.4'}
     attr_accessor :headers
 
+    # Pass the set of attributes to customize the template. For example, {'FNAME':'Joe', 'LNAME':'Doe'}
     attr_accessor :attributes
+
+    # Tag your emails to find them more easily
+    attr_accessor :tags
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -48,7 +53,8 @@ module SibApiV3Sdk
         :'attachment_url' => :'attachmentUrl',
         :'attachment' => :'attachment',
         :'headers' => :'headers',
-        :'attributes' => :'attributes'
+        :'attributes' => :'attributes',
+        :'tags' => :'tags'
       }
     end
 
@@ -61,8 +67,9 @@ module SibApiV3Sdk
         :'reply_to' => :'String',
         :'attachment_url' => :'String',
         :'attachment' => :'Array<SendEmailAttachment>',
-        :'headers' => :'Hash<String, String>',
-        :'attributes' => :'Hash<String, String>'
+        :'headers' => :'Object',
+        :'attributes' => :'Object',
+        :'tags' => :'Array<String>'
       }
     end
 
@@ -107,14 +114,16 @@ module SibApiV3Sdk
       end
 
       if attributes.has_key?(:'headers')
-        if (value = attributes[:'headers']).is_a?(Hash)
-          self.headers = value
-        end
+        self.headers = attributes[:'headers']
       end
 
       if attributes.has_key?(:'attributes')
-        if (value = attributes[:'attributes']).is_a?(Hash)
-          self.attributes = value
+        self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.has_key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
         end
       end
 
@@ -150,7 +159,8 @@ module SibApiV3Sdk
           attachment_url == o.attachment_url &&
           attachment == o.attachment &&
           headers == o.headers &&
-          attributes == o.attributes
+          attributes == o.attributes &&
+          tags == o.tags
     end
 
     # @see the `==` method
@@ -162,7 +172,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email_to, email_bcc, email_cc, reply_to, attachment_url, attachment, headers, attributes].hash
+      [email_to, email_bcc, email_cc, reply_to, attachment_url, attachment, headers, attributes, tags].hash
     end
 
     # Builds the object from hash

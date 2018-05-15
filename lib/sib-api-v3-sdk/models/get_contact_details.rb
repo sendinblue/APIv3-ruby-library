@@ -34,6 +34,7 @@ module SibApiV3Sdk
 
     attr_accessor :list_unsubscribed
 
+    # Set of attributes of the contact
     attr_accessor :attributes
 
 
@@ -61,7 +62,7 @@ module SibApiV3Sdk
         :'modified_at' => :'DateTime',
         :'list_ids' => :'Array<Integer>',
         :'list_unsubscribed' => :'Array<Integer>',
-        :'attributes' => :'Hash<String, String>'
+        :'attributes' => :'Object'
       }
     end
 
@@ -106,9 +107,7 @@ module SibApiV3Sdk
       end
 
       if attributes.has_key?(:'attributes')
-        if (value = attributes[:'attributes']).is_a?(Hash)
-          self.attributes = value
-        end
+        self.attributes = attributes[:'attributes']
       end
 
     end

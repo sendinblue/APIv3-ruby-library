@@ -60,8 +60,16 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@content.nil? && @content !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+      if @content.nil?
+        invalid_properties.push("invalid value for 'content', content cannot be nil.")
+      end
+
+      if @content !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
         invalid_properties.push("invalid value for 'content', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
+      end
+
+      if @name.nil?
+        invalid_properties.push("invalid value for 'name', name cannot be nil.")
       end
 
       return invalid_properties
@@ -70,15 +78,20 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@content.nil? && @content !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+      return false if @content.nil?
+      return false if @content !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+      return false if @name.nil?
       return true
     end
 
     # Custom attribute writer method with validation
     # @param [Object] content Value to be assigned
     def content=(content)
+      if content.nil?
+        fail ArgumentError, "content cannot be nil"
+      end
 
-      if !content.nil? && content !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+      if content !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
         fail ArgumentError, "invalid value for 'content', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
       end
 

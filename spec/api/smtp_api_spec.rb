@@ -149,7 +149,7 @@ describe 'SMTPApi' do
 
   # unit tests for send_template
   # Send a template
-  # 
+  # This endpoint is deprecated. Prefer v3/smtp/email instead.
   # @param template_id Id of the template
   # @param send_email 
   # @param [Hash] opts the optional parameters

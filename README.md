@@ -243,7 +243,6 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetEmailEventReportEvents](docs/GetEmailEventReportEvents.md)
  - [SibApiV3Sdk::GetExtendedCampaignOverviewSender](docs/GetExtendedCampaignOverviewSender.md)
  - [SibApiV3Sdk::GetExtendedCampaignStats](docs/GetExtendedCampaignStats.md)
- - [SibApiV3Sdk::GetExtendedCampaignStatsLinksStats](docs/GetExtendedCampaignStatsLinksStats.md)
  - [SibApiV3Sdk::GetExtendedClientAddress](docs/GetExtendedClientAddress.md)
  - [SibApiV3Sdk::GetExtendedContactDetailsStatistics](docs/GetExtendedContactDetailsStatistics.md)
  - [SibApiV3Sdk::GetExtendedContactDetailsStatisticsClicked](docs/GetExtendedContactDetailsStatisticsClicked.md)

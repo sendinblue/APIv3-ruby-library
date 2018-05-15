@@ -15,6 +15,10 @@ require 'date'
 module SibApiV3Sdk
 
   class GetExtendedCampaignStats
+    # Overall statistics of the campaign
+    attr_accessor :global_stats
+
+    # List-wise statistics of the campaign.
     attr_accessor :campaign_stats
 
     # Number of clicks on mirror link
@@ -23,6 +27,7 @@ module SibApiV3Sdk
     # Number of remaning emails to send
     attr_accessor :remaining
 
+    # Statistics about the number of clicks for the links
     attr_accessor :links_stats
 
     attr_accessor :stats_by_domain
@@ -31,6 +36,7 @@ module SibApiV3Sdk
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'global_stats' => :'globalStats',
         :'campaign_stats' => :'campaignStats',
         :'mirror_click' => :'mirrorClick',
         :'remaining' => :'remaining',
@@ -42,10 +48,11 @@ module SibApiV3Sdk
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'global_stats' => :'Object',
         :'campaign_stats' => :'Array<Object>',
         :'mirror_click' => :'Integer',
         :'remaining' => :'Integer',
-        :'links_stats' => :'Hash<String, GetExtendedCampaignStatsLinksStats>',
+        :'links_stats' => :'Object',
         :'stats_by_domain' => :'GetStatsByDomain'
       }
     end
@@ -57,6 +64,10 @@ module SibApiV3Sdk
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'globalStats')
+        self.global_stats = attributes[:'globalStats']
+      end
 
       if attributes.has_key?(:'campaignStats')
         if (value = attributes[:'campaignStats']).is_a?(Array)
@@ -73,9 +84,7 @@ module SibApiV3Sdk
       end
 
       if attributes.has_key?(:'linksStats')
-        if (value = attributes[:'linksStats']).is_a?(Hash)
-          self.links_stats = value
-        end
+        self.links_stats = attributes[:'linksStats']
       end
 
       if attributes.has_key?(:'statsByDomain')
@@ -88,6 +97,10 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @global_stats.nil?
+        invalid_properties.push("invalid value for 'global_stats', global_stats cannot be nil.")
+      end
+
       if @campaign_stats.nil?
         invalid_properties.push("invalid value for 'campaign_stats', campaign_stats cannot be nil.")
       end
@@ -114,6 +127,7 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @global_stats.nil?
       return false if @campaign_stats.nil?
       return false if @mirror_click.nil?
       return false if @remaining.nil?
@@ -127,6 +141,7 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          global_stats == o.global_stats &&
           campaign_stats == o.campaign_stats &&
           mirror_click == o.mirror_click &&
           remaining == o.remaining &&
@@ -143,7 +158,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [campaign_stats, mirror_click, remaining, links_stats, stats_by_domain].hash
+      [global_stats, campaign_stats, mirror_click, remaining, links_stats, stats_by_domain].hash
     end
 
     # Builds the object from hash

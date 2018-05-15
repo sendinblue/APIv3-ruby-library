@@ -3,10 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**campaign_stats** | **Array&lt;Object&gt;** |  | 
+**global_stats** | **Object** | Overall statistics of the campaign | 
+**campaign_stats** | **Array&lt;Object&gt;** | List-wise statistics of the campaign. | 
 **mirror_click** | **Integer** | Number of clicks on mirror link | 
 **remaining** | **Integer** | Number of remaning emails to send | 
-**links_stats** | [**Hash&lt;String, GetExtendedCampaignStatsLinksStats&gt;**](GetExtendedCampaignStatsLinksStats.md) |  | 
+**links_stats** | **Object** | Statistics about the number of clicks for the links | 
 **stats_by_domain** | [**GetStatsByDomain**](GetStatsByDomain.md) |  | 
 
 

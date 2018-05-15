@@ -3,10 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**file_url** | **String** | Mandatory if fileBody not defined. URL of the file to be imported (no local file). Possible file types: .txt, .csv | [optional] 
+**file_url** | **String** | Mandatory if fileBody is not defined. URL of the file to be imported (no local file). Possible file formats: .txt, .csv | [optional] 
 **file_body** | **String** | Mandatory if fileUrl is not defined. CSV content to be imported. Use semicolon to separate multiple attributes | [optional] 
-**list_ids** | **Array&lt;Integer&gt;** | Manadatory if newList is not defined. Ids of the lists in which to add the contacts | [optional] 
+**list_ids** | **Array&lt;Integer&gt;** | Mandatory if newList is not defined. Ids of the lists in which the contacts shall be imported. For example, [2, 4, 7]. | [optional] 
 **notify_url** | **String** | URL that will be called once the export process is finished | [optional] 
 **new_list** | [**RequestContactImportNewList**](RequestContactImportNewList.md) |  | [optional] 
+**email_blacklist** | **BOOLEAN** | To blacklist all the contacts for email | [optional] [default to false]
+**sms_blacklist** | **BOOLEAN** | To blacklist all the contacts for sms | [optional] [default to false]
+**update_existing_contacts** | **BOOLEAN** | To facilitate the choice to update the existing contacts | [optional] [default to true]
 
 

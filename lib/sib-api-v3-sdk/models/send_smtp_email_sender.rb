@@ -13,12 +13,12 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module SibApiV3Sdk
-  # Sender from which emails are sent. Mandatory if 'templateId' is not passed
+  # Mandatory if 'templateId' is not passed. Pass name (optional) and email of sender from which emails will be sent. For example, {'name':'Mary from MyShop', 'email':'no-reply@myshop.com'}
   class SendSmtpEmailSender
-    # Sender Name from which the emails are sent
+    # Name of the sender from which the emails will be sent
     attr_accessor :name
 
-    # Sender Email from which the emails are sent
+    # Email of the sender from which the emails will be sent
     attr_accessor :email
 
 

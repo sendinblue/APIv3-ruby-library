@@ -15,10 +15,10 @@ require 'date'
 module SibApiV3Sdk
 
   class UpdateList
-    # Name of the list. Only one parameter can be update at once
+    # Name of the list. Either of the two parameters (name, folderId) can be updated at a time.
     attr_accessor :name
 
-    # Id of the folder in which to move the list. Only one parameter can updated at once
+    # Id of the folder in which the list is to be moved. Either of the two parameters (name, folderId) can be updated at a time.
     attr_accessor :folder_id
 
 
