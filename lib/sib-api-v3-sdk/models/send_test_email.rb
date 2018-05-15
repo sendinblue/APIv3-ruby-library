@@ -15,7 +15,7 @@ require 'date'
 module SibApiV3Sdk
 
   class SendTestEmail
-    # If empty the test email will be sent to your entire test list. Use this field to send it to specific addresses in your list.
+    # List of the email addresses of the recipients whom you wish to send the test mail. If left empty, the test mail will be sent to your entire test list.
     attr_accessor :email_to
 
 

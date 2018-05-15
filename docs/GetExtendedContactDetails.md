@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **modified_at** | **DateTime** | Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
 **list_ids** | **Array&lt;Integer&gt;** |  | 
 **list_unsubscribed** | **Array&lt;Integer&gt;** |  | [optional] 
-**attributes** | **Hash&lt;String, String&gt;** |  | 
+**attributes** | **Object** | Set of attributes of the contact | 
 **statistics** | [**GetExtendedContactDetailsStatistics**](GetExtendedContactDetailsStatistics.md) |  | 
 
 

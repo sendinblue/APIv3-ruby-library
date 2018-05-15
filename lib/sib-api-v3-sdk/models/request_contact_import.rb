@@ -15,19 +15,28 @@ require 'date'
 module SibApiV3Sdk
 
   class RequestContactImport
-    # Mandatory if fileBody not defined. URL of the file to be imported (no local file). Possible file types: .txt, .csv
+    # Mandatory if fileBody is not defined. URL of the file to be imported (no local file). Possible file formats: .txt, .csv
     attr_accessor :file_url
 
     # Mandatory if fileUrl is not defined. CSV content to be imported. Use semicolon to separate multiple attributes
     attr_accessor :file_body
 
-    # Manadatory if newList is not defined. Ids of the lists in which to add the contacts
+    # Mandatory if newList is not defined. Ids of the lists in which the contacts shall be imported. For example, [2, 4, 7].
     attr_accessor :list_ids
 
     # URL that will be called once the export process is finished
     attr_accessor :notify_url
 
     attr_accessor :new_list
+
+    # To blacklist all the contacts for email
+    attr_accessor :email_blacklist
+
+    # To blacklist all the contacts for sms
+    attr_accessor :sms_blacklist
+
+    # To facilitate the choice to update the existing contacts
+    attr_accessor :update_existing_contacts
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -37,7 +46,10 @@ module SibApiV3Sdk
         :'file_body' => :'fileBody',
         :'list_ids' => :'listIds',
         :'notify_url' => :'notifyUrl',
-        :'new_list' => :'newList'
+        :'new_list' => :'newList',
+        :'email_blacklist' => :'emailBlacklist',
+        :'sms_blacklist' => :'smsBlacklist',
+        :'update_existing_contacts' => :'updateExistingContacts'
       }
     end
 
@@ -48,7 +60,10 @@ module SibApiV3Sdk
         :'file_body' => :'String',
         :'list_ids' => :'Array<Integer>',
         :'notify_url' => :'String',
-        :'new_list' => :'RequestContactImportNewList'
+        :'new_list' => :'RequestContactImportNewList',
+        :'email_blacklist' => :'BOOLEAN',
+        :'sms_blacklist' => :'BOOLEAN',
+        :'update_existing_contacts' => :'BOOLEAN'
       }
     end
 
@@ -82,6 +97,24 @@ module SibApiV3Sdk
         self.new_list = attributes[:'newList']
       end
 
+      if attributes.has_key?(:'emailBlacklist')
+        self.email_blacklist = attributes[:'emailBlacklist']
+      else
+        self.email_blacklist = false
+      end
+
+      if attributes.has_key?(:'smsBlacklist')
+        self.sms_blacklist = attributes[:'smsBlacklist']
+      else
+        self.sms_blacklist = false
+      end
+
+      if attributes.has_key?(:'updateExistingContacts')
+        self.update_existing_contacts = attributes[:'updateExistingContacts']
+      else
+        self.update_existing_contacts = true
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -106,7 +139,10 @@ module SibApiV3Sdk
           file_body == o.file_body &&
           list_ids == o.list_ids &&
           notify_url == o.notify_url &&
-          new_list == o.new_list
+          new_list == o.new_list &&
+          email_blacklist == o.email_blacklist &&
+          sms_blacklist == o.sms_blacklist &&
+          update_existing_contacts == o.update_existing_contacts
     end
 
     # @see the `==` method
@@ -118,7 +154,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [file_url, file_body, list_ids, notify_url, new_list].hash
+      [file_url, file_body, list_ids, notify_url, new_list, email_blacklist, sms_blacklist, update_existing_contacts].hash
     end
 
     # Builds the object from hash

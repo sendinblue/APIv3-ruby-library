@@ -21,7 +21,7 @@ module SibApiV3Sdk
     # Base64 encoded chunk data of the attachment generated on the fly
     attr_accessor :content
 
-    # Required for content. Name of the attachment
+    # Required if content is passed. Name of the attachment
     attr_accessor :name
 
 

@@ -15,13 +15,13 @@ require 'date'
 module SibApiV3Sdk
 
   class CreateAttribute
-    # Value of the attribute. Use only if the attribute's category is calculated or global
+    # Value of the attribute. Use only if the attribute's category is 'calculated' or 'global'
     attr_accessor :value
 
-    # Values that the attribute can take. Use only if the attribute's category is category
+    # List of values and labels that the attribute can take. Use only if the attribute's category is \"category\". For example, [{'value':1, 'label':'male'}, {'value':2, 'label':'female'}]
     attr_accessor :enumeration
 
-    # Type of the attribute. Use only if the attribute's category is normal, category or transactional ( type 'id' only available if the category is 'transactional' attribute & type 'category' only available if the category is 'category' attribute )
+    # Type of the attribute. Use only if the attribute's category is 'normal', 'category' or 'transactional' ( type 'id' is only available if the category is 'transactional' attribute & type 'category' is only available if the category is 'category' attribute )
     attr_accessor :type
 
     class EnumAttributeValidator

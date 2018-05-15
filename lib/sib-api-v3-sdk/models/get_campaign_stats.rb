@@ -15,13 +15,13 @@ require 'date'
 module SibApiV3Sdk
 
   class GetCampaignStats
-    # List Id of email campaign (only in case of get email campaign(s))
+    # List Id of email campaign (only in case of get email campaign(s)(not for global stats))
     attr_accessor :list_id
 
     # Number of unique clicks for the campaign
     attr_accessor :unique_clicks
 
-    # Number of clicks for the campaign
+    # Number of total clicks for the campaign
     attr_accessor :clickers
 
     # Number of complaints (Spam reports) for the campaign
@@ -190,10 +190,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'viewed', viewed cannot be nil.")
       end
 
-      if @deferred.nil?
-        invalid_properties.push("invalid value for 'deferred', deferred cannot be nil.")
-      end
-
       return invalid_properties
     end
 
@@ -210,7 +206,6 @@ module SibApiV3Sdk
       return false if @unique_views.nil?
       return false if @unsubscriptions.nil?
       return false if @viewed.nil?
-      return false if @deferred.nil?
       return true
     end
 

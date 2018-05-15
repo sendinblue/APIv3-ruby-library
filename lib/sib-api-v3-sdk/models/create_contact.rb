@@ -15,22 +15,22 @@ require 'date'
 module SibApiV3Sdk
 
   class CreateContact
-    # Email address of the user. Mandatory if `attributes.sms` is not passed
+    # Email address of the user. Mandatory if \"sms\" field is not passed in \"attributes\" parameter'
     attr_accessor :email
 
-    # Values of the attributes to fill. The attributes must exist in you contact database
+    # Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For eg. {'FNAME':'Elly', 'LNAME':'Roger'}
     attr_accessor :attributes
 
-    # Blacklist the contact for emails (emailBlacklisted = true)
+    # Set this field to blacklist the contact for emails (emailBlacklisted = true)
     attr_accessor :email_blacklisted
 
-    # Blacklist the contact for SMS (smsBlacklisted = true)
+    # Set this field to blacklist the contact for SMS (smsBlacklisted = true)
     attr_accessor :sms_blacklisted
 
     # Ids of the lists to add the contact to
     attr_accessor :list_ids
 
-    # Facilitate to update existing contact in same request (updateEnabled = true)
+    # Facilitate to update the existing contact in the same request (updateEnabled = true)
     attr_accessor :update_enabled
 
     # SMTP forbidden sender for contact. Use only for email Contact ( only available if updateEnabled = true )

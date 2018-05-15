@@ -13,7 +13,7 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module SibApiV3Sdk
-
+  # Email sending credentials including subject, body, to, cc etc.
   class SendReportEmail
     # Subject of the email message
     attr_accessor :subject

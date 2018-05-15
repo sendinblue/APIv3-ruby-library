@@ -15,12 +15,13 @@ require 'date'
 module SibApiV3Sdk
 
   class UpdateContact
+    # Pass the set of attributes to be updated. These attributes must be present in your account. For eg. {'FNAME':'Ellie', 'LNAME':'Roger'}
     attr_accessor :attributes
 
-    # Blacklist the contact for emails (emailBlacklisted = true)
+    # Set/unset this field to blacklist/allow the contact for emails (emailBlacklisted = true)
     attr_accessor :email_blacklisted
 
-    # Blacklist the contact for SMS (smsBlacklisted = true)
+    # Set/unset this field to blacklist/allow the contact for SMS (smsBlacklisted = true)
     attr_accessor :sms_blacklisted
 
     # Ids of the lists to add the contact to
@@ -48,7 +49,7 @@ module SibApiV3Sdk
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'attributes' => :'Hash<String, String>',
+        :'attributes' => :'Object',
         :'email_blacklisted' => :'BOOLEAN',
         :'sms_blacklisted' => :'BOOLEAN',
         :'list_ids' => :'Array<Integer>',
@@ -66,9 +67,7 @@ module SibApiV3Sdk
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
       if attributes.has_key?(:'attributes')
-        if (value = attributes[:'attributes']).is_a?(Hash)
-          self.attributes = value
-        end
+        self.attributes = attributes[:'attributes']
       end
 
       if attributes.has_key?(:'emailBlacklisted')

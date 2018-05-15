@@ -13,12 +13,12 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module SibApiV3Sdk
-
+  # To create a new list and import the contacts into it, pass the listName and an optional folderId.
   class RequestContactImportNewList
     # List with listName will be created first and users will be imported in it (Mandatory if listIds is empty).
     attr_accessor :list_name
 
-    # Folder id will be used with listName to make newly created list’s desired parent (Mandatory if listName is not empty).
+    # Id of the folder where this new list shall be created (Mandatory if listName is not empty).
     attr_accessor :folder_id
 
 
