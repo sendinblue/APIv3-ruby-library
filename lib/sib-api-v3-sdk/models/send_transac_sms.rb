@@ -21,7 +21,7 @@ module SibApiV3Sdk
     # Mobile number to send SMS with the country code
     attr_accessor :recipient
 
-    # Content of the message. If more than 160 characters long, multiple text messages will be sent
+    # Content of the message. If more than 160 characters long, will be sent as multiple text messages
     attr_accessor :content
 
     # Type of the SMS
@@ -135,10 +135,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'content', content cannot be nil.")
       end
 
-      if @content.to_s.length > 160
-        invalid_properties.push("invalid value for 'content', the character length must be smaller than or equal to 160.")
-      end
-
       return invalid_properties
     end
 
@@ -149,7 +145,6 @@ module SibApiV3Sdk
       return false if @sender.to_s.length > 11
       return false if @recipient.nil?
       return false if @content.nil?
-      return false if @content.to_s.length > 160
       type_validator = EnumAttributeValidator.new('String', ["transactional", "marketing"])
       return false unless type_validator.valid?(@type)
       return true
@@ -167,20 +162,6 @@ module SibApiV3Sdk
       end
 
       @sender = sender
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] content Value to be assigned
-    def content=(content)
-      if content.nil?
-        fail ArgumentError, "content cannot be nil"
-      end
-
-      if content.to_s.length > 160
-        fail ArgumentError, "invalid value for 'content', the character length must be smaller than or equal to 160."
-      end
-
-      @content = content
     end
 
     # Custom attribute writer method checking allowed values (enum).
