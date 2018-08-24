@@ -74,6 +74,9 @@ module SibApiV3Sdk
     # FOR TRIGGER ONLY ! Type of trigger campaign.recurring = false means contact can receive the same Trigger campaign only once, & recurring = true means contact can receive the same Trigger campaign several times
     attr_accessor :recurring
 
+    # Sent UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ). Only available if 'status' of the campaign is 'sent'
+    attr_accessor :sent_date
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -118,7 +121,8 @@ module SibApiV3Sdk
         :'modified_at' => :'modifiedAt',
         :'inline_image_activation' => :'inlineImageActivation',
         :'mirror_active' => :'mirrorActive',
-        :'recurring' => :'recurring'
+        :'recurring' => :'recurring',
+        :'sent_date' => :'sentDate'
       }
     end
 
@@ -144,7 +148,8 @@ module SibApiV3Sdk
         :'modified_at' => :'DateTime',
         :'inline_image_activation' => :'BOOLEAN',
         :'mirror_active' => :'BOOLEAN',
-        :'recurring' => :'BOOLEAN'
+        :'recurring' => :'BOOLEAN',
+        :'sent_date' => :'DateTime'
       }
     end
 
@@ -234,6 +239,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'recurring')
         self.recurring = attributes[:'recurring']
+      end
+
+      if attributes.has_key?(:'sentDate')
+        self.sent_date = attributes[:'sentDate']
       end
 
     end
@@ -374,7 +383,8 @@ module SibApiV3Sdk
           modified_at == o.modified_at &&
           inline_image_activation == o.inline_image_activation &&
           mirror_active == o.mirror_active &&
-          recurring == o.recurring
+          recurring == o.recurring &&
+          sent_date == o.sent_date
     end
 
     # @see the `==` method
@@ -386,7 +396,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, subject, type, status, scheduled_at, test_sent, header, footer, sender, reply_to, to_field, html_content, share_link, tag, created_at, modified_at, inline_image_activation, mirror_active, recurring].hash
+      [id, name, subject, type, status, scheduled_at, test_sent, header, footer, sender, reply_to, to_field, html_content, share_link, tag, created_at, modified_at, inline_image_activation, mirror_active, recurring, sent_date].hash
     end
 
     # Builds the object from hash

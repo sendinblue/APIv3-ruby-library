@@ -21,7 +21,7 @@ module SibApiV3Sdk
     # List of values and labels that the attribute can take. Use only if the attribute's category is \"category\". For example, [{'value':1, 'label':'male'}, {'value':2, 'label':'female'}]
     attr_accessor :enumeration
 
-    # Type of the attribute. Use only if the attribute's category is 'normal', 'category' or 'transactional' ( type 'id' is only available if the category is 'transactional' attribute & type 'category' is only available if the category is 'category' attribute )
+    # Type of the attribute. Use only if the attribute's category is 'normal', 'category' or 'transactional' ( type 'boolean' is only available if the category is 'normal' attribute, type 'id' is only available if the category is 'transactional' attribute & type 'category' is only available if the category is 'category' attribute )
     attr_accessor :type
 
     class EnumAttributeValidator
@@ -98,7 +98,7 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      type_validator = EnumAttributeValidator.new('String', ["text", "date", "float", "id", "category"])
+      type_validator = EnumAttributeValidator.new('String', ["text", "date", "float", "boolean", "id", "category"])
       return false unless type_validator.valid?(@type)
       return true
     end
@@ -106,7 +106,7 @@ module SibApiV3Sdk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ["text", "date", "float", "id", "category"])
+      validator = EnumAttributeValidator.new('String', ["text", "date", "float", "boolean", "id", "category"])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for 'type', must be one of #{validator.allowable_values}."
       end
