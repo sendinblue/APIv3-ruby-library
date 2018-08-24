@@ -249,6 +249,8 @@ api_instance = SibApiV3Sdk::EmailCampaignsApi.new
 opts = { 
   type: "type_example", # String | Filter on the type of the campaigns
   status: "status_example", # String | Filter on the status of the campaign
+  start_date: DateTime.parse("2013-10-20T19:20:30+01:00"), # DateTime | Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
+  end_date: DateTime.parse("2013-10-20T19:20:30+01:00"), # DateTime | Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
   limit: 500, # Integer | Number of documents per page
   offset: 0 # Integer | Index of the first document in the page
 }
@@ -268,6 +270,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | **String**| Filter on the type of the campaigns | [optional] 
  **status** | **String**| Filter on the status of the campaign | [optional] 
+ **start_date** | **DateTime**| Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional] 
+ **end_date** | **DateTime**| Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional] 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 500]
  **offset** | **Integer**| Index of the first document in the page | [optional] [default to 0]
 

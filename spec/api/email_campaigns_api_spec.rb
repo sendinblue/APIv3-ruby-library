@@ -87,6 +87,8 @@ describe 'EmailCampaignsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :type Filter on the type of the campaigns
   # @option opts [String] :status Filter on the status of the campaign
+  # @option opts [DateTime] :start_date Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
+  # @option opts [DateTime] :end_date Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [Integer] :offset Index of the first document in the page
   # @return [GetEmailCampaigns]
