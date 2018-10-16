@@ -38,7 +38,7 @@ module SibApiV3Sdk
     # Email on which campaign recipients will be able to reply to
     attr_accessor :reply_to
 
-    # This is to personalize the «To» Field. If you want to include the first name and last name of your recipient, add {FNAME} {LNAME}. To use the contact attributes here, these must already exist in SendinBlue account
+    # To personalize the «To» Field. If you want to include the first name and last name of your recipient, add {FNAME} {LNAME}. These contact attributes must already exist in your SendinBlue account. If input parameter 'params' used please use {{contact.FNAME}} {{contact.LNAME}} for personalization
     attr_accessor :to_field
 
     attr_accessor :recipients
@@ -64,6 +64,9 @@ module SibApiV3Sdk
     # Customize the utm_campaign value. If this field is empty, the campaign name will be used. Only alphanumeric characters and spaces are allowed
     attr_accessor :utm_campaign
 
+    # Pass the set of attributes to customize the type 'classic' campaign. For example, {'FNAME':'Joe', 'LNAME':'Doe'}.
+    attr_accessor :params
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -84,7 +87,8 @@ module SibApiV3Sdk
         :'recurring' => :'recurring',
         :'footer' => :'footer',
         :'header' => :'header',
-        :'utm_campaign' => :'utmCampaign'
+        :'utm_campaign' => :'utmCampaign',
+        :'params' => :'params'
       }
     end
 
@@ -107,7 +111,8 @@ module SibApiV3Sdk
         :'recurring' => :'BOOLEAN',
         :'footer' => :'String',
         :'header' => :'String',
-        :'utm_campaign' => :'String'
+        :'utm_campaign' => :'String',
+        :'params' => :'Object'
       }
     end
 
@@ -191,6 +196,10 @@ module SibApiV3Sdk
         self.utm_campaign = attributes[:'utmCampaign']
       end
 
+      if attributes.has_key?(:'params')
+        self.params = attributes[:'params']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -227,7 +236,8 @@ module SibApiV3Sdk
           recurring == o.recurring &&
           footer == o.footer &&
           header == o.header &&
-          utm_campaign == o.utm_campaign
+          utm_campaign == o.utm_campaign &&
+          params == o.params
     end
 
     # @see the `==` method
@@ -239,7 +249,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [tag, sender, name, html_content, html_url, scheduled_at, subject, reply_to, to_field, recipients, attachment_url, inline_image_activation, mirror_active, recurring, footer, header, utm_campaign].hash
+      [tag, sender, name, html_content, html_url, scheduled_at, subject, reply_to, to_field, recipients, attachment_url, inline_image_activation, mirror_active, recurring, footer, header, utm_campaign, params].hash
     end
 
     # Builds the object from hash
