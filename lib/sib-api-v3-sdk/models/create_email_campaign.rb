@@ -23,11 +23,14 @@ module SibApiV3Sdk
     # Name of the campaign
     attr_accessor :name
 
-    # Mandatory if htmlUrl is empty. Body of the message (HTML)
+    # Mandatory if htmlUrl and templateId are empty. Body of the message (HTML)
     attr_accessor :html_content
 
-    # Mandatory if htmlContent is empty. Url to the message (HTML)
+    # Mandatory if htmlContent and templateId are empty. Url to the message (HTML)
     attr_accessor :html_url
+
+    # Mandatory if htmlContent and htmlUrl are empty. Id of the SMTP template with status 'active'. Used to copy only its content fetched from htmlContent/htmlUrl to an email campaign for RSS feature.
+    attr_accessor :template_id
 
     # Sending UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
     attr_accessor :scheduled_at
@@ -38,7 +41,7 @@ module SibApiV3Sdk
     # Email on which the campaign recipients will be able to reply to
     attr_accessor :reply_to
 
-    # To personalize the «To» Field, e.g. if you want to include the first name and last name of your recipient, use {FNAME} {LNAME}. These attributes must already exist in your contact database
+    # To personalize the «To» Field. If you want to include the first name and last name of your recipient, add {FNAME} {LNAME}. These contact attributes must already exist in your SendinBlue account. If input parameter 'params' used please use {{contact.FNAME}} {{contact.LNAME}} for personalization
     attr_accessor :to_field
 
     attr_accessor :recipients
@@ -66,6 +69,9 @@ module SibApiV3Sdk
 
     # Customize the utm_campaign value. If this field is empty, the campaign name will be used. Only alphanumeric characters and spaces are allowed
     attr_accessor :utm_campaign
+
+    # Pass the set of attributes to customize the type classic campaign. For example, {'FNAME':'Joe', 'LNAME':'Doe'}. Only available if 'type' is 'classic'
+    attr_accessor :params
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -97,6 +103,7 @@ module SibApiV3Sdk
         :'name' => :'name',
         :'html_content' => :'htmlContent',
         :'html_url' => :'htmlUrl',
+        :'template_id' => :'templateId',
         :'scheduled_at' => :'scheduledAt',
         :'subject' => :'subject',
         :'reply_to' => :'replyTo',
@@ -109,7 +116,8 @@ module SibApiV3Sdk
         :'type' => :'type',
         :'footer' => :'footer',
         :'header' => :'header',
-        :'utm_campaign' => :'utmCampaign'
+        :'utm_campaign' => :'utmCampaign',
+        :'params' => :'params'
       }
     end
 
@@ -121,6 +129,7 @@ module SibApiV3Sdk
         :'name' => :'String',
         :'html_content' => :'String',
         :'html_url' => :'String',
+        :'template_id' => :'Integer',
         :'scheduled_at' => :'DateTime',
         :'subject' => :'String',
         :'reply_to' => :'String',
@@ -133,7 +142,8 @@ module SibApiV3Sdk
         :'type' => :'String',
         :'footer' => :'String',
         :'header' => :'String',
-        :'utm_campaign' => :'String'
+        :'utm_campaign' => :'String',
+        :'params' => :'Object'
       }
     end
 
@@ -163,6 +173,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'htmlUrl')
         self.html_url = attributes[:'htmlUrl']
+      end
+
+      if attributes.has_key?(:'templateId')
+        self.template_id = attributes[:'templateId']
       end
 
       if attributes.has_key?(:'scheduledAt')
@@ -219,6 +233,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'utmCampaign')
         self.utm_campaign = attributes[:'utmCampaign']
+      end
+
+      if attributes.has_key?(:'params')
+        self.params = attributes[:'params']
       end
 
     end
@@ -278,6 +296,7 @@ module SibApiV3Sdk
           name == o.name &&
           html_content == o.html_content &&
           html_url == o.html_url &&
+          template_id == o.template_id &&
           scheduled_at == o.scheduled_at &&
           subject == o.subject &&
           reply_to == o.reply_to &&
@@ -290,7 +309,8 @@ module SibApiV3Sdk
           type == o.type &&
           footer == o.footer &&
           header == o.header &&
-          utm_campaign == o.utm_campaign
+          utm_campaign == o.utm_campaign &&
+          params == o.params
     end
 
     # @see the `==` method
@@ -302,7 +322,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [tag, sender, name, html_content, html_url, scheduled_at, subject, reply_to, to_field, recipients, attachment_url, inline_image_activation, mirror_active, recurring, type, footer, header, utm_campaign].hash
+      [tag, sender, name, html_content, html_url, template_id, scheduled_at, subject, reply_to, to_field, recipients, attachment_url, inline_image_activation, mirror_active, recurring, type, footer, header, utm_campaign, params].hash
     end
 
     # Builds the object from hash
