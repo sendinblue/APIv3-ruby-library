@@ -281,8 +281,8 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SMTPApi.get_email_event_report, must be smaller than or equal to 100.'
       end
 
-      if @api_client.config.client_side_validation && opts[:'event'] && !['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked'].include?(opts[:'event'])
-        fail ArgumentError, 'invalid value for "event", must be one of bounces, hardBounces, softBounces, delivered, spam, requests, opened, clicks, invalid, deferred, blocked'
+      if @api_client.config.client_side_validation && opts[:'event'] && !['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed'].include?(opts[:'event'])
+        fail ArgumentError, 'invalid value for "event", must be one of bounces, hardBounces, softBounces, delivered, spam, requests, opened, clicks, invalid, deferred, blocked, unsubscribed'
       end
       # resource path
       local_var_path = "/smtp/statistics/events"

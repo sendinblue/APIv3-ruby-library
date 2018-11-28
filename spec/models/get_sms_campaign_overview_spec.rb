@@ -47,7 +47,7 @@ describe 'GetSmsCampaignOverview' do
   describe 'test attribute "status"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["draft", "sent", "archive", "queued", "suspended", "in_process"])
+       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["draft", "sent", "archive", "queued", "suspended", "inProcess"])
        #validator.allowable_values.each do |value|
        #  expect { @instance.status = value }.not_to raise_error
        #end
@@ -61,12 +61,6 @@ describe 'GetSmsCampaignOverview' do
   end
 
   describe 'test attribute "scheduled_at"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "test_sent"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

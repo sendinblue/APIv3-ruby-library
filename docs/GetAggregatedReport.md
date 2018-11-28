@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **spam_reports** | **Integer** | Number of complaint (spam report) for the timeframe | 
 **blocked** | **Integer** | Number of blocked contact emails for the timeframe | 
 **invalid** | **Integer** | Number of invalid emails for the timeframe | 
+**unsubscribed** | **Integer** | Number of unsubscribed emails for the timeframe | 
 
 

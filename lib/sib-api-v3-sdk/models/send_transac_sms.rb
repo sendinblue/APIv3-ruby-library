@@ -24,7 +24,7 @@ module SibApiV3Sdk
     # Content of the message. If more than 160 characters long, will be sent as multiple text messages
     attr_accessor :content
 
-    # Type of the SMS
+    # Type of the SMS. Marketing SMS messages are those sent typically with marketing content. Transactional SMS messages are sent to individuals and are triggered in response to some action, such as a sign-up, purchase, etc.
     attr_accessor :type
 
     # Tag of the message

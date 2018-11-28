@@ -68,10 +68,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'list_ids', list_ids cannot be nil.")
       end
 
-      if @exclusion_list_ids.nil?
-        invalid_properties.push("invalid value for 'exclusion_list_ids', exclusion_list_ids cannot be nil.")
-      end
-
       return invalid_properties
     end
 
@@ -79,7 +75,6 @@ module SibApiV3Sdk
     # @return true if the model is valid
     def valid?
       return false if @list_ids.nil?
-      return false if @exclusion_list_ids.nil?
       return true
     end
 

@@ -195,6 +195,8 @@ api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
 opts = { 
   status: "status_example", # String | Status of campaign.
+  start_date: DateTime.parse("2013-10-20T19:20:30+01:00"), # DateTime | Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
+  end_date: DateTime.parse("2013-10-20T19:20:30+01:00"), # DateTime | Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
   limit: 500, # Integer | Number limitation for the result returned
   offset: 0 # Integer | Beginning point in the list to retrieve from.
 }
@@ -213,6 +215,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **String**| Status of campaign. | [optional] 
+ **start_date** | **DateTime**| Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional] 
+ **end_date** | **DateTime**| Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional] 
  **limit** | **Integer**| Number limitation for the result returned | [optional] [default to 500]
  **offset** | **Integer**| Beginning point in the list to retrieve from. | [optional] [default to 0]
 

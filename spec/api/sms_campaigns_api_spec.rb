@@ -74,6 +74,8 @@ describe 'SMSCampaignsApi' do
   # 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :status Status of campaign.
+  # @option opts [DateTime] :start_date Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
+  # @option opts [DateTime] :end_date Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
   # @option opts [Integer] :limit Number limitation for the result returned
   # @option opts [Integer] :offset Beginning point in the list to retrieve from.
   # @return [GetSmsCampaigns]
