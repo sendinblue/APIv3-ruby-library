@@ -194,6 +194,8 @@ module SibApiV3Sdk
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :status Status of campaign.
+    # @option opts [DateTime] :start_date Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
+    # @option opts [DateTime] :end_date Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
     # @option opts [Integer] :limit Number limitation for the result returned (default to 500)
     # @option opts [Integer] :offset Beginning point in the list to retrieve from. (default to 0)
     # @return [GetSmsCampaigns]
@@ -206,6 +208,8 @@ module SibApiV3Sdk
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :status Status of campaign.
+    # @option opts [DateTime] :start_date Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
+    # @option opts [DateTime] :end_date Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
     # @option opts [Integer] :limit Number limitation for the result returned
     # @option opts [Integer] :offset Beginning point in the list to retrieve from.
     # @return [Array<(GetSmsCampaigns, Fixnum, Hash)>] GetSmsCampaigns data, response status code and response headers
@@ -213,8 +217,8 @@ module SibApiV3Sdk
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SMSCampaignsApi.get_sms_campaigns ..."
       end
-      if @api_client.config.client_side_validation && opts[:'status'] && !['suspended', 'archived', 'sent', 'queued', 'draft', 'inProcess'].include?(opts[:'status'])
-        fail ArgumentError, 'invalid value for "status", must be one of suspended, archived, sent, queued, draft, inProcess'
+      if @api_client.config.client_side_validation && opts[:'status'] && !['suspended', 'archive', 'sent', 'queued', 'draft', 'inProcess'].include?(opts[:'status'])
+        fail ArgumentError, 'invalid value for "status", must be one of suspended, archive, sent, queued, draft, inProcess'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SMSCampaignsApi.get_sms_campaigns, must be smaller than or equal to 1000.'
@@ -226,6 +230,8 @@ module SibApiV3Sdk
       # query parameters
       query_params = {}
       query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
+      query_params[:'startDate'] = opts[:'start_date'] if !opts[:'start_date'].nil?
+      query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
 

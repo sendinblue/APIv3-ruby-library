@@ -51,6 +51,9 @@ module SibApiV3Sdk
     # Number of invalid emails for the timeframe
     attr_accessor :invalid
 
+    # Number of unsubscribed emails for the timeframe
+    attr_accessor :unsubscribed
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -66,7 +69,8 @@ module SibApiV3Sdk
         :'unique_opens' => :'uniqueOpens',
         :'spam_reports' => :'spamReports',
         :'blocked' => :'blocked',
-        :'invalid' => :'invalid'
+        :'invalid' => :'invalid',
+        :'unsubscribed' => :'unsubscribed'
       }
     end
 
@@ -84,7 +88,8 @@ module SibApiV3Sdk
         :'unique_opens' => :'Integer',
         :'spam_reports' => :'Integer',
         :'blocked' => :'Integer',
-        :'invalid' => :'Integer'
+        :'invalid' => :'Integer',
+        :'unsubscribed' => :'Integer'
       }
     end
 
@@ -144,6 +149,10 @@ module SibApiV3Sdk
         self.invalid = attributes[:'invalid']
       end
 
+      if attributes.has_key?(:'unsubscribed')
+        self.unsubscribed = attributes[:'unsubscribed']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -198,6 +207,10 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'invalid', invalid cannot be nil.")
       end
 
+      if @unsubscribed.nil?
+        invalid_properties.push("invalid value for 'unsubscribed', unsubscribed cannot be nil.")
+      end
+
       return invalid_properties
     end
 
@@ -216,6 +229,7 @@ module SibApiV3Sdk
       return false if @spam_reports.nil?
       return false if @blocked.nil?
       return false if @invalid.nil?
+      return false if @unsubscribed.nil?
       return true
     end
 
@@ -235,7 +249,8 @@ module SibApiV3Sdk
           unique_opens == o.unique_opens &&
           spam_reports == o.spam_reports &&
           blocked == o.blocked &&
-          invalid == o.invalid
+          invalid == o.invalid &&
+          unsubscribed == o.unsubscribed
     end
 
     # @see the `==` method
@@ -247,7 +262,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [range, requests, delivered, hard_bounces, soft_bounces, clicks, unique_clicks, opens, unique_opens, spam_reports, blocked, invalid].hash
+      [range, requests, delivered, hard_bounces, soft_bounces, clicks, unique_clicks, opens, unique_opens, spam_reports, blocked, invalid, unsubscribed].hash
     end
 
     # Builds the object from hash

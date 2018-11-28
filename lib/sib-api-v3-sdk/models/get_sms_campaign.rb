@@ -30,9 +30,6 @@ module SibApiV3Sdk
     # UTC date-time on which SMS campaign is scheduled. Should be in YYYY-MM-DDTHH:mm:ss.SSSZ format
     attr_accessor :scheduled_at
 
-    # Retrieved the status of test SMS sending. (true=Test SMS has been sent  false=Test SMS has not been sent)
-    attr_accessor :test_sent
-
     # Sender of the SMS Campaign
     attr_accessor :sender
 
@@ -76,7 +73,6 @@ module SibApiV3Sdk
         :'status' => :'status',
         :'content' => :'content',
         :'scheduled_at' => :'scheduledAt',
-        :'test_sent' => :'testSent',
         :'sender' => :'sender',
         :'created_at' => :'createdAt',
         :'modified_at' => :'modifiedAt',
@@ -93,7 +89,6 @@ module SibApiV3Sdk
         :'status' => :'String',
         :'content' => :'String',
         :'scheduled_at' => :'DateTime',
-        :'test_sent' => :'BOOLEAN',
         :'sender' => :'String',
         :'created_at' => :'DateTime',
         :'modified_at' => :'DateTime',
@@ -128,10 +123,6 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'scheduledAt')
         self.scheduled_at = attributes[:'scheduledAt']
-      end
-
-      if attributes.has_key?(:'testSent')
-        self.test_sent = attributes[:'testSent']
       end
 
       if attributes.has_key?(:'sender')
@@ -180,10 +171,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'scheduled_at', scheduled_at cannot be nil.")
       end
 
-      if @test_sent.nil?
-        invalid_properties.push("invalid value for 'test_sent', test_sent cannot be nil.")
-      end
-
       if @sender.nil?
         invalid_properties.push("invalid value for 'sender', sender cannot be nil.")
       end
@@ -213,11 +200,10 @@ module SibApiV3Sdk
       return false if @id.nil?
       return false if @name.nil?
       return false if @status.nil?
-      status_validator = EnumAttributeValidator.new('String', ["draft", "sent", "archive", "queued", "suspended", "in_process"])
+      status_validator = EnumAttributeValidator.new('String', ["draft", "sent", "archive", "queued", "suspended", "inProcess"])
       return false unless status_validator.valid?(@status)
       return false if @content.nil?
       return false if @scheduled_at.nil?
-      return false if @test_sent.nil?
       return false if @sender.nil?
       return false if @created_at.nil?
       return false if @modified_at.nil?
@@ -229,7 +215,7 @@ module SibApiV3Sdk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('String', ["draft", "sent", "archive", "queued", "suspended", "in_process"])
+      validator = EnumAttributeValidator.new('String', ["draft", "sent", "archive", "queued", "suspended", "inProcess"])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for 'status', must be one of #{validator.allowable_values}."
       end
@@ -246,7 +232,6 @@ module SibApiV3Sdk
           status == o.status &&
           content == o.content &&
           scheduled_at == o.scheduled_at &&
-          test_sent == o.test_sent &&
           sender == o.sender &&
           created_at == o.created_at &&
           modified_at == o.modified_at &&
@@ -263,7 +248,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, status, content, scheduled_at, test_sent, sender, created_at, modified_at, recipients, statistics].hash
+      [id, name, status, content, scheduled_at, sender, created_at, modified_at, recipients, statistics].hash
     end
 
     # Builds the object from hash

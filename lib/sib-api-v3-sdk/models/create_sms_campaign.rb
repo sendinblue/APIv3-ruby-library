@@ -98,6 +98,10 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'sender', the character length must be smaller than or equal to 11.")
       end
 
+      if @content.nil?
+        invalid_properties.push("invalid value for 'content', content cannot be nil.")
+      end
+
       return invalid_properties
     end
 
@@ -107,6 +111,7 @@ module SibApiV3Sdk
       return false if @name.nil?
       return false if @sender.nil?
       return false if @sender.to_s.length > 11
+      return false if @content.nil?
       return true
     end
 
