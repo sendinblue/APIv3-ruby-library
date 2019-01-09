@@ -73,8 +73,6 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'recipientsType')
         self.recipients_type = attributes[:'recipientsType']
-      else
-        self.recipients_type = "all"
       end
 
     end

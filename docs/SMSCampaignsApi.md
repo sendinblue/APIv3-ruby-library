@@ -401,7 +401,7 @@ nil (empty response body)
 
 
 # **send_test_sms**
-> send_test_sms(campaign_id, send_test_sms)
+> send_test_sms(campaign_id, phone_number)
 
 Send an SMS
 
@@ -421,12 +421,12 @@ api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
 campaign_id = 789 # Integer | Id of the SMS campaign
 
-send_test_sms = SibApiV3Sdk::SendTestSms.new # SendTestSms | Mobile number to which send the test
+phone_number = SibApiV3Sdk::SendTestSms.new # SendTestSms | Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted
 
 
 begin
   #Send an SMS
-  api_instance.send_test_sms(campaign_id, send_test_sms)
+  api_instance.send_test_sms(campaign_id, phone_number)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMSCampaignsApi->send_test_sms: #{e}"
 end
@@ -437,7 +437,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaign_id** | **Integer**| Id of the SMS campaign | 
- **send_test_sms** | [**SendTestSms**](SendTestSms.md)| Mobile number to which send the test | 
+ **phone_number** | [**SendTestSms**](SendTestSms.md)| Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted | 
 
 ### Return type
 

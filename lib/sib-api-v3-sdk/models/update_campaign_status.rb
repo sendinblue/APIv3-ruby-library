@@ -15,6 +15,7 @@ require 'date'
 module SibApiV3Sdk
   # Status of the campaign
   class UpdateCampaignStatus
+    # Note:- replicateTemplate status will be available only for template type campaigns.
     attr_accessor :status
 
     class EnumAttributeValidator
