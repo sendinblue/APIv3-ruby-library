@@ -38,6 +38,9 @@ module SibApiV3Sdk
     # To facilitate the choice to update the existing contacts
     attr_accessor :update_existing_contacts
 
+    # To facilitate the choice to erase any attribute of the existing contacts with empty value. emptyContactsAttributes = true means the empty fields in your import will erase any attribute that currently contain data in SendinBlue, & emptyContactsAttributes = false means the empty fields will not affect your existing data ( only available if `updateExistingContacts` set to true )
+    attr_accessor :empty_contacts_attributes
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -49,7 +52,8 @@ module SibApiV3Sdk
         :'new_list' => :'newList',
         :'email_blacklist' => :'emailBlacklist',
         :'sms_blacklist' => :'smsBlacklist',
-        :'update_existing_contacts' => :'updateExistingContacts'
+        :'update_existing_contacts' => :'updateExistingContacts',
+        :'empty_contacts_attributes' => :'emptyContactsAttributes'
       }
     end
 
@@ -63,7 +67,8 @@ module SibApiV3Sdk
         :'new_list' => :'RequestContactImportNewList',
         :'email_blacklist' => :'BOOLEAN',
         :'sms_blacklist' => :'BOOLEAN',
-        :'update_existing_contacts' => :'BOOLEAN'
+        :'update_existing_contacts' => :'BOOLEAN',
+        :'empty_contacts_attributes' => :'BOOLEAN'
       }
     end
 
@@ -115,6 +120,12 @@ module SibApiV3Sdk
         self.update_existing_contacts = true
       end
 
+      if attributes.has_key?(:'emptyContactsAttributes')
+        self.empty_contacts_attributes = attributes[:'emptyContactsAttributes']
+      else
+        self.empty_contacts_attributes = false
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -142,7 +153,8 @@ module SibApiV3Sdk
           new_list == o.new_list &&
           email_blacklist == o.email_blacklist &&
           sms_blacklist == o.sms_blacklist &&
-          update_existing_contacts == o.update_existing_contacts
+          update_existing_contacts == o.update_existing_contacts &&
+          empty_contacts_attributes == o.empty_contacts_attributes
     end
 
     # @see the `==` method
@@ -154,7 +166,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [file_url, file_body, list_ids, notify_url, new_list, email_blacklist, sms_blacklist, update_existing_contacts].hash
+      [file_url, file_body, list_ids, notify_url, new_list, email_blacklist, sms_blacklist, update_existing_contacts, empty_contacts_attributes].hash
     end
 
     # Builds the object from hash

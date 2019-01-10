@@ -127,7 +127,7 @@ describe 'SMSCampaignsApi' do
   # Send an SMS
   # 
   # @param campaign_id Id of the SMS campaign
-  # @param send_test_sms Mobile number to which send the test
+  # @param phone_number Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'send_test_sms test' do

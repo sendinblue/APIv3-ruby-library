@@ -19,12 +19,24 @@ module SibApiV3Sdk
 
     attr_accessor :message_id
 
+    # Count of SMS's to send multiple text messages
+    attr_accessor :sms_count
+
+    # SMS credits used per text message
+    attr_accessor :used_credits
+
+    # Remaining SMS credits of the user
+    attr_accessor :remaining_credits
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'reference' => :'reference',
-        :'message_id' => :'messageId'
+        :'message_id' => :'messageId',
+        :'sms_count' => :'smsCount',
+        :'used_credits' => :'usedCredits',
+        :'remaining_credits' => :'remainingCredits'
       }
     end
 
@@ -32,7 +44,10 @@ module SibApiV3Sdk
     def self.swagger_types
       {
         :'reference' => :'String',
-        :'message_id' => :'Integer'
+        :'message_id' => :'Integer',
+        :'sms_count' => :'Integer',
+        :'used_credits' => :'Float',
+        :'remaining_credits' => :'Float'
       }
     end
 
@@ -50,6 +65,18 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'messageId')
         self.message_id = attributes[:'messageId']
+      end
+
+      if attributes.has_key?(:'smsCount')
+        self.sms_count = attributes[:'smsCount']
+      end
+
+      if attributes.has_key?(:'usedCredits')
+        self.used_credits = attributes[:'usedCredits']
+      end
+
+      if attributes.has_key?(:'remainingCredits')
+        self.remaining_credits = attributes[:'remainingCredits']
       end
 
     end
@@ -83,7 +110,10 @@ module SibApiV3Sdk
       return true if self.equal?(o)
       self.class == o.class &&
           reference == o.reference &&
-          message_id == o.message_id
+          message_id == o.message_id &&
+          sms_count == o.sms_count &&
+          used_credits == o.used_credits &&
+          remaining_credits == o.remaining_credits
     end
 
     # @see the `==` method
@@ -95,7 +125,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [reference, message_id].hash
+      [reference, message_id, sms_count, used_credits, remaining_credits].hash
     end
 
     # Builds the object from hash

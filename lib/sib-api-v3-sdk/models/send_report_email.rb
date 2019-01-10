@@ -99,6 +99,8 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'contentType')
         self.content_type = attributes[:'contentType']
+      else
+        self.content_type = "html"
       end
 
       if attributes.has_key?(:'bcc')
@@ -123,14 +125,29 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @subject.nil?
+        invalid_properties.push("invalid value for 'subject', subject cannot be nil.")
+      end
+
+      if @to.nil?
+        invalid_properties.push("invalid value for 'to', to cannot be nil.")
+      end
+
+      if @body.nil?
+        invalid_properties.push("invalid value for 'body', body cannot be nil.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @subject.nil?
+      return false if @to.nil?
       content_type_validator = EnumAttributeValidator.new('String', ["text", "html"])
       return false unless content_type_validator.valid?(@content_type)
+      return false if @body.nil?
       return true
     end
 

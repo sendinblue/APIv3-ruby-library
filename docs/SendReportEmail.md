@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subject** | **String** | Subject of the email message | [optional] 
-**to** | **Array&lt;String&gt;** | Email addresses of the recipients | [optional] 
-**content_type** | **String** | Type of the message body | [optional] 
+**subject** | **String** | Subject of the email message | 
+**to** | **Array&lt;String&gt;** | Email addresses of the recipients | 
+**content_type** | **String** | Type of the message body | [optional] [default to &quot;html&quot;]
 **bcc** | **Array&lt;String&gt;** | Email addresses of the recipients in bcc | [optional] 
 **cc** | **Array&lt;String&gt;** | Email addresses of the recipients in cc | [optional] 
-**body** | **String** | Body of the email message | [optional] 
+**body** | **String** | Body of the email message | 
 
 

@@ -107,6 +107,10 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'url', url cannot be nil.")
       end
 
+      if @events.nil?
+        invalid_properties.push("invalid value for 'events', events cannot be nil.")
+      end
+
       return invalid_properties
     end
 
@@ -114,6 +118,7 @@ module SibApiV3Sdk
     # @return true if the model is valid
     def valid?
       return false if @url.nil?
+      return false if @events.nil?
       type_validator = EnumAttributeValidator.new('String', ["transactional", "marketing"])
       return false unless type_validator.valid?(@type)
       return true

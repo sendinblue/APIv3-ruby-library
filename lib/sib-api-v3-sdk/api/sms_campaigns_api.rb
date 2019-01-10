@@ -435,21 +435,21 @@ module SibApiV3Sdk
     # Send an SMS
     # 
     # @param campaign_id Id of the SMS campaign
-    # @param send_test_sms Mobile number to which send the test
+    # @param phone_number Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def send_test_sms(campaign_id, send_test_sms, opts = {})
-      send_test_sms_with_http_info(campaign_id, send_test_sms, opts)
+    def send_test_sms(campaign_id, phone_number, opts = {})
+      send_test_sms_with_http_info(campaign_id, phone_number, opts)
       return nil
     end
 
     # Send an SMS
     # 
     # @param campaign_id Id of the SMS campaign
-    # @param send_test_sms Mobile number to which send the test
+    # @param phone_number Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def send_test_sms_with_http_info(campaign_id, send_test_sms, opts = {})
+    def send_test_sms_with_http_info(campaign_id, phone_number, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SMSCampaignsApi.send_test_sms ..."
       end
@@ -457,9 +457,9 @@ module SibApiV3Sdk
       if @api_client.config.client_side_validation && campaign_id.nil?
         fail ArgumentError, "Missing the required parameter 'campaign_id' when calling SMSCampaignsApi.send_test_sms"
       end
-      # verify the required parameter 'send_test_sms' is set
-      if @api_client.config.client_side_validation && send_test_sms.nil?
-        fail ArgumentError, "Missing the required parameter 'send_test_sms' when calling SMSCampaignsApi.send_test_sms"
+      # verify the required parameter 'phone_number' is set
+      if @api_client.config.client_side_validation && phone_number.nil?
+        fail ArgumentError, "Missing the required parameter 'phone_number' when calling SMSCampaignsApi.send_test_sms"
       end
       # resource path
       local_var_path = "/smsCampaigns/{campaignId}/sendTest".sub('{' + 'campaignId' + '}', campaign_id.to_s)
@@ -478,7 +478,7 @@ module SibApiV3Sdk
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(send_test_sms)
+      post_body = @api_client.object_to_http_body(phone_number)
       auth_names = ['api-key']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,

@@ -18,7 +18,7 @@ module SibApiV3Sdk
     # Phone number which has generated the event
     attr_accessor :phone_number
 
-    # Date on which the event has been generated
+    # UTC date-time on which the event has been generated
     attr_accessor :date
 
     # Message ID which generated the event
@@ -74,7 +74,7 @@ module SibApiV3Sdk
     def self.swagger_types
       {
         :'phone_number' => :'String',
-        :'date' => :'Date',
+        :'date' => :'DateTime',
         :'message_id' => :'String',
         :'event' => :'String',
         :'reason' => :'String',

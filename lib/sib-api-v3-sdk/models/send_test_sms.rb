@@ -15,21 +15,21 @@ require 'date'
 module SibApiV3Sdk
 
   class SendTestSms
-    # Mobile number with the country code to send test SMS. The mobile number defined here must belong to one of your contacts in SendinBlue account and must not be blacklisted
-    attr_accessor :phone_numbers
+    # Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted
+    attr_accessor :phone_number
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'phone_numbers' => :'phoneNumbers'
+        :'phone_number' => :'phoneNumber'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'phone_numbers' => :'Array<String>'
+        :'phone_number' => :'String'
       }
     end
 
@@ -41,10 +41,8 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'phoneNumbers')
-        if (value = attributes[:'phoneNumbers']).is_a?(Array)
-          self.phone_numbers = value
-        end
+      if attributes.has_key?(:'phoneNumber')
+        self.phone_number = attributes[:'phoneNumber']
       end
 
     end
@@ -67,7 +65,7 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          phone_numbers == o.phone_numbers
+          phone_number == o.phone_number
     end
 
     # @see the `==` method
@@ -79,7 +77,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [phone_numbers].hash
+      [phone_number].hash
     end
 
     # Builds the object from hash

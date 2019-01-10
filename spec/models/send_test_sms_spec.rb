@@ -32,7 +32,7 @@ describe 'SendTestSms' do
       expect(@instance).to be_instance_of(SibApiV3Sdk::SendTestSms)
     end
   end
-  describe 'test attribute "phone_numbers"' do
+  describe 'test attribute "phone_number"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
