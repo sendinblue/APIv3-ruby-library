@@ -155,7 +155,7 @@ module SibApiV3Sdk
     # 
     # @param create_contact Values to create a contact
     # @param [Hash] opts the optional parameters
-    # @return [CreateModel]
+    # @return [CreateUpdateContactModel]
     def create_contact(create_contact, opts = {})
       data, _status_code, _headers = create_contact_with_http_info(create_contact, opts)
       return data
@@ -165,7 +165,7 @@ module SibApiV3Sdk
     # 
     # @param create_contact Values to create a contact
     # @param [Hash] opts the optional parameters
-    # @return [Array<(CreateModel, Fixnum, Hash)>] CreateModel data, response status code and response headers
+    # @return [Array<(CreateUpdateContactModel, Fixnum, Hash)>] CreateUpdateContactModel data, response status code and response headers
     def create_contact_with_http_info(create_contact, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ContactsApi.create_contact ..."
@@ -199,7 +199,7 @@ module SibApiV3Sdk
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'CreateModel')
+        :return_type => 'CreateUpdateContactModel')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ContactsApi#create_contact\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

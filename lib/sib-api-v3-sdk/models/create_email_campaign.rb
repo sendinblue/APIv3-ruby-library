@@ -32,7 +32,7 @@ module SibApiV3Sdk
     # Mandatory if htmlContent and htmlUrl are empty. Id of the SMTP template with status 'active'. Used to copy only its content fetched from htmlContent/htmlUrl to an email campaign for RSS feature.
     attr_accessor :template_id
 
-    # Sending UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+    # Sending UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. If sendAtBestTime is set to true, your campaign will be sent according to the date passed (ignoring the time part).
     attr_accessor :scheduled_at
 
     # Subject of the campaign
@@ -55,12 +55,6 @@ module SibApiV3Sdk
     # Use true to enable the mirror link
     attr_accessor :mirror_active
 
-    # For trigger campagins use false to make sure a contact receives the same campaign only once
-    attr_accessor :recurring
-
-    # Type of the campaign
-    attr_accessor :type
-
     # Footer of the email campaign
     attr_accessor :footer
 
@@ -73,27 +67,9 @@ module SibApiV3Sdk
     # Pass the set of attributes to customize the type classic campaign. For example, {'FNAME':'Joe', 'LNAME':'Doe'}. Only available if 'type' is 'classic'. It's considered only if campaign is in New Template Language format. The New Template Language is dependent on the values of 'subject', 'htmlContent/htmlUrl', 'sender.name' & 'toField'
     attr_accessor :params
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
+    # Set this to true if you want to send your campaign at best time.
+    attr_accessor :send_at_best_time
 
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -112,12 +88,11 @@ module SibApiV3Sdk
         :'attachment_url' => :'attachmentUrl',
         :'inline_image_activation' => :'inlineImageActivation',
         :'mirror_active' => :'mirrorActive',
-        :'recurring' => :'recurring',
-        :'type' => :'type',
         :'footer' => :'footer',
         :'header' => :'header',
         :'utm_campaign' => :'utmCampaign',
-        :'params' => :'params'
+        :'params' => :'params',
+        :'send_at_best_time' => :'sendAtBestTime'
       }
     end
 
@@ -138,12 +113,11 @@ module SibApiV3Sdk
         :'attachment_url' => :'String',
         :'inline_image_activation' => :'BOOLEAN',
         :'mirror_active' => :'BOOLEAN',
-        :'recurring' => :'BOOLEAN',
-        :'type' => :'String',
         :'footer' => :'String',
         :'header' => :'String',
         :'utm_campaign' => :'String',
-        :'params' => :'Object'
+        :'params' => :'Object',
+        :'send_at_best_time' => :'BOOLEAN'
       }
     end
 
@@ -213,16 +187,6 @@ module SibApiV3Sdk
         self.mirror_active = attributes[:'mirrorActive']
       end
 
-      if attributes.has_key?(:'recurring')
-        self.recurring = attributes[:'recurring']
-      else
-        self.recurring = false
-      end
-
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      end
-
       if attributes.has_key?(:'footer')
         self.footer = attributes[:'footer']
       end
@@ -237,6 +201,12 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'params')
         self.params = attributes[:'params']
+      end
+
+      if attributes.has_key?(:'sendAtBestTime')
+        self.send_at_best_time = attributes[:'sendAtBestTime']
+      else
+        self.send_at_best_time = false
       end
 
     end
@@ -257,10 +227,6 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'subject', subject cannot be nil.")
       end
 
-      if @type.nil?
-        invalid_properties.push("invalid value for 'type', type cannot be nil.")
-      end
-
       return invalid_properties
     end
 
@@ -270,20 +236,7 @@ module SibApiV3Sdk
       return false if @sender.nil?
       return false if @name.nil?
       return false if @subject.nil?
-      return false if @type.nil?
-      type_validator = EnumAttributeValidator.new('String', ["classic", "trigger"])
-      return false unless type_validator.valid?(@type)
       return true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] type Object to be assigned
-    def type=(type)
-      validator = EnumAttributeValidator.new('String', ["classic", "trigger"])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for 'type', must be one of #{validator.allowable_values}."
-      end
-      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -305,12 +258,11 @@ module SibApiV3Sdk
           attachment_url == o.attachment_url &&
           inline_image_activation == o.inline_image_activation &&
           mirror_active == o.mirror_active &&
-          recurring == o.recurring &&
-          type == o.type &&
           footer == o.footer &&
           header == o.header &&
           utm_campaign == o.utm_campaign &&
-          params == o.params
+          params == o.params &&
+          send_at_best_time == o.send_at_best_time
     end
 
     # @see the `==` method
@@ -322,7 +274,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [tag, sender, name, html_content, html_url, template_id, scheduled_at, subject, reply_to, to_field, recipients, attachment_url, inline_image_activation, mirror_active, recurring, type, footer, header, utm_campaign, params].hash
+      [tag, sender, name, html_content, html_url, template_id, scheduled_at, subject, reply_to, to_field, recipients, attachment_url, inline_image_activation, mirror_active, footer, header, utm_campaign, params, send_at_best_time].hash
     end
 
     # Builds the object from hash

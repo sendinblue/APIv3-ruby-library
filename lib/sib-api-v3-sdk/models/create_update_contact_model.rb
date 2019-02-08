@@ -14,30 +14,22 @@ require 'date'
 
 module SibApiV3Sdk
 
-  class PostContactInfoContacts
-    attr_accessor :success
-
-    attr_accessor :failure
-
-    # Displays the count of total number of contacts removed from list when user opts for \"all\" option.
-    attr_accessor :total
+  class CreateUpdateContactModel
+    # ID of the contact when a new contact is created
+    attr_accessor :id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'success' => :'success',
-        :'failure' => :'failure',
-        :'total' => :'total'
+        :'id' => :'id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'success' => :'Array<String>',
-        :'failure' => :'Array<String>',
-        :'total' => :'Integer'
+        :'id' => :'Integer'
       }
     end
 
@@ -49,20 +41,8 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'success')
-        if (value = attributes[:'success']).is_a?(Array)
-          self.success = value
-        end
-      end
-
-      if attributes.has_key?(:'failure')
-        if (value = attributes[:'failure']).is_a?(Array)
-          self.failure = value
-        end
-      end
-
-      if attributes.has_key?(:'total')
-        self.total = attributes[:'total']
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
     end
@@ -85,9 +65,7 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          success == o.success &&
-          failure == o.failure &&
-          total == o.total
+          id == o.id
     end
 
     # @see the `==` method
@@ -99,7 +77,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [success, failure, total].hash
+      [id].hash
     end
 
     # Builds the object from hash

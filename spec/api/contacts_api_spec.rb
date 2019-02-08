@@ -64,7 +64,7 @@ describe 'ContactsApi' do
   # 
   # @param create_contact Values to create a contact
   # @param [Hash] opts the optional parameters
-  # @return [CreateModel]
+  # @return [CreateUpdateContactModel]
   describe 'create_contact test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

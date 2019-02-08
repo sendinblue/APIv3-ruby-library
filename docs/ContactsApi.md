@@ -145,7 +145,7 @@ nil (empty response body)
 
 
 # **create_contact**
-> CreateModel create_contact(create_contact)
+> CreateUpdateContactModel create_contact(create_contact)
 
 Create a contact
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateModel**](CreateModel.md)
+[**CreateUpdateContactModel**](CreateUpdateContactModel.md)
 
 ### Authorization
 

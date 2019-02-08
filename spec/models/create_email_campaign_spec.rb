@@ -116,22 +116,6 @@ describe 'CreateEmailCampaign' do
     end
   end
 
-  describe 'test attribute "recurring"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "type"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["classic", "trigger"])
-       #validator.allowable_values.each do |value|
-       #  expect { @instance.type = value }.not_to raise_error
-       #end
-    end
-  end
-
   describe 'test attribute "footer"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -151,6 +135,12 @@ describe 'CreateEmailCampaign' do
   end
 
   describe 'test attribute "params"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "send_at_best_time"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
