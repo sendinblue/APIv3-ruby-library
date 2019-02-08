@@ -29,7 +29,7 @@ module SibApiV3Sdk
     # Url which contents the body of the email message. REQUIRED if htmlContent is empty
     attr_accessor :html_url
 
-    # UTC date-time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+    # UTC date-time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. If sendAtBestTime is set to true, your campaign will be sent according to the date passed (ignoring the time part).
     attr_accessor :scheduled_at
 
     # Subject of the campaign
@@ -67,6 +67,9 @@ module SibApiV3Sdk
     # Pass the set of attributes to customize the type 'classic' campaign. For example, {'FNAME':'Joe', 'LNAME':'Doe'}. The 'params' field will get updated, only if the campaign is in New Template Language, else ignored. The New Template Language is dependent on the values of 'subject', 'htmlContent/htmlUrl', 'sender.name' & 'toField'
     attr_accessor :params
 
+    # Set this to true if you want to send your campaign at best time. Note:- if true, warmup ip will be disabled.
+    attr_accessor :send_at_best_time
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -88,7 +91,8 @@ module SibApiV3Sdk
         :'footer' => :'footer',
         :'header' => :'header',
         :'utm_campaign' => :'utmCampaign',
-        :'params' => :'params'
+        :'params' => :'params',
+        :'send_at_best_time' => :'sendAtBestTime'
       }
     end
 
@@ -112,7 +116,8 @@ module SibApiV3Sdk
         :'footer' => :'String',
         :'header' => :'String',
         :'utm_campaign' => :'String',
-        :'params' => :'Object'
+        :'params' => :'Object',
+        :'send_at_best_time' => :'BOOLEAN'
       }
     end
 
@@ -200,6 +205,10 @@ module SibApiV3Sdk
         self.params = attributes[:'params']
       end
 
+      if attributes.has_key?(:'sendAtBestTime')
+        self.send_at_best_time = attributes[:'sendAtBestTime']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -237,7 +246,8 @@ module SibApiV3Sdk
           footer == o.footer &&
           header == o.header &&
           utm_campaign == o.utm_campaign &&
-          params == o.params
+          params == o.params &&
+          send_at_best_time == o.send_at_best_time
     end
 
     # @see the `==` method
@@ -249,7 +259,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [tag, sender, name, html_content, html_url, scheduled_at, subject, reply_to, to_field, recipients, attachment_url, inline_image_activation, mirror_active, recurring, footer, header, utm_campaign, params].hash
+      [tag, sender, name, html_content, html_url, scheduled_at, subject, reply_to, to_field, recipients, attachment_url, inline_image_activation, mirror_active, recurring, footer, header, utm_campaign, params, send_at_best_time].hash
     end
 
     # Builds the object from hash

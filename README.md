@@ -207,6 +207,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::CreateSmtpEmail](docs/CreateSmtpEmail.md)
  - [SibApiV3Sdk::CreateSmtpTemplate](docs/CreateSmtpTemplate.md)
  - [SibApiV3Sdk::CreateSmtpTemplateSender](docs/CreateSmtpTemplateSender.md)
+ - [SibApiV3Sdk::CreateUpdateContactModel](docs/CreateUpdateContactModel.md)
  - [SibApiV3Sdk::CreateUpdateFolder](docs/CreateUpdateFolder.md)
  - [SibApiV3Sdk::CreateWebhook](docs/CreateWebhook.md)
  - [SibApiV3Sdk::CreatedProcessId](docs/CreatedProcessId.md)
