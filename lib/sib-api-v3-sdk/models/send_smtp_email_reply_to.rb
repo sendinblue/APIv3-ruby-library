@@ -13,7 +13,7 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module SibApiV3Sdk
-  # Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, {'email':'ann6533@example.com', 'name':'Ann'}.
+  # Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, `{\"email':'ann6533@example.com', 'name':'Ann'}`
   class SendSmtpEmailReplyTo
     # Email address in reply to
     attr_accessor :email

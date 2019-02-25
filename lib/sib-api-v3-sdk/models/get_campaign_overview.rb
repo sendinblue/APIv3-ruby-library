@@ -21,7 +21,7 @@ module SibApiV3Sdk
     # Name of the campaign
     attr_accessor :name
 
-    # Subject of the campaign
+    # Subject of the campaign. Only available if `abTesting` flag of the campaign is `false`
     attr_accessor :subject
 
     # Type of campaign
@@ -32,6 +32,27 @@ module SibApiV3Sdk
 
     # UTC date-time on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :scheduled_at
+
+    # Status of A/B Test for the campaign. abTesting = false means it is disabled, & abTesting = true means it is enabled.
+    attr_accessor :ab_testing
+
+    # Subject A of the ab-test campaign. Only available if `abTesting` flag of the campaign is `true`
+    attr_accessor :subject_a
+
+    # Subject B of the ab-test campaign. Only available if `abTesting` flag of the campaign is `true`
+    attr_accessor :subject_b
+
+    # The size of your ab-test groups. Only available if `abTesting` flag of the campaign is `true`
+    attr_accessor :split_rule
+
+    # Criteria for the winning version. Only available if `abTesting` flag of the campaign is `true`
+    attr_accessor :winner_criteria
+
+    # The duration of the test in hours at the end of which the winning version will be sent. Only available if `abTesting` flag of the campaign is `true`
+    attr_accessor :winner_delay
+
+    # It is true if you have chosen to send your campaign at best time, otherwise it is false
+    attr_accessor :send_at_best_time
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -63,7 +84,14 @@ module SibApiV3Sdk
         :'subject' => :'subject',
         :'type' => :'type',
         :'status' => :'status',
-        :'scheduled_at' => :'scheduledAt'
+        :'scheduled_at' => :'scheduledAt',
+        :'ab_testing' => :'abTesting',
+        :'subject_a' => :'subjectA',
+        :'subject_b' => :'subjectB',
+        :'split_rule' => :'splitRule',
+        :'winner_criteria' => :'winnerCriteria',
+        :'winner_delay' => :'winnerDelay',
+        :'send_at_best_time' => :'sendAtBestTime'
       }
     end
 
@@ -75,7 +103,14 @@ module SibApiV3Sdk
         :'subject' => :'String',
         :'type' => :'String',
         :'status' => :'String',
-        :'scheduled_at' => :'DateTime'
+        :'scheduled_at' => :'DateTime',
+        :'ab_testing' => :'BOOLEAN',
+        :'subject_a' => :'String',
+        :'subject_b' => :'String',
+        :'split_rule' => :'Integer',
+        :'winner_criteria' => :'String',
+        :'winner_delay' => :'Integer',
+        :'send_at_best_time' => :'BOOLEAN'
       }
     end
 
@@ -111,6 +146,34 @@ module SibApiV3Sdk
         self.scheduled_at = attributes[:'scheduledAt']
       end
 
+      if attributes.has_key?(:'abTesting')
+        self.ab_testing = attributes[:'abTesting']
+      end
+
+      if attributes.has_key?(:'subjectA')
+        self.subject_a = attributes[:'subjectA']
+      end
+
+      if attributes.has_key?(:'subjectB')
+        self.subject_b = attributes[:'subjectB']
+      end
+
+      if attributes.has_key?(:'splitRule')
+        self.split_rule = attributes[:'splitRule']
+      end
+
+      if attributes.has_key?(:'winnerCriteria')
+        self.winner_criteria = attributes[:'winnerCriteria']
+      end
+
+      if attributes.has_key?(:'winnerDelay')
+        self.winner_delay = attributes[:'winnerDelay']
+      end
+
+      if attributes.has_key?(:'sendAtBestTime')
+        self.send_at_best_time = attributes[:'sendAtBestTime']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -123,10 +186,6 @@ module SibApiV3Sdk
 
       if @name.nil?
         invalid_properties.push("invalid value for 'name', name cannot be nil.")
-      end
-
-      if @subject.nil?
-        invalid_properties.push("invalid value for 'subject', subject cannot be nil.")
       end
 
       if @type.nil?
@@ -145,7 +204,6 @@ module SibApiV3Sdk
     def valid?
       return false if @id.nil?
       return false if @name.nil?
-      return false if @subject.nil?
       return false if @type.nil?
       type_validator = EnumAttributeValidator.new('String', ["classic", "trigger"])
       return false unless type_validator.valid?(@type)
@@ -185,7 +243,14 @@ module SibApiV3Sdk
           subject == o.subject &&
           type == o.type &&
           status == o.status &&
-          scheduled_at == o.scheduled_at
+          scheduled_at == o.scheduled_at &&
+          ab_testing == o.ab_testing &&
+          subject_a == o.subject_a &&
+          subject_b == o.subject_b &&
+          split_rule == o.split_rule &&
+          winner_criteria == o.winner_criteria &&
+          winner_delay == o.winner_delay &&
+          send_at_best_time == o.send_at_best_time
     end
 
     # @see the `==` method
@@ -197,7 +262,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, subject, type, status, scheduled_at].hash
+      [id, name, subject, type, status, scheduled_at, ab_testing, subject_a, subject_b, split_rule, winner_criteria, winner_delay, send_at_best_time].hash
     end
 
     # Builds the object from hash

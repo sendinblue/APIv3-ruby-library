@@ -18,7 +18,7 @@ module SibApiV3Sdk
     # Email address of the user. Mandatory if \"sms\" field is not passed in \"attributes\" parameter'
     attr_accessor :email
 
-    # Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For eg. {'FNAME':'Elly', 'LNAME':'Roger'}
+    # Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For example, `{\"FNAME\":\"Elly\", \"LNAME\":\"Roger\"}`
     attr_accessor :attributes
 
     # Set this field to blacklist the contact for emails (emailBlacklisted = true)

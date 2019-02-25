@@ -13,7 +13,7 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module SibApiV3Sdk
-  # Sender details including email and/or name. For example {'name':'xyz' , 'email':'example@abc.com'}
+  # Sender details including email and/or name. For example `{\"name\":\"xyz\", \"email\":\"example@abc.com\"}`
   class UpdateSmtpTemplateSender
     # Name of the sender
     attr_accessor :name

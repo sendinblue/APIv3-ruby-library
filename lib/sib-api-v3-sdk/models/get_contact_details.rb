@@ -27,6 +27,9 @@ module SibApiV3Sdk
     # Blacklist status for SMS campaigns (true=blacklisted, false=not blacklisted)
     attr_accessor :sms_blacklisted
 
+    # Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)
+    attr_accessor :created_at
+
     # Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :modified_at
 
@@ -45,6 +48,7 @@ module SibApiV3Sdk
         :'id' => :'id',
         :'email_blacklisted' => :'emailBlacklisted',
         :'sms_blacklisted' => :'smsBlacklisted',
+        :'created_at' => :'createdAt',
         :'modified_at' => :'modifiedAt',
         :'list_ids' => :'listIds',
         :'list_unsubscribed' => :'listUnsubscribed',
@@ -59,6 +63,7 @@ module SibApiV3Sdk
         :'id' => :'Integer',
         :'email_blacklisted' => :'BOOLEAN',
         :'sms_blacklisted' => :'BOOLEAN',
+        :'created_at' => :'DateTime',
         :'modified_at' => :'DateTime',
         :'list_ids' => :'Array<Integer>',
         :'list_unsubscribed' => :'Array<Integer>',
@@ -88,6 +93,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'smsBlacklisted')
         self.sms_blacklisted = attributes[:'smsBlacklisted']
+      end
+
+      if attributes.has_key?(:'createdAt')
+        self.created_at = attributes[:'createdAt']
       end
 
       if attributes.has_key?(:'modifiedAt')
@@ -132,6 +141,10 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'sms_blacklisted', sms_blacklisted cannot be nil.")
       end
 
+      if @created_at.nil?
+        invalid_properties.push("invalid value for 'created_at', created_at cannot be nil.")
+      end
+
       if @modified_at.nil?
         invalid_properties.push("invalid value for 'modified_at', modified_at cannot be nil.")
       end
@@ -154,6 +167,7 @@ module SibApiV3Sdk
       return false if @id.nil?
       return false if @email_blacklisted.nil?
       return false if @sms_blacklisted.nil?
+      return false if @created_at.nil?
       return false if @modified_at.nil?
       return false if @list_ids.nil?
       return false if @attributes.nil?
@@ -169,6 +183,7 @@ module SibApiV3Sdk
           id == o.id &&
           email_blacklisted == o.email_blacklisted &&
           sms_blacklisted == o.sms_blacklisted &&
+          created_at == o.created_at &&
           modified_at == o.modified_at &&
           list_ids == o.list_ids &&
           list_unsubscribed == o.list_unsubscribed &&
@@ -184,7 +199,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, id, email_blacklisted, sms_blacklisted, modified_at, list_ids, list_unsubscribed, attributes].hash
+      [email, id, email_blacklisted, sms_blacklisted, created_at, modified_at, list_ids, list_unsubscribed, attributes].hash
     end
 
     # Builds the object from hash

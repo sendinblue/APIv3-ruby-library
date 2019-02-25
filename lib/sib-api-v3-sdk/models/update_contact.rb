@@ -15,7 +15,7 @@ require 'date'
 module SibApiV3Sdk
 
   class UpdateContact
-    # Pass the set of attributes to be updated. These attributes must be present in your account. To update existing email address of a contact with the new one please pass EMAIL in attribtes. For eg. { 'EMAIL':'newemail@domain.com', 'FNAME':'Ellie', 'LNAME':'Roger'}
+    # Pass the set of attributes to be updated. These attributes must be present in your account. To update existing email address of a contact with the new one please pass EMAIL in attribtes. For example, `{ 'EMAIL':'newemail@domain.com', 'FNAME':'Ellie', 'LNAME':'Roger'}`
     attr_accessor :attributes
 
     # Set/unset this field to blacklist/allow the contact for emails (emailBlacklisted = true)
