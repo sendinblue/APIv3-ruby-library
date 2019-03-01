@@ -203,6 +203,13 @@ module SibApiV3Sdk
             key: 'api-key',
             value: api_key_with_prefix('api-key')
           },
+        'partner-key' =>
+          {
+            type: 'api_key',
+            in: 'header',
+            key: 'partner-key',
+            value: api_key_with_prefix('partner-key')
+          },
       }
     end
   end

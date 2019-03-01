@@ -77,7 +77,7 @@ module SibApiV3Sdk
 
       # http body (model)
       post_body = @api_client.object_to_http_body(create_attribute)
-      auth_names = ['api-key']
+      auth_names = ['api-key', 'partner-key']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -141,7 +141,7 @@ module SibApiV3Sdk
 
       # http body (model)
       post_body = nil
-      auth_names = ['api-key']
+      auth_names = ['api-key', 'partner-key']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -189,7 +189,7 @@ module SibApiV3Sdk
 
       # http body (model)
       post_body = nil
-      auth_names = ['api-key']
+      auth_names = ['api-key', 'partner-key']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -260,7 +260,7 @@ module SibApiV3Sdk
 
       # http body (model)
       post_body = @api_client.object_to_http_body(update_attribute)
-      auth_names = ['api-key']
+      auth_names = ['api-key', 'partner-key']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,

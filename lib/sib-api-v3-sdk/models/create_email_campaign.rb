@@ -35,13 +35,13 @@ module SibApiV3Sdk
     # Sending UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. If sendAtBestTime is set to true, your campaign will be sent according to the date passed (ignoring the time part).
     attr_accessor :scheduled_at
 
-    # Subject of the campaign
+    # Subject of the campaign. Mandatory if abTesting is false. Ignored if abTesting is true.
     attr_accessor :subject
 
     # Email on which the campaign recipients will be able to reply to
     attr_accessor :reply_to
 
-    # To personalize the «To» Field. If you want to include the first name and last name of your recipient, add {FNAME} {LNAME}. These contact attributes must already exist in your SendinBlue account. If input parameter 'params' used please use {{contact.FNAME}} {{contact.LNAME}} for personalization
+    # To personalize the «To» Field. If you want to include the first name and last name of your recipient, add `{FNAME} {LNAME}`. These contact attributes must already exist in your SendinBlue account. If input parameter 'params' used please use `{{contact.FNAME}} {{contact.LNAME}}` for personalization
     attr_accessor :to_field
 
     attr_accessor :recipients
@@ -64,12 +64,51 @@ module SibApiV3Sdk
     # Customize the utm_campaign value. If this field is empty, the campaign name will be used. Only alphanumeric characters and spaces are allowed
     attr_accessor :utm_campaign
 
-    # Pass the set of attributes to customize the type classic campaign. For example, {'FNAME':'Joe', 'LNAME':'Doe'}. Only available if 'type' is 'classic'. It's considered only if campaign is in New Template Language format. The New Template Language is dependent on the values of 'subject', 'htmlContent/htmlUrl', 'sender.name' & 'toField'
+    # Pass the set of attributes to customize the type classic campaign. For example, `{\"FNAME\":\"Joe\", \"LNAME:\"Doe\"}`. Only available if 'type' is 'classic'. It's considered only if campaign is in New Template Language format. The New Template Language is dependent on the values of 'subject', 'htmlContent/htmlUrl', 'sender.name' & 'toField'
     attr_accessor :params
 
     # Set this to true if you want to send your campaign at best time.
     attr_accessor :send_at_best_time
 
+    # Status of A/B Test. abTesting = false means it is disabled, & abTesting = true means it is enabled. 'subjectA', 'subjectB', 'splitRule', 'winnerCriteria' & 'winnerDelay' will be considered when abTesting is set to true. 'subjectA' & 'subjectB' are mandatory together & 'subject' if passed is ignored. Can be set to true only if 'sendAtBestTime' is 'false'. You will be able to set up two subject lines for your campaign and send them to a random sample of your total recipients. Half of the test group will receive version A, and the other half will receive version B
+    attr_accessor :ab_testing
+
+    # Subject A of the campaign. Mandatory if abTesting = true. subjectA & subjectB should have unique value
+    attr_accessor :subject_a
+
+    # Subject B of the campaign. Mandatory if abTesting = true. subjectA & subjectB should have unique value
+    attr_accessor :subject_b
+
+    # Add the size of your test groups. Mandatory if abTesting = true & 'recipients' is passed. We'll send version A and B to a random sample of recipients, and then the winning version to everyone else
+    attr_accessor :split_rule
+
+    # Choose the metrics that will determinate the winning version. Mandatory if 'splitRule' >= 1 and < 50. If splitRule = 50, 'winnerCriteria' is ignored if passed
+    attr_accessor :winner_criteria
+
+    # Choose the duration of the test in hours. Maximum is 7 days, pass 24*7 = 168 hours. The winning version will be sent at the end of the test. Mandatory if 'splitRule' >= 1 and < 50. If splitRule = 50, 'winnerDelay' is ignored if passed
+    attr_accessor :winner_delay
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -92,7 +131,13 @@ module SibApiV3Sdk
         :'header' => :'header',
         :'utm_campaign' => :'utmCampaign',
         :'params' => :'params',
-        :'send_at_best_time' => :'sendAtBestTime'
+        :'send_at_best_time' => :'sendAtBestTime',
+        :'ab_testing' => :'abTesting',
+        :'subject_a' => :'subjectA',
+        :'subject_b' => :'subjectB',
+        :'split_rule' => :'splitRule',
+        :'winner_criteria' => :'winnerCriteria',
+        :'winner_delay' => :'winnerDelay'
       }
     end
 
@@ -117,7 +162,13 @@ module SibApiV3Sdk
         :'header' => :'String',
         :'utm_campaign' => :'String',
         :'params' => :'Object',
-        :'send_at_best_time' => :'BOOLEAN'
+        :'send_at_best_time' => :'BOOLEAN',
+        :'ab_testing' => :'BOOLEAN',
+        :'subject_a' => :'String',
+        :'subject_b' => :'String',
+        :'split_rule' => :'Integer',
+        :'winner_criteria' => :'String',
+        :'winner_delay' => :'Integer'
       }
     end
 
@@ -209,6 +260,32 @@ module SibApiV3Sdk
         self.send_at_best_time = false
       end
 
+      if attributes.has_key?(:'abTesting')
+        self.ab_testing = attributes[:'abTesting']
+      else
+        self.ab_testing = false
+      end
+
+      if attributes.has_key?(:'subjectA')
+        self.subject_a = attributes[:'subjectA']
+      end
+
+      if attributes.has_key?(:'subjectB')
+        self.subject_b = attributes[:'subjectB']
+      end
+
+      if attributes.has_key?(:'splitRule')
+        self.split_rule = attributes[:'splitRule']
+      end
+
+      if attributes.has_key?(:'winnerCriteria')
+        self.winner_criteria = attributes[:'winnerCriteria']
+      end
+
+      if attributes.has_key?(:'winnerDelay')
+        self.winner_delay = attributes[:'winnerDelay']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -223,8 +300,20 @@ module SibApiV3Sdk
         invalid_properties.push("invalid value for 'name', name cannot be nil.")
       end
 
-      if @subject.nil?
-        invalid_properties.push("invalid value for 'subject', subject cannot be nil.")
+      if !@split_rule.nil? && @split_rule > 50
+        invalid_properties.push("invalid value for 'split_rule', must be smaller than or equal to 50.")
+      end
+
+      if !@split_rule.nil? && @split_rule < 1
+        invalid_properties.push("invalid value for 'split_rule', must be greater than or equal to 1.")
+      end
+
+      if !@winner_delay.nil? && @winner_delay > 168
+        invalid_properties.push("invalid value for 'winner_delay', must be smaller than or equal to 168.")
+      end
+
+      if !@winner_delay.nil? && @winner_delay < 1
+        invalid_properties.push("invalid value for 'winner_delay', must be greater than or equal to 1.")
       end
 
       return invalid_properties
@@ -235,8 +324,53 @@ module SibApiV3Sdk
     def valid?
       return false if @sender.nil?
       return false if @name.nil?
-      return false if @subject.nil?
+      return false if !@split_rule.nil? && @split_rule > 50
+      return false if !@split_rule.nil? && @split_rule < 1
+      winner_criteria_validator = EnumAttributeValidator.new('String', ["open", "click"])
+      return false unless winner_criteria_validator.valid?(@winner_criteria)
+      return false if !@winner_delay.nil? && @winner_delay > 168
+      return false if !@winner_delay.nil? && @winner_delay < 1
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] split_rule Value to be assigned
+    def split_rule=(split_rule)
+
+      if !split_rule.nil? && split_rule > 50
+        fail ArgumentError, "invalid value for 'split_rule', must be smaller than or equal to 50."
+      end
+
+      if !split_rule.nil? && split_rule < 1
+        fail ArgumentError, "invalid value for 'split_rule', must be greater than or equal to 1."
+      end
+
+      @split_rule = split_rule
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] winner_criteria Object to be assigned
+    def winner_criteria=(winner_criteria)
+      validator = EnumAttributeValidator.new('String', ["open", "click"])
+      unless validator.valid?(winner_criteria)
+        fail ArgumentError, "invalid value for 'winner_criteria', must be one of #{validator.allowable_values}."
+      end
+      @winner_criteria = winner_criteria
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] winner_delay Value to be assigned
+    def winner_delay=(winner_delay)
+
+      if !winner_delay.nil? && winner_delay > 168
+        fail ArgumentError, "invalid value for 'winner_delay', must be smaller than or equal to 168."
+      end
+
+      if !winner_delay.nil? && winner_delay < 1
+        fail ArgumentError, "invalid value for 'winner_delay', must be greater than or equal to 1."
+      end
+
+      @winner_delay = winner_delay
     end
 
     # Checks equality by comparing each attribute.
@@ -262,7 +396,13 @@ module SibApiV3Sdk
           header == o.header &&
           utm_campaign == o.utm_campaign &&
           params == o.params &&
-          send_at_best_time == o.send_at_best_time
+          send_at_best_time == o.send_at_best_time &&
+          ab_testing == o.ab_testing &&
+          subject_a == o.subject_a &&
+          subject_b == o.subject_b &&
+          split_rule == o.split_rule &&
+          winner_criteria == o.winner_criteria &&
+          winner_delay == o.winner_delay
     end
 
     # @see the `==` method
@@ -274,7 +414,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [tag, sender, name, html_content, html_url, template_id, scheduled_at, subject, reply_to, to_field, recipients, attachment_url, inline_image_activation, mirror_active, footer, header, utm_campaign, params, send_at_best_time].hash
+      [tag, sender, name, html_content, html_url, template_id, scheduled_at, subject, reply_to, to_field, recipients, attachment_url, inline_image_activation, mirror_active, footer, header, utm_campaign, params, send_at_best_time, ab_testing, subject_a, subject_b, split_rule, winner_criteria, winner_delay].hash
     end
 
     # Builds the object from hash

@@ -17,7 +17,7 @@ module SibApiV3Sdk
   class SendSmtpEmail
     attr_accessor :sender
 
-    # List of email addresses and names (optional) of the recipients. For example, [{'name':'Jimmy', 'email':'jimmy98@example.com'}, {'name':'Joe', 'email':'joe@example.com'}]
+    # List of email addresses and names (optional) of the recipients. For example, `[{\"name\":\"Jimmy\", \"email\":\"jimmy98@example.com\"}, {\"name\":\"Joe\", \"email\":\"joe@example.com\"}]`
     attr_accessor :to
 
     # List of email addresses and names (optional) of the recipients in bcc
@@ -37,16 +37,16 @@ module SibApiV3Sdk
 
     attr_accessor :reply_to
 
-    # Pass the absolute URL (no local file) or the base64 content of the attachment along with the attachment name (Mandatory if attachment content is passed). For example, [{'url':'https://attachment.domain.com/myAttachmentFromUrl.jpg', 'name':'My attachment 1'}, {'content':'base64 exmaple content', 'name':'My attachment 2'}]. Allowed extensions for attachment file: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub, eps and odt ( Ignored if 'templateId' is passed )
+    # Pass the absolute URL (no local file) or the base64 content of the attachment along with the attachment name (Mandatory if attachment content is passed). For example, `[{\"url\":\"https://attachment.domain.com/myAttachmentFromUrl.jpg\", \"name\":\"My attachment 1\"}, {\"content\":\"base64 exmaple content\", \"name\":\"My attachment 2\"}]`. Allowed extensions for attachment file: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub, eps and odt ( If 'templateId' is passed and is in New Template Language format then only attachment url is accepted. If template is in Old template Language format, then 'attachment' is ignored )
     attr_accessor :attachment
 
-    # Pass the set of headers that shall be sent along the mail headers in the original email. 'sender.ip' header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. For example, {'Content-Type':'text/html', 'charset':'iso-8859-1', 'sender.ip':'1.2.3.4'}
+    # Pass the set of headers that shall be sent along the mail headers in the original email. 'sender.ip' header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. For example, `{\"Content-Type\":\"text/html\", \"charset\":\"iso-8859-1\", \"sender.ip\":\"1.2.3.4\"}`
     attr_accessor :headers
 
     # Id of the template
     attr_accessor :template_id
 
-    # Pass the set of attributes to customize the template. For example, {'FNAME':'Joe', 'LNAME':'Doe'}. It's considered only if template is in New Template Language format.
+    # Pass the set of attributes to customize the template. For example, `{\"FNAME\":\"Joe\", \"LNAME\":\"Doe\"}`. It's considered only if template is in New Template Language format.
     attr_accessor :params
 
     # Tag your emails to find them more easily

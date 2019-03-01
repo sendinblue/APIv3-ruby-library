@@ -27,6 +27,11 @@ SibApiV3Sdk.configure do |config|
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
 api_instance = SibApiV3Sdk::SendersApi.new
@@ -56,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -80,6 +85,11 @@ SibApiV3Sdk.configure do |config|
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
 api_instance = SibApiV3Sdk::SendersApi.new
@@ -107,7 +117,7 @@ nil (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -131,6 +141,11 @@ SibApiV3Sdk.configure do |config|
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
 api_instance = SibApiV3Sdk::SendersApi.new
@@ -153,7 +168,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -177,6 +192,11 @@ SibApiV3Sdk.configure do |config|
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
 api_instance = SibApiV3Sdk::SendersApi.new
@@ -205,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -229,6 +249,11 @@ SibApiV3Sdk.configure do |config|
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
 api_instance = SibApiV3Sdk::SendersApi.new
@@ -260,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -284,6 +309,11 @@ SibApiV3Sdk.configure do |config|
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
 api_instance = SibApiV3Sdk::SendersApi.new
@@ -315,7 +345,7 @@ nil (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
