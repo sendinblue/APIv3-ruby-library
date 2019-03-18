@@ -72,8 +72,8 @@ describe 'SMTPApi' do
   # Get your SMTP activity aggregated over a period of time
   # 
   # @param [Hash] opts the optional parameters
-  # @option opts [Date] :start_date Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
-  # @option opts [Date] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
+  # @option opts [String] :start_date Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
+  # @option opts [String] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
   # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
   # @option opts [String] :tag Tag of the emails
   # @return [GetAggregatedReport]
@@ -89,8 +89,8 @@ describe 'SMTPApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number limitation for the result returned
   # @option opts [Integer] :offset Beginning point in the list to retrieve from.
-  # @option opts [Date] :start_date Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
-  # @option opts [Date] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
+  # @option opts [String] :start_date Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
+  # @option opts [String] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
   # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
   # @option opts [String] :email Filter the report for a specific email addresses
   # @option opts [String] :event Filter the report for a specific event type
@@ -110,8 +110,8 @@ describe 'SMTPApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number of documents returned per page
   # @option opts [Integer] :offset Index of the first document on the page
-  # @option opts [Date] :start_date Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD)
-  # @option opts [Date] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
+  # @option opts [String] :start_date Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD)
+  # @option opts [String] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
   # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
   # @option opts [String] :tag Tag of the emails
   # @return [GetReports]

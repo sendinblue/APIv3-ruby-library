@@ -130,7 +130,7 @@ nil (empty response body)
 
 
 # **get_sms_campaign**
-> GetSmsCampaign get_sms_campaign(campaign_id, get_sms_campaign)
+> GetSmsCampaign get_sms_campaign(campaign_id)
 
 Get an SMS campaign
 
@@ -155,12 +155,10 @@ api_instance = SibApiV3Sdk::SMSCampaignsApi.new
 
 campaign_id = 789 # Integer | id of the SMS campaign
 
-get_sms_campaign = SibApiV3Sdk::GetSmsCampaign.new # GetSmsCampaign | Values to update an SMS Campaign
-
 
 begin
   #Get an SMS campaign
-  result = api_instance.get_sms_campaign(campaign_id, get_sms_campaign)
+  result = api_instance.get_sms_campaign(campaign_id)
   p result
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMSCampaignsApi->get_sms_campaign: #{e}"
@@ -172,7 +170,6 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaign_id** | **Integer**| id of the SMS campaign | 
- **get_sms_campaign** | [**GetSmsCampaign**](GetSmsCampaign.md)| Values to update an SMS Campaign | 
 
 ### Return type
 
