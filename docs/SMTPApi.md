@@ -215,8 +215,8 @@ end
 api_instance = SibApiV3Sdk::SMTPApi.new
 
 opts = { 
-  start_date: Date.parse("2013-10-20"), # Date | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
-  end_date: Date.parse("2013-10-20"), # Date | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
+  start_date: "start_date_example", # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
+  end_date: "end_date_example", # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
   days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
   tag: "tag_example" # String | Tag of the emails
 }
@@ -234,8 +234,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **start_date** | **Date**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate | [optional] 
- **end_date** | **Date**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional] 
+ **start_date** | **String**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate | [optional] 
+ **end_date** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional] 
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional] 
  **tag** | **String**| Tag of the emails | [optional] 
 
@@ -281,8 +281,8 @@ api_instance = SibApiV3Sdk::SMTPApi.new
 opts = { 
   limit: 50, # Integer | Number limitation for the result returned
   offset: 0, # Integer | Beginning point in the list to retrieve from.
-  start_date: Date.parse("2013-10-20"), # Date | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
-  end_date: Date.parse("2013-10-20"), # Date | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
+  start_date: "start_date_example", # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
+  end_date: "end_date_example", # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
   days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
   email: "email_example", # String | Filter the report for a specific email addresses
   event: "event_example", # String | Filter the report for a specific event type
@@ -306,8 +306,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Number limitation for the result returned | [optional] [default to 50]
  **offset** | **Integer**| Beginning point in the list to retrieve from. | [optional] [default to 0]
- **start_date** | **Date**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate | [optional] 
- **end_date** | **Date**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional] 
+ **start_date** | **String**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate | [optional] 
+ **end_date** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional] 
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional] 
  **email** | **String**| Filter the report for a specific email addresses | [optional] 
  **event** | **String**| Filter the report for a specific event type | [optional] 
@@ -357,8 +357,8 @@ api_instance = SibApiV3Sdk::SMTPApi.new
 opts = { 
   limit: 50, # Integer | Number of documents returned per page
   offset: 0, # Integer | Index of the first document on the page
-  start_date: Date.parse("2013-10-20"), # Date | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD)
-  end_date: Date.parse("2013-10-20"), # Date | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
+  start_date: "start_date_example", # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD)
+  end_date: "end_date_example", # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
   days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
   tag: "tag_example" # String | Tag of the emails
 }
@@ -378,8 +378,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Number of documents returned per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document on the page | [optional] [default to 0]
- **start_date** | **Date**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) | [optional] 
- **end_date** | **Date**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) | [optional] 
+ **start_date** | **String**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) | [optional] 
+ **end_date** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) | [optional] 
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional] 
  **tag** | **String**| Tag of the emails | [optional] 
 

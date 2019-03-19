@@ -60,7 +60,6 @@ describe 'SMSCampaignsApi' do
   # Get an SMS campaign
   # 
   # @param campaign_id id of the SMS campaign
-  # @param get_sms_campaign Values to update an SMS Campaign
   # @param [Hash] opts the optional parameters
   # @return [GetSmsCampaign]
   describe 'get_sms_campaign test' do

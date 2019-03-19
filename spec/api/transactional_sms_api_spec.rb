@@ -37,8 +37,8 @@ describe 'TransactionalSMSApi' do
   # 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number of documents per page
-  # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
-  # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
+  # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
+  # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
   # @option opts [Integer] :offset Index of the first document of the page
   # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
   # @option opts [String] :phone_number Filter the report for a specific phone number
@@ -55,8 +55,8 @@ describe 'TransactionalSMSApi' do
   # Get your SMS activity aggregated over a period of time
   # 
   # @param [Hash] opts the optional parameters
-  # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
-  # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
+  # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
+  # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
   # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with startDate and endDate
   # @option opts [String] :tag Filter on a tag
   # @return [GetTransacAggregatedSmsReport]
@@ -70,8 +70,8 @@ describe 'TransactionalSMSApi' do
   # Get your SMS activity aggregated per day
   # 
   # @param [Hash] opts the optional parameters
-  # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
-  # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
+  # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
+  # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
   # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
   # @option opts [String] :tag Filter on a tag
   # @return [GetTransacSmsReport]

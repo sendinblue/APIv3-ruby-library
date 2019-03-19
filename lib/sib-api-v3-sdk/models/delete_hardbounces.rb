@@ -37,8 +37,8 @@ module SibApiV3Sdk
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'start_date' => :'Date',
-        :'end_date' => :'Date',
+        :'start_date' => :'String',
+        :'end_date' => :'String',
         :'contact_email' => :'String'
       }
     end
