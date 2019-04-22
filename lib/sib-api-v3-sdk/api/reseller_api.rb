@@ -141,6 +141,66 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
 
+    # Creates a domain for a child account
+    # 
+    # @param child_auth_key auth key of reseller&#39;s child
+    # @param add_child_domain Sender domain to add for a specific child account
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def create_child_domain(child_auth_key, add_child_domain, opts = {})
+      create_child_domain_with_http_info(child_auth_key, add_child_domain, opts)
+      return nil
+    end
+
+    # Creates a domain for a child account
+    # 
+    # @param child_auth_key auth key of reseller&#39;s child
+    # @param add_child_domain Sender domain to add for a specific child account
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def create_child_domain_with_http_info(child_auth_key, add_child_domain, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ResellerApi.create_child_domain ..."
+      end
+      # verify the required parameter 'child_auth_key' is set
+      if @api_client.config.client_side_validation && child_auth_key.nil?
+        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.create_child_domain"
+      end
+      # verify the required parameter 'add_child_domain' is set
+      if @api_client.config.client_side_validation && add_child_domain.nil?
+        fail ArgumentError, "Missing the required parameter 'add_child_domain' when calling ResellerApi.create_child_domain"
+      end
+      # resource path
+      local_var_path = "/reseller/children/{childAuthKey}/domains".sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(add_child_domain)
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ResellerApi#create_child_domain\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Creates a reseller child
     # 
     # @param [Hash] opts the optional parameters
@@ -188,6 +248,66 @@ module SibApiV3Sdk
         :return_type => 'CreateReseller')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ResellerApi#create_reseller_child\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
+    # 
+    # @param child_auth_key auth key of reseller&#39;s child
+    # @param domain_name Pass the existing domain that needs to be deleted
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_child_domain(child_auth_key, domain_name, opts = {})
+      delete_child_domain_with_http_info(child_auth_key, domain_name, opts)
+      return nil
+    end
+
+    # Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
+    # 
+    # @param child_auth_key auth key of reseller&#39;s child
+    # @param domain_name Pass the existing domain that needs to be deleted
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def delete_child_domain_with_http_info(child_auth_key, domain_name, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ResellerApi.delete_child_domain ..."
+      end
+      # verify the required parameter 'child_auth_key' is set
+      if @api_client.config.client_side_validation && child_auth_key.nil?
+        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.delete_child_domain"
+      end
+      # verify the required parameter 'domain_name' is set
+      if @api_client.config.client_side_validation && domain_name.nil?
+        fail ArgumentError, "Missing the required parameter 'domain_name' when calling ResellerApi.delete_child_domain"
+      end
+      # resource path
+      local_var_path = "/reseller/children/{childAuthKey}/domains/{domainName}".sub('{' + 'childAuthKey' + '}', child_auth_key.to_s).sub('{' + 'domainName' + '}', domain_name.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ResellerApi#delete_child_domain\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -306,6 +426,61 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
 
+    # Gets all the sender domains of a specific child account
+    # 
+    # @param child_auth_key auth key of reseller&#39;s child
+    # @param [Hash] opts the optional parameters
+    # @return [GetChildDomains]
+    def get_child_domains(child_auth_key, opts = {})
+      data, _status_code, _headers = get_child_domains_with_http_info(child_auth_key, opts)
+      return data
+    end
+
+    # Gets all the sender domains of a specific child account
+    # 
+    # @param child_auth_key auth key of reseller&#39;s child
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetChildDomains, Fixnum, Hash)>] GetChildDomains data, response status code and response headers
+    def get_child_domains_with_http_info(child_auth_key, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ResellerApi.get_child_domains ..."
+      end
+      # verify the required parameter 'child_auth_key' is set
+      if @api_client.config.client_side_validation && child_auth_key.nil?
+        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.get_child_domains"
+      end
+      # resource path
+      local_var_path = "/reseller/children/{childAuthKey}/domains".sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetChildDomains')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ResellerApi#get_child_domains\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Gets the info about a specific child account
     # 
     # @param child_auth_key auth key of reseller&#39;s child
@@ -410,6 +585,61 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
 
+    # Generates a session token which will remain valid for a short period of time only.
+    # 
+    # @param child_auth_key auth key of reseller&#39;s child
+    # @param [Hash] opts the optional parameters
+    # @return [GetSsoToken]
+    def get_sso_token(child_auth_key, opts = {})
+      data, _status_code, _headers = get_sso_token_with_http_info(child_auth_key, opts)
+      return data
+    end
+
+    # Generates a session token which will remain valid for a short period of time only.
+    # 
+    # @param child_auth_key auth key of reseller&#39;s child
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetSsoToken, Fixnum, Hash)>] GetSsoToken data, response status code and response headers
+    def get_sso_token_with_http_info(child_auth_key, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ResellerApi.get_sso_token ..."
+      end
+      # verify the required parameter 'child_auth_key' is set
+      if @api_client.config.client_side_validation && child_auth_key.nil?
+        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.get_sso_token"
+      end
+      # resource path
+      local_var_path = "/reseller/children/{childAuthKey}/auth".sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetSsoToken')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ResellerApi#get_sso_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Remove Email and/or SMS credits from a specific child account
     # 
     # @param child_auth_key auth key of reseller&#39;s child
@@ -467,6 +697,72 @@ module SibApiV3Sdk
         :return_type => 'RemainingCreditModel')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ResellerApi#remove_credits\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates the sender domain of reseller's child based on the childAuthKey and domainName passed
+    # 
+    # @param child_auth_key auth key of reseller&#39;s child
+    # @param domain_name Pass the existing domain that needs to be updated
+    # @param update_child_domain value to update for sender domain
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def update_child_domain(child_auth_key, domain_name, update_child_domain, opts = {})
+      update_child_domain_with_http_info(child_auth_key, domain_name, update_child_domain, opts)
+      return nil
+    end
+
+    # Updates the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
+    # 
+    # @param child_auth_key auth key of reseller&#39;s child
+    # @param domain_name Pass the existing domain that needs to be updated
+    # @param update_child_domain value to update for sender domain
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def update_child_domain_with_http_info(child_auth_key, domain_name, update_child_domain, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ResellerApi.update_child_domain ..."
+      end
+      # verify the required parameter 'child_auth_key' is set
+      if @api_client.config.client_side_validation && child_auth_key.nil?
+        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.update_child_domain"
+      end
+      # verify the required parameter 'domain_name' is set
+      if @api_client.config.client_side_validation && domain_name.nil?
+        fail ArgumentError, "Missing the required parameter 'domain_name' when calling ResellerApi.update_child_domain"
+      end
+      # verify the required parameter 'update_child_domain' is set
+      if @api_client.config.client_side_validation && update_child_domain.nil?
+        fail ArgumentError, "Missing the required parameter 'update_child_domain' when calling ResellerApi.update_child_domain"
+      end
+      # resource path
+      local_var_path = "/reseller/children/{childAuthKey}/domains/{domainName}".sub('{' + 'childAuthKey' + '}', child_auth_key.to_s).sub('{' + 'domainName' + '}', domain_name.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(update_child_domain)
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ResellerApi#update_child_domain\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
