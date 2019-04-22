@@ -6,12 +6,17 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_credits**](ResellerApi.md#add_credits) | **POST** /reseller/children/{childAuthKey}/credits/add | Add Email and/or SMS credits to a specific child account
 [**associate_ip_to_child**](ResellerApi.md#associate_ip_to_child) | **POST** /reseller/children/{childAuthKey}/ips/associate | Associate a dedicated IP to the child
+[**create_child_domain**](ResellerApi.md#create_child_domain) | **POST** /reseller/children/{childAuthKey}/domains | Creates a domain for a child account
 [**create_reseller_child**](ResellerApi.md#create_reseller_child) | **POST** /reseller/children | Creates a reseller child
+[**delete_child_domain**](ResellerApi.md#delete_child_domain) | **DELETE** /reseller/children/{childAuthKey}/domains/{domainName} | Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
 [**delete_reseller_child**](ResellerApi.md#delete_reseller_child) | **DELETE** /reseller/children/{childAuthKey} | Deletes a single reseller child based on the childAuthKey supplied
 [**dissociate_ip_from_child**](ResellerApi.md#dissociate_ip_from_child) | **POST** /reseller/children/{childAuthKey}/ips/dissociate | Dissociate a dedicated IP to the child
+[**get_child_domains**](ResellerApi.md#get_child_domains) | **GET** /reseller/children/{childAuthKey}/domains | Gets all the sender domains of a specific child account
 [**get_child_info**](ResellerApi.md#get_child_info) | **GET** /reseller/children/{childAuthKey} | Gets the info about a specific child account
 [**get_reseller_childs**](ResellerApi.md#get_reseller_childs) | **GET** /reseller/children | Gets the list of all reseller&#39;s children accounts
+[**get_sso_token**](ResellerApi.md#get_sso_token) | **GET** /reseller/children/{childAuthKey}/auth | Generates a session token which will remain valid for a short period of time only.
 [**remove_credits**](ResellerApi.md#remove_credits) | **POST** /reseller/children/{childAuthKey}/credits/remove | Remove Email and/or SMS credits from a specific child account
+[**update_child_domain**](ResellerApi.md#update_child_domain) | **PUT** /reseller/children/{childAuthKey}/domains/{domainName} | Updates the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
 [**update_reseller_child**](ResellerApi.md#update_reseller_child) | **PUT** /reseller/children/{childAuthKey} | Updates infos of reseller&#39;s child based on the childAuthKey supplied
 
 
@@ -134,6 +139,65 @@ nil (empty response body)
 
 
 
+# **create_child_domain**
+> create_child_domain(child_auth_key, add_child_domain)
+
+Creates a domain for a child account
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::ResellerApi.new
+
+child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+
+add_child_domain = SibApiV3Sdk::AddChildDomain.new # AddChildDomain | Sender domain to add for a specific child account
+
+
+begin
+  #Creates a domain for a child account
+  api_instance.create_child_domain(child_auth_key, add_child_domain)
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling ResellerApi->create_child_domain: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **child_auth_key** | **String**| auth key of reseller&#39;s child | 
+ **add_child_domain** | [**AddChildDomain**](AddChildDomain.md)| Sender domain to add for a specific child account | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
 # **create_reseller_child**
 > CreateReseller create_reseller_child(opts)
 
@@ -180,6 +244,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateReseller**](CreateReseller.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **delete_child_domain**
+> delete_child_domain(child_auth_key, domain_name)
+
+Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::ResellerApi.new
+
+child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+
+domain_name = "domain_name_example" # String | Pass the existing domain that needs to be deleted
+
+
+begin
+  #Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
+  api_instance.delete_child_domain(child_auth_key, domain_name)
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling ResellerApi->delete_child_domain: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **child_auth_key** | **String**| auth key of reseller&#39;s child | 
+ **domain_name** | **String**| Pass the existing domain that needs to be deleted | 
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 
@@ -307,6 +430,63 @@ nil (empty response body)
 
 
 
+# **get_child_domains**
+> GetChildDomains get_child_domains(child_auth_key)
+
+Gets all the sender domains of a specific child account
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::ResellerApi.new
+
+child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+
+
+begin
+  #Gets all the sender domains of a specific child account
+  result = api_instance.get_child_domains(child_auth_key)
+  p result
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling ResellerApi->get_child_domains: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **child_auth_key** | **String**| auth key of reseller&#39;s child | 
+
+### Return type
+
+[**GetChildDomains**](GetChildDomains.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
 # **get_child_info**
 > GetChildInfo get_child_info(child_auth_key)
 
@@ -415,6 +595,63 @@ This endpoint does not need any parameter.
 
 
 
+# **get_sso_token**
+> GetSsoToken get_sso_token(child_auth_key)
+
+Generates a session token which will remain valid for a short period of time only.
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::ResellerApi.new
+
+child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+
+
+begin
+  #Generates a session token which will remain valid for a short period of time only.
+  result = api_instance.get_sso_token(child_auth_key)
+  p result
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling ResellerApi->get_sso_token: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **child_auth_key** | **String**| auth key of reseller&#39;s child | 
+
+### Return type
+
+[**GetSsoToken**](GetSsoToken.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
 # **remove_credits**
 > RemainingCreditModel remove_credits(child_auth_key, remove_credits)
 
@@ -463,6 +700,68 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RemainingCreditModel**](RemainingCreditModel.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **update_child_domain**
+> update_child_domain(child_auth_key, domain_name, update_child_domain)
+
+Updates the sender domain of reseller's child based on the childAuthKey and domainName passed
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::ResellerApi.new
+
+child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+
+domain_name = "domain_name_example" # String | Pass the existing domain that needs to be updated
+
+update_child_domain = SibApiV3Sdk::UpdateChildDomain.new # UpdateChildDomain | value to update for sender domain
+
+
+begin
+  #Updates the sender domain of reseller's child based on the childAuthKey and domainName passed
+  api_instance.update_child_domain(child_auth_key, domain_name, update_child_domain)
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling ResellerApi->update_child_domain: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **child_auth_key** | **String**| auth key of reseller&#39;s child | 
+ **domain_name** | **String**| Pass the existing domain that needs to be updated | 
+ **update_child_domain** | [**UpdateChildDomain**](UpdateChildDomain.md)| value to update for sender domain | 
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 

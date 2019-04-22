@@ -58,6 +58,19 @@ describe 'ResellerApi' do
     end
   end
 
+  # unit tests for create_child_domain
+  # Creates a domain for a child account
+  # 
+  # @param child_auth_key auth key of reseller&#39;s child
+  # @param add_child_domain Sender domain to add for a specific child account
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'create_child_domain test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_reseller_child
   # Creates a reseller child
   # 
@@ -65,6 +78,19 @@ describe 'ResellerApi' do
   # @option opts [CreateChild] :reseller_child reseller child to add
   # @return [CreateReseller]
   describe 'create_reseller_child test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_child_domain
+  # Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
+  # 
+  # @param child_auth_key auth key of reseller&#39;s child
+  # @param domain_name Pass the existing domain that needs to be deleted
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_child_domain test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -95,6 +121,18 @@ describe 'ResellerApi' do
     end
   end
 
+  # unit tests for get_child_domains
+  # Gets all the sender domains of a specific child account
+  # 
+  # @param child_auth_key auth key of reseller&#39;s child
+  # @param [Hash] opts the optional parameters
+  # @return [GetChildDomains]
+  describe 'get_child_domains test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_child_info
   # Gets the info about a specific child account
   # 
@@ -118,6 +156,18 @@ describe 'ResellerApi' do
     end
   end
 
+  # unit tests for get_sso_token
+  # Generates a session token which will remain valid for a short period of time only.
+  # 
+  # @param child_auth_key auth key of reseller&#39;s child
+  # @param [Hash] opts the optional parameters
+  # @return [GetSsoToken]
+  describe 'get_sso_token test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for remove_credits
   # Remove Email and/or SMS credits from a specific child account
   # 
@@ -126,6 +176,20 @@ describe 'ResellerApi' do
   # @param [Hash] opts the optional parameters
   # @return [RemainingCreditModel]
   describe 'remove_credits test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_child_domain
+  # Updates the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
+  # 
+  # @param child_auth_key auth key of reseller&#39;s child
+  # @param domain_name Pass the existing domain that needs to be updated
+  # @param update_child_domain value to update for sender domain
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'update_child_domain test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

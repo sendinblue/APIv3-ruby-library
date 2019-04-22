@@ -59,6 +59,11 @@ SibApiV3Sdk.configure do |config|
   config.api_key['api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
 api_instance = SibApiV3Sdk::AccountApi.new
@@ -139,12 +144,17 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::ProcessApi* | [**get_processes**](docs/ProcessApi.md#get_processes) | **GET** /processes | Return all the processes for your account
 *SibApiV3Sdk::ResellerApi* | [**add_credits**](docs/ResellerApi.md#add_credits) | **POST** /reseller/children/{childAuthKey}/credits/add | Add Email and/or SMS credits to a specific child account
 *SibApiV3Sdk::ResellerApi* | [**associate_ip_to_child**](docs/ResellerApi.md#associate_ip_to_child) | **POST** /reseller/children/{childAuthKey}/ips/associate | Associate a dedicated IP to the child
+*SibApiV3Sdk::ResellerApi* | [**create_child_domain**](docs/ResellerApi.md#create_child_domain) | **POST** /reseller/children/{childAuthKey}/domains | Creates a domain for a child account
 *SibApiV3Sdk::ResellerApi* | [**create_reseller_child**](docs/ResellerApi.md#create_reseller_child) | **POST** /reseller/children | Creates a reseller child
+*SibApiV3Sdk::ResellerApi* | [**delete_child_domain**](docs/ResellerApi.md#delete_child_domain) | **DELETE** /reseller/children/{childAuthKey}/domains/{domainName} | Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
 *SibApiV3Sdk::ResellerApi* | [**delete_reseller_child**](docs/ResellerApi.md#delete_reseller_child) | **DELETE** /reseller/children/{childAuthKey} | Deletes a single reseller child based on the childAuthKey supplied
 *SibApiV3Sdk::ResellerApi* | [**dissociate_ip_from_child**](docs/ResellerApi.md#dissociate_ip_from_child) | **POST** /reseller/children/{childAuthKey}/ips/dissociate | Dissociate a dedicated IP to the child
+*SibApiV3Sdk::ResellerApi* | [**get_child_domains**](docs/ResellerApi.md#get_child_domains) | **GET** /reseller/children/{childAuthKey}/domains | Gets all the sender domains of a specific child account
 *SibApiV3Sdk::ResellerApi* | [**get_child_info**](docs/ResellerApi.md#get_child_info) | **GET** /reseller/children/{childAuthKey} | Gets the info about a specific child account
 *SibApiV3Sdk::ResellerApi* | [**get_reseller_childs**](docs/ResellerApi.md#get_reseller_childs) | **GET** /reseller/children | Gets the list of all reseller's children accounts
+*SibApiV3Sdk::ResellerApi* | [**get_sso_token**](docs/ResellerApi.md#get_sso_token) | **GET** /reseller/children/{childAuthKey}/auth | Generates a session token which will remain valid for a short period of time only.
 *SibApiV3Sdk::ResellerApi* | [**remove_credits**](docs/ResellerApi.md#remove_credits) | **POST** /reseller/children/{childAuthKey}/credits/remove | Remove Email and/or SMS credits from a specific child account
+*SibApiV3Sdk::ResellerApi* | [**update_child_domain**](docs/ResellerApi.md#update_child_domain) | **PUT** /reseller/children/{childAuthKey}/domains/{domainName} | Updates the sender domain of reseller's child based on the childAuthKey and domainName passed
 *SibApiV3Sdk::ResellerApi* | [**update_reseller_child**](docs/ResellerApi.md#update_reseller_child) | **PUT** /reseller/children/{childAuthKey} | Updates infos of reseller's child based on the childAuthKey supplied
 *SibApiV3Sdk::SMSCampaignsApi* | [**create_sms_campaign**](docs/SMSCampaignsApi.md#create_sms_campaign) | **POST** /smsCampaigns | Creates an SMS campaign
 *SibApiV3Sdk::SMSCampaignsApi* | [**delete_sms_campaign**](docs/SMSCampaignsApi.md#delete_sms_campaign) | **DELETE** /smsCampaigns/{campaignId} | Delete the SMS campaign
@@ -187,6 +197,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [SibApiV3Sdk::AddChildDomain](docs/AddChildDomain.md)
  - [SibApiV3Sdk::AddContactToList](docs/AddContactToList.md)
  - [SibApiV3Sdk::AddCredits](docs/AddCredits.md)
  - [SibApiV3Sdk::CreateAttribute](docs/CreateAttribute.md)
@@ -225,6 +236,8 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetCampaignOverview](docs/GetCampaignOverview.md)
  - [SibApiV3Sdk::GetCampaignRecipients](docs/GetCampaignRecipients.md)
  - [SibApiV3Sdk::GetCampaignStats](docs/GetCampaignStats.md)
+ - [SibApiV3Sdk::GetChildDomain](docs/GetChildDomain.md)
+ - [SibApiV3Sdk::GetChildDomains](docs/GetChildDomains.md)
  - [SibApiV3Sdk::GetChildInfoApiKeys](docs/GetChildInfoApiKeys.md)
  - [SibApiV3Sdk::GetChildInfoApiKeysV2](docs/GetChildInfoApiKeysV2.md)
  - [SibApiV3Sdk::GetChildInfoApiKeysV3](docs/GetChildInfoApiKeysV3.md)
@@ -278,6 +291,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetSmtpTemplateOverview](docs/GetSmtpTemplateOverview.md)
  - [SibApiV3Sdk::GetSmtpTemplateOverviewSender](docs/GetSmtpTemplateOverviewSender.md)
  - [SibApiV3Sdk::GetSmtpTemplates](docs/GetSmtpTemplates.md)
+ - [SibApiV3Sdk::GetSsoToken](docs/GetSsoToken.md)
  - [SibApiV3Sdk::GetStatsByDomain](docs/GetStatsByDomain.md)
  - [SibApiV3Sdk::GetTransacAggregatedSmsReport](docs/GetTransacAggregatedSmsReport.md)
  - [SibApiV3Sdk::GetTransacSmsReport](docs/GetTransacSmsReport.md)
@@ -318,6 +332,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::UpdateAttributeEnumeration](docs/UpdateAttributeEnumeration.md)
  - [SibApiV3Sdk::UpdateCampaignStatus](docs/UpdateCampaignStatus.md)
  - [SibApiV3Sdk::UpdateChild](docs/UpdateChild.md)
+ - [SibApiV3Sdk::UpdateChildDomain](docs/UpdateChildDomain.md)
  - [SibApiV3Sdk::UpdateContact](docs/UpdateContact.md)
  - [SibApiV3Sdk::UpdateEmailCampaign](docs/UpdateEmailCampaign.md)
  - [SibApiV3Sdk::UpdateEmailCampaignRecipients](docs/UpdateEmailCampaignRecipients.md)
@@ -345,6 +360,12 @@ Class | Method | HTTP request | Description
 
 - **Type**: API key
 - **API key parameter name**: api-key
+- **Location**: HTTP header
+
+### partner-key
+
+- **Type**: API key
+- **API key parameter name**: partner-key
 - **Location**: HTTP header
 
 
