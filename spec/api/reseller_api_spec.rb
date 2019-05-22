@@ -157,8 +157,8 @@ describe 'ResellerApi' do
   end
 
   # unit tests for get_sso_token
-  # Generates a session token which will remain valid for a short period of time only.
-  # 
+  # Get session token to access Sendinblue (SSO)
+  # It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern &#x3D;&gt; https:/email.mydomain.com/login/sso?token&#x3D;[token]
   # @param child_auth_key auth key of reseller&#39;s child
   # @param [Hash] opts the optional parameters
   # @return [GetSsoToken]
@@ -176,6 +176,19 @@ describe 'ResellerApi' do
   # @param [Hash] opts the optional parameters
   # @return [RemainingCreditModel]
   describe 'remove_credits test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_child_account_status
+  # Updates infos of reseller&#39;s child account status based on the childAuthKey supplied
+  # 
+  # @param child_auth_key auth key of reseller&#39;s child
+  # @param update_child_account_status values to update in child account status
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'update_child_account_status test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

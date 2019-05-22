@@ -593,7 +593,7 @@ module SibApiV3Sdk
 
     # Retrieves contact informations
     # 
-    # @param email Email (urlencoded) of the contact
+    # @param email Email (urlencoded) of the contact OR its SMS attribute value
     # @param [Hash] opts the optional parameters
     # @return [GetExtendedContactDetails]
     def get_contact_info(email, opts = {})
@@ -603,7 +603,7 @@ module SibApiV3Sdk
 
     # Retrieves contact informations
     # 
-    # @param email Email (urlencoded) of the contact
+    # @param email Email (urlencoded) of the contact OR its SMS attribute value
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetExtendedContactDetails, Fixnum, Hash)>] GetExtendedContactDetails data, response status code and response headers
     def get_contact_info_with_http_info(email, opts = {})

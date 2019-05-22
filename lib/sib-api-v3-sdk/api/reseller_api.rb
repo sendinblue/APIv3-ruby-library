@@ -585,8 +585,8 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
 
-    # Generates a session token which will remain valid for a short period of time only.
-    # 
+    # Get session token to access Sendinblue (SSO)
+    # It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern => https:/email.mydomain.com/login/sso?token=[token]
     # @param child_auth_key auth key of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [GetSsoToken]
@@ -595,8 +595,8 @@ module SibApiV3Sdk
       return data
     end
 
-    # Generates a session token which will remain valid for a short period of time only.
-    # 
+    # Get session token to access Sendinblue (SSO)
+    # It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern &#x3D;&gt; https:/email.mydomain.com/login/sso?token&#x3D;[token]
     # @param child_auth_key auth key of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetSsoToken, Fixnum, Hash)>] GetSsoToken data, response status code and response headers
@@ -697,6 +697,66 @@ module SibApiV3Sdk
         :return_type => 'RemainingCreditModel')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ResellerApi#remove_credits\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates infos of reseller's child account status based on the childAuthKey supplied
+    # 
+    # @param child_auth_key auth key of reseller&#39;s child
+    # @param update_child_account_status values to update in child account status
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def update_child_account_status(child_auth_key, update_child_account_status, opts = {})
+      update_child_account_status_with_http_info(child_auth_key, update_child_account_status, opts)
+      return nil
+    end
+
+    # Updates infos of reseller&#39;s child account status based on the childAuthKey supplied
+    # 
+    # @param child_auth_key auth key of reseller&#39;s child
+    # @param update_child_account_status values to update in child account status
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def update_child_account_status_with_http_info(child_auth_key, update_child_account_status, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ResellerApi.update_child_account_status ..."
+      end
+      # verify the required parameter 'child_auth_key' is set
+      if @api_client.config.client_side_validation && child_auth_key.nil?
+        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.update_child_account_status"
+      end
+      # verify the required parameter 'update_child_account_status' is set
+      if @api_client.config.client_side_validation && update_child_account_status.nil?
+        fail ArgumentError, "Missing the required parameter 'update_child_account_status' when calling ResellerApi.update_child_account_status"
+      end
+      # resource path
+      local_var_path = "/reseller/children/{childAuthKey}/accountStatus".sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(update_child_account_status)
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ResellerApi#update_child_account_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
