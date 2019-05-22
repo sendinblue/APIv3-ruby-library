@@ -158,7 +158,7 @@ describe 'ContactsApi' do
   # unit tests for get_contact_info
   # Retrieves contact informations
   # 
-  # @param email Email (urlencoded) of the contact
+  # @param email Email (urlencoded) of the contact OR its SMS attribute value
   # @param [Hash] opts the optional parameters
   # @return [GetExtendedContactDetails]
   describe 'get_contact_info test' do

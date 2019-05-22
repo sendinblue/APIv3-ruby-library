@@ -18,7 +18,7 @@ module SibApiV3Sdk
     # List of all the attributes that you want to export. These attributes must be present in your contact database. For example, ['fname', 'lname', 'email'].
     attr_accessor :export_attributes
 
-    # Set the filter for the contacts to be exported. For example, `{\"blacklisted\":true}` will export all the blacklisted contacts.
+    # Set the filter for the contacts to be exported. For example, {'blacklisted':true} will export all the blacklisted contacts.
     attr_accessor :contact_filter
 
     # Webhook that will be called once the export process is finished

@@ -627,7 +627,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-email = "email_example" # String | Email (urlencoded) of the contact
+email = "email_example" # String | Email (urlencoded) of the contact OR its SMS attribute value
 
 
 begin
@@ -643,7 +643,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| Email (urlencoded) of the contact | 
+ **email** | **String**| Email (urlencoded) of the contact OR its SMS attribute value | 
 
 ### Return type
 

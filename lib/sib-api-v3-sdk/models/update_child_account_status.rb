@@ -13,28 +13,33 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module SibApiV3Sdk
-  # Mandatory if 'templateId' is not passed. Pass name (optional) and email of sender from which emails will be sent. For example, {'name':'Mary from MyShop', 'email':'no-reply@myshop.com'}
-  class SendSmtpEmailSender
-    # Name of the sender from which the emails will be sent
-    attr_accessor :name
 
-    # Email of the sender from which the emails will be sent
-    attr_accessor :email
+  class UpdateChildAccountStatus
+    # Status of Transactional Email (SMTP) Platform activation for your account (true=enabled, false=disabled)
+    attr_accessor :transactional_email
+
+    # Status of Transactional SMS Platform activation for your account (true=enabled, false=disabled)
+    attr_accessor :transactional_sms
+
+    # Status of Marketing Automation Platform activation for your account (true=enabled, false=disabled)
+    attr_accessor :marketing_automation
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'email' => :'email'
+        :'transactional_email' => :'transactionalEmail',
+        :'transactional_sms' => :'transactionalSms',
+        :'marketing_automation' => :'marketingAutomation'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'name' => :'String',
-        :'email' => :'String'
+        :'transactional_email' => :'BOOLEAN',
+        :'transactional_sms' => :'BOOLEAN',
+        :'marketing_automation' => :'BOOLEAN'
       }
     end
 
@@ -46,12 +51,16 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.has_key?(:'transactionalEmail')
+        self.transactional_email = attributes[:'transactionalEmail']
       end
 
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
+      if attributes.has_key?(:'transactionalSms')
+        self.transactional_sms = attributes[:'transactionalSms']
+      end
+
+      if attributes.has_key?(:'marketingAutomation')
+        self.marketing_automation = attributes[:'marketingAutomation']
       end
 
     end
@@ -60,17 +69,12 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @email.nil?
-        invalid_properties.push("invalid value for 'email', email cannot be nil.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @email.nil?
       return true
     end
 
@@ -79,8 +83,9 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          email == o.email
+          transactional_email == o.transactional_email &&
+          transactional_sms == o.transactional_sms &&
+          marketing_automation == o.marketing_automation
     end
 
     # @see the `==` method
@@ -92,7 +97,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, email].hash
+      [transactional_email, transactional_sms, marketing_automation].hash
     end
 
     # Builds the object from hash
