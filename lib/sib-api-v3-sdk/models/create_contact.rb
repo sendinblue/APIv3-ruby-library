@@ -33,7 +33,7 @@ module SibApiV3Sdk
     # Facilitate to update the existing contact in the same request (updateEnabled = true)
     attr_accessor :update_enabled
 
-    # SMTP forbidden sender for contact. Use only for email Contact ( only available if updateEnabled = true )
+    # transactional email forbidden sender for contact. Use only for email Contact ( only available if updateEnabled = true )
     attr_accessor :smtp_blacklist_sender
 
 

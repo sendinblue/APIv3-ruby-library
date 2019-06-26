@@ -167,18 +167,20 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::SMSCampaignsApi* | [**send_test_sms**](docs/SMSCampaignsApi.md#send_test_sms) | **POST** /smsCampaigns/{campaignId}/sendTest | Send an SMS
 *SibApiV3Sdk::SMSCampaignsApi* | [**update_sms_campaign**](docs/SMSCampaignsApi.md#update_sms_campaign) | **PUT** /smsCampaigns/{campaignId} | Updates an SMS campaign
 *SibApiV3Sdk::SMSCampaignsApi* | [**update_sms_campaign_status**](docs/SMSCampaignsApi.md#update_sms_campaign_status) | **PUT** /smsCampaigns/{campaignId}/status | Update the campaign status
-*SibApiV3Sdk::SMTPApi* | [**create_smtp_template**](docs/SMTPApi.md#create_smtp_template) | **POST** /smtp/templates | Create an smtp template
+*SibApiV3Sdk::SMTPApi* | [**create_smtp_template**](docs/SMTPApi.md#create_smtp_template) | **POST** /smtp/templates | Create a transactional email template
 *SibApiV3Sdk::SMTPApi* | [**delete_hardbounces**](docs/SMTPApi.md#delete_hardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
-*SibApiV3Sdk::SMTPApi* | [**delete_smtp_template**](docs/SMTPApi.md#delete_smtp_template) | **DELETE** /smtp/templates/{templateId} | Delete an inactive smtp template
-*SibApiV3Sdk::SMTPApi* | [**get_aggregated_smtp_report**](docs/SMTPApi.md#get_aggregated_smtp_report) | **GET** /smtp/statistics/aggregatedReport | Get your SMTP activity aggregated over a period of time
-*SibApiV3Sdk::SMTPApi* | [**get_email_event_report**](docs/SMTPApi.md#get_email_event_report) | **GET** /smtp/statistics/events | Get all your SMTP activity (unaggregated events)
-*SibApiV3Sdk::SMTPApi* | [**get_smtp_report**](docs/SMTPApi.md#get_smtp_report) | **GET** /smtp/statistics/reports | Get your SMTP activity aggregated per day
+*SibApiV3Sdk::SMTPApi* | [**delete_smtp_template**](docs/SMTPApi.md#delete_smtp_template) | **DELETE** /smtp/templates/{templateId} | Delete an inactive transactional email template
+*SibApiV3Sdk::SMTPApi* | [**get_aggregated_smtp_report**](docs/SMTPApi.md#get_aggregated_smtp_report) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
+*SibApiV3Sdk::SMTPApi* | [**get_email_event_report**](docs/SMTPApi.md#get_email_event_report) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
+*SibApiV3Sdk::SMTPApi* | [**get_smtp_report**](docs/SMTPApi.md#get_smtp_report) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
 *SibApiV3Sdk::SMTPApi* | [**get_smtp_template**](docs/SMTPApi.md#get_smtp_template) | **GET** /smtp/templates/{templateId} | Returns the template informations
-*SibApiV3Sdk::SMTPApi* | [**get_smtp_templates**](docs/SMTPApi.md#get_smtp_templates) | **GET** /smtp/templates | Get the list of SMTP templates
+*SibApiV3Sdk::SMTPApi* | [**get_smtp_templates**](docs/SMTPApi.md#get_smtp_templates) | **GET** /smtp/templates | Get the list of transactional email templates
+*SibApiV3Sdk::SMTPApi* | [**get_transac_email_content**](docs/SMTPApi.md#get_transac_email_content) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
+*SibApiV3Sdk::SMTPApi* | [**get_transac_emails_list**](docs/SMTPApi.md#get_transac_emails_list) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
 *SibApiV3Sdk::SMTPApi* | [**send_template**](docs/SMTPApi.md#send_template) | **POST** /smtp/templates/{templateId}/send | Send a template
 *SibApiV3Sdk::SMTPApi* | [**send_test_template**](docs/SMTPApi.md#send_test_template) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
 *SibApiV3Sdk::SMTPApi* | [**send_transac_email**](docs/SMTPApi.md#send_transac_email) | **POST** /smtp/email | Send a transactional email
-*SibApiV3Sdk::SMTPApi* | [**update_smtp_template**](docs/SMTPApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Updates an smtp templates
+*SibApiV3Sdk::SMTPApi* | [**update_smtp_template**](docs/SMTPApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Updates a transactional email templates
 *SibApiV3Sdk::SendersApi* | [**create_sender**](docs/SendersApi.md#create_sender) | **POST** /senders | Create a new sender
 *SibApiV3Sdk::SendersApi* | [**delete_sender**](docs/SendersApi.md#delete_sender) | **DELETE** /senders/{senderId} | Delete a sender
 *SibApiV3Sdk::SendersApi* | [**get_ips**](docs/SendersApi.md#get_ips) | **GET** /senders/ips | Return all the dedicated IPs for your account
@@ -295,6 +297,10 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetSsoToken](docs/GetSsoToken.md)
  - [SibApiV3Sdk::GetStatsByDomain](docs/GetStatsByDomain.md)
  - [SibApiV3Sdk::GetTransacAggregatedSmsReport](docs/GetTransacAggregatedSmsReport.md)
+ - [SibApiV3Sdk::GetTransacEmailContent](docs/GetTransacEmailContent.md)
+ - [SibApiV3Sdk::GetTransacEmailContentEvents](docs/GetTransacEmailContentEvents.md)
+ - [SibApiV3Sdk::GetTransacEmailsList](docs/GetTransacEmailsList.md)
+ - [SibApiV3Sdk::GetTransacEmailsListTransactionalEmails](docs/GetTransacEmailsListTransactionalEmails.md)
  - [SibApiV3Sdk::GetTransacSmsReport](docs/GetTransacSmsReport.md)
  - [SibApiV3Sdk::GetTransacSmsReportReports](docs/GetTransacSmsReportReports.md)
  - [SibApiV3Sdk::GetWebhook](docs/GetWebhook.md)

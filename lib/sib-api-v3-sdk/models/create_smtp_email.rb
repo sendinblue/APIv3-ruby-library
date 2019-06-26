@@ -15,7 +15,7 @@ require 'date'
 module SibApiV3Sdk
 
   class CreateSmtpEmail
-    # Message ID of the SMTP Email sent
+    # Message ID of the transactional email sent
     attr_accessor :message_id
 
 

@@ -14,47 +14,47 @@ require 'date'
 
 module SibApiV3Sdk
 
-  class UpdateContact
-    # Pass the set of attributes to be updated. These attributes must be present in your account. To update existing email address of a contact with the new one please pass EMAIL in attribtes. For eg. { 'EMAIL':'newemail@domain.com', 'FNAME':'Ellie', 'LNAME':'Roger'}
-    attr_accessor :attributes
+  class GetTransacEmailsListTransactionalEmails
+    # Email address to which transactional email has been sent
+    attr_accessor :email
 
-    # Set/unset this field to blacklist/allow the contact for emails (emailBlacklisted = true)
-    attr_accessor :email_blacklisted
+    # Subject of the sent email
+    attr_accessor :subject
 
-    # Set/unset this field to blacklist/allow the contact for SMS (smsBlacklisted = true)
-    attr_accessor :sms_blacklisted
+    # Id of the template
+    attr_accessor :template_id
 
-    # Ids of the lists to add the contact to
-    attr_accessor :list_ids
+    # Message Id of the sent email
+    attr_accessor :message_id
 
-    # Ids of the lists to remove the contact from
-    attr_accessor :unlink_list_ids
+    # Unique id of the email sent to a particular contact
+    attr_accessor :uuid
 
-    # transactional email forbidden sender for contact. Use only for email Contact
-    attr_accessor :smtp_blacklist_sender
+    # Date on which transactional email was sent
+    attr_accessor :date
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'email_blacklisted' => :'emailBlacklisted',
-        :'sms_blacklisted' => :'smsBlacklisted',
-        :'list_ids' => :'listIds',
-        :'unlink_list_ids' => :'unlinkListIds',
-        :'smtp_blacklist_sender' => :'smtpBlacklistSender'
+        :'email' => :'email',
+        :'subject' => :'subject',
+        :'template_id' => :'templateId',
+        :'message_id' => :'messageId',
+        :'uuid' => :'uuid',
+        :'date' => :'date'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'attributes' => :'Object',
-        :'email_blacklisted' => :'BOOLEAN',
-        :'sms_blacklisted' => :'BOOLEAN',
-        :'list_ids' => :'Array<Integer>',
-        :'unlink_list_ids' => :'Array<Integer>',
-        :'smtp_blacklist_sender' => :'Array<String>'
+        :'email' => :'String',
+        :'subject' => :'String',
+        :'template_id' => :'Integer',
+        :'message_id' => :'String',
+        :'uuid' => :'String',
+        :'date' => :'DateTime'
       }
     end
 
@@ -66,34 +66,28 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.has_key?(:'email')
+        self.email = attributes[:'email']
       end
 
-      if attributes.has_key?(:'emailBlacklisted')
-        self.email_blacklisted = attributes[:'emailBlacklisted']
+      if attributes.has_key?(:'subject')
+        self.subject = attributes[:'subject']
       end
 
-      if attributes.has_key?(:'smsBlacklisted')
-        self.sms_blacklisted = attributes[:'smsBlacklisted']
+      if attributes.has_key?(:'templateId')
+        self.template_id = attributes[:'templateId']
       end
 
-      if attributes.has_key?(:'listIds')
-        if (value = attributes[:'listIds']).is_a?(Array)
-          self.list_ids = value
-        end
+      if attributes.has_key?(:'messageId')
+        self.message_id = attributes[:'messageId']
       end
 
-      if attributes.has_key?(:'unlinkListIds')
-        if (value = attributes[:'unlinkListIds']).is_a?(Array)
-          self.unlink_list_ids = value
-        end
+      if attributes.has_key?(:'uuid')
+        self.uuid = attributes[:'uuid']
       end
 
-      if attributes.has_key?(:'smtpBlacklistSender')
-        if (value = attributes[:'smtpBlacklistSender']).is_a?(Array)
-          self.smtp_blacklist_sender = value
-        end
+      if attributes.has_key?(:'date')
+        self.date = attributes[:'date']
       end
 
     end
@@ -102,12 +96,37 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @email.nil?
+        invalid_properties.push("invalid value for 'email', email cannot be nil.")
+      end
+
+      if @subject.nil?
+        invalid_properties.push("invalid value for 'subject', subject cannot be nil.")
+      end
+
+      if @message_id.nil?
+        invalid_properties.push("invalid value for 'message_id', message_id cannot be nil.")
+      end
+
+      if @uuid.nil?
+        invalid_properties.push("invalid value for 'uuid', uuid cannot be nil.")
+      end
+
+      if @date.nil?
+        invalid_properties.push("invalid value for 'date', date cannot be nil.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @email.nil?
+      return false if @subject.nil?
+      return false if @message_id.nil?
+      return false if @uuid.nil?
+      return false if @date.nil?
       return true
     end
 
@@ -116,12 +135,12 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          email_blacklisted == o.email_blacklisted &&
-          sms_blacklisted == o.sms_blacklisted &&
-          list_ids == o.list_ids &&
-          unlink_list_ids == o.unlink_list_ids &&
-          smtp_blacklist_sender == o.smtp_blacklist_sender
+          email == o.email &&
+          subject == o.subject &&
+          template_id == o.template_id &&
+          message_id == o.message_id &&
+          uuid == o.uuid &&
+          date == o.date
     end
 
     # @see the `==` method
@@ -133,7 +152,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [attributes, email_blacklisted, sms_blacklisted, list_ids, unlink_list_ids, smtp_blacklist_sender].hash
+      [email, subject, template_id, message_id, uuid, date].hash
     end
 
     # Builds the object from hash

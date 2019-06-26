@@ -33,9 +33,9 @@ describe 'SMTPApi' do
   end
 
   # unit tests for create_smtp_template
-  # Create an smtp template
+  # Create a transactional email template
   # 
-  # @param smtp_template values to update in smtp template
+  # @param smtp_template values to update in transactional email template
   # @param [Hash] opts the optional parameters
   # @return [CreateModel]
   describe 'create_smtp_template test' do
@@ -57,7 +57,7 @@ describe 'SMTPApi' do
   end
 
   # unit tests for delete_smtp_template
-  # Delete an inactive smtp template
+  # Delete an inactive transactional email template
   # 
   # @param template_id id of the template
   # @param [Hash] opts the optional parameters
@@ -69,7 +69,7 @@ describe 'SMTPApi' do
   end
 
   # unit tests for get_aggregated_smtp_report
-  # Get your SMTP activity aggregated over a period of time
+  # Get your transactional email activity aggregated over a period of time
   # 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :start_date Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
@@ -84,7 +84,7 @@ describe 'SMTPApi' do
   end
 
   # unit tests for get_email_event_report
-  # Get all your SMTP activity (unaggregated events)
+  # Get all your transactional email activity (unaggregated events)
   # 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number limitation for the result returned
@@ -105,7 +105,7 @@ describe 'SMTPApi' do
   end
 
   # unit tests for get_smtp_report
-  # Get your SMTP activity aggregated per day
+  # Get your transactional email activity aggregated per day
   # 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number of documents returned per page
@@ -134,7 +134,7 @@ describe 'SMTPApi' do
   end
 
   # unit tests for get_smtp_templates
-  # Get the list of SMTP templates
+  # Get the list of transactional email templates
   # 
   # @param [Hash] opts the optional parameters
   # @option opts [BOOLEAN] :template_status Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false
@@ -142,6 +142,34 @@ describe 'SMTPApi' do
   # @option opts [Integer] :offset Index of the first document in the page
   # @return [GetSmtpTemplates]
   describe 'get_smtp_templates test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_transac_email_content
+  # Get the personalized content of a sent transactional email
+  # 
+  # @param uuid Unique id of the transactional email that has been sent to a particular contact
+  # @param [Hash] opts the optional parameters
+  # @return [GetTransacEmailContent]
+  describe 'get_transac_email_content test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_transac_emails_list
+  # Get the list of transactional emails on the basis of allowed filters
+  # This endpoint will show the list of emails for past 30 days by default. To retrieve emails before that time, please pass startDate and endDate in query filters.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :email Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
+  # @option opts [Integer] :template_id Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email.
+  # @option opts [String] :message_id Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
+  # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
+  # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+  # @return [GetTransacEmailsList]
+  describe 'get_transac_emails_list test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -186,10 +214,10 @@ describe 'SMTPApi' do
   end
 
   # unit tests for update_smtp_template
-  # Updates an smtp templates
+  # Updates a transactional email templates
   # 
   # @param template_id id of the template
-  # @param smtp_template values to update in smtp template
+  # @param smtp_template values to update in transactional email template
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'update_smtp_template test' do

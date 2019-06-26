@@ -4,24 +4,26 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_smtp_template**](SMTPApi.md#create_smtp_template) | **POST** /smtp/templates | Create an smtp template
+[**create_smtp_template**](SMTPApi.md#create_smtp_template) | **POST** /smtp/templates | Create a transactional email template
 [**delete_hardbounces**](SMTPApi.md#delete_hardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
-[**delete_smtp_template**](SMTPApi.md#delete_smtp_template) | **DELETE** /smtp/templates/{templateId} | Delete an inactive smtp template
-[**get_aggregated_smtp_report**](SMTPApi.md#get_aggregated_smtp_report) | **GET** /smtp/statistics/aggregatedReport | Get your SMTP activity aggregated over a period of time
-[**get_email_event_report**](SMTPApi.md#get_email_event_report) | **GET** /smtp/statistics/events | Get all your SMTP activity (unaggregated events)
-[**get_smtp_report**](SMTPApi.md#get_smtp_report) | **GET** /smtp/statistics/reports | Get your SMTP activity aggregated per day
+[**delete_smtp_template**](SMTPApi.md#delete_smtp_template) | **DELETE** /smtp/templates/{templateId} | Delete an inactive transactional email template
+[**get_aggregated_smtp_report**](SMTPApi.md#get_aggregated_smtp_report) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
+[**get_email_event_report**](SMTPApi.md#get_email_event_report) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
+[**get_smtp_report**](SMTPApi.md#get_smtp_report) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
 [**get_smtp_template**](SMTPApi.md#get_smtp_template) | **GET** /smtp/templates/{templateId} | Returns the template informations
-[**get_smtp_templates**](SMTPApi.md#get_smtp_templates) | **GET** /smtp/templates | Get the list of SMTP templates
+[**get_smtp_templates**](SMTPApi.md#get_smtp_templates) | **GET** /smtp/templates | Get the list of transactional email templates
+[**get_transac_email_content**](SMTPApi.md#get_transac_email_content) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
+[**get_transac_emails_list**](SMTPApi.md#get_transac_emails_list) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
 [**send_template**](SMTPApi.md#send_template) | **POST** /smtp/templates/{templateId}/send | Send a template
 [**send_test_template**](SMTPApi.md#send_test_template) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
 [**send_transac_email**](SMTPApi.md#send_transac_email) | **POST** /smtp/email | Send a transactional email
-[**update_smtp_template**](SMTPApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Updates an smtp templates
+[**update_smtp_template**](SMTPApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Updates a transactional email templates
 
 
 # **create_smtp_template**
 > CreateModel create_smtp_template(smtp_template)
 
-Create an smtp template
+Create a transactional email template
 
 ### Example
 ```ruby
@@ -42,11 +44,11 @@ end
 
 api_instance = SibApiV3Sdk::SMTPApi.new
 
-smtp_template = SibApiV3Sdk::CreateSmtpTemplate.new # CreateSmtpTemplate | values to update in smtp template
+smtp_template = SibApiV3Sdk::CreateSmtpTemplate.new # CreateSmtpTemplate | values to update in transactional email template
 
 
 begin
-  #Create an smtp template
+  #Create a transactional email template
   result = api_instance.create_smtp_template(smtp_template)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -58,7 +60,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **smtp_template** | [**CreateSmtpTemplate**](CreateSmtpTemplate.md)| values to update in smtp template | 
+ **smtp_template** | [**CreateSmtpTemplate**](CreateSmtpTemplate.md)| values to update in transactional email template | 
 
 ### Return type
 
@@ -137,7 +139,7 @@ nil (empty response body)
 # **delete_smtp_template**
 > delete_smtp_template(template_id)
 
-Delete an inactive smtp template
+Delete an inactive transactional email template
 
 ### Example
 ```ruby
@@ -162,7 +164,7 @@ template_id = 789 # Integer | id of the template
 
 
 begin
-  #Delete an inactive smtp template
+  #Delete an inactive transactional email template
   api_instance.delete_smtp_template(template_id)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMTPApi->delete_smtp_template: #{e}"
@@ -193,7 +195,7 @@ nil (empty response body)
 # **get_aggregated_smtp_report**
 > GetAggregatedReport get_aggregated_smtp_report(opts)
 
-Get your SMTP activity aggregated over a period of time
+Get your transactional email activity aggregated over a period of time
 
 ### Example
 ```ruby
@@ -222,7 +224,7 @@ opts = {
 }
 
 begin
-  #Get your SMTP activity aggregated over a period of time
+  #Get your transactional email activity aggregated over a period of time
   result = api_instance.get_aggregated_smtp_report(opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -257,7 +259,7 @@ Name | Type | Description  | Notes
 # **get_email_event_report**
 > GetEmailEventReport get_email_event_report(opts)
 
-Get all your SMTP activity (unaggregated events)
+Get all your transactional email activity (unaggregated events)
 
 ### Example
 ```ruby
@@ -292,7 +294,7 @@ opts = {
 }
 
 begin
-  #Get all your SMTP activity (unaggregated events)
+  #Get all your transactional email activity (unaggregated events)
   result = api_instance.get_email_event_report(opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -333,7 +335,7 @@ Name | Type | Description  | Notes
 # **get_smtp_report**
 > GetReports get_smtp_report(opts)
 
-Get your SMTP activity aggregated per day
+Get your transactional email activity aggregated per day
 
 ### Example
 ```ruby
@@ -364,7 +366,7 @@ opts = {
 }
 
 begin
-  #Get your SMTP activity aggregated per day
+  #Get your transactional email activity aggregated per day
   result = api_instance.get_smtp_report(opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -458,7 +460,7 @@ Name | Type | Description  | Notes
 # **get_smtp_templates**
 > GetSmtpTemplates get_smtp_templates(opts)
 
-Get the list of SMTP templates
+Get the list of transactional email templates
 
 ### Example
 ```ruby
@@ -486,7 +488,7 @@ opts = {
 }
 
 begin
-  #Get the list of SMTP templates
+  #Get the list of transactional email templates
   result = api_instance.get_smtp_templates(opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -505,6 +507,131 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetSmtpTemplates**](GetSmtpTemplates.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **get_transac_email_content**
+> GetTransacEmailContent get_transac_email_content(uuid)
+
+Get the personalized content of a sent transactional email
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::SMTPApi.new
+
+uuid = "uuid_example" # String | Unique id of the transactional email that has been sent to a particular contact
+
+
+begin
+  #Get the personalized content of a sent transactional email
+  result = api_instance.get_transac_email_content(uuid)
+  p result
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling SMTPApi->get_transac_email_content: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **String**| Unique id of the transactional email that has been sent to a particular contact | 
+
+### Return type
+
+[**GetTransacEmailContent**](GetTransacEmailContent.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **get_transac_emails_list**
+> GetTransacEmailsList get_transac_emails_list(opts)
+
+Get the list of transactional emails on the basis of allowed filters
+
+This endpoint will show the list of emails for past 30 days by default. To retrieve emails before that time, please pass startDate and endDate in query filters.
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::SMTPApi.new
+
+opts = { 
+  email: "email_example", # String | Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
+  template_id: 789, # Integer | Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email.
+  message_id: "message_id_example", # String | Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
+  start_date: "start_date_example", # String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
+  end_date: Date.parse("2013-10-20") # Date | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+}
+
+begin
+  #Get the list of transactional emails on the basis of allowed filters
+  result = api_instance.get_transac_emails_list(opts)
+  p result
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling SMTPApi->get_transac_emails_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **String**| Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent. | [optional] 
+ **template_id** | **Integer**| Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email. | [optional] 
+ **message_id** | **String**| Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. | [optional] 
+ **start_date** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. | [optional] 
+ **end_date** | **Date**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. | [optional] 
+
+### Return type
+
+[**GetTransacEmailsList**](GetTransacEmailsList.md)
 
 ### Authorization
 
@@ -698,7 +825,7 @@ Name | Type | Description  | Notes
 # **update_smtp_template**
 > update_smtp_template(template_id, smtp_template)
 
-Updates an smtp templates
+Updates a transactional email templates
 
 ### Example
 ```ruby
@@ -721,11 +848,11 @@ api_instance = SibApiV3Sdk::SMTPApi.new
 
 template_id = 789 # Integer | id of the template
 
-smtp_template = SibApiV3Sdk::UpdateSmtpTemplate.new # UpdateSmtpTemplate | values to update in smtp template
+smtp_template = SibApiV3Sdk::UpdateSmtpTemplate.new # UpdateSmtpTemplate | values to update in transactional email template
 
 
 begin
-  #Updates an smtp templates
+  #Updates a transactional email templates
   api_instance.update_smtp_template(template_id, smtp_template)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling SMTPApi->update_smtp_template: #{e}"
@@ -737,7 +864,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **template_id** | **Integer**| id of the template | 
- **smtp_template** | [**UpdateSmtpTemplate**](UpdateSmtpTemplate.md)| values to update in smtp template | 
+ **smtp_template** | [**UpdateSmtpTemplate**](UpdateSmtpTemplate.md)| values to update in transactional email template | 
 
 ### Return type
 

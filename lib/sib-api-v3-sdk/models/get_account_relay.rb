@@ -13,9 +13,9 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module SibApiV3Sdk
-  # Information about your SMTP account
+  # Information about your transactional email account
   class GetAccountRelay
-    # Status of your SMTP Account (true=Enabled, false=Disabled)
+    # Status of your transactional email Account (true=Enabled, false=Disabled)
     attr_accessor :enabled
 
     attr_accessor :data
