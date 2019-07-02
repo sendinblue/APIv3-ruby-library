@@ -13,9 +13,9 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module SibApiV3Sdk
-  # Data regarding the SMTP account
+  # Data regarding the transactional email account
   class GetAccountRelayData
-    # Email to use as login on SMTP
+    # Email to use as login on transactional platform
     attr_accessor :user_name
 
     # URL of the SMTP Relay

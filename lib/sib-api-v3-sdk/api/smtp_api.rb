@@ -20,9 +20,9 @@ module SibApiV3Sdk
       @api_client = api_client
     end
 
-    # Create an smtp template
+    # Create a transactional email template
     # 
-    # @param smtp_template values to update in smtp template
+    # @param smtp_template values to update in transactional email template
     # @param [Hash] opts the optional parameters
     # @return [CreateModel]
     def create_smtp_template(smtp_template, opts = {})
@@ -30,9 +30,9 @@ module SibApiV3Sdk
       return data
     end
 
-    # Create an smtp template
+    # Create a transactional email template
     # 
-    # @param smtp_template values to update in smtp template
+    # @param smtp_template values to update in transactional email template
     # @param [Hash] opts the optional parameters
     # @return [Array<(CreateModel, Fixnum, Hash)>] CreateModel data, response status code and response headers
     def create_smtp_template_with_http_info(smtp_template, opts = {})
@@ -125,7 +125,7 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
 
-    # Delete an inactive smtp template
+    # Delete an inactive transactional email template
     # 
     # @param template_id id of the template
     # @param [Hash] opts the optional parameters
@@ -135,7 +135,7 @@ module SibApiV3Sdk
       return nil
     end
 
-    # Delete an inactive smtp template
+    # Delete an inactive transactional email template
     # 
     # @param template_id id of the template
     # @param [Hash] opts the optional parameters
@@ -179,7 +179,7 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
 
-    # Get your SMTP activity aggregated over a period of time
+    # Get your transactional email activity aggregated over a period of time
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :start_date Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
@@ -192,7 +192,7 @@ module SibApiV3Sdk
       return data
     end
 
-    # Get your SMTP activity aggregated over a period of time
+    # Get your transactional email activity aggregated over a period of time
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :start_date Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
@@ -240,7 +240,7 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
 
-    # Get all your SMTP activity (unaggregated events)
+    # Get all your transactional email activity (unaggregated events)
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number limitation for the result returned (default to 50)
@@ -259,7 +259,7 @@ module SibApiV3Sdk
       return data
     end
 
-    # Get all your SMTP activity (unaggregated events)
+    # Get all your transactional email activity (unaggregated events)
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number limitation for the result returned
@@ -326,7 +326,7 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
 
-    # Get your SMTP activity aggregated per day
+    # Get your transactional email activity aggregated per day
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents returned per page (default to 50)
@@ -341,7 +341,7 @@ module SibApiV3Sdk
       return data
     end
 
-    # Get your SMTP activity aggregated per day
+    # Get your transactional email activity aggregated per day
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents returned per page
@@ -452,7 +452,7 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
 
-    # Get the list of SMTP templates
+    # Get the list of transactional email templates
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :template_status Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false
@@ -464,7 +464,7 @@ module SibApiV3Sdk
       return data
     end
 
-    # Get the list of SMTP templates
+    # Get the list of transactional email templates
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :template_status Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false
@@ -510,6 +510,125 @@ module SibApiV3Sdk
         :return_type => 'GetSmtpTemplates')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SMTPApi#get_smtp_templates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the personalized content of a sent transactional email
+    # 
+    # @param uuid Unique id of the transactional email that has been sent to a particular contact
+    # @param [Hash] opts the optional parameters
+    # @return [GetTransacEmailContent]
+    def get_transac_email_content(uuid, opts = {})
+      data, _status_code, _headers = get_transac_email_content_with_http_info(uuid, opts)
+      return data
+    end
+
+    # Get the personalized content of a sent transactional email
+    # 
+    # @param uuid Unique id of the transactional email that has been sent to a particular contact
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetTransacEmailContent, Fixnum, Hash)>] GetTransacEmailContent data, response status code and response headers
+    def get_transac_email_content_with_http_info(uuid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SMTPApi.get_transac_email_content ..."
+      end
+      # verify the required parameter 'uuid' is set
+      if @api_client.config.client_side_validation && uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'uuid' when calling SMTPApi.get_transac_email_content"
+      end
+      # resource path
+      local_var_path = "/smtp/emails/{uuid}".sub('{' + 'uuid' + '}', uuid.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetTransacEmailContent')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SMTPApi#get_transac_email_content\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the list of transactional emails on the basis of allowed filters
+    # This endpoint will show the list of emails for past 30 days by default. To retrieve emails before that time, please pass startDate and endDate in query filters.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :email Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
+    # @option opts [Integer] :template_id Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email.
+    # @option opts [String] :message_id Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
+    # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
+    # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+    # @return [GetTransacEmailsList]
+    def get_transac_emails_list(opts = {})
+      data, _status_code, _headers = get_transac_emails_list_with_http_info(opts)
+      return data
+    end
+
+    # Get the list of transactional emails on the basis of allowed filters
+    # This endpoint will show the list of emails for past 30 days by default. To retrieve emails before that time, please pass startDate and endDate in query filters.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :email Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
+    # @option opts [Integer] :template_id Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email.
+    # @option opts [String] :message_id Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
+    # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
+    # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+    # @return [Array<(GetTransacEmailsList, Fixnum, Hash)>] GetTransacEmailsList data, response status code and response headers
+    def get_transac_emails_list_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SMTPApi.get_transac_emails_list ..."
+      end
+      # resource path
+      local_var_path = "/smtp/emails"
+
+      # query parameters
+      query_params = {}
+      query_params[:'email'] = opts[:'email'] if !opts[:'email'].nil?
+      query_params[:'templateId'] = opts[:'template_id'] if !opts[:'template_id'].nil?
+      query_params[:'messageId'] = opts[:'message_id'] if !opts[:'message_id'].nil?
+      query_params[:'startDate'] = opts[:'start_date'] if !opts[:'start_date'].nil?
+      query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetTransacEmailsList')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SMTPApi#get_transac_emails_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -690,10 +809,10 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
 
-    # Updates an smtp templates
+    # Updates a transactional email templates
     # 
     # @param template_id id of the template
-    # @param smtp_template values to update in smtp template
+    # @param smtp_template values to update in transactional email template
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def update_smtp_template(template_id, smtp_template, opts = {})
@@ -701,10 +820,10 @@ module SibApiV3Sdk
       return nil
     end
 
-    # Updates an smtp templates
+    # Updates a transactional email templates
     # 
     # @param template_id id of the template
-    # @param smtp_template values to update in smtp template
+    # @param smtp_template values to update in transactional email template
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def update_smtp_template_with_http_info(template_id, smtp_template, opts = {})

@@ -15,7 +15,7 @@ require 'date'
 module SibApiV3Sdk
 
   class UpdateChildAccountStatus
-    # Status of Transactional Email (SMTP) Platform activation for your account (true=enabled, false=disabled)
+    # Status of Transactional Email Platform activation for your account (true=enabled, false=disabled)
     attr_accessor :transactional_email
 
     # Status of Transactional SMS Platform activation for your account (true=enabled, false=disabled)

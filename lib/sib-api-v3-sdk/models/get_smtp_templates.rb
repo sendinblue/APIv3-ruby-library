@@ -15,7 +15,7 @@ require 'date'
 module SibApiV3Sdk
 
   class GetSmtpTemplates
-    # Count of smtp templates
+    # Count of transactional email templates
     attr_accessor :count
 
     attr_accessor :templates
