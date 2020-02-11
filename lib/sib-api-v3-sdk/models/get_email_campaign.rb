@@ -519,7 +519,7 @@ module SibApiV3Sdk
     def _deserialize(type, value)
       case type.to_sym
       when :DateTime
-        DateTime.parse(value)
+        DateTime.parse(value) if value.present?
       when :Date
         Date.parse(value)
       when :String
