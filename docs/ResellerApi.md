@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**delete_child_domain**](ResellerApi.md#delete_child_domain) | **DELETE** /reseller/children/{childAuthKey}/domains/{domainName} | Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
 [**delete_reseller_child**](ResellerApi.md#delete_reseller_child) | **DELETE** /reseller/children/{childAuthKey} | Deletes a single reseller child based on the childAuthKey supplied
 [**dissociate_ip_from_child**](ResellerApi.md#dissociate_ip_from_child) | **POST** /reseller/children/{childAuthKey}/ips/dissociate | Dissociate a dedicated IP to the child
+[**get_child_account_creation_status**](ResellerApi.md#get_child_account_creation_status) | **GET** /reseller/children/{childAuthKey}/accountCreationStatus | Returns the status of reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
 [**get_child_domains**](ResellerApi.md#get_child_domains) | **GET** /reseller/children/{childAuthKey}/domains | Gets all the sender domains of a specific child account
 [**get_child_info**](ResellerApi.md#get_child_info) | **GET** /reseller/children/{childAuthKey} | Gets the info about a specific child account
 [**get_reseller_childs**](ResellerApi.md#get_reseller_childs) | **GET** /reseller/children | Gets the list of all reseller&#39;s children accounts
@@ -45,7 +46,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
 
 add_credits = SibApiV3Sdk::AddCredits.new # AddCredits | Values to post to add credit to a specific child account
 
@@ -105,7 +106,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
 
 ip = SibApiV3Sdk::ManageIp.new # ManageIp | IP to associate
 
@@ -164,9 +165,9 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
 
-add_child_domain = SibApiV3Sdk::AddChildDomain.new # AddChildDomain | Sender domain to add for a specific child account
+add_child_domain = SibApiV3Sdk::AddChildDomain.new # AddChildDomain | Sender domain to add for a specific child account. This will not be displayed to the parent account.
 
 
 begin
@@ -182,7 +183,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **child_auth_key** | **String**| auth key of reseller&#39;s child | 
- **add_child_domain** | [**AddChildDomain**](AddChildDomain.md)| Sender domain to add for a specific child account | 
+ **add_child_domain** | [**AddChildDomain**](AddChildDomain.md)| Sender domain to add for a specific child account. This will not be displayed to the parent account. | 
 
 ### Return type
 
@@ -281,9 +282,9 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
 
-domain_name = "domain_name_example" # String | Pass the existing domain that needs to be deleted
+domain_name = 'domain_name_example' # String | Pass the existing domain that needs to be deleted
 
 
 begin
@@ -340,7 +341,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
 
 
 begin
@@ -396,7 +397,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
 
 ip = SibApiV3Sdk::ManageIp.new # ManageIp | IP to dissociate
 
@@ -419,6 +420,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **get_child_account_creation_status**
+> GetChildAccountCreationStatus get_child_account_creation_status(child_auth_key)
+
+Returns the status of reseller's child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::ResellerApi.new
+
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
+
+
+begin
+  #Returns the status of reseller's child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
+  result = api_instance.get_child_account_creation_status(child_auth_key)
+  p result
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling ResellerApi->get_child_account_creation_status: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **child_auth_key** | **String**| auth key of reseller&#39;s child | 
+
+### Return type
+
+[**GetChildAccountCreationStatus**](GetChildAccountCreationStatus.md)
 
 ### Authorization
 
@@ -455,7 +513,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
 
 
 begin
@@ -512,7 +570,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
 
 
 begin
@@ -546,7 +604,7 @@ Name | Type | Description  | Notes
 
 
 # **get_reseller_childs**
-> GetChildrenList get_reseller_childs
+> GetChildrenList get_reseller_childs(opts)
 
 Gets the list of all reseller's children accounts
 
@@ -569,9 +627,14 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
+opts = { 
+  limit: 10, # Integer | Number of documents for child accounts information per page
+  offset: 0 # Integer | Index of the first document in the page
+}
+
 begin
   #Gets the list of all reseller's children accounts
-  result = api_instance.get_reseller_childs
+  result = api_instance.get_reseller_childs(opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ResellerApi->get_reseller_childs: #{e}"
@@ -579,7 +642,11 @@ end
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Integer**| Number of documents for child accounts information per page | [optional] [default to 10]
+ **offset** | **Integer**| Index of the first document in the page | [optional] [default to 0]
 
 ### Return type
 
@@ -622,7 +689,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
 
 
 begin
@@ -679,7 +746,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
 
 remove_credits = SibApiV3Sdk::RemoveCredits.new # RemoveCredits | Values to post to remove email or SMS credits from a specific child account
 
@@ -739,7 +806,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
 
 update_child_account_status = SibApiV3Sdk::UpdateChildAccountStatus.new # UpdateChildAccountStatus | values to update in child account status
 
@@ -798,9 +865,9 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
 
-domain_name = "domain_name_example" # String | Pass the existing domain that needs to be updated
+domain_name = 'domain_name_example' # String | Pass the existing domain that needs to be updated
 
 update_child_domain = SibApiV3Sdk::UpdateChildDomain.new # UpdateChildDomain | value to update for sender domain
 
@@ -860,7 +927,7 @@ end
 
 api_instance = SibApiV3Sdk::ResellerApi.new
 
-child_auth_key = "child_auth_key_example" # String | auth key of reseller's child
+child_auth_key = 'child_auth_key_example' # String | auth key of reseller's child
 
 reseller_child = SibApiV3Sdk::UpdateChild.new # UpdateChild | values to update in child profile
 

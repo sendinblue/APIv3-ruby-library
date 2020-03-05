@@ -34,9 +34,9 @@ end
 
 api_instance = SibApiV3Sdk::AttributesApi.new
 
-attribute_category = "attribute_category_example" # String | Category of the attribute
+attribute_category = 'attribute_category_example' # String | Category of the attribute
 
-attribute_name = "attribute_name_example" # String | Name of the attribute
+attribute_name = 'attribute_name_example' # String | Name of the attribute
 
 create_attribute = SibApiV3Sdk::CreateAttribute.new # CreateAttribute | Values to create an attribute
 
@@ -96,9 +96,9 @@ end
 
 api_instance = SibApiV3Sdk::AttributesApi.new
 
-attribute_category = "attribute_category_example" # String | Category of the attribute
+attribute_category = 'attribute_category_example' # String | Category of the attribute
 
-attribute_name = "attribute_name_example" # String | Name of the existing attribute
+attribute_name = 'attribute_name_example' # String | Name of the existing attribute
 
 
 begin
@@ -206,9 +206,9 @@ end
 
 api_instance = SibApiV3Sdk::AttributesApi.new
 
-attribute_category = "attribute_category_example" # String | Category of the attribute
+attribute_category = 'attribute_category_example' # String | Category of the attribute
 
-attribute_name = "attribute_name_example" # String | Name of the existing attribute
+attribute_name = 'attribute_name_example' # String | Name of the existing attribute
 
 update_attribute = SibApiV3Sdk::UpdateAttribute.new # UpdateAttribute | Values to update an attribute
 

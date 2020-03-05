@@ -12,11 +12,14 @@ Method | HTTP request | Description
 [**get_smtp_report**](SMTPApi.md#get_smtp_report) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
 [**get_smtp_template**](SMTPApi.md#get_smtp_template) | **GET** /smtp/templates/{templateId} | Returns the template informations
 [**get_smtp_templates**](SMTPApi.md#get_smtp_templates) | **GET** /smtp/templates | Get the list of transactional email templates
+[**get_transac_blocked_contacts**](SMTPApi.md#get_transac_blocked_contacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
 [**get_transac_email_content**](SMTPApi.md#get_transac_email_content) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
 [**get_transac_emails_list**](SMTPApi.md#get_transac_emails_list) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
 [**send_template**](SMTPApi.md#send_template) | **POST** /smtp/templates/{templateId}/send | Send a template
 [**send_test_template**](SMTPApi.md#send_test_template) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
 [**send_transac_email**](SMTPApi.md#send_transac_email) | **POST** /smtp/email | Send a transactional email
+[**smtp_blocked_contacts_email_delete**](SMTPApi.md#smtp_blocked_contacts_email_delete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
+[**smtp_log_message_id_delete**](SMTPApi.md#smtp_log_message_id_delete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
 [**update_smtp_template**](SMTPApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Updates a transactional email templates
 
 
@@ -217,10 +220,10 @@ end
 api_instance = SibApiV3Sdk::SMTPApi.new
 
 opts = { 
-  start_date: "start_date_example", # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
-  end_date: "end_date_example", # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
+  start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
+  end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
   days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
-  tag: "tag_example" # String | Tag of the emails
+  tag: 'tag_example' # String | Tag of the emails
 }
 
 begin
@@ -283,13 +286,13 @@ api_instance = SibApiV3Sdk::SMTPApi.new
 opts = { 
   limit: 50, # Integer | Number limitation for the result returned
   offset: 0, # Integer | Beginning point in the list to retrieve from.
-  start_date: "start_date_example", # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
-  end_date: "end_date_example", # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
+  start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
+  end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
   days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
-  email: "email_example", # String | Filter the report for a specific email addresses
-  event: "event_example", # String | Filter the report for a specific event type
-  tags: "tags_example", # String | Filter the report for tags (serialized and urlencoded array)
-  message_id: "message_id_example", # String | Filter on a specific message id
+  email: 'email_example', # String | Filter the report for a specific email addresses
+  event: 'event_example', # String | Filter the report for a specific event type
+  tags: 'tags_example', # String | Filter the report for tags (serialized and urlencoded array)
+  message_id: 'message_id_example', # String | Filter on a specific message id
   template_id: 789 # Integer | Filter on a specific template id
 }
 
@@ -357,12 +360,12 @@ end
 api_instance = SibApiV3Sdk::SMTPApi.new
 
 opts = { 
-  limit: 50, # Integer | Number of documents returned per page
+  limit: 10, # Integer | Number of documents returned per page
   offset: 0, # Integer | Index of the first document on the page
-  start_date: "start_date_example", # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD)
-  end_date: "end_date_example", # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
+  start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD)
+  end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
   days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
-  tag: "tag_example" # String | Tag of the emails
+  tag: 'tag_example' # String | Tag of the emails
 }
 
 begin
@@ -378,7 +381,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **Integer**| Number of documents returned per page | [optional] [default to 50]
+ **limit** | **Integer**| Number of documents returned per page | [optional] [default to 10]
  **offset** | **Integer**| Index of the first document on the page | [optional] [default to 0]
  **start_date** | **String**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) | [optional] 
  **end_date** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) | [optional] 
@@ -519,6 +522,72 @@ Name | Type | Description  | Notes
 
 
 
+# **get_transac_blocked_contacts**
+> GetTransacBlockedContacts get_transac_blocked_contacts(opts)
+
+Get the list of blocked or unsubscribed transactional contacts
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::SMTPApi.new
+
+opts = { 
+  start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts
+  end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts
+  limit: 50, # Integer | Number of documents returned per page
+  offset: 0, # Integer | Index of the first document on the page
+  senders: ['senders_example'] # Array<String> | Comma separated list of emails of the senders from which contacts are blocked or unsubscribed
+}
+
+begin
+  #Get the list of blocked or unsubscribed transactional contacts
+  result = api_instance.get_transac_blocked_contacts(opts)
+  p result
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling SMTPApi->get_transac_blocked_contacts: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start_date** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts | [optional] 
+ **end_date** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts | [optional] 
+ **limit** | **Integer**| Number of documents returned per page | [optional] [default to 50]
+ **offset** | **Integer**| Index of the first document on the page | [optional] [default to 0]
+ **senders** | [**Array&lt;String&gt;**](String.md)| Comma separated list of emails of the senders from which contacts are blocked or unsubscribed | [optional] 
+
+### Return type
+
+[**GetTransacBlockedContacts**](GetTransacBlockedContacts.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
 # **get_transac_email_content**
 > GetTransacEmailContent get_transac_email_content(uuid)
 
@@ -543,7 +612,7 @@ end
 
 api_instance = SibApiV3Sdk::SMTPApi.new
 
-uuid = "uuid_example" # String | Unique id of the transactional email that has been sent to a particular contact
+uuid = 'uuid_example' # String | Unique id of the transactional email that has been sent to a particular contact
 
 
 begin
@@ -603,11 +672,11 @@ end
 api_instance = SibApiV3Sdk::SMTPApi.new
 
 opts = { 
-  email: "email_example", # String | Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
+  email: 'email_example', # String | Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
   template_id: 789, # Integer | Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email.
-  message_id: "message_id_example", # String | Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
-  start_date: "start_date_example", # String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
-  end_date: Date.parse("2013-10-20") # Date | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+  message_id: 'message_id_example', # String | Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
+  start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
+  end_date: Date.parse('2013-10-20') # Date | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
 }
 
 begin
@@ -810,6 +879,118 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateSmtpEmail**](CreateSmtpEmail.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **smtp_blocked_contacts_email_delete**
+> smtp_blocked_contacts_email_delete(email)
+
+Unblock or resubscribe a transactional contact
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::SMTPApi.new
+
+email = 'email_example' # String | contact email (urlencoded) to unblock.
+
+
+begin
+  #Unblock or resubscribe a transactional contact
+  api_instance.smtp_blocked_contacts_email_delete(email)
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling SMTPApi->smtp_blocked_contacts_email_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **String**| contact email (urlencoded) to unblock. | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **smtp_log_message_id_delete**
+> smtp_log_message_id_delete(message_id)
+
+Delete an SMTP transactional log
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::SMTPApi.new
+
+message_id = 'message_id_example' # String | MessageId of the transactional log to delete
+
+
+begin
+  #Delete an SMTP transactional log
+  api_instance.smtp_log_message_id_delete(message_id)
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling SMTPApi->smtp_log_message_id_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **message_id** | **String**| MessageId of the transactional log to delete | 
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 

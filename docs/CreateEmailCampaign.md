@@ -28,5 +28,8 @@ Name | Type | Description | Notes
 **split_rule** | **Integer** | Add the size of your test groups. Mandatory if abTesting &#x3D; true &amp; &#39;recipients&#39; is passed. We&#39;ll send version A and B to a random sample of recipients, and then the winning version to everyone else | [optional] 
 **winner_criteria** | **String** | Choose the metrics that will determinate the winning version. Mandatory if &#39;splitRule&#39; &gt;&#x3D; 1 and &lt; 50. If splitRule &#x3D; 50, &#39;winnerCriteria&#39; is ignored if passed | [optional] 
 **winner_delay** | **Integer** | Choose the duration of the test in hours. Maximum is 7 days, pass 24*7 &#x3D; 168 hours. The winning version will be sent at the end of the test. Mandatory if &#39;splitRule&#39; &gt;&#x3D; 1 and &lt; 50. If splitRule &#x3D; 50, &#39;winnerDelay&#39; is ignored if passed | [optional] 
+**ip_warmup_enable** | **BOOLEAN** | Available for dedicated ip clients. Set this to true if you wish to warm up your ip. | [optional] [default to false]
+**initial_quota** | **Integer** | Mandatory if ipWarmupEnable is set to true. Set an initial quota greater than 1 for warming up your ip. We recommend you set a value of 3000. | [optional] 
+**increase_rate** | **Integer** | Mandatory if ipWarmupEnable is set to true. Set a percentage increase rate for warming up your ip. We recommend you set the increase rate to 30% per day. If you want to send the same number of emails every day, set the daily increase value to 0%. | [optional] 
 
 

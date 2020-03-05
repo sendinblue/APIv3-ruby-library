@@ -116,9 +116,9 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-attribute_category = "attribute_category_example" # String | Category of the attribute
+attribute_category = 'attribute_category_example' # String | Category of the attribute
 
-attribute_name = "attribute_name_example" # String | Name of the attribute
+attribute_name = 'attribute_name_example' # String | Name of the attribute
 
 create_attribute = SibApiV3Sdk::CreateAttribute.new # CreateAttribute | Values to create an attribute
 
@@ -349,9 +349,9 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-attribute_category = "attribute_category_example" # String | Category of the attribute
+attribute_category = 'attribute_category_example' # String | Category of the attribute
 
-attribute_name = "attribute_name_example" # String | Name of the existing attribute
+attribute_name = 'attribute_name_example' # String | Name of the existing attribute
 
 
 begin
@@ -408,7 +408,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-email = "email_example" # String | Email (urlencoded) of the contact
+email = 'email_example' # String | Email (urlencoded) of the contact
 
 
 begin
@@ -627,7 +627,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-email = "email_example" # String | Email (urlencoded) of the contact OR its SMS attribute value
+email = 'email_example' # String | Email (urlencoded) of the contact OR its SMS attribute value
 
 
 begin
@@ -684,7 +684,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-email = "email_example" # String | Email address (urlencoded) of the contact
+email = 'email_example' # String | Email address (urlencoded) of the contact
 
 
 begin
@@ -744,7 +744,7 @@ api_instance = SibApiV3Sdk::ContactsApi.new
 opts = { 
   limit: 50, # Integer | Number of documents per page
   offset: 0, # Integer | Index of the first document of the page
-  modified_since: DateTime.parse("2013-10-20T19:20:30+01:00") # DateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+  modified_since: DateTime.parse('2013-10-20T19:20:30+01:00') # DateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
 }
 
 begin
@@ -806,7 +806,7 @@ api_instance = SibApiV3Sdk::ContactsApi.new
 list_id = 789 # Integer | Id of the list
 
 opts = { 
-  modified_since: DateTime.parse("2013-10-20T19:20:30+01:00"), # DateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+  modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
   limit: 50, # Integer | Number of documents per page
   offset: 0 # Integer | Index of the first document of the page
 }
@@ -1343,9 +1343,9 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-attribute_category = "attribute_category_example" # String | Category of the attribute
+attribute_category = 'attribute_category_example' # String | Category of the attribute
 
-attribute_name = "attribute_name_example" # String | Name of the existing attribute
+attribute_name = 'attribute_name_example' # String | Name of the existing attribute
 
 update_attribute = SibApiV3Sdk::UpdateAttribute.new # UpdateAttribute | Values to update an attribute
 
@@ -1405,7 +1405,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-email = "email_example" # String | Email (urlencoded) of the contact
+email = 'email_example' # String | Email (urlencoded) of the contact
 
 update_contact = SibApiV3Sdk::UpdateContact.new # UpdateContact | Values to update a contact
 

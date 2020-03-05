@@ -259,8 +259,8 @@ end
 api_instance = SibApiV3Sdk::SendersApi.new
 
 opts = { 
-  ip: "ip_example", # String | Filter your senders for a specific ip (available for dedicated IP usage only)
-  domain: "domain_example" # String | Filter your senders for a specific domain
+  ip: 'ip_example', # String | Filter your senders for a specific ip (available for dedicated IP usage only)
+  domain: 'domain_example' # String | Filter your senders for a specific domain
 }
 
 begin
