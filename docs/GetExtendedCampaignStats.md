@@ -9,5 +9,7 @@ Name | Type | Description | Notes
 **remaining** | **Integer** | Number of remaning emails to send | 
 **links_stats** | **Object** | Statistics about the number of clicks for the links | 
 **stats_by_domain** | [**GetStatsByDomain**](GetStatsByDomain.md) |  | 
+**stats_by_device** | [**GetStatsByDevice**](GetStatsByDevice.md) | Statistics about the campaign on the basis of various devices | 
+**stats_by_browser** | [**GetStatsByBrowser**](GetStatsByBrowser.md) | Statistics about the campaign on the basis of various browsers | 
 
 

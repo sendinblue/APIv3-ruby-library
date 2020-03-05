@@ -215,7 +215,7 @@ api_instance = SibApiV3Sdk::ListsApi.new
 list_id = 789 # Integer | Id of the list
 
 opts = { 
-  modified_since: DateTime.parse("2013-10-20T19:20:30+01:00"), # DateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+  modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
   limit: 50, # Integer | Number of documents per page
   offset: 0 # Integer | Index of the first document of the page
 }

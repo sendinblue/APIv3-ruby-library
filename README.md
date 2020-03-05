@@ -118,9 +118,11 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::EmailCampaignsApi* | [**create_email_campaign**](docs/EmailCampaignsApi.md#create_email_campaign) | **POST** /emailCampaigns | Create an email campaign
 *SibApiV3Sdk::EmailCampaignsApi* | [**delete_email_campaign**](docs/EmailCampaignsApi.md#delete_email_campaign) | **DELETE** /emailCampaigns/{campaignId} | Delete an email campaign
 *SibApiV3Sdk::EmailCampaignsApi* | [**email_export_recipients**](docs/EmailCampaignsApi.md#email_export_recipients) | **POST** /emailCampaigns/{campaignId}/exportRecipients | Export the recipients of a campaign
+*SibApiV3Sdk::EmailCampaignsApi* | [**get_ab_test_campaign_result**](docs/EmailCampaignsApi.md#get_ab_test_campaign_result) | **GET** /emailCampaigns/{campaignId}/abTestCampaignResult | Get A/B test email campaign result
 *SibApiV3Sdk::EmailCampaignsApi* | [**get_email_campaign**](docs/EmailCampaignsApi.md#get_email_campaign) | **GET** /emailCampaigns/{campaignId} | Get campaign informations
 *SibApiV3Sdk::EmailCampaignsApi* | [**get_email_campaigns**](docs/EmailCampaignsApi.md#get_email_campaigns) | **GET** /emailCampaigns | Return all your created campaigns
-*SibApiV3Sdk::EmailCampaignsApi* | [**send_email_campaign_now**](docs/EmailCampaignsApi.md#send_email_campaign_now) | **POST** /emailCampaigns/{campaignId}/sendNow | Send an email campaign id of the campaign immediately
+*SibApiV3Sdk::EmailCampaignsApi* | [**get_shared_template_url**](docs/EmailCampaignsApi.md#get_shared_template_url) | **GET** /emailCampaigns/{campaignId}/sharedUrl | Get a shared template url
+*SibApiV3Sdk::EmailCampaignsApi* | [**send_email_campaign_now**](docs/EmailCampaignsApi.md#send_email_campaign_now) | **POST** /emailCampaigns/{campaignId}/sendNow | Send an email campaign immediately, based on campaignId
 *SibApiV3Sdk::EmailCampaignsApi* | [**send_report**](docs/EmailCampaignsApi.md#send_report) | **POST** /emailCampaigns/{campaignId}/sendReport | Send the report of a campaigns
 *SibApiV3Sdk::EmailCampaignsApi* | [**send_test_email**](docs/EmailCampaignsApi.md#send_test_email) | **POST** /emailCampaigns/{campaignId}/sendTest | Send an email campaign to your test list
 *SibApiV3Sdk::EmailCampaignsApi* | [**update_campaign_status**](docs/EmailCampaignsApi.md#update_campaign_status) | **PUT** /emailCampaigns/{campaignId}/status | Update a campaign status
@@ -149,6 +151,7 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::ResellerApi* | [**delete_child_domain**](docs/ResellerApi.md#delete_child_domain) | **DELETE** /reseller/children/{childAuthKey}/domains/{domainName} | Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
 *SibApiV3Sdk::ResellerApi* | [**delete_reseller_child**](docs/ResellerApi.md#delete_reseller_child) | **DELETE** /reseller/children/{childAuthKey} | Deletes a single reseller child based on the childAuthKey supplied
 *SibApiV3Sdk::ResellerApi* | [**dissociate_ip_from_child**](docs/ResellerApi.md#dissociate_ip_from_child) | **POST** /reseller/children/{childAuthKey}/ips/dissociate | Dissociate a dedicated IP to the child
+*SibApiV3Sdk::ResellerApi* | [**get_child_account_creation_status**](docs/ResellerApi.md#get_child_account_creation_status) | **GET** /reseller/children/{childAuthKey}/accountCreationStatus | Returns the status of reseller's child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
 *SibApiV3Sdk::ResellerApi* | [**get_child_domains**](docs/ResellerApi.md#get_child_domains) | **GET** /reseller/children/{childAuthKey}/domains | Gets all the sender domains of a specific child account
 *SibApiV3Sdk::ResellerApi* | [**get_child_info**](docs/ResellerApi.md#get_child_info) | **GET** /reseller/children/{childAuthKey} | Gets the info about a specific child account
 *SibApiV3Sdk::ResellerApi* | [**get_reseller_childs**](docs/ResellerApi.md#get_reseller_childs) | **GET** /reseller/children | Gets the list of all reseller's children accounts
@@ -175,11 +178,14 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::SMTPApi* | [**get_smtp_report**](docs/SMTPApi.md#get_smtp_report) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
 *SibApiV3Sdk::SMTPApi* | [**get_smtp_template**](docs/SMTPApi.md#get_smtp_template) | **GET** /smtp/templates/{templateId} | Returns the template informations
 *SibApiV3Sdk::SMTPApi* | [**get_smtp_templates**](docs/SMTPApi.md#get_smtp_templates) | **GET** /smtp/templates | Get the list of transactional email templates
+*SibApiV3Sdk::SMTPApi* | [**get_transac_blocked_contacts**](docs/SMTPApi.md#get_transac_blocked_contacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
 *SibApiV3Sdk::SMTPApi* | [**get_transac_email_content**](docs/SMTPApi.md#get_transac_email_content) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
 *SibApiV3Sdk::SMTPApi* | [**get_transac_emails_list**](docs/SMTPApi.md#get_transac_emails_list) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
 *SibApiV3Sdk::SMTPApi* | [**send_template**](docs/SMTPApi.md#send_template) | **POST** /smtp/templates/{templateId}/send | Send a template
 *SibApiV3Sdk::SMTPApi* | [**send_test_template**](docs/SMTPApi.md#send_test_template) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
 *SibApiV3Sdk::SMTPApi* | [**send_transac_email**](docs/SMTPApi.md#send_transac_email) | **POST** /smtp/email | Send a transactional email
+*SibApiV3Sdk::SMTPApi* | [**smtp_blocked_contacts_email_delete**](docs/SMTPApi.md#smtp_blocked_contacts_email_delete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
+*SibApiV3Sdk::SMTPApi* | [**smtp_log_message_id_delete**](docs/SMTPApi.md#smtp_log_message_id_delete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
 *SibApiV3Sdk::SMTPApi* | [**update_smtp_template**](docs/SMTPApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Updates a transactional email templates
 *SibApiV3Sdk::SendersApi* | [**create_sender**](docs/SendersApi.md#create_sender) | **POST** /senders | Create a new sender
 *SibApiV3Sdk::SendersApi* | [**delete_sender**](docs/SendersApi.md#delete_sender) | **DELETE** /senders/{senderId} | Delete a sender
@@ -200,6 +206,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [SibApiV3Sdk::AbTestCampaignResult](docs/AbTestCampaignResult.md)
  - [SibApiV3Sdk::AddChildDomain](docs/AddChildDomain.md)
  - [SibApiV3Sdk::AddContactToList](docs/AddContactToList.md)
  - [SibApiV3Sdk::AddCredits](docs/AddCredits.md)
@@ -239,6 +246,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetCampaignOverview](docs/GetCampaignOverview.md)
  - [SibApiV3Sdk::GetCampaignRecipients](docs/GetCampaignRecipients.md)
  - [SibApiV3Sdk::GetCampaignStats](docs/GetCampaignStats.md)
+ - [SibApiV3Sdk::GetChildAccountCreationStatus](docs/GetChildAccountCreationStatus.md)
  - [SibApiV3Sdk::GetChildDomain](docs/GetChildDomain.md)
  - [SibApiV3Sdk::GetChildDomains](docs/GetChildDomains.md)
  - [SibApiV3Sdk::GetChildInfoApiKeys](docs/GetChildInfoApiKeys.md)
@@ -255,6 +263,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetContactCampaignStatsUnsubscriptions](docs/GetContactCampaignStatsUnsubscriptions.md)
  - [SibApiV3Sdk::GetContactDetails](docs/GetContactDetails.md)
  - [SibApiV3Sdk::GetContacts](docs/GetContacts.md)
+ - [SibApiV3Sdk::GetDeviceBrowserStats](docs/GetDeviceBrowserStats.md)
  - [SibApiV3Sdk::GetEmailCampaigns](docs/GetEmailCampaigns.md)
  - [SibApiV3Sdk::GetEmailEventReport](docs/GetEmailEventReport.md)
  - [SibApiV3Sdk::GetEmailEventReportEvents](docs/GetEmailEventReportEvents.md)
@@ -286,6 +295,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetSendersList](docs/GetSendersList.md)
  - [SibApiV3Sdk::GetSendersListIps](docs/GetSendersListIps.md)
  - [SibApiV3Sdk::GetSendersListSenders](docs/GetSendersListSenders.md)
+ - [SibApiV3Sdk::GetSharedTemplateUrl](docs/GetSharedTemplateUrl.md)
  - [SibApiV3Sdk::GetSmsCampaignOverview](docs/GetSmsCampaignOverview.md)
  - [SibApiV3Sdk::GetSmsCampaignStats](docs/GetSmsCampaignStats.md)
  - [SibApiV3Sdk::GetSmsCampaigns](docs/GetSmsCampaigns.md)
@@ -295,8 +305,13 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetSmtpTemplateOverviewSender](docs/GetSmtpTemplateOverviewSender.md)
  - [SibApiV3Sdk::GetSmtpTemplates](docs/GetSmtpTemplates.md)
  - [SibApiV3Sdk::GetSsoToken](docs/GetSsoToken.md)
+ - [SibApiV3Sdk::GetStatsByBrowser](docs/GetStatsByBrowser.md)
+ - [SibApiV3Sdk::GetStatsByDevice](docs/GetStatsByDevice.md)
  - [SibApiV3Sdk::GetStatsByDomain](docs/GetStatsByDomain.md)
  - [SibApiV3Sdk::GetTransacAggregatedSmsReport](docs/GetTransacAggregatedSmsReport.md)
+ - [SibApiV3Sdk::GetTransacBlockedContacts](docs/GetTransacBlockedContacts.md)
+ - [SibApiV3Sdk::GetTransacBlockedContactsContacts](docs/GetTransacBlockedContactsContacts.md)
+ - [SibApiV3Sdk::GetTransacBlockedContactsReason](docs/GetTransacBlockedContactsReason.md)
  - [SibApiV3Sdk::GetTransacEmailContent](docs/GetTransacEmailContent.md)
  - [SibApiV3Sdk::GetTransacEmailContentEvents](docs/GetTransacEmailContentEvents.md)
  - [SibApiV3Sdk::GetTransacEmailsList](docs/GetTransacEmailsList.md)
@@ -316,6 +331,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::RemoveContactFromList](docs/RemoveContactFromList.md)
  - [SibApiV3Sdk::RemoveCredits](docs/RemoveCredits.md)
  - [SibApiV3Sdk::RequestContactExport](docs/RequestContactExport.md)
+ - [SibApiV3Sdk::RequestContactExportCustomContactFilter](docs/RequestContactExportCustomContactFilter.md)
  - [SibApiV3Sdk::RequestContactImport](docs/RequestContactImport.md)
  - [SibApiV3Sdk::RequestContactImportNewList](docs/RequestContactImportNewList.md)
  - [SibApiV3Sdk::RequestSmsRecipientExport](docs/RequestSmsRecipientExport.md)

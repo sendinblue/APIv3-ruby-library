@@ -206,7 +206,7 @@ end
 api_instance = SibApiV3Sdk::WebhooksApi.new
 
 opts = { 
-  type: "transactional" # String | Filter on webhook type
+  type: 'transactional' # String | Filter on webhook type
 }
 
 begin
