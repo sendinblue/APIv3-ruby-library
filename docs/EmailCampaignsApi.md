@@ -6,16 +6,17 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_email_campaign**](EmailCampaignsApi.md#create_email_campaign) | **POST** /emailCampaigns | Create an email campaign
 [**delete_email_campaign**](EmailCampaignsApi.md#delete_email_campaign) | **DELETE** /emailCampaigns/{campaignId} | Delete an email campaign
-[**email_export_recipients**](EmailCampaignsApi.md#email_export_recipients) | **POST** /emailCampaigns/{campaignId}/exportRecipients | Export the recipients of a campaign
-[**get_ab_test_campaign_result**](EmailCampaignsApi.md#get_ab_test_campaign_result) | **GET** /emailCampaigns/{campaignId}/abTestCampaignResult | Get A/B test email campaign result
-[**get_email_campaign**](EmailCampaignsApi.md#get_email_campaign) | **GET** /emailCampaigns/{campaignId} | Get campaign informations
-[**get_email_campaigns**](EmailCampaignsApi.md#get_email_campaigns) | **GET** /emailCampaigns | Return all your created campaigns
+[**email_export_recipients**](EmailCampaignsApi.md#email_export_recipients) | **POST** /emailCampaigns/{campaignId}/exportRecipients | Export the recipients of an email campaign
+[**get_ab_test_campaign_result**](EmailCampaignsApi.md#get_ab_test_campaign_result) | **GET** /emailCampaigns/{campaignId}/abTestCampaignResult | Get an A/B test email campaign results
+[**get_email_campaign**](EmailCampaignsApi.md#get_email_campaign) | **GET** /emailCampaigns/{campaignId} | Get an email campaign report
+[**get_email_campaigns**](EmailCampaignsApi.md#get_email_campaigns) | **GET** /emailCampaigns | Return all your created email campaigns
 [**get_shared_template_url**](EmailCampaignsApi.md#get_shared_template_url) | **GET** /emailCampaigns/{campaignId}/sharedUrl | Get a shared template url
 [**send_email_campaign_now**](EmailCampaignsApi.md#send_email_campaign_now) | **POST** /emailCampaigns/{campaignId}/sendNow | Send an email campaign immediately, based on campaignId
-[**send_report**](EmailCampaignsApi.md#send_report) | **POST** /emailCampaigns/{campaignId}/sendReport | Send the report of a campaigns
+[**send_report**](EmailCampaignsApi.md#send_report) | **POST** /emailCampaigns/{campaignId}/sendReport | Send the report of a campaign
 [**send_test_email**](EmailCampaignsApi.md#send_test_email) | **POST** /emailCampaigns/{campaignId}/sendTest | Send an email campaign to your test list
-[**update_campaign_status**](EmailCampaignsApi.md#update_campaign_status) | **PUT** /emailCampaigns/{campaignId}/status | Update a campaign status
-[**update_email_campaign**](EmailCampaignsApi.md#update_email_campaign) | **PUT** /emailCampaigns/{campaignId} | Update a campaign
+[**update_campaign_status**](EmailCampaignsApi.md#update_campaign_status) | **PUT** /emailCampaigns/{campaignId}/status | Update an email campaign status
+[**update_email_campaign**](EmailCampaignsApi.md#update_email_campaign) | **PUT** /emailCampaigns/{campaignId} | Update an email campaign
+[**upload_image_to_gallery**](EmailCampaignsApi.md#upload_image_to_gallery) | **POST** /emailCampaigns/images | Upload an image to your account&#39;s image gallery
 
 
 # **create_email_campaign**
@@ -134,7 +135,7 @@ nil (empty response body)
 # **email_export_recipients**
 > CreatedProcessId email_export_recipients(campaign_id, opts)
 
-Export the recipients of a campaign
+Export the recipients of an email campaign
 
 ### Example
 ```ruby
@@ -162,7 +163,7 @@ opts = {
 }
 
 begin
-  #Export the recipients of a campaign
+  #Export the recipients of an email campaign
   result = api_instance.email_export_recipients(campaign_id, opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -195,7 +196,7 @@ Name | Type | Description  | Notes
 # **get_ab_test_campaign_result**
 > AbTestCampaignResult get_ab_test_campaign_result(campaign_id)
 
-Get A/B test email campaign result
+Get an A/B test email campaign results
 
 Obtain winning version of an A/B test email campaign
 
@@ -222,7 +223,7 @@ campaign_id = 789 # Integer | Id of the A/B test campaign
 
 
 begin
-  #Get A/B test email campaign result
+  #Get an A/B test email campaign results
   result = api_instance.get_ab_test_campaign_result(campaign_id)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -254,7 +255,7 @@ Name | Type | Description  | Notes
 # **get_email_campaign**
 > GetEmailCampaign get_email_campaign(campaign_id)
 
-Get campaign informations
+Get an email campaign report
 
 ### Example
 ```ruby
@@ -279,7 +280,7 @@ campaign_id = 789 # Integer | Id of the campaign
 
 
 begin
-  #Get campaign informations
+  #Get an email campaign report
   result = api_instance.get_email_campaign(campaign_id)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -311,7 +312,7 @@ Name | Type | Description  | Notes
 # **get_email_campaigns**
 > GetEmailCampaigns get_email_campaigns(opts)
 
-Return all your created campaigns
+Return all your created email campaigns
 
 ### Example
 ```ruby
@@ -342,7 +343,7 @@ opts = {
 }
 
 begin
-  #Return all your created campaigns
+  #Return all your created email campaigns
   result = api_instance.get_email_campaigns(opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -494,7 +495,7 @@ nil (empty response body)
 # **send_report**
 > send_report(campaign_id, send_report)
 
-Send the report of a campaigns
+Send the report of a campaign
 
 A PDF will be sent to the specified email addresses
 
@@ -523,7 +524,7 @@ send_report = SibApiV3Sdk::SendReport.new # SendReport | Values for send a repor
 
 
 begin
-  #Send the report of a campaigns
+  #Send the report of a campaign
   api_instance.send_report(campaign_id, send_report)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->send_report: #{e}"
@@ -614,7 +615,7 @@ nil (empty response body)
 # **update_campaign_status**
 > update_campaign_status(campaign_id, status)
 
-Update a campaign status
+Update an email campaign status
 
 ### Example
 ```ruby
@@ -641,7 +642,7 @@ status = SibApiV3Sdk::UpdateCampaignStatus.new # UpdateCampaignStatus | Status o
 
 
 begin
-  #Update a campaign status
+  #Update an email campaign status
   api_instance.update_campaign_status(campaign_id, status)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->update_campaign_status: #{e}"
@@ -673,7 +674,7 @@ nil (empty response body)
 # **update_email_campaign**
 > update_email_campaign(campaign_id, email_campaign)
 
-Update a campaign
+Update an email campaign
 
 ### Example
 ```ruby
@@ -700,7 +701,7 @@ email_campaign = SibApiV3Sdk::UpdateEmailCampaign.new # UpdateEmailCampaign | Va
 
 
 begin
-  #Update a campaign
+  #Update an email campaign
   api_instance.update_email_campaign(campaign_id, email_campaign)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->update_email_campaign: #{e}"
@@ -713,6 +714,62 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaign_id** | **Integer**| Id of the campaign | 
  **email_campaign** | [**UpdateEmailCampaign**](UpdateEmailCampaign.md)| Values to update a campaign | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **upload_image_to_gallery**
+> upload_image_to_gallery(upload_image)
+
+Upload an image to your account's image gallery
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::EmailCampaignsApi.new
+
+upload_image = SibApiV3Sdk::UploadImageToGallery.new # UploadImageToGallery | Parameters to upload an image
+
+
+begin
+  #Upload an image to your account's image gallery
+  api_instance.upload_image_to_gallery(upload_image)
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling EmailCampaignsApi->upload_image_to_gallery: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **upload_image** | [**UploadImageToGallery**](UploadImageToGallery.md)| Parameters to upload an image | 
 
 ### Return type
 

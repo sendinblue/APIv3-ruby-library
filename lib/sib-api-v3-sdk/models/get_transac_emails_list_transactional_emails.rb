@@ -32,6 +32,12 @@ module SibApiV3Sdk
     # Date on which transactional email was sent
     attr_accessor :date
 
+    # Email address of the sender from which the email was sent
+    attr_accessor :from
+
+    # Tags used for your email
+    attr_accessor :tags
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -40,7 +46,9 @@ module SibApiV3Sdk
         :'template_id' => :'templateId',
         :'message_id' => :'messageId',
         :'uuid' => :'uuid',
-        :'date' => :'date'
+        :'date' => :'date',
+        :'from' => :'from',
+        :'tags' => :'tags'
       }
     end
 
@@ -52,7 +60,9 @@ module SibApiV3Sdk
         :'template_id' => :'Integer',
         :'message_id' => :'String',
         :'uuid' => :'String',
-        :'date' => :'DateTime'
+        :'date' => :'DateTime',
+        :'from' => :'String',
+        :'tags' => :'Array<String>'
       }
     end
 
@@ -86,6 +96,16 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'date')
         self.date = attributes[:'date']
+      end
+
+      if attributes.has_key?(:'from')
+        self.from = attributes[:'from']
+      end
+
+      if attributes.has_key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
     end
 
@@ -137,7 +157,9 @@ module SibApiV3Sdk
           template_id == o.template_id &&
           message_id == o.message_id &&
           uuid == o.uuid &&
-          date == o.date
+          date == o.date &&
+          from == o.from &&
+          tags == o.tags
     end
 
     # @see the `==` method
@@ -149,7 +171,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, subject, template_id, message_id, uuid, date].hash
+      [email, subject, template_id, message_id, uuid, date, from, tags].hash
     end
 
     # Builds the object from hash

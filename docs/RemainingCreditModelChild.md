@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sms** | **Integer** | SMS Credits remaining for child account | 
-**email** | **Integer** | Email Credits remaining for child account | 
+**sms** | **Float** | SMS Credits remaining for child account | 
+**email** | **Float** | Email Credits remaining for child account | 
 
 

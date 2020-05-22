@@ -6,8 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_sender**](SendersApi.md#create_sender) | **POST** /senders | Create a new sender
 [**delete_sender**](SendersApi.md#delete_sender) | **DELETE** /senders/{senderId} | Delete a sender
-[**get_ips**](SendersApi.md#get_ips) | **GET** /senders/ips | Return all the dedicated IPs for your account
-[**get_ips_from_sender**](SendersApi.md#get_ips_from_sender) | **GET** /senders/{senderId}/ips | Return all the dedicated IPs for a sender
+[**get_ips**](SendersApi.md#get_ips) | **GET** /senders/ips | Get all the dedicated IPs for your account
+[**get_ips_from_sender**](SendersApi.md#get_ips_from_sender) | **GET** /senders/{senderId}/ips | Get all the dedicated IPs for a sender
 [**get_senders**](SendersApi.md#get_senders) | **GET** /senders | Get the list of all your senders
 [**update_sender**](SendersApi.md#update_sender) | **PUT** /senders/{senderId} | Update a sender
 
@@ -129,7 +129,7 @@ nil (empty response body)
 # **get_ips**
 > GetIps get_ips
 
-Return all the dedicated IPs for your account
+Get all the dedicated IPs for your account
 
 ### Example
 ```ruby
@@ -151,7 +151,7 @@ end
 api_instance = SibApiV3Sdk::SendersApi.new
 
 begin
-  #Return all the dedicated IPs for your account
+  #Get all the dedicated IPs for your account
   result = api_instance.get_ips
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -180,7 +180,7 @@ This endpoint does not need any parameter.
 # **get_ips_from_sender**
 > GetIpsFromSender get_ips_from_sender(sender_id)
 
-Return all the dedicated IPs for a sender
+Get all the dedicated IPs for a sender
 
 ### Example
 ```ruby
@@ -205,7 +205,7 @@ sender_id = 789 # Integer | Id of the sender
 
 
 begin
-  #Return all the dedicated IPs for a sender
+  #Get all the dedicated IPs for a sender
   result = api_instance.get_ips_from_sender(sender_id)
   p result
 rescue SibApiV3Sdk::ApiError => e

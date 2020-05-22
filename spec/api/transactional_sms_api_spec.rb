@@ -33,7 +33,7 @@ describe 'TransactionalSMSApi' do
   end
 
   # unit tests for get_sms_events
-  # Get all the SMS activity (unaggregated events)
+  # Get all your SMS activity (unaggregated events)
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
@@ -79,7 +79,7 @@ describe 'TransactionalSMSApi' do
   end
 
   # unit tests for send_transac_sms
-  # Send the SMS campaign to the specified mobile number
+  # Send the SMS campaign to a mobile number
   # @param send_transac_sms Values to send a transactional SMS
   # @param [Hash] opts the optional parameters
   # @return [SendSms]

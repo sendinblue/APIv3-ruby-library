@@ -14,7 +14,7 @@ require 'date'
 
 module SibApiV3Sdk
   class AddContactToList
-    # Emails to add to a list
+    # Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
     attr_accessor :emails
 
     # Attribute mapping from ruby-style variable name to JSON key.

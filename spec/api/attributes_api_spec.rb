@@ -33,7 +33,7 @@ describe 'AttributesApi' do
   end
 
   # unit tests for create_attribute
-  # Creates contact attribute
+  # Create contact attribute
   # @param attribute_category Category of the attribute
   # @param attribute_name Name of the attribute
   # @param create_attribute Values to create an attribute
@@ -46,7 +46,7 @@ describe 'AttributesApi' do
   end
 
   # unit tests for delete_attribute
-  # Deletes an attribute
+  # Delete an attribute
   # @param attribute_category Category of the attribute
   # @param attribute_name Name of the existing attribute
   # @param [Hash] opts the optional parameters
@@ -58,7 +58,7 @@ describe 'AttributesApi' do
   end
 
   # unit tests for get_attributes
-  # Lists all attributes
+  # List all attributes
   # @param [Hash] opts the optional parameters
   # @return [GetAttributes]
   describe 'get_attributes test' do
@@ -68,7 +68,7 @@ describe 'AttributesApi' do
   end
 
   # unit tests for update_attribute
-  # Updates contact attribute
+  # Update contact attribute
   # @param attribute_category Category of the attribute
   # @param attribute_name Name of the existing attribute
   # @param update_attribute Values to update an attribute

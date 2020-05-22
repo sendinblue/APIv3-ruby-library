@@ -9,5 +9,7 @@ Name | Type | Description | Notes
 **message_id** | **String** | Message Id of the sent email | 
 **uuid** | **String** | Unique id of the email sent to a particular contact | 
 **date** | **DateTime** | Date on which transactional email was sent | 
+**from** | **String** | Email address of the sender from which the email was sent | [optional] 
+**tags** | **Array&lt;String&gt;** | Tags used for your email | [optional] 
 
 

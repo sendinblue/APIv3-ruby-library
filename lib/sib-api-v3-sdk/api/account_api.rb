@@ -19,7 +19,7 @@ module SibApiV3Sdk
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get your account informations, plans and credits details
+    # Get your account information, plan and credits details
     # @param [Hash] opts the optional parameters
     # @return [GetAccount]
     def get_account(opts = {})
@@ -27,7 +27,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get your account informations, plans and credits details
+    # Get your account information, plan and credits details
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetAccount, Fixnum, Hash)>] GetAccount data, response status code and response headers
     def get_account_with_http_info(opts = {})

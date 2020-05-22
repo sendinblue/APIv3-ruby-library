@@ -17,7 +17,7 @@ module SibApiV3Sdk
     # Value of the attribute to update. Use only if the attribute's category is 'calculated' or 'global'
     attr_accessor :value
 
-    # List of the values and labels that the attribute can take. Use only if the attribute's category is \"category\". For example, [{'value':1, 'label':'male'}, {'value':2, 'label':'female'}]
+    # List of the values and labels that the attribute can take. Use only if the attribute's category is \"category\". For example, [{\"value\":1, \"label\":\"male\"}, {\"value\":2, \"label\":\"female\"}]
     attr_accessor :enumeration
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -122,7 +122,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Returns folder details
+    # Returns a folder's details
     # @param folder_id id of the folder
     # @param [Hash] opts the optional parameters
     # @return [GetFolder]
@@ -131,7 +131,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Returns folder details
+    # Returns a folder&#39;s details
     # @param folder_id id of the folder
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetFolder, Fixnum, Hash)>] GetFolder data, response status code and response headers
@@ -174,7 +174,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get the lists in a folder
+    # Get lists in a folder
     # @param folder_id Id of the folder
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page (default to 10)
@@ -185,7 +185,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get the lists in a folder
+    # Get lists in a folder
     # @param folder_id Id of the folder
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page
@@ -236,7 +236,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get all the folders
+    # Get all folders
     # @param limit Number of documents per page
     # @param offset Index of the first document of the page
     # @param [Hash] opts the optional parameters
@@ -246,7 +246,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get all the folders
+    # Get all folders
     # @param limit Number of documents per page
     # @param offset Index of the first document of the page
     # @param [Hash] opts the optional parameters
@@ -300,7 +300,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Update a contact folder
+    # Update a folder
     # @param folder_id Id of the folder
     # @param update_folder Name of the folder
     # @param [Hash] opts the optional parameters
@@ -310,7 +310,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Update a contact folder
+    # Update a folder
     # @param folder_id Id of the folder
     # @param update_folder Name of the folder
     # @param [Hash] opts the optional parameters

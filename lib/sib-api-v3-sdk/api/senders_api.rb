@@ -118,7 +118,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Return all the dedicated IPs for your account
+    # Get all the dedicated IPs for your account
     # @param [Hash] opts the optional parameters
     # @return [GetIps]
     def get_ips(opts = {})
@@ -126,7 +126,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Return all the dedicated IPs for your account
+    # Get all the dedicated IPs for your account
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetIps, Fixnum, Hash)>] GetIps data, response status code and response headers
     def get_ips_with_http_info(opts = {})
@@ -164,7 +164,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Return all the dedicated IPs for a sender
+    # Get all the dedicated IPs for a sender
     # @param sender_id Id of the sender
     # @param [Hash] opts the optional parameters
     # @return [GetIpsFromSender]
@@ -173,7 +173,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Return all the dedicated IPs for a sender
+    # Get all the dedicated IPs for a sender
     # @param sender_id Id of the sender
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetIpsFromSender, Fixnum, Hash)>] GetIpsFromSender data, response status code and response headers

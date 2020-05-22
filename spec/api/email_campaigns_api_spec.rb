@@ -55,7 +55,7 @@ describe 'EmailCampaignsApi' do
   end
 
   # unit tests for email_export_recipients
-  # Export the recipients of a campaign
+  # Export the recipients of an email campaign
   # @param campaign_id Id of the campaign
   # @param [Hash] opts the optional parameters
   # @option opts [EmailExportRecipients] :recipient_export Values to send for a recipient export request
@@ -67,7 +67,7 @@ describe 'EmailCampaignsApi' do
   end
 
   # unit tests for get_ab_test_campaign_result
-  # Get A/B test email campaign result
+  # Get an A/B test email campaign results
   # Obtain winning version of an A/B test email campaign
   # @param campaign_id Id of the A/B test campaign
   # @param [Hash] opts the optional parameters
@@ -79,7 +79,7 @@ describe 'EmailCampaignsApi' do
   end
 
   # unit tests for get_email_campaign
-  # Get campaign informations
+  # Get an email campaign report
   # @param campaign_id Id of the campaign
   # @param [Hash] opts the optional parameters
   # @return [GetEmailCampaign]
@@ -90,7 +90,7 @@ describe 'EmailCampaignsApi' do
   end
 
   # unit tests for get_email_campaigns
-  # Return all your created campaigns
+  # Return all your created email campaigns
   # @param [Hash] opts the optional parameters
   # @option opts [String] :type Filter on the type of the campaigns
   # @option opts [String] :status Filter on the status of the campaign
@@ -129,7 +129,7 @@ describe 'EmailCampaignsApi' do
   end
 
   # unit tests for send_report
-  # Send the report of a campaigns
+  # Send the report of a campaign
   # A PDF will be sent to the specified email addresses
   # @param campaign_id Id of the campaign
   # @param send_report Values for send a report
@@ -154,7 +154,7 @@ describe 'EmailCampaignsApi' do
   end
 
   # unit tests for update_campaign_status
-  # Update a campaign status
+  # Update an email campaign status
   # @param campaign_id Id of the campaign
   # @param status Status of the campaign
   # @param [Hash] opts the optional parameters
@@ -166,12 +166,23 @@ describe 'EmailCampaignsApi' do
   end
 
   # unit tests for update_email_campaign
-  # Update a campaign
+  # Update an email campaign
   # @param campaign_id Id of the campaign
   # @param email_campaign Values to update a campaign
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'update_email_campaign test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for upload_image_to_gallery
+  # Upload an image to your account&#39;s image gallery
+  # @param upload_image Parameters to upload an image
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'upload_image_to_gallery test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

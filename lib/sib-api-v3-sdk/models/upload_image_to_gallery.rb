@@ -13,46 +13,26 @@ Swagger Codegen version: 2.4.12
 require 'date'
 
 module SibApiV3Sdk
-  class UpdateContact
-    # Pass the set of attributes to be updated. These attributes must be present in your account. To update existing email address of a contact with the new one please pass EMAIL in attribtes. For example, `{ \"EMAIL\":\"newemail@domain.com\", \"FNAME\":\"Ellie\", \"LNAME\":\"Roger\"}`. Keep in mind transactional attributes can be updated the same way as normal attributes. Mobile Number in \"SMS\" field should be passed with proper country code. For example {\"SMS\":\"+91xxxxxxxxxx\"} or {\"SMS\":\"0091xxxxxxxxxx\"}
-    attr_accessor :attributes
+  class UploadImageToGallery
+    # The absolute url of the image (no local file). Maximum allowed size for image is 2MB. Allowed extensions for images are - jpeg, jpg, png, bmp, gif.
+    attr_accessor :image_url
 
-    # Set/unset this field to blacklist/allow the contact for emails (emailBlacklisted = true)
-    attr_accessor :email_blacklisted
-
-    # Set/unset this field to blacklist/allow the contact for SMS (smsBlacklisted = true)
-    attr_accessor :sms_blacklisted
-
-    # Ids of the lists to add the contact to
-    attr_accessor :list_ids
-
-    # Ids of the lists to remove the contact from
-    attr_accessor :unlink_list_ids
-
-    # transactional email forbidden sender for contact. Use only for email Contact
-    attr_accessor :smtp_blacklist_sender
+    # Name of the image.
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'email_blacklisted' => :'emailBlacklisted',
-        :'sms_blacklisted' => :'smsBlacklisted',
-        :'list_ids' => :'listIds',
-        :'unlink_list_ids' => :'unlinkListIds',
-        :'smtp_blacklist_sender' => :'smtpBlacklistSender'
+        :'image_url' => :'imageUrl',
+        :'name' => :'name'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'attributes' => :'Object',
-        :'email_blacklisted' => :'BOOLEAN',
-        :'sms_blacklisted' => :'BOOLEAN',
-        :'list_ids' => :'Array<Integer>',
-        :'unlink_list_ids' => :'Array<Integer>',
-        :'smtp_blacklist_sender' => :'Array<String>'
+        :'image_url' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -64,34 +44,12 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.has_key?(:'imageUrl')
+        self.image_url = attributes[:'imageUrl']
       end
 
-      if attributes.has_key?(:'emailBlacklisted')
-        self.email_blacklisted = attributes[:'emailBlacklisted']
-      end
-
-      if attributes.has_key?(:'smsBlacklisted')
-        self.sms_blacklisted = attributes[:'smsBlacklisted']
-      end
-
-      if attributes.has_key?(:'listIds')
-        if (value = attributes[:'listIds']).is_a?(Array)
-          self.list_ids = value
-        end
-      end
-
-      if attributes.has_key?(:'unlinkListIds')
-        if (value = attributes[:'unlinkListIds']).is_a?(Array)
-          self.unlink_list_ids = value
-        end
-      end
-
-      if attributes.has_key?(:'smtpBlacklistSender')
-        if (value = attributes[:'smtpBlacklistSender']).is_a?(Array)
-          self.smtp_blacklist_sender = value
-        end
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -99,12 +57,17 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @image_url.nil?
+        invalid_properties.push('invalid value for "image_url", image_url cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @image_url.nil?
       true
     end
 
@@ -113,12 +76,8 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          email_blacklisted == o.email_blacklisted &&
-          sms_blacklisted == o.sms_blacklisted &&
-          list_ids == o.list_ids &&
-          unlink_list_ids == o.unlink_list_ids &&
-          smtp_blacklist_sender == o.smtp_blacklist_sender
+          image_url == o.image_url &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -130,7 +89,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [attributes, email_blacklisted, sms_blacklisted, list_ids, unlink_list_ids, smtp_blacklist_sender].hash
+      [image_url, name].hash
     end
 
     # Builds the object from hash

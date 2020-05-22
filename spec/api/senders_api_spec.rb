@@ -55,7 +55,7 @@ describe 'SendersApi' do
   end
 
   # unit tests for get_ips
-  # Return all the dedicated IPs for your account
+  # Get all the dedicated IPs for your account
   # @param [Hash] opts the optional parameters
   # @return [GetIps]
   describe 'get_ips test' do
@@ -65,7 +65,7 @@ describe 'SendersApi' do
   end
 
   # unit tests for get_ips_from_sender
-  # Return all the dedicated IPs for a sender
+  # Get all the dedicated IPs for a sender
   # @param sender_id Id of the sender
   # @param [Hash] opts the optional parameters
   # @return [GetIpsFromSender]

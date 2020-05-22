@@ -41,7 +41,7 @@ module SibApiV3Sdk
         :'email' => :'String',
         :'sender_email' => :'String',
         :'reason' => :'GetTransacBlockedContactsReason',
-        :'blocked_at' => :'Date'
+        :'blocked_at' => :'DateTime'
       }
     end
 

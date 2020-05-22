@@ -57,7 +57,7 @@ describe 'ResellerApi' do
   end
 
   # unit tests for create_child_domain
-  # Creates a domain for a child account
+  # Create a domain for a child account
   # @param child_auth_key auth key of reseller&#39;s child
   # @param add_child_domain Sender domain to add for a specific child account. This will not be displayed to the parent account.
   # @param [Hash] opts the optional parameters
@@ -80,7 +80,7 @@ describe 'ResellerApi' do
   end
 
   # unit tests for delete_child_domain
-  # Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
+  # Delete the sender domain of the reseller child based on the childAuthKey and domainName passed
   # @param child_auth_key auth key of reseller&#39;s child
   # @param domain_name Pass the existing domain that needs to be deleted
   # @param [Hash] opts the optional parameters
@@ -92,7 +92,7 @@ describe 'ResellerApi' do
   end
 
   # unit tests for delete_reseller_child
-  # Deletes a single reseller child based on the childAuthKey supplied
+  # Delete a single reseller child based on the childAuthKey supplied
   # @param child_auth_key auth key of reseller&#39;s child
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -115,7 +115,7 @@ describe 'ResellerApi' do
   end
 
   # unit tests for get_child_account_creation_status
-  # Returns the status of reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
+  # Get the status of a reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
   # @param child_auth_key auth key of reseller&#39;s child
   # @param [Hash] opts the optional parameters
   # @return [GetChildAccountCreationStatus]
@@ -126,7 +126,7 @@ describe 'ResellerApi' do
   end
 
   # unit tests for get_child_domains
-  # Gets all the sender domains of a specific child account
+  # Get all sender domains for a specific child account
   # @param child_auth_key auth key of reseller&#39;s child
   # @param [Hash] opts the optional parameters
   # @return [GetChildDomains]
@@ -137,7 +137,7 @@ describe 'ResellerApi' do
   end
 
   # unit tests for get_child_info
-  # Gets the info about a specific child account
+  # Get a child account&#39;s details
   # @param child_auth_key auth key of reseller&#39;s child
   # @param [Hash] opts the optional parameters
   # @return [GetChildInfo]
@@ -148,7 +148,7 @@ describe 'ResellerApi' do
   end
 
   # unit tests for get_reseller_childs
-  # Gets the list of all reseller&#39;s children accounts
+  # Get the list of all children accounts
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number of documents for child accounts information per page
   # @option opts [Integer] :offset Index of the first document in the page
@@ -184,7 +184,7 @@ describe 'ResellerApi' do
   end
 
   # unit tests for update_child_account_status
-  # Updates infos of reseller&#39;s child account status based on the childAuthKey supplied
+  # Update info of reseller&#39;s child account status based on the childAuthKey supplied
   # @param child_auth_key auth key of reseller&#39;s child
   # @param update_child_account_status values to update in child account status
   # @param [Hash] opts the optional parameters
@@ -196,7 +196,7 @@ describe 'ResellerApi' do
   end
 
   # unit tests for update_child_domain
-  # Updates the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
+  # Update the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
   # @param child_auth_key auth key of reseller&#39;s child
   # @param domain_name Pass the existing domain that needs to be updated
   # @param update_child_domain value to update for sender domain
@@ -209,7 +209,7 @@ describe 'ResellerApi' do
   end
 
   # unit tests for update_reseller_child
-  # Updates infos of reseller&#39;s child based on the childAuthKey supplied
+  # Update info of reseller&#39;s child based on the childAuthKey supplied
   # @param child_auth_key auth key of reseller&#39;s child
   # @param reseller_child values to update in child profile
   # @param [Hash] opts the optional parameters

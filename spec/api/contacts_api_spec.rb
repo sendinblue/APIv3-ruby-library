@@ -45,7 +45,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for create_attribute
-  # Creates contact attribute
+  # Create contact attribute
   # @param attribute_category Category of the attribute
   # @param attribute_name Name of the attribute
   # @param create_attribute Values to create an attribute
@@ -63,6 +63,17 @@ describe 'ContactsApi' do
   # @param [Hash] opts the optional parameters
   # @return [CreateUpdateContactModel]
   describe 'create_contact test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for create_doi_contact
+  # Create a contact to trigger the DOI workflow from a Landing Page form
+  # @param create_doi_contact Values to create the DOI contact
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'create_doi_contact test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -91,7 +102,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for delete_attribute
-  # Deletes an attribute
+  # Delete an attribute
   # @param attribute_category Category of the attribute
   # @param attribute_name Name of the existing attribute
   # @param [Hash] opts the optional parameters
@@ -103,7 +114,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for delete_contact
-  # Deletes a contact
+  # Delete a contact
   # @param email Email (urlencoded) of the contact
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -136,7 +147,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for get_attributes
-  # Lists all attributes
+  # List all attributes
   # @param [Hash] opts the optional parameters
   # @return [GetAttributes]
   describe 'get_attributes test' do
@@ -146,7 +157,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for get_contact_info
-  # Retrieves contact informations
+  # Get a contact&#39;s details
   # @param email Email (urlencoded) of the contact OR its SMS attribute value
   # @param [Hash] opts the optional parameters
   # @return [GetExtendedContactDetails]
@@ -157,9 +168,11 @@ describe 'ContactsApi' do
   end
 
   # unit tests for get_contact_stats
-  # Get the campaigns statistics for a contact
+  # Get email campaigns&#39; statistics for a contact
   # @param email Email address (urlencoded) of the contact
   # @param [Hash] opts the optional parameters
+  # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
+  # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate
   # @return [GetContactCampaignStats]
   describe 'get_contact_stats test' do
     it 'should work' do
@@ -181,7 +194,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for get_contacts_from_list
-  # Get the contacts in a list
+  # Get contacts in a list
   # @param list_id Id of the list
   # @param [Hash] opts the optional parameters
   # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
@@ -195,7 +208,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for get_folder
-  # Returns folder details
+  # Returns a folder&#39;s details
   # @param folder_id id of the folder
   # @param [Hash] opts the optional parameters
   # @return [GetFolder]
@@ -206,7 +219,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for get_folder_lists
-  # Get the lists in a folder
+  # Get lists in a folder
   # @param folder_id Id of the folder
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number of documents per page
@@ -219,7 +232,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for get_folders
-  # Get all the folders
+  # Get all folders
   # @param limit Number of documents per page
   # @param offset Index of the first document of the page
   # @param [Hash] opts the optional parameters
@@ -231,7 +244,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for get_list
-  # Get the details of a list
+  # Get a list&#39;s details
   # @param list_id Id of the list
   # @param [Hash] opts the optional parameters
   # @return [GetExtendedList]
@@ -266,7 +279,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for remove_contact_from_list
-  # Remove existing contacts from a list
+  # Delete a contact from a list
   # @param list_id Id of the list
   # @param contact_emails Emails adresses of the contact
   # @param [Hash] opts the optional parameters
@@ -290,7 +303,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for update_attribute
-  # Updates contact attribute
+  # Update contact attribute
   # @param attribute_category Category of the attribute
   # @param attribute_name Name of the existing attribute
   # @param update_attribute Values to update an attribute
@@ -303,7 +316,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for update_contact
-  # Updates a contact
+  # Update a contact
   # @param email Email (urlencoded) of the contact
   # @param update_contact Values to update a contact
   # @param [Hash] opts the optional parameters
@@ -315,7 +328,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for update_folder
-  # Update a contact folder
+  # Update a folder
   # @param folder_id Id of the folder
   # @param update_folder Name of the folder
   # @param [Hash] opts the optional parameters

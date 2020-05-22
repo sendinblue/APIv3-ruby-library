@@ -19,7 +19,7 @@ module SibApiV3Sdk
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Create a transactional email template
+    # Create an email template
     # @param smtp_template values to update in transactional email template
     # @param [Hash] opts the optional parameters
     # @return [CreateModel]
@@ -28,7 +28,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Create a transactional email template
+    # Create an email template
     # @param smtp_template values to update in transactional email template
     # @param [Hash] opts the optional parameters
     # @return [Array<(CreateModel, Fixnum, Hash)>] CreateModel data, response status code and response headers
@@ -120,7 +120,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Delete an inactive transactional email template
+    # Delete an inactive email template
     # @param template_id id of the template
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -129,7 +129,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Delete an inactive transactional email template
+    # Delete an inactive email template
     # @param template_id id of the template
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
@@ -380,7 +380,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Returns the template informations
+    # Returns the template information
     # @param template_id id of the template
     # @param [Hash] opts the optional parameters
     # @return [GetSmtpTemplateOverview]
@@ -389,7 +389,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Returns the template informations
+    # Returns the template information
     # @param template_id id of the template
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetSmtpTemplateOverview, Fixnum, Hash)>] GetSmtpTemplateOverview data, response status code and response headers
@@ -432,7 +432,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get the list of transactional email templates
+    # Get the list of email templates
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :template_status Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false
     # @option opts [Integer] :limit Number of documents returned per page (default to 50)
@@ -443,7 +443,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get the list of transactional email templates
+    # Get the list of email templates
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :template_status Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false
     # @option opts [Integer] :limit Number of documents returned per page
@@ -614,7 +614,7 @@ module SibApiV3Sdk
     # @option opts [String] :email Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
     # @option opts [Integer] :template_id Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email.
     # @option opts [String] :message_id Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
-    # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
+    # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
     # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
     # @return [GetTransacEmailsList]
     def get_transac_emails_list(opts = {})
@@ -628,7 +628,7 @@ module SibApiV3Sdk
     # @option opts [String] :email Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
     # @option opts [Integer] :template_id Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email.
     # @option opts [String] :message_id Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
-    # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
+    # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
     # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
     # @return [Array<(GetTransacEmailsList, Fixnum, Hash)>] GetTransacEmailsList data, response status code and response headers
     def get_transac_emails_list_with_http_info(opts = {})
@@ -942,7 +942,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Updates a transactional email templates
+    # Update an email template
     # @param template_id id of the template
     # @param smtp_template values to update in transactional email template
     # @param [Hash] opts the optional parameters
@@ -952,7 +952,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Updates a transactional email templates
+    # Update an email template
     # @param template_id id of the template
     # @param smtp_template values to update in transactional email template
     # @param [Hash] opts the optional parameters

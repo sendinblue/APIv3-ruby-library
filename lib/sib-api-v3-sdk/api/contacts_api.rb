@@ -77,7 +77,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Creates contact attribute
+    # Create contact attribute
     # @param attribute_category Category of the attribute
     # @param attribute_name Name of the attribute
     # @param create_attribute Values to create an attribute
@@ -88,7 +88,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Creates contact attribute
+    # Create contact attribute
     # @param attribute_category Category of the attribute
     # @param attribute_name Name of the attribute
     # @param create_attribute Values to create an attribute
@@ -196,6 +196,57 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
+    # Create a contact to trigger the DOI workflow from a Landing Page form
+    # @param create_doi_contact Values to create the DOI contact
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def create_doi_contact(create_doi_contact, opts = {})
+      create_doi_contact_with_http_info(create_doi_contact, opts)
+      nil
+    end
+
+    # Create a contact to trigger the DOI workflow from a Landing Page form
+    # @param create_doi_contact Values to create the DOI contact
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def create_doi_contact_with_http_info(create_doi_contact, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ContactsApi.create_doi_contact ...'
+      end
+      # verify the required parameter 'create_doi_contact' is set
+      if @api_client.config.client_side_validation && create_doi_contact.nil?
+        fail ArgumentError, "Missing the required parameter 'create_doi_contact' when calling ContactsApi.create_doi_contact"
+      end
+      # resource path
+      local_var_path = '/contacts/doubleOptinConfirmation'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(create_doi_contact)
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ContactsApi#create_doi_contact\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Create a folder
     # @param create_folder Name of the folder
     # @param [Hash] opts the optional parameters
@@ -300,7 +351,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Deletes an attribute
+    # Delete an attribute
     # @param attribute_category Category of the attribute
     # @param attribute_name Name of the existing attribute
     # @param [Hash] opts the optional parameters
@@ -310,7 +361,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Deletes an attribute
+    # Delete an attribute
     # @param attribute_category Category of the attribute
     # @param attribute_name Name of the existing attribute
     # @param [Hash] opts the optional parameters
@@ -361,7 +412,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Deletes a contact
+    # Delete a contact
     # @param email Email (urlencoded) of the contact
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -370,7 +421,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Deletes a contact
+    # Delete a contact
     # @param email Email (urlencoded) of the contact
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
@@ -514,7 +565,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Lists all attributes
+    # List all attributes
     # @param [Hash] opts the optional parameters
     # @return [GetAttributes]
     def get_attributes(opts = {})
@@ -522,7 +573,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Lists all attributes
+    # List all attributes
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetAttributes, Fixnum, Hash)>] GetAttributes data, response status code and response headers
     def get_attributes_with_http_info(opts = {})
@@ -560,7 +611,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Retrieves contact informations
+    # Get a contact's details
     # @param email Email (urlencoded) of the contact OR its SMS attribute value
     # @param [Hash] opts the optional parameters
     # @return [GetExtendedContactDetails]
@@ -569,7 +620,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Retrieves contact informations
+    # Get a contact&#39;s details
     # @param email Email (urlencoded) of the contact OR its SMS attribute value
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetExtendedContactDetails, Fixnum, Hash)>] GetExtendedContactDetails data, response status code and response headers
@@ -612,18 +663,22 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get the campaigns statistics for a contact
+    # Get email campaigns' statistics for a contact
     # @param email Email address (urlencoded) of the contact
     # @param [Hash] opts the optional parameters
+    # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
+    # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate
     # @return [GetContactCampaignStats]
     def get_contact_stats(email, opts = {})
       data, _status_code, _headers = get_contact_stats_with_http_info(email, opts)
       data
     end
 
-    # Get the campaigns statistics for a contact
+    # Get email campaigns&#39; statistics for a contact
     # @param email Email address (urlencoded) of the contact
     # @param [Hash] opts the optional parameters
+    # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
+    # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate
     # @return [Array<(GetContactCampaignStats, Fixnum, Hash)>] GetContactCampaignStats data, response status code and response headers
     def get_contact_stats_with_http_info(email, opts = {})
       if @api_client.config.debugging
@@ -638,6 +693,8 @@ module SibApiV3Sdk
 
       # query parameters
       query_params = {}
+      query_params[:'startDate'] = opts[:'start_date'] if !opts[:'start_date'].nil?
+      query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
 
       # header parameters
       header_params = {}
@@ -723,7 +780,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get the contacts in a list
+    # Get contacts in a list
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
     # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
@@ -735,7 +792,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get the contacts in a list
+    # Get contacts in a list
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
     # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
@@ -788,7 +845,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Returns folder details
+    # Returns a folder's details
     # @param folder_id id of the folder
     # @param [Hash] opts the optional parameters
     # @return [GetFolder]
@@ -797,7 +854,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Returns folder details
+    # Returns a folder&#39;s details
     # @param folder_id id of the folder
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetFolder, Fixnum, Hash)>] GetFolder data, response status code and response headers
@@ -840,7 +897,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get the lists in a folder
+    # Get lists in a folder
     # @param folder_id Id of the folder
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page (default to 10)
@@ -851,7 +908,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get the lists in a folder
+    # Get lists in a folder
     # @param folder_id Id of the folder
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page
@@ -902,7 +959,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get all the folders
+    # Get all folders
     # @param limit Number of documents per page
     # @param offset Index of the first document of the page
     # @param [Hash] opts the optional parameters
@@ -912,7 +969,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get all the folders
+    # Get all folders
     # @param limit Number of documents per page
     # @param offset Index of the first document of the page
     # @param [Hash] opts the optional parameters
@@ -966,7 +1023,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get the details of a list
+    # Get a list's details
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
     # @return [GetExtendedList]
@@ -975,7 +1032,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get the details of a list
+    # Get a list&#39;s details
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetExtendedList, Fixnum, Hash)>] GetExtendedList data, response status code and response headers
@@ -1128,7 +1185,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Remove existing contacts from a list
+    # Delete a contact from a list
     # @param list_id Id of the list
     # @param contact_emails Emails adresses of the contact
     # @param [Hash] opts the optional parameters
@@ -1138,7 +1195,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Remove existing contacts from a list
+    # Delete a contact from a list
     # @param list_id Id of the list
     # @param contact_emails Emails adresses of the contact
     # @param [Hash] opts the optional parameters
@@ -1240,7 +1297,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Updates contact attribute
+    # Update contact attribute
     # @param attribute_category Category of the attribute
     # @param attribute_name Name of the existing attribute
     # @param update_attribute Values to update an attribute
@@ -1251,7 +1308,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Updates contact attribute
+    # Update contact attribute
     # @param attribute_category Category of the attribute
     # @param attribute_name Name of the existing attribute
     # @param update_attribute Values to update an attribute
@@ -1307,7 +1364,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Updates a contact
+    # Update a contact
     # @param email Email (urlencoded) of the contact
     # @param update_contact Values to update a contact
     # @param [Hash] opts the optional parameters
@@ -1317,7 +1374,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Updates a contact
+    # Update a contact
     # @param email Email (urlencoded) of the contact
     # @param update_contact Values to update a contact
     # @param [Hash] opts the optional parameters
@@ -1364,7 +1421,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Update a contact folder
+    # Update a folder
     # @param folder_id Id of the folder
     # @param update_folder Name of the folder
     # @param [Hash] opts the optional parameters
@@ -1374,7 +1431,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Update a contact folder
+    # Update a folder
     # @param folder_id Id of the folder
     # @param update_folder Name of the folder
     # @param [Hash] opts the optional parameters
