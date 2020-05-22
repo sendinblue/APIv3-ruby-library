@@ -17,7 +17,7 @@ module SibApiV3Sdk
     # List of all the attributes that you want to export. These attributes must be present in your contact database. For example, ['fname', 'lname', 'email'].
     attr_accessor :export_attributes
 
-    # This attribute has been deprecated and will be removed by January 1st, 2021. Only one of the two filter options (contactFilter or customContactFilter) can be passed in the request. Set the filter for the contacts to be exported. For example, {'blacklisted':true} will export all the blacklisted contacts. 
+    # This attribute has been deprecated and will be removed by January 1st, 2021. Only one of the two filter options (contactFilter or customContactFilter) can be passed in the request. Set the filter for the contacts to be exported. For example, {\"blacklisted\":true} will export all the blacklisted contacts. 
     attr_accessor :contact_filter
 
     attr_accessor :custom_contact_filter

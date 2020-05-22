@@ -134,7 +134,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Creates a domain for a child account
+    # Create a domain for a child account
     # @param child_auth_key auth key of reseller&#39;s child
     # @param add_child_domain Sender domain to add for a specific child account. This will not be displayed to the parent account.
     # @param [Hash] opts the optional parameters
@@ -144,7 +144,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Creates a domain for a child account
+    # Create a domain for a child account
     # @param child_auth_key auth key of reseller&#39;s child
     # @param add_child_domain Sender domain to add for a specific child account. This will not be displayed to the parent account.
     # @param [Hash] opts the optional parameters
@@ -239,7 +239,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
+    # Delete the sender domain of the reseller child based on the childAuthKey and domainName passed
     # @param child_auth_key auth key of reseller&#39;s child
     # @param domain_name Pass the existing domain that needs to be deleted
     # @param [Hash] opts the optional parameters
@@ -249,7 +249,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
+    # Delete the sender domain of the reseller child based on the childAuthKey and domainName passed
     # @param child_auth_key auth key of reseller&#39;s child
     # @param domain_name Pass the existing domain that needs to be deleted
     # @param [Hash] opts the optional parameters
@@ -296,7 +296,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Deletes a single reseller child based on the childAuthKey supplied
+    # Delete a single reseller child based on the childAuthKey supplied
     # @param child_auth_key auth key of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -305,7 +305,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Deletes a single reseller child based on the childAuthKey supplied
+    # Delete a single reseller child based on the childAuthKey supplied
     # @param child_auth_key auth key of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
@@ -404,7 +404,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Returns the status of reseller's child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
+    # Get the status of a reseller's child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
     # @param child_auth_key auth key of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [GetChildAccountCreationStatus]
@@ -413,7 +413,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Returns the status of reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
+    # Get the status of a reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
     # @param child_auth_key auth key of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetChildAccountCreationStatus, Fixnum, Hash)>] GetChildAccountCreationStatus data, response status code and response headers
@@ -456,7 +456,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Gets all the sender domains of a specific child account
+    # Get all sender domains for a specific child account
     # @param child_auth_key auth key of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [GetChildDomains]
@@ -465,7 +465,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Gets all the sender domains of a specific child account
+    # Get all sender domains for a specific child account
     # @param child_auth_key auth key of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetChildDomains, Fixnum, Hash)>] GetChildDomains data, response status code and response headers
@@ -508,7 +508,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Gets the info about a specific child account
+    # Get a child account's details
     # @param child_auth_key auth key of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [GetChildInfo]
@@ -517,7 +517,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Gets the info about a specific child account
+    # Get a child account&#39;s details
     # @param child_auth_key auth key of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetChildInfo, Fixnum, Hash)>] GetChildInfo data, response status code and response headers
@@ -560,7 +560,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Gets the list of all reseller's children accounts
+    # Get the list of all children accounts
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents for child accounts information per page (default to 10)
     # @option opts [Integer] :offset Index of the first document in the page (default to 0)
@@ -570,7 +570,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Gets the list of all reseller&#39;s children accounts
+    # Get the list of all children accounts
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents for child accounts information per page
     # @option opts [Integer] :offset Index of the first document in the page
@@ -728,7 +728,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Updates infos of reseller's child account status based on the childAuthKey supplied
+    # Update info of reseller's child account status based on the childAuthKey supplied
     # @param child_auth_key auth key of reseller&#39;s child
     # @param update_child_account_status values to update in child account status
     # @param [Hash] opts the optional parameters
@@ -738,7 +738,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Updates infos of reseller&#39;s child account status based on the childAuthKey supplied
+    # Update info of reseller&#39;s child account status based on the childAuthKey supplied
     # @param child_auth_key auth key of reseller&#39;s child
     # @param update_child_account_status values to update in child account status
     # @param [Hash] opts the optional parameters
@@ -785,7 +785,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Updates the sender domain of reseller's child based on the childAuthKey and domainName passed
+    # Update the sender domain of reseller's child based on the childAuthKey and domainName passed
     # @param child_auth_key auth key of reseller&#39;s child
     # @param domain_name Pass the existing domain that needs to be updated
     # @param update_child_domain value to update for sender domain
@@ -796,7 +796,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Updates the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
+    # Update the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
     # @param child_auth_key auth key of reseller&#39;s child
     # @param domain_name Pass the existing domain that needs to be updated
     # @param update_child_domain value to update for sender domain
@@ -848,7 +848,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Updates infos of reseller's child based on the childAuthKey supplied
+    # Update info of reseller's child based on the childAuthKey supplied
     # @param child_auth_key auth key of reseller&#39;s child
     # @param reseller_child values to update in child profile
     # @param [Hash] opts the optional parameters
@@ -858,7 +858,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Updates infos of reseller&#39;s child based on the childAuthKey supplied
+    # Update info of reseller&#39;s child based on the childAuthKey supplied
     # @param child_auth_key auth key of reseller&#39;s child
     # @param reseller_child values to update in child profile
     # @param [Hash] opts the optional parameters

@@ -180,7 +180,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get the contacts in a list
+    # Get contacts in a list
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
     # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
@@ -192,7 +192,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get the contacts in a list
+    # Get contacts in a list
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
     # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
@@ -245,7 +245,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get the lists in a folder
+    # Get lists in a folder
     # @param folder_id Id of the folder
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page (default to 10)
@@ -256,7 +256,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get the lists in a folder
+    # Get lists in a folder
     # @param folder_id Id of the folder
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page
@@ -307,7 +307,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get the details of a list
+    # Get a list's details
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
     # @return [GetExtendedList]
@@ -316,7 +316,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get the details of a list
+    # Get a list&#39;s details
     # @param list_id Id of the list
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetExtendedList, Fixnum, Hash)>] GetExtendedList data, response status code and response headers
@@ -415,7 +415,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Remove existing contacts from a list
+    # Delete a contact from a list
     # @param list_id Id of the list
     # @param contact_emails Emails adresses of the contact
     # @param [Hash] opts the optional parameters
@@ -425,7 +425,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Remove existing contacts from a list
+    # Delete a contact from a list
     # @param list_id Id of the list
     # @param contact_emails Emails adresses of the contact
     # @param [Hash] opts the optional parameters

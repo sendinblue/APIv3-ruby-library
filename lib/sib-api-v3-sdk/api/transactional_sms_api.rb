@@ -19,7 +19,7 @@ module SibApiV3Sdk
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get all the SMS activity (unaggregated events)
+    # Get all your SMS activity (unaggregated events)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page (default to 50)
     # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
@@ -35,7 +35,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get all the SMS activity (unaggregated events)
+    # Get all your SMS activity (unaggregated events)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
@@ -212,7 +212,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Send the SMS campaign to the specified mobile number
+    # Send the SMS campaign to a mobile number
     # @param send_transac_sms Values to send a transactional SMS
     # @param [Hash] opts the optional parameters
     # @return [SendSms]
@@ -221,7 +221,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Send the SMS campaign to the specified mobile number
+    # Send the SMS campaign to a mobile number
     # @param send_transac_sms Values to send a transactional SMS
     # @param [Hash] opts the optional parameters
     # @return [Array<(SendSms, Fixnum, Hash)>] SendSms data, response status code and response headers

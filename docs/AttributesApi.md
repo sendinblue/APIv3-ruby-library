@@ -4,16 +4,16 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_attribute**](AttributesApi.md#create_attribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Creates contact attribute
-[**delete_attribute**](AttributesApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Deletes an attribute
-[**get_attributes**](AttributesApi.md#get_attributes) | **GET** /contacts/attributes | Lists all attributes
-[**update_attribute**](AttributesApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Updates contact attribute
+[**create_attribute**](AttributesApi.md#create_attribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Create contact attribute
+[**delete_attribute**](AttributesApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Delete an attribute
+[**get_attributes**](AttributesApi.md#get_attributes) | **GET** /contacts/attributes | List all attributes
+[**update_attribute**](AttributesApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
 
 
 # **create_attribute**
 > create_attribute(attribute_category, attribute_name, create_attribute)
 
-Creates contact attribute
+Create contact attribute
 
 ### Example
 ```ruby
@@ -42,7 +42,7 @@ create_attribute = SibApiV3Sdk::CreateAttribute.new # CreateAttribute | Values t
 
 
 begin
-  #Creates contact attribute
+  #Create contact attribute
   api_instance.create_attribute(attribute_category, attribute_name, create_attribute)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling AttributesApi->create_attribute: #{e}"
@@ -75,7 +75,7 @@ nil (empty response body)
 # **delete_attribute**
 > delete_attribute(attribute_category, attribute_name)
 
-Deletes an attribute
+Delete an attribute
 
 ### Example
 ```ruby
@@ -102,7 +102,7 @@ attribute_name = 'attribute_name_example' # String | Name of the existing attrib
 
 
 begin
-  #Deletes an attribute
+  #Delete an attribute
   api_instance.delete_attribute(attribute_category, attribute_name)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling AttributesApi->delete_attribute: #{e}"
@@ -134,7 +134,7 @@ nil (empty response body)
 # **get_attributes**
 > GetAttributes get_attributes
 
-Lists all attributes
+List all attributes
 
 ### Example
 ```ruby
@@ -156,7 +156,7 @@ end
 api_instance = SibApiV3Sdk::AttributesApi.new
 
 begin
-  #Lists all attributes
+  #List all attributes
   result = api_instance.get_attributes
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -185,7 +185,7 @@ This endpoint does not need any parameter.
 # **update_attribute**
 > update_attribute(attribute_category, attribute_name, update_attribute)
 
-Updates contact attribute
+Update contact attribute
 
 ### Example
 ```ruby
@@ -214,7 +214,7 @@ update_attribute = SibApiV3Sdk::UpdateAttribute.new # UpdateAttribute | Values t
 
 
 begin
-  #Updates contact attribute
+  #Update contact attribute
   api_instance.update_attribute(attribute_category, attribute_name, update_attribute)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling AttributesApi->update_attribute: #{e}"

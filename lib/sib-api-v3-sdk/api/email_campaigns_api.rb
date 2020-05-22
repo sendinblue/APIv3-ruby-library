@@ -122,7 +122,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Export the recipients of a campaign
+    # Export the recipients of an email campaign
     # @param campaign_id Id of the campaign
     # @param [Hash] opts the optional parameters
     # @option opts [EmailExportRecipients] :recipient_export Values to send for a recipient export request
@@ -132,7 +132,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Export the recipients of a campaign
+    # Export the recipients of an email campaign
     # @param campaign_id Id of the campaign
     # @param [Hash] opts the optional parameters
     # @option opts [EmailExportRecipients] :recipient_export Values to send for a recipient export request
@@ -176,7 +176,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get A/B test email campaign result
+    # Get an A/B test email campaign results
     # Obtain winning version of an A/B test email campaign
     # @param campaign_id Id of the A/B test campaign
     # @param [Hash] opts the optional parameters
@@ -186,7 +186,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get A/B test email campaign result
+    # Get an A/B test email campaign results
     # Obtain winning version of an A/B test email campaign
     # @param campaign_id Id of the A/B test campaign
     # @param [Hash] opts the optional parameters
@@ -230,7 +230,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get campaign informations
+    # Get an email campaign report
     # @param campaign_id Id of the campaign
     # @param [Hash] opts the optional parameters
     # @return [GetEmailCampaign]
@@ -239,7 +239,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get campaign informations
+    # Get an email campaign report
     # @param campaign_id Id of the campaign
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetEmailCampaign, Fixnum, Hash)>] GetEmailCampaign data, response status code and response headers
@@ -282,7 +282,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Return all your created campaigns
+    # Return all your created email campaigns
     # @param [Hash] opts the optional parameters
     # @option opts [String] :type Filter on the type of the campaigns
     # @option opts [String] :status Filter on the status of the campaign
@@ -296,7 +296,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Return all your created campaigns
+    # Return all your created email campaigns
     # @param [Hash] opts the optional parameters
     # @option opts [String] :type Filter on the type of the campaigns
     # @option opts [String] :status Filter on the status of the campaign
@@ -461,7 +461,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Send the report of a campaigns
+    # Send the report of a campaign
     # A PDF will be sent to the specified email addresses
     # @param campaign_id Id of the campaign
     # @param send_report Values for send a report
@@ -472,7 +472,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Send the report of a campaigns
+    # Send the report of a campaign
     # A PDF will be sent to the specified email addresses
     # @param campaign_id Id of the campaign
     # @param send_report Values for send a report
@@ -577,7 +577,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Update a campaign status
+    # Update an email campaign status
     # @param campaign_id Id of the campaign
     # @param status Status of the campaign
     # @param [Hash] opts the optional parameters
@@ -587,7 +587,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Update a campaign status
+    # Update an email campaign status
     # @param campaign_id Id of the campaign
     # @param status Status of the campaign
     # @param [Hash] opts the optional parameters
@@ -634,7 +634,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Update a campaign
+    # Update an email campaign
     # @param campaign_id Id of the campaign
     # @param email_campaign Values to update a campaign
     # @param [Hash] opts the optional parameters
@@ -644,7 +644,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Update a campaign
+    # Update an email campaign
     # @param campaign_id Id of the campaign
     # @param email_campaign Values to update a campaign
     # @param [Hash] opts the optional parameters
@@ -688,6 +688,57 @@ module SibApiV3Sdk
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EmailCampaignsApi#update_email_campaign\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Upload an image to your account's image gallery
+    # @param upload_image Parameters to upload an image
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def upload_image_to_gallery(upload_image, opts = {})
+      upload_image_to_gallery_with_http_info(upload_image, opts)
+      nil
+    end
+
+    # Upload an image to your account&#39;s image gallery
+    # @param upload_image Parameters to upload an image
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def upload_image_to_gallery_with_http_info(upload_image, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EmailCampaignsApi.upload_image_to_gallery ...'
+      end
+      # verify the required parameter 'upload_image' is set
+      if @api_client.config.client_side_validation && upload_image.nil?
+        fail ArgumentError, "Missing the required parameter 'upload_image' when calling EmailCampaignsApi.upload_image_to_gallery"
+      end
+      # resource path
+      local_var_path = '/emailCampaigns/images'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(upload_image)
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EmailCampaignsApi#upload_image_to_gallery\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

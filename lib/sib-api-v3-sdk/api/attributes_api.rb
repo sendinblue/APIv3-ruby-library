@@ -19,7 +19,7 @@ module SibApiV3Sdk
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Creates contact attribute
+    # Create contact attribute
     # @param attribute_category Category of the attribute
     # @param attribute_name Name of the attribute
     # @param create_attribute Values to create an attribute
@@ -30,7 +30,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Creates contact attribute
+    # Create contact attribute
     # @param attribute_category Category of the attribute
     # @param attribute_name Name of the attribute
     # @param create_attribute Values to create an attribute
@@ -86,7 +86,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Deletes an attribute
+    # Delete an attribute
     # @param attribute_category Category of the attribute
     # @param attribute_name Name of the existing attribute
     # @param [Hash] opts the optional parameters
@@ -96,7 +96,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Deletes an attribute
+    # Delete an attribute
     # @param attribute_category Category of the attribute
     # @param attribute_name Name of the existing attribute
     # @param [Hash] opts the optional parameters
@@ -147,7 +147,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Lists all attributes
+    # List all attributes
     # @param [Hash] opts the optional parameters
     # @return [GetAttributes]
     def get_attributes(opts = {})
@@ -155,7 +155,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Lists all attributes
+    # List all attributes
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetAttributes, Fixnum, Hash)>] GetAttributes data, response status code and response headers
     def get_attributes_with_http_info(opts = {})
@@ -193,7 +193,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Updates contact attribute
+    # Update contact attribute
     # @param attribute_category Category of the attribute
     # @param attribute_name Name of the existing attribute
     # @param update_attribute Values to update an attribute
@@ -204,7 +204,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Updates contact attribute
+    # Update contact attribute
     # @param attribute_category Category of the attribute
     # @param attribute_name Name of the existing attribute
     # @param update_attribute Values to update an attribute

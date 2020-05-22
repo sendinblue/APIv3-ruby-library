@@ -33,7 +33,7 @@ describe 'SMTPApi' do
   end
 
   # unit tests for create_smtp_template
-  # Create a transactional email template
+  # Create an email template
   # @param smtp_template values to update in transactional email template
   # @param [Hash] opts the optional parameters
   # @return [CreateModel]
@@ -56,7 +56,7 @@ describe 'SMTPApi' do
   end
 
   # unit tests for delete_smtp_template
-  # Delete an inactive transactional email template
+  # Delete an inactive email template
   # @param template_id id of the template
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -117,7 +117,7 @@ describe 'SMTPApi' do
   end
 
   # unit tests for get_smtp_template
-  # Returns the template informations
+  # Returns the template information
   # @param template_id id of the template
   # @param [Hash] opts the optional parameters
   # @return [GetSmtpTemplateOverview]
@@ -128,7 +128,7 @@ describe 'SMTPApi' do
   end
 
   # unit tests for get_smtp_templates
-  # Get the list of transactional email templates
+  # Get the list of email templates
   # @param [Hash] opts the optional parameters
   # @option opts [BOOLEAN] :template_status Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false
   # @option opts [Integer] :limit Number of documents returned per page
@@ -173,7 +173,7 @@ describe 'SMTPApi' do
   # @option opts [String] :email Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
   # @option opts [Integer] :template_id Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email.
   # @option opts [String] :message_id Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
-  # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
+  # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
   # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
   # @return [GetTransacEmailsList]
   describe 'get_transac_emails_list test' do
@@ -241,7 +241,7 @@ describe 'SMTPApi' do
   end
 
   # unit tests for update_smtp_template
-  # Updates a transactional email templates
+  # Update an email template
   # @param template_id id of the template
   # @param smtp_template values to update in transactional email template
   # @param [Hash] opts the optional parameters

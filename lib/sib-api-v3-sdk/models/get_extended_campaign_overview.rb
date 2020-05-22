@@ -97,6 +97,9 @@ module SibApiV3Sdk
     # Sent UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ). Only available if 'status' of the campaign is 'sent'
     attr_accessor :sent_date
 
+    # Total number of non-delivered campaigns for a particular campaign id.
+    attr_accessor :return_bounce
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -149,7 +152,8 @@ module SibApiV3Sdk
         :'inline_image_activation' => :'inlineImageActivation',
         :'mirror_active' => :'mirrorActive',
         :'recurring' => :'recurring',
-        :'sent_date' => :'sentDate'
+        :'sent_date' => :'sentDate',
+        :'return_bounce' => :'returnBounce'
       }
     end
 
@@ -183,7 +187,8 @@ module SibApiV3Sdk
         :'inline_image_activation' => :'BOOLEAN',
         :'mirror_active' => :'BOOLEAN',
         :'recurring' => :'BOOLEAN',
-        :'sent_date' => :'DateTime'
+        :'sent_date' => :'DateTime',
+        :'return_bounce' => :'Integer'
       }
     end
 
@@ -305,6 +310,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'sentDate')
         self.sent_date = attributes[:'sentDate']
+      end
+
+      if attributes.has_key?(:'returnBounce')
+        self.return_bounce = attributes[:'returnBounce']
       end
     end
 
@@ -447,7 +456,8 @@ module SibApiV3Sdk
           inline_image_activation == o.inline_image_activation &&
           mirror_active == o.mirror_active &&
           recurring == o.recurring &&
-          sent_date == o.sent_date
+          sent_date == o.sent_date &&
+          return_bounce == o.return_bounce
     end
 
     # @see the `==` method
@@ -459,7 +469,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, subject, type, status, scheduled_at, ab_testing, subject_a, subject_b, split_rule, winner_criteria, winner_delay, send_at_best_time, test_sent, header, footer, sender, reply_to, to_field, html_content, share_link, tag, created_at, modified_at, inline_image_activation, mirror_active, recurring, sent_date].hash
+      [id, name, subject, type, status, scheduled_at, ab_testing, subject_a, subject_b, split_rule, winner_criteria, winner_delay, send_at_best_time, test_sent, header, footer, sender, reply_to, to_field, html_content, share_link, tag, created_at, modified_at, inline_image_activation, mirror_active, recurring, sent_date, return_bounce].hash
     end
 
     # Builds the object from hash

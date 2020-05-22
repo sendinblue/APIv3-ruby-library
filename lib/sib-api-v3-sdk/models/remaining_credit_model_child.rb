@@ -32,8 +32,8 @@ module SibApiV3Sdk
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'sms' => :'Integer',
-        :'email' => :'Integer'
+        :'sms' => :'Float',
+        :'email' => :'Float'
       }
     end
 

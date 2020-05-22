@@ -6,10 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_folder**](FoldersApi.md#create_folder) | **POST** /contacts/folders | Create a folder
 [**delete_folder**](FoldersApi.md#delete_folder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
-[**get_folder**](FoldersApi.md#get_folder) | **GET** /contacts/folders/{folderId} | Returns folder details
-[**get_folder_lists**](FoldersApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get the lists in a folder
-[**get_folders**](FoldersApi.md#get_folders) | **GET** /contacts/folders | Get all the folders
-[**update_folder**](FoldersApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a contact folder
+[**get_folder**](FoldersApi.md#get_folder) | **GET** /contacts/folders/{folderId} | Returns a folder&#39;s details
+[**get_folder_lists**](FoldersApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get lists in a folder
+[**get_folders**](FoldersApi.md#get_folders) | **GET** /contacts/folders | Get all folders
+[**update_folder**](FoldersApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a folder
 
 
 # **create_folder**
@@ -128,7 +128,7 @@ nil (empty response body)
 # **get_folder**
 > GetFolder get_folder(folder_id)
 
-Returns folder details
+Returns a folder's details
 
 ### Example
 ```ruby
@@ -153,7 +153,7 @@ folder_id = 789 # Integer | id of the folder
 
 
 begin
-  #Returns folder details
+  #Returns a folder's details
   result = api_instance.get_folder(folder_id)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 # **get_folder_lists**
 > GetFolderLists get_folder_lists(folder_id, opts)
 
-Get the lists in a folder
+Get lists in a folder
 
 ### Example
 ```ruby
@@ -214,7 +214,7 @@ opts = {
 }
 
 begin
-  #Get the lists in a folder
+  #Get lists in a folder
   result = api_instance.get_folder_lists(folder_id, opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 # **get_folders**
 > GetFolders get_folders(limit, offset)
 
-Get all the folders
+Get all folders
 
 ### Example
 ```ruby
@@ -275,7 +275,7 @@ offset = 0 # Integer | Index of the first document of the page
 
 
 begin
-  #Get all the folders
+  #Get all folders
   result = api_instance.get_folders(limit, offset)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 # **update_folder**
 > update_folder(folder_id, update_folder)
 
-Update a contact folder
+Update a folder
 
 ### Example
 ```ruby
@@ -335,7 +335,7 @@ update_folder = SibApiV3Sdk::CreateUpdateFolder.new # CreateUpdateFolder | Name 
 
 
 begin
-  #Update a contact folder
+  #Update a folder
   api_instance.update_folder(folder_id, update_folder)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling FoldersApi->update_folder: #{e}"

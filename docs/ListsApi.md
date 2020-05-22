@@ -7,11 +7,11 @@ Method | HTTP request | Description
 [**add_contact_to_list**](ListsApi.md#add_contact_to_list) | **POST** /contacts/lists/{listId}/contacts/add | Add existing contacts to a list
 [**create_list**](ListsApi.md#create_list) | **POST** /contacts/lists | Create a list
 [**delete_list**](ListsApi.md#delete_list) | **DELETE** /contacts/lists/{listId} | Delete a list
-[**get_contacts_from_list**](ListsApi.md#get_contacts_from_list) | **GET** /contacts/lists/{listId}/contacts | Get the contacts in a list
-[**get_folder_lists**](ListsApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get the lists in a folder
-[**get_list**](ListsApi.md#get_list) | **GET** /contacts/lists/{listId} | Get the details of a list
+[**get_contacts_from_list**](ListsApi.md#get_contacts_from_list) | **GET** /contacts/lists/{listId}/contacts | Get contacts in a list
+[**get_folder_lists**](ListsApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get lists in a folder
+[**get_list**](ListsApi.md#get_list) | **GET** /contacts/lists/{listId} | Get a list&#39;s details
 [**get_lists**](ListsApi.md#get_lists) | **GET** /contacts/lists | Get all the lists
-[**remove_contact_from_list**](ListsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
+[**remove_contact_from_list**](ListsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Delete a contact from a list
 [**update_list**](ListsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
 
 
@@ -191,7 +191,7 @@ nil (empty response body)
 # **get_contacts_from_list**
 > GetContacts get_contacts_from_list(list_id, opts)
 
-Get the contacts in a list
+Get contacts in a list
 
 ### Example
 ```ruby
@@ -221,7 +221,7 @@ opts = {
 }
 
 begin
-  #Get the contacts in a list
+  #Get contacts in a list
   result = api_instance.get_contacts_from_list(list_id, opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 # **get_folder_lists**
 > GetFolderLists get_folder_lists(folder_id, opts)
 
-Get the lists in a folder
+Get lists in a folder
 
 ### Example
 ```ruby
@@ -285,7 +285,7 @@ opts = {
 }
 
 begin
-  #Get the lists in a folder
+  #Get lists in a folder
   result = api_instance.get_folder_lists(folder_id, opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 # **get_list**
 > GetExtendedList get_list(list_id)
 
-Get the details of a list
+Get a list's details
 
 ### Example
 ```ruby
@@ -344,7 +344,7 @@ list_id = 789 # Integer | Id of the list
 
 
 begin
-  #Get the details of a list
+  #Get a list's details
   result = api_instance.get_list(list_id)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -436,7 +436,7 @@ Name | Type | Description  | Notes
 # **remove_contact_from_list**
 > PostContactInfo remove_contact_from_list(list_id, contact_emails)
 
-Remove existing contacts from a list
+Delete a contact from a list
 
 ### Example
 ```ruby
@@ -463,7 +463,7 @@ contact_emails = SibApiV3Sdk::RemoveContactFromList.new # RemoveContactFromList 
 
 
 begin
-  #Remove existing contacts from a list
+  #Delete a contact from a list
   result = api_instance.remove_contact_from_list(list_id, contact_emails)
   p result
 rescue SibApiV3Sdk::ApiError => e

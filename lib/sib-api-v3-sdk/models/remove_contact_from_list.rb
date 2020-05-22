@@ -14,7 +14,7 @@ require 'date'
 
 module SibApiV3Sdk
   class RemoveContactFromList
-    # Required if 'all' is false. Emails to remove from a list
+    # Required if 'all' is false. Emails to remove from a list. You can pass a maximum of 150 emails for removal in one request.
     attr_accessor :emails
 
     # Required if 'emails' is empty. Remove all existing contacts from a list

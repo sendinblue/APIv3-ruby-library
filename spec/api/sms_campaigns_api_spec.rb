@@ -44,7 +44,7 @@ describe 'SMSCampaignsApi' do
   end
 
   # unit tests for delete_sms_campaign
-  # Delete the SMS campaign
+  # Delete an SMS campaign
   # @param campaign_id id of the SMS campaign
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -66,7 +66,7 @@ describe 'SMSCampaignsApi' do
   end
 
   # unit tests for get_sms_campaigns
-  # Returns the informations for all your created SMS campaigns
+  # Returns the information for all your created SMS campaigns
   # @param [Hash] opts the optional parameters
   # @option opts [String] :status Status of campaign.
   # @option opts [DateTime] :start_date Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
@@ -81,7 +81,7 @@ describe 'SMSCampaignsApi' do
   end
 
   # unit tests for request_sms_recipient_export
-  # Exports the recipients of the specified campaign.
+  # Export an SMS campaign&#39;s recipients
   # It returns the background process ID which on completion calls the notify URL that you have set in the input.
   # @param campaign_id id of the campaign
   # @param [Hash] opts the optional parameters
@@ -105,7 +105,7 @@ describe 'SMSCampaignsApi' do
   end
 
   # unit tests for send_sms_report
-  # Send report of SMS campaigns
+  # Send an SMS campaign&#39;s report
   # Send report of Sent and Archived campaign, to the specified email addresses, with respective data and a pdf attachment in detail.
   # @param campaign_id id of the campaign
   # @param send_report Values for send a report
@@ -118,7 +118,7 @@ describe 'SMSCampaignsApi' do
   end
 
   # unit tests for send_test_sms
-  # Send an SMS
+  # Send a test SMS campaign
   # @param campaign_id Id of the SMS campaign
   # @param phone_number Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted
   # @param [Hash] opts the optional parameters
@@ -130,7 +130,7 @@ describe 'SMSCampaignsApi' do
   end
 
   # unit tests for update_sms_campaign
-  # Updates an SMS campaign
+  # Update an SMS campaign
   # @param campaign_id id of the SMS campaign
   # @param update_sms_campaign Values to update an SMS Campaign
   # @param [Hash] opts the optional parameters
@@ -142,7 +142,7 @@ describe 'SMSCampaignsApi' do
   end
 
   # unit tests for update_sms_campaign_status
-  # Update the campaign status
+  # Update a campaign&#39;s status
   # @param campaign_id id of the campaign
   # @param status Status of the campaign.
   # @param [Hash] opts the optional parameters

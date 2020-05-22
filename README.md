@@ -69,7 +69,7 @@ end
 api_instance = SibApiV3Sdk::AccountApi.new
 
 begin
-  #Get your account informations, plans and credits details
+  #Get your account information, plan and credits details
   result = api_instance.get_account
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -84,100 +84,102 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*SibApiV3Sdk::AccountApi* | [**get_account**](docs/AccountApi.md#get_account) | **GET** /account | Get your account informations, plans and credits details
-*SibApiV3Sdk::AttributesApi* | [**create_attribute**](docs/AttributesApi.md#create_attribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Creates contact attribute
-*SibApiV3Sdk::AttributesApi* | [**delete_attribute**](docs/AttributesApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Deletes an attribute
-*SibApiV3Sdk::AttributesApi* | [**get_attributes**](docs/AttributesApi.md#get_attributes) | **GET** /contacts/attributes | Lists all attributes
-*SibApiV3Sdk::AttributesApi* | [**update_attribute**](docs/AttributesApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Updates contact attribute
+*SibApiV3Sdk::AccountApi* | [**get_account**](docs/AccountApi.md#get_account) | **GET** /account | Get your account information, plan and credits details
+*SibApiV3Sdk::AttributesApi* | [**create_attribute**](docs/AttributesApi.md#create_attribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Create contact attribute
+*SibApiV3Sdk::AttributesApi* | [**delete_attribute**](docs/AttributesApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Delete an attribute
+*SibApiV3Sdk::AttributesApi* | [**get_attributes**](docs/AttributesApi.md#get_attributes) | **GET** /contacts/attributes | List all attributes
+*SibApiV3Sdk::AttributesApi* | [**update_attribute**](docs/AttributesApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
 *SibApiV3Sdk::ContactsApi* | [**add_contact_to_list**](docs/ContactsApi.md#add_contact_to_list) | **POST** /contacts/lists/{listId}/contacts/add | Add existing contacts to a list
-*SibApiV3Sdk::ContactsApi* | [**create_attribute**](docs/ContactsApi.md#create_attribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Creates contact attribute
+*SibApiV3Sdk::ContactsApi* | [**create_attribute**](docs/ContactsApi.md#create_attribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Create contact attribute
 *SibApiV3Sdk::ContactsApi* | [**create_contact**](docs/ContactsApi.md#create_contact) | **POST** /contacts | Create a contact
+*SibApiV3Sdk::ContactsApi* | [**create_doi_contact**](docs/ContactsApi.md#create_doi_contact) | **POST** /contacts/doubleOptinConfirmation | Create a contact to trigger the DOI workflow from a Landing Page form
 *SibApiV3Sdk::ContactsApi* | [**create_folder**](docs/ContactsApi.md#create_folder) | **POST** /contacts/folders | Create a folder
 *SibApiV3Sdk::ContactsApi* | [**create_list**](docs/ContactsApi.md#create_list) | **POST** /contacts/lists | Create a list
-*SibApiV3Sdk::ContactsApi* | [**delete_attribute**](docs/ContactsApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Deletes an attribute
-*SibApiV3Sdk::ContactsApi* | [**delete_contact**](docs/ContactsApi.md#delete_contact) | **DELETE** /contacts/{email} | Deletes a contact
+*SibApiV3Sdk::ContactsApi* | [**delete_attribute**](docs/ContactsApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Delete an attribute
+*SibApiV3Sdk::ContactsApi* | [**delete_contact**](docs/ContactsApi.md#delete_contact) | **DELETE** /contacts/{email} | Delete a contact
 *SibApiV3Sdk::ContactsApi* | [**delete_folder**](docs/ContactsApi.md#delete_folder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
 *SibApiV3Sdk::ContactsApi* | [**delete_list**](docs/ContactsApi.md#delete_list) | **DELETE** /contacts/lists/{listId} | Delete a list
-*SibApiV3Sdk::ContactsApi* | [**get_attributes**](docs/ContactsApi.md#get_attributes) | **GET** /contacts/attributes | Lists all attributes
-*SibApiV3Sdk::ContactsApi* | [**get_contact_info**](docs/ContactsApi.md#get_contact_info) | **GET** /contacts/{email} | Retrieves contact informations
-*SibApiV3Sdk::ContactsApi* | [**get_contact_stats**](docs/ContactsApi.md#get_contact_stats) | **GET** /contacts/{email}/campaignStats | Get the campaigns statistics for a contact
+*SibApiV3Sdk::ContactsApi* | [**get_attributes**](docs/ContactsApi.md#get_attributes) | **GET** /contacts/attributes | List all attributes
+*SibApiV3Sdk::ContactsApi* | [**get_contact_info**](docs/ContactsApi.md#get_contact_info) | **GET** /contacts/{email} | Get a contact's details
+*SibApiV3Sdk::ContactsApi* | [**get_contact_stats**](docs/ContactsApi.md#get_contact_stats) | **GET** /contacts/{email}/campaignStats | Get email campaigns' statistics for a contact
 *SibApiV3Sdk::ContactsApi* | [**get_contacts**](docs/ContactsApi.md#get_contacts) | **GET** /contacts | Get all the contacts
-*SibApiV3Sdk::ContactsApi* | [**get_contacts_from_list**](docs/ContactsApi.md#get_contacts_from_list) | **GET** /contacts/lists/{listId}/contacts | Get the contacts in a list
-*SibApiV3Sdk::ContactsApi* | [**get_folder**](docs/ContactsApi.md#get_folder) | **GET** /contacts/folders/{folderId} | Returns folder details
-*SibApiV3Sdk::ContactsApi* | [**get_folder_lists**](docs/ContactsApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get the lists in a folder
-*SibApiV3Sdk::ContactsApi* | [**get_folders**](docs/ContactsApi.md#get_folders) | **GET** /contacts/folders | Get all the folders
-*SibApiV3Sdk::ContactsApi* | [**get_list**](docs/ContactsApi.md#get_list) | **GET** /contacts/lists/{listId} | Get the details of a list
+*SibApiV3Sdk::ContactsApi* | [**get_contacts_from_list**](docs/ContactsApi.md#get_contacts_from_list) | **GET** /contacts/lists/{listId}/contacts | Get contacts in a list
+*SibApiV3Sdk::ContactsApi* | [**get_folder**](docs/ContactsApi.md#get_folder) | **GET** /contacts/folders/{folderId} | Returns a folder's details
+*SibApiV3Sdk::ContactsApi* | [**get_folder_lists**](docs/ContactsApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get lists in a folder
+*SibApiV3Sdk::ContactsApi* | [**get_folders**](docs/ContactsApi.md#get_folders) | **GET** /contacts/folders | Get all folders
+*SibApiV3Sdk::ContactsApi* | [**get_list**](docs/ContactsApi.md#get_list) | **GET** /contacts/lists/{listId} | Get a list's details
 *SibApiV3Sdk::ContactsApi* | [**get_lists**](docs/ContactsApi.md#get_lists) | **GET** /contacts/lists | Get all the lists
 *SibApiV3Sdk::ContactsApi* | [**import_contacts**](docs/ContactsApi.md#import_contacts) | **POST** /contacts/import | Import contacts
-*SibApiV3Sdk::ContactsApi* | [**remove_contact_from_list**](docs/ContactsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
+*SibApiV3Sdk::ContactsApi* | [**remove_contact_from_list**](docs/ContactsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Delete a contact from a list
 *SibApiV3Sdk::ContactsApi* | [**request_contact_export**](docs/ContactsApi.md#request_contact_export) | **POST** /contacts/export | Export contacts
-*SibApiV3Sdk::ContactsApi* | [**update_attribute**](docs/ContactsApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Updates contact attribute
-*SibApiV3Sdk::ContactsApi* | [**update_contact**](docs/ContactsApi.md#update_contact) | **PUT** /contacts/{email} | Updates a contact
-*SibApiV3Sdk::ContactsApi* | [**update_folder**](docs/ContactsApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a contact folder
+*SibApiV3Sdk::ContactsApi* | [**update_attribute**](docs/ContactsApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
+*SibApiV3Sdk::ContactsApi* | [**update_contact**](docs/ContactsApi.md#update_contact) | **PUT** /contacts/{email} | Update a contact
+*SibApiV3Sdk::ContactsApi* | [**update_folder**](docs/ContactsApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a folder
 *SibApiV3Sdk::ContactsApi* | [**update_list**](docs/ContactsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
 *SibApiV3Sdk::EmailCampaignsApi* | [**create_email_campaign**](docs/EmailCampaignsApi.md#create_email_campaign) | **POST** /emailCampaigns | Create an email campaign
 *SibApiV3Sdk::EmailCampaignsApi* | [**delete_email_campaign**](docs/EmailCampaignsApi.md#delete_email_campaign) | **DELETE** /emailCampaigns/{campaignId} | Delete an email campaign
-*SibApiV3Sdk::EmailCampaignsApi* | [**email_export_recipients**](docs/EmailCampaignsApi.md#email_export_recipients) | **POST** /emailCampaigns/{campaignId}/exportRecipients | Export the recipients of a campaign
-*SibApiV3Sdk::EmailCampaignsApi* | [**get_ab_test_campaign_result**](docs/EmailCampaignsApi.md#get_ab_test_campaign_result) | **GET** /emailCampaigns/{campaignId}/abTestCampaignResult | Get A/B test email campaign result
-*SibApiV3Sdk::EmailCampaignsApi* | [**get_email_campaign**](docs/EmailCampaignsApi.md#get_email_campaign) | **GET** /emailCampaigns/{campaignId} | Get campaign informations
-*SibApiV3Sdk::EmailCampaignsApi* | [**get_email_campaigns**](docs/EmailCampaignsApi.md#get_email_campaigns) | **GET** /emailCampaigns | Return all your created campaigns
+*SibApiV3Sdk::EmailCampaignsApi* | [**email_export_recipients**](docs/EmailCampaignsApi.md#email_export_recipients) | **POST** /emailCampaigns/{campaignId}/exportRecipients | Export the recipients of an email campaign
+*SibApiV3Sdk::EmailCampaignsApi* | [**get_ab_test_campaign_result**](docs/EmailCampaignsApi.md#get_ab_test_campaign_result) | **GET** /emailCampaigns/{campaignId}/abTestCampaignResult | Get an A/B test email campaign results
+*SibApiV3Sdk::EmailCampaignsApi* | [**get_email_campaign**](docs/EmailCampaignsApi.md#get_email_campaign) | **GET** /emailCampaigns/{campaignId} | Get an email campaign report
+*SibApiV3Sdk::EmailCampaignsApi* | [**get_email_campaigns**](docs/EmailCampaignsApi.md#get_email_campaigns) | **GET** /emailCampaigns | Return all your created email campaigns
 *SibApiV3Sdk::EmailCampaignsApi* | [**get_shared_template_url**](docs/EmailCampaignsApi.md#get_shared_template_url) | **GET** /emailCampaigns/{campaignId}/sharedUrl | Get a shared template url
 *SibApiV3Sdk::EmailCampaignsApi* | [**send_email_campaign_now**](docs/EmailCampaignsApi.md#send_email_campaign_now) | **POST** /emailCampaigns/{campaignId}/sendNow | Send an email campaign immediately, based on campaignId
-*SibApiV3Sdk::EmailCampaignsApi* | [**send_report**](docs/EmailCampaignsApi.md#send_report) | **POST** /emailCampaigns/{campaignId}/sendReport | Send the report of a campaigns
+*SibApiV3Sdk::EmailCampaignsApi* | [**send_report**](docs/EmailCampaignsApi.md#send_report) | **POST** /emailCampaigns/{campaignId}/sendReport | Send the report of a campaign
 *SibApiV3Sdk::EmailCampaignsApi* | [**send_test_email**](docs/EmailCampaignsApi.md#send_test_email) | **POST** /emailCampaigns/{campaignId}/sendTest | Send an email campaign to your test list
-*SibApiV3Sdk::EmailCampaignsApi* | [**update_campaign_status**](docs/EmailCampaignsApi.md#update_campaign_status) | **PUT** /emailCampaigns/{campaignId}/status | Update a campaign status
-*SibApiV3Sdk::EmailCampaignsApi* | [**update_email_campaign**](docs/EmailCampaignsApi.md#update_email_campaign) | **PUT** /emailCampaigns/{campaignId} | Update a campaign
+*SibApiV3Sdk::EmailCampaignsApi* | [**update_campaign_status**](docs/EmailCampaignsApi.md#update_campaign_status) | **PUT** /emailCampaigns/{campaignId}/status | Update an email campaign status
+*SibApiV3Sdk::EmailCampaignsApi* | [**update_email_campaign**](docs/EmailCampaignsApi.md#update_email_campaign) | **PUT** /emailCampaigns/{campaignId} | Update an email campaign
+*SibApiV3Sdk::EmailCampaignsApi* | [**upload_image_to_gallery**](docs/EmailCampaignsApi.md#upload_image_to_gallery) | **POST** /emailCampaigns/images | Upload an image to your account's image gallery
 *SibApiV3Sdk::FoldersApi* | [**create_folder**](docs/FoldersApi.md#create_folder) | **POST** /contacts/folders | Create a folder
 *SibApiV3Sdk::FoldersApi* | [**delete_folder**](docs/FoldersApi.md#delete_folder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
-*SibApiV3Sdk::FoldersApi* | [**get_folder**](docs/FoldersApi.md#get_folder) | **GET** /contacts/folders/{folderId} | Returns folder details
-*SibApiV3Sdk::FoldersApi* | [**get_folder_lists**](docs/FoldersApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get the lists in a folder
-*SibApiV3Sdk::FoldersApi* | [**get_folders**](docs/FoldersApi.md#get_folders) | **GET** /contacts/folders | Get all the folders
-*SibApiV3Sdk::FoldersApi* | [**update_folder**](docs/FoldersApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a contact folder
+*SibApiV3Sdk::FoldersApi* | [**get_folder**](docs/FoldersApi.md#get_folder) | **GET** /contacts/folders/{folderId} | Returns a folder's details
+*SibApiV3Sdk::FoldersApi* | [**get_folder_lists**](docs/FoldersApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get lists in a folder
+*SibApiV3Sdk::FoldersApi* | [**get_folders**](docs/FoldersApi.md#get_folders) | **GET** /contacts/folders | Get all folders
+*SibApiV3Sdk::FoldersApi* | [**update_folder**](docs/FoldersApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a folder
 *SibApiV3Sdk::ListsApi* | [**add_contact_to_list**](docs/ListsApi.md#add_contact_to_list) | **POST** /contacts/lists/{listId}/contacts/add | Add existing contacts to a list
 *SibApiV3Sdk::ListsApi* | [**create_list**](docs/ListsApi.md#create_list) | **POST** /contacts/lists | Create a list
 *SibApiV3Sdk::ListsApi* | [**delete_list**](docs/ListsApi.md#delete_list) | **DELETE** /contacts/lists/{listId} | Delete a list
-*SibApiV3Sdk::ListsApi* | [**get_contacts_from_list**](docs/ListsApi.md#get_contacts_from_list) | **GET** /contacts/lists/{listId}/contacts | Get the contacts in a list
-*SibApiV3Sdk::ListsApi* | [**get_folder_lists**](docs/ListsApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get the lists in a folder
-*SibApiV3Sdk::ListsApi* | [**get_list**](docs/ListsApi.md#get_list) | **GET** /contacts/lists/{listId} | Get the details of a list
+*SibApiV3Sdk::ListsApi* | [**get_contacts_from_list**](docs/ListsApi.md#get_contacts_from_list) | **GET** /contacts/lists/{listId}/contacts | Get contacts in a list
+*SibApiV3Sdk::ListsApi* | [**get_folder_lists**](docs/ListsApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get lists in a folder
+*SibApiV3Sdk::ListsApi* | [**get_list**](docs/ListsApi.md#get_list) | **GET** /contacts/lists/{listId} | Get a list's details
 *SibApiV3Sdk::ListsApi* | [**get_lists**](docs/ListsApi.md#get_lists) | **GET** /contacts/lists | Get all the lists
-*SibApiV3Sdk::ListsApi* | [**remove_contact_from_list**](docs/ListsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
+*SibApiV3Sdk::ListsApi* | [**remove_contact_from_list**](docs/ListsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Delete a contact from a list
 *SibApiV3Sdk::ListsApi* | [**update_list**](docs/ListsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
 *SibApiV3Sdk::ProcessApi* | [**get_process**](docs/ProcessApi.md#get_process) | **GET** /processes/{processId} | Return the informations for a process
 *SibApiV3Sdk::ProcessApi* | [**get_processes**](docs/ProcessApi.md#get_processes) | **GET** /processes | Return all the processes for your account
 *SibApiV3Sdk::ResellerApi* | [**add_credits**](docs/ResellerApi.md#add_credits) | **POST** /reseller/children/{childAuthKey}/credits/add | Add Email and/or SMS credits to a specific child account
 *SibApiV3Sdk::ResellerApi* | [**associate_ip_to_child**](docs/ResellerApi.md#associate_ip_to_child) | **POST** /reseller/children/{childAuthKey}/ips/associate | Associate a dedicated IP to the child
-*SibApiV3Sdk::ResellerApi* | [**create_child_domain**](docs/ResellerApi.md#create_child_domain) | **POST** /reseller/children/{childAuthKey}/domains | Creates a domain for a child account
+*SibApiV3Sdk::ResellerApi* | [**create_child_domain**](docs/ResellerApi.md#create_child_domain) | **POST** /reseller/children/{childAuthKey}/domains | Create a domain for a child account
 *SibApiV3Sdk::ResellerApi* | [**create_reseller_child**](docs/ResellerApi.md#create_reseller_child) | **POST** /reseller/children | Creates a reseller child
-*SibApiV3Sdk::ResellerApi* | [**delete_child_domain**](docs/ResellerApi.md#delete_child_domain) | **DELETE** /reseller/children/{childAuthKey}/domains/{domainName} | Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
-*SibApiV3Sdk::ResellerApi* | [**delete_reseller_child**](docs/ResellerApi.md#delete_reseller_child) | **DELETE** /reseller/children/{childAuthKey} | Deletes a single reseller child based on the childAuthKey supplied
+*SibApiV3Sdk::ResellerApi* | [**delete_child_domain**](docs/ResellerApi.md#delete_child_domain) | **DELETE** /reseller/children/{childAuthKey}/domains/{domainName} | Delete the sender domain of the reseller child based on the childAuthKey and domainName passed
+*SibApiV3Sdk::ResellerApi* | [**delete_reseller_child**](docs/ResellerApi.md#delete_reseller_child) | **DELETE** /reseller/children/{childAuthKey} | Delete a single reseller child based on the childAuthKey supplied
 *SibApiV3Sdk::ResellerApi* | [**dissociate_ip_from_child**](docs/ResellerApi.md#dissociate_ip_from_child) | **POST** /reseller/children/{childAuthKey}/ips/dissociate | Dissociate a dedicated IP to the child
-*SibApiV3Sdk::ResellerApi* | [**get_child_account_creation_status**](docs/ResellerApi.md#get_child_account_creation_status) | **GET** /reseller/children/{childAuthKey}/accountCreationStatus | Returns the status of reseller's child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
-*SibApiV3Sdk::ResellerApi* | [**get_child_domains**](docs/ResellerApi.md#get_child_domains) | **GET** /reseller/children/{childAuthKey}/domains | Gets all the sender domains of a specific child account
-*SibApiV3Sdk::ResellerApi* | [**get_child_info**](docs/ResellerApi.md#get_child_info) | **GET** /reseller/children/{childAuthKey} | Gets the info about a specific child account
-*SibApiV3Sdk::ResellerApi* | [**get_reseller_childs**](docs/ResellerApi.md#get_reseller_childs) | **GET** /reseller/children | Gets the list of all reseller's children accounts
+*SibApiV3Sdk::ResellerApi* | [**get_child_account_creation_status**](docs/ResellerApi.md#get_child_account_creation_status) | **GET** /reseller/children/{childAuthKey}/accountCreationStatus | Get the status of a reseller's child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
+*SibApiV3Sdk::ResellerApi* | [**get_child_domains**](docs/ResellerApi.md#get_child_domains) | **GET** /reseller/children/{childAuthKey}/domains | Get all sender domains for a specific child account
+*SibApiV3Sdk::ResellerApi* | [**get_child_info**](docs/ResellerApi.md#get_child_info) | **GET** /reseller/children/{childAuthKey} | Get a child account's details
+*SibApiV3Sdk::ResellerApi* | [**get_reseller_childs**](docs/ResellerApi.md#get_reseller_childs) | **GET** /reseller/children | Get the list of all children accounts
 *SibApiV3Sdk::ResellerApi* | [**get_sso_token**](docs/ResellerApi.md#get_sso_token) | **GET** /reseller/children/{childAuthKey}/auth | Get session token to access Sendinblue (SSO)
 *SibApiV3Sdk::ResellerApi* | [**remove_credits**](docs/ResellerApi.md#remove_credits) | **POST** /reseller/children/{childAuthKey}/credits/remove | Remove Email and/or SMS credits from a specific child account
-*SibApiV3Sdk::ResellerApi* | [**update_child_account_status**](docs/ResellerApi.md#update_child_account_status) | **PUT** /reseller/children/{childAuthKey}/accountStatus | Updates infos of reseller's child account status based on the childAuthKey supplied
-*SibApiV3Sdk::ResellerApi* | [**update_child_domain**](docs/ResellerApi.md#update_child_domain) | **PUT** /reseller/children/{childAuthKey}/domains/{domainName} | Updates the sender domain of reseller's child based on the childAuthKey and domainName passed
-*SibApiV3Sdk::ResellerApi* | [**update_reseller_child**](docs/ResellerApi.md#update_reseller_child) | **PUT** /reseller/children/{childAuthKey} | Updates infos of reseller's child based on the childAuthKey supplied
+*SibApiV3Sdk::ResellerApi* | [**update_child_account_status**](docs/ResellerApi.md#update_child_account_status) | **PUT** /reseller/children/{childAuthKey}/accountStatus | Update info of reseller's child account status based on the childAuthKey supplied
+*SibApiV3Sdk::ResellerApi* | [**update_child_domain**](docs/ResellerApi.md#update_child_domain) | **PUT** /reseller/children/{childAuthKey}/domains/{domainName} | Update the sender domain of reseller's child based on the childAuthKey and domainName passed
+*SibApiV3Sdk::ResellerApi* | [**update_reseller_child**](docs/ResellerApi.md#update_reseller_child) | **PUT** /reseller/children/{childAuthKey} | Update info of reseller's child based on the childAuthKey supplied
 *SibApiV3Sdk::SMSCampaignsApi* | [**create_sms_campaign**](docs/SMSCampaignsApi.md#create_sms_campaign) | **POST** /smsCampaigns | Creates an SMS campaign
-*SibApiV3Sdk::SMSCampaignsApi* | [**delete_sms_campaign**](docs/SMSCampaignsApi.md#delete_sms_campaign) | **DELETE** /smsCampaigns/{campaignId} | Delete the SMS campaign
+*SibApiV3Sdk::SMSCampaignsApi* | [**delete_sms_campaign**](docs/SMSCampaignsApi.md#delete_sms_campaign) | **DELETE** /smsCampaigns/{campaignId} | Delete an SMS campaign
 *SibApiV3Sdk::SMSCampaignsApi* | [**get_sms_campaign**](docs/SMSCampaignsApi.md#get_sms_campaign) | **GET** /smsCampaigns/{campaignId} | Get an SMS campaign
-*SibApiV3Sdk::SMSCampaignsApi* | [**get_sms_campaigns**](docs/SMSCampaignsApi.md#get_sms_campaigns) | **GET** /smsCampaigns | Returns the informations for all your created SMS campaigns
-*SibApiV3Sdk::SMSCampaignsApi* | [**request_sms_recipient_export**](docs/SMSCampaignsApi.md#request_sms_recipient_export) | **POST** /smsCampaigns/{campaignId}/exportRecipients | Exports the recipients of the specified campaign.
+*SibApiV3Sdk::SMSCampaignsApi* | [**get_sms_campaigns**](docs/SMSCampaignsApi.md#get_sms_campaigns) | **GET** /smsCampaigns | Returns the information for all your created SMS campaigns
+*SibApiV3Sdk::SMSCampaignsApi* | [**request_sms_recipient_export**](docs/SMSCampaignsApi.md#request_sms_recipient_export) | **POST** /smsCampaigns/{campaignId}/exportRecipients | Export an SMS campaign's recipients
 *SibApiV3Sdk::SMSCampaignsApi* | [**send_sms_campaign_now**](docs/SMSCampaignsApi.md#send_sms_campaign_now) | **POST** /smsCampaigns/{campaignId}/sendNow | Send your SMS campaign immediately
-*SibApiV3Sdk::SMSCampaignsApi* | [**send_sms_report**](docs/SMSCampaignsApi.md#send_sms_report) | **POST** /smsCampaigns/{campaignId}/sendReport | Send report of SMS campaigns
-*SibApiV3Sdk::SMSCampaignsApi* | [**send_test_sms**](docs/SMSCampaignsApi.md#send_test_sms) | **POST** /smsCampaigns/{campaignId}/sendTest | Send an SMS
-*SibApiV3Sdk::SMSCampaignsApi* | [**update_sms_campaign**](docs/SMSCampaignsApi.md#update_sms_campaign) | **PUT** /smsCampaigns/{campaignId} | Updates an SMS campaign
-*SibApiV3Sdk::SMSCampaignsApi* | [**update_sms_campaign_status**](docs/SMSCampaignsApi.md#update_sms_campaign_status) | **PUT** /smsCampaigns/{campaignId}/status | Update the campaign status
-*SibApiV3Sdk::SMTPApi* | [**create_smtp_template**](docs/SMTPApi.md#create_smtp_template) | **POST** /smtp/templates | Create a transactional email template
+*SibApiV3Sdk::SMSCampaignsApi* | [**send_sms_report**](docs/SMSCampaignsApi.md#send_sms_report) | **POST** /smsCampaigns/{campaignId}/sendReport | Send an SMS campaign's report
+*SibApiV3Sdk::SMSCampaignsApi* | [**send_test_sms**](docs/SMSCampaignsApi.md#send_test_sms) | **POST** /smsCampaigns/{campaignId}/sendTest | Send a test SMS campaign
+*SibApiV3Sdk::SMSCampaignsApi* | [**update_sms_campaign**](docs/SMSCampaignsApi.md#update_sms_campaign) | **PUT** /smsCampaigns/{campaignId} | Update an SMS campaign
+*SibApiV3Sdk::SMSCampaignsApi* | [**update_sms_campaign_status**](docs/SMSCampaignsApi.md#update_sms_campaign_status) | **PUT** /smsCampaigns/{campaignId}/status | Update a campaign's status
+*SibApiV3Sdk::SMTPApi* | [**create_smtp_template**](docs/SMTPApi.md#create_smtp_template) | **POST** /smtp/templates | Create an email template
 *SibApiV3Sdk::SMTPApi* | [**delete_hardbounces**](docs/SMTPApi.md#delete_hardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
-*SibApiV3Sdk::SMTPApi* | [**delete_smtp_template**](docs/SMTPApi.md#delete_smtp_template) | **DELETE** /smtp/templates/{templateId} | Delete an inactive transactional email template
+*SibApiV3Sdk::SMTPApi* | [**delete_smtp_template**](docs/SMTPApi.md#delete_smtp_template) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
 *SibApiV3Sdk::SMTPApi* | [**get_aggregated_smtp_report**](docs/SMTPApi.md#get_aggregated_smtp_report) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
 *SibApiV3Sdk::SMTPApi* | [**get_email_event_report**](docs/SMTPApi.md#get_email_event_report) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
 *SibApiV3Sdk::SMTPApi* | [**get_smtp_report**](docs/SMTPApi.md#get_smtp_report) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
-*SibApiV3Sdk::SMTPApi* | [**get_smtp_template**](docs/SMTPApi.md#get_smtp_template) | **GET** /smtp/templates/{templateId} | Returns the template informations
-*SibApiV3Sdk::SMTPApi* | [**get_smtp_templates**](docs/SMTPApi.md#get_smtp_templates) | **GET** /smtp/templates | Get the list of transactional email templates
+*SibApiV3Sdk::SMTPApi* | [**get_smtp_template**](docs/SMTPApi.md#get_smtp_template) | **GET** /smtp/templates/{templateId} | Returns the template information
+*SibApiV3Sdk::SMTPApi* | [**get_smtp_templates**](docs/SMTPApi.md#get_smtp_templates) | **GET** /smtp/templates | Get the list of email templates
 *SibApiV3Sdk::SMTPApi* | [**get_transac_blocked_contacts**](docs/SMTPApi.md#get_transac_blocked_contacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
 *SibApiV3Sdk::SMTPApi* | [**get_transac_email_content**](docs/SMTPApi.md#get_transac_email_content) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
 *SibApiV3Sdk::SMTPApi* | [**get_transac_emails_list**](docs/SMTPApi.md#get_transac_emails_list) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
@@ -186,17 +188,17 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::SMTPApi* | [**send_transac_email**](docs/SMTPApi.md#send_transac_email) | **POST** /smtp/email | Send a transactional email
 *SibApiV3Sdk::SMTPApi* | [**smtp_blocked_contacts_email_delete**](docs/SMTPApi.md#smtp_blocked_contacts_email_delete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
 *SibApiV3Sdk::SMTPApi* | [**smtp_log_message_id_delete**](docs/SMTPApi.md#smtp_log_message_id_delete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
-*SibApiV3Sdk::SMTPApi* | [**update_smtp_template**](docs/SMTPApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Updates a transactional email templates
+*SibApiV3Sdk::SMTPApi* | [**update_smtp_template**](docs/SMTPApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Update an email template
 *SibApiV3Sdk::SendersApi* | [**create_sender**](docs/SendersApi.md#create_sender) | **POST** /senders | Create a new sender
 *SibApiV3Sdk::SendersApi* | [**delete_sender**](docs/SendersApi.md#delete_sender) | **DELETE** /senders/{senderId} | Delete a sender
-*SibApiV3Sdk::SendersApi* | [**get_ips**](docs/SendersApi.md#get_ips) | **GET** /senders/ips | Return all the dedicated IPs for your account
-*SibApiV3Sdk::SendersApi* | [**get_ips_from_sender**](docs/SendersApi.md#get_ips_from_sender) | **GET** /senders/{senderId}/ips | Return all the dedicated IPs for a sender
+*SibApiV3Sdk::SendersApi* | [**get_ips**](docs/SendersApi.md#get_ips) | **GET** /senders/ips | Get all the dedicated IPs for your account
+*SibApiV3Sdk::SendersApi* | [**get_ips_from_sender**](docs/SendersApi.md#get_ips_from_sender) | **GET** /senders/{senderId}/ips | Get all the dedicated IPs for a sender
 *SibApiV3Sdk::SendersApi* | [**get_senders**](docs/SendersApi.md#get_senders) | **GET** /senders | Get the list of all your senders
 *SibApiV3Sdk::SendersApi* | [**update_sender**](docs/SendersApi.md#update_sender) | **PUT** /senders/{senderId} | Update a sender
-*SibApiV3Sdk::TransactionalSMSApi* | [**get_sms_events**](docs/TransactionalSMSApi.md#get_sms_events) | **GET** /transactionalSMS/statistics/events | Get all the SMS activity (unaggregated events)
+*SibApiV3Sdk::TransactionalSMSApi* | [**get_sms_events**](docs/TransactionalSMSApi.md#get_sms_events) | **GET** /transactionalSMS/statistics/events | Get all your SMS activity (unaggregated events)
 *SibApiV3Sdk::TransactionalSMSApi* | [**get_transac_aggregated_sms_report**](docs/TransactionalSMSApi.md#get_transac_aggregated_sms_report) | **GET** /transactionalSMS/statistics/aggregatedReport | Get your SMS activity aggregated over a period of time
 *SibApiV3Sdk::TransactionalSMSApi* | [**get_transac_sms_report**](docs/TransactionalSMSApi.md#get_transac_sms_report) | **GET** /transactionalSMS/statistics/reports | Get your SMS activity aggregated per day
-*SibApiV3Sdk::TransactionalSMSApi* | [**send_transac_sms**](docs/TransactionalSMSApi.md#send_transac_sms) | **POST** /transactionalSMS/sms | Send the SMS campaign to the specified mobile number
+*SibApiV3Sdk::TransactionalSMSApi* | [**send_transac_sms**](docs/TransactionalSMSApi.md#send_transac_sms) | **POST** /transactionalSMS/sms | Send the SMS campaign to a mobile number
 *SibApiV3Sdk::WebhooksApi* | [**create_webhook**](docs/WebhooksApi.md#create_webhook) | **POST** /webhooks | Create a webhook
 *SibApiV3Sdk::WebhooksApi* | [**delete_webhook**](docs/WebhooksApi.md#delete_webhook) | **DELETE** /webhooks/{webhookId} | Delete a webhook
 *SibApiV3Sdk::WebhooksApi* | [**get_webhook**](docs/WebhooksApi.md#get_webhook) | **GET** /webhooks/{webhookId} | Get a webhook details
@@ -214,6 +216,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::CreateAttributeEnumeration](docs/CreateAttributeEnumeration.md)
  - [SibApiV3Sdk::CreateChild](docs/CreateChild.md)
  - [SibApiV3Sdk::CreateContact](docs/CreateContact.md)
+ - [SibApiV3Sdk::CreateDoiContact](docs/CreateDoiContact.md)
  - [SibApiV3Sdk::CreateEmailCampaign](docs/CreateEmailCampaign.md)
  - [SibApiV3Sdk::CreateEmailCampaignRecipients](docs/CreateEmailCampaignRecipients.md)
  - [SibApiV3Sdk::CreateEmailCampaignSender](docs/CreateEmailCampaignSender.md)
@@ -367,6 +370,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::UpdateSmtpTemplate](docs/UpdateSmtpTemplate.md)
  - [SibApiV3Sdk::UpdateSmtpTemplateSender](docs/UpdateSmtpTemplateSender.md)
  - [SibApiV3Sdk::UpdateWebhook](docs/UpdateWebhook.md)
+ - [SibApiV3Sdk::UploadImageToGallery](docs/UploadImageToGallery.md)
  - [SibApiV3Sdk::GetChildInfo](docs/GetChildInfo.md)
  - [SibApiV3Sdk::GetExtendedCampaignOverview](docs/GetExtendedCampaignOverview.md)
  - [SibApiV3Sdk::GetExtendedClient](docs/GetExtendedClient.md)

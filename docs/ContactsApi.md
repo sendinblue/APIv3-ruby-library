@@ -5,30 +5,31 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_contact_to_list**](ContactsApi.md#add_contact_to_list) | **POST** /contacts/lists/{listId}/contacts/add | Add existing contacts to a list
-[**create_attribute**](ContactsApi.md#create_attribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Creates contact attribute
+[**create_attribute**](ContactsApi.md#create_attribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Create contact attribute
 [**create_contact**](ContactsApi.md#create_contact) | **POST** /contacts | Create a contact
+[**create_doi_contact**](ContactsApi.md#create_doi_contact) | **POST** /contacts/doubleOptinConfirmation | Create a contact to trigger the DOI workflow from a Landing Page form
 [**create_folder**](ContactsApi.md#create_folder) | **POST** /contacts/folders | Create a folder
 [**create_list**](ContactsApi.md#create_list) | **POST** /contacts/lists | Create a list
-[**delete_attribute**](ContactsApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Deletes an attribute
-[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /contacts/{email} | Deletes a contact
+[**delete_attribute**](ContactsApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Delete an attribute
+[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /contacts/{email} | Delete a contact
 [**delete_folder**](ContactsApi.md#delete_folder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
 [**delete_list**](ContactsApi.md#delete_list) | **DELETE** /contacts/lists/{listId} | Delete a list
-[**get_attributes**](ContactsApi.md#get_attributes) | **GET** /contacts/attributes | Lists all attributes
-[**get_contact_info**](ContactsApi.md#get_contact_info) | **GET** /contacts/{email} | Retrieves contact informations
-[**get_contact_stats**](ContactsApi.md#get_contact_stats) | **GET** /contacts/{email}/campaignStats | Get the campaigns statistics for a contact
+[**get_attributes**](ContactsApi.md#get_attributes) | **GET** /contacts/attributes | List all attributes
+[**get_contact_info**](ContactsApi.md#get_contact_info) | **GET** /contacts/{email} | Get a contact&#39;s details
+[**get_contact_stats**](ContactsApi.md#get_contact_stats) | **GET** /contacts/{email}/campaignStats | Get email campaigns&#39; statistics for a contact
 [**get_contacts**](ContactsApi.md#get_contacts) | **GET** /contacts | Get all the contacts
-[**get_contacts_from_list**](ContactsApi.md#get_contacts_from_list) | **GET** /contacts/lists/{listId}/contacts | Get the contacts in a list
-[**get_folder**](ContactsApi.md#get_folder) | **GET** /contacts/folders/{folderId} | Returns folder details
-[**get_folder_lists**](ContactsApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get the lists in a folder
-[**get_folders**](ContactsApi.md#get_folders) | **GET** /contacts/folders | Get all the folders
-[**get_list**](ContactsApi.md#get_list) | **GET** /contacts/lists/{listId} | Get the details of a list
+[**get_contacts_from_list**](ContactsApi.md#get_contacts_from_list) | **GET** /contacts/lists/{listId}/contacts | Get contacts in a list
+[**get_folder**](ContactsApi.md#get_folder) | **GET** /contacts/folders/{folderId} | Returns a folder&#39;s details
+[**get_folder_lists**](ContactsApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get lists in a folder
+[**get_folders**](ContactsApi.md#get_folders) | **GET** /contacts/folders | Get all folders
+[**get_list**](ContactsApi.md#get_list) | **GET** /contacts/lists/{listId} | Get a list&#39;s details
 [**get_lists**](ContactsApi.md#get_lists) | **GET** /contacts/lists | Get all the lists
 [**import_contacts**](ContactsApi.md#import_contacts) | **POST** /contacts/import | Import contacts
-[**remove_contact_from_list**](ContactsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
+[**remove_contact_from_list**](ContactsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Delete a contact from a list
 [**request_contact_export**](ContactsApi.md#request_contact_export) | **POST** /contacts/export | Export contacts
-[**update_attribute**](ContactsApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Updates contact attribute
-[**update_contact**](ContactsApi.md#update_contact) | **PUT** /contacts/{email} | Updates a contact
-[**update_folder**](ContactsApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a contact folder
+[**update_attribute**](ContactsApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
+[**update_contact**](ContactsApi.md#update_contact) | **PUT** /contacts/{email} | Update a contact
+[**update_folder**](ContactsApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a folder
 [**update_list**](ContactsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
 
 
@@ -95,7 +96,7 @@ Name | Type | Description  | Notes
 # **create_attribute**
 > create_attribute(attribute_category, attribute_name, create_attribute)
 
-Creates contact attribute
+Create contact attribute
 
 ### Example
 ```ruby
@@ -124,7 +125,7 @@ create_attribute = SibApiV3Sdk::CreateAttribute.new # CreateAttribute | Values t
 
 
 begin
-  #Creates contact attribute
+  #Create contact attribute
   api_instance.create_attribute(attribute_category, attribute_name, create_attribute)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->create_attribute: #{e}"
@@ -199,6 +200,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateUpdateContactModel**](CreateUpdateContactModel.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **create_doi_contact**
+> create_doi_contact(create_doi_contact)
+
+Create a contact to trigger the DOI workflow from a Landing Page form
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::ContactsApi.new
+
+create_doi_contact = SibApiV3Sdk::CreateDoiContact.new # CreateDoiContact | Values to create the DOI contact
+
+
+begin
+  #Create a contact to trigger the DOI workflow from a Landing Page form
+  api_instance.create_doi_contact(create_doi_contact)
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling ContactsApi->create_doi_contact: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **create_doi_contact** | [**CreateDoiContact**](CreateDoiContact.md)| Values to create the DOI contact | 
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 
@@ -328,7 +385,7 @@ Name | Type | Description  | Notes
 # **delete_attribute**
 > delete_attribute(attribute_category, attribute_name)
 
-Deletes an attribute
+Delete an attribute
 
 ### Example
 ```ruby
@@ -355,7 +412,7 @@ attribute_name = 'attribute_name_example' # String | Name of the existing attrib
 
 
 begin
-  #Deletes an attribute
+  #Delete an attribute
   api_instance.delete_attribute(attribute_category, attribute_name)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->delete_attribute: #{e}"
@@ -387,7 +444,7 @@ nil (empty response body)
 # **delete_contact**
 > delete_contact(email)
 
-Deletes a contact
+Delete a contact
 
 ### Example
 ```ruby
@@ -412,7 +469,7 @@ email = 'email_example' # String | Email (urlencoded) of the contact
 
 
 begin
-  #Deletes a contact
+  #Delete a contact
   api_instance.delete_contact(email)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->delete_contact: #{e}"
@@ -555,7 +612,7 @@ nil (empty response body)
 # **get_attributes**
 > GetAttributes get_attributes
 
-Lists all attributes
+List all attributes
 
 ### Example
 ```ruby
@@ -577,7 +634,7 @@ end
 api_instance = SibApiV3Sdk::ContactsApi.new
 
 begin
-  #Lists all attributes
+  #List all attributes
   result = api_instance.get_attributes
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -606,7 +663,7 @@ This endpoint does not need any parameter.
 # **get_contact_info**
 > GetExtendedContactDetails get_contact_info(email)
 
-Retrieves contact informations
+Get a contact's details
 
 ### Example
 ```ruby
@@ -631,7 +688,7 @@ email = 'email_example' # String | Email (urlencoded) of the contact OR its SMS 
 
 
 begin
-  #Retrieves contact informations
+  #Get a contact's details
   result = api_instance.get_contact_info(email)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -661,9 +718,9 @@ Name | Type | Description  | Notes
 
 
 # **get_contact_stats**
-> GetContactCampaignStats get_contact_stats(email)
+> GetContactCampaignStats get_contact_stats(email, opts)
 
-Get the campaigns statistics for a contact
+Get email campaigns' statistics for a contact
 
 ### Example
 ```ruby
@@ -686,10 +743,14 @@ api_instance = SibApiV3Sdk::ContactsApi.new
 
 email = 'email_example' # String | Email address (urlencoded) of the contact
 
+opts = { 
+  start_date: Date.parse('2013-10-20'), # Date | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
+  end_date: Date.parse('2013-10-20') # Date | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate
+}
 
 begin
-  #Get the campaigns statistics for a contact
-  result = api_instance.get_contact_stats(email)
+  #Get email campaigns' statistics for a contact
+  result = api_instance.get_contact_stats(email, opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->get_contact_stats: #{e}"
@@ -701,6 +762,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **email** | **String**| Email address (urlencoded) of the contact | 
+ **start_date** | **Date**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate | [optional] 
+ **end_date** | **Date**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate | [optional] 
 
 ### Return type
 
@@ -782,7 +845,7 @@ Name | Type | Description  | Notes
 # **get_contacts_from_list**
 > GetContacts get_contacts_from_list(list_id, opts)
 
-Get the contacts in a list
+Get contacts in a list
 
 ### Example
 ```ruby
@@ -812,7 +875,7 @@ opts = {
 }
 
 begin
-  #Get the contacts in a list
+  #Get contacts in a list
   result = api_instance.get_contacts_from_list(list_id, opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -847,7 +910,7 @@ Name | Type | Description  | Notes
 # **get_folder**
 > GetFolder get_folder(folder_id)
 
-Returns folder details
+Returns a folder's details
 
 ### Example
 ```ruby
@@ -872,7 +935,7 @@ folder_id = 789 # Integer | id of the folder
 
 
 begin
-  #Returns folder details
+  #Returns a folder's details
   result = api_instance.get_folder(folder_id)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -904,7 +967,7 @@ Name | Type | Description  | Notes
 # **get_folder_lists**
 > GetFolderLists get_folder_lists(folder_id, opts)
 
-Get the lists in a folder
+Get lists in a folder
 
 ### Example
 ```ruby
@@ -933,7 +996,7 @@ opts = {
 }
 
 begin
-  #Get the lists in a folder
+  #Get lists in a folder
   result = api_instance.get_folder_lists(folder_id, opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -967,7 +1030,7 @@ Name | Type | Description  | Notes
 # **get_folders**
 > GetFolders get_folders(limit, offset)
 
-Get all the folders
+Get all folders
 
 ### Example
 ```ruby
@@ -994,7 +1057,7 @@ offset = 0 # Integer | Index of the first document of the page
 
 
 begin
-  #Get all the folders
+  #Get all folders
   result = api_instance.get_folders(limit, offset)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -1027,7 +1090,7 @@ Name | Type | Description  | Notes
 # **get_list**
 > GetExtendedList get_list(list_id)
 
-Get the details of a list
+Get a list's details
 
 ### Example
 ```ruby
@@ -1052,7 +1115,7 @@ list_id = 789 # Integer | Id of the list
 
 
 begin
-  #Get the details of a list
+  #Get a list's details
   result = api_instance.get_list(list_id)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -1203,7 +1266,7 @@ Name | Type | Description  | Notes
 # **remove_contact_from_list**
 > PostContactInfo remove_contact_from_list(list_id, contact_emails)
 
-Remove existing contacts from a list
+Delete a contact from a list
 
 ### Example
 ```ruby
@@ -1230,7 +1293,7 @@ contact_emails = SibApiV3Sdk::RemoveContactFromList.new # RemoveContactFromList 
 
 
 begin
-  #Remove existing contacts from a list
+  #Delete a contact from a list
   result = api_instance.remove_contact_from_list(list_id, contact_emails)
   p result
 rescue SibApiV3Sdk::ApiError => e
@@ -1322,7 +1385,7 @@ Name | Type | Description  | Notes
 # **update_attribute**
 > update_attribute(attribute_category, attribute_name, update_attribute)
 
-Updates contact attribute
+Update contact attribute
 
 ### Example
 ```ruby
@@ -1351,7 +1414,7 @@ update_attribute = SibApiV3Sdk::UpdateAttribute.new # UpdateAttribute | Values t
 
 
 begin
-  #Updates contact attribute
+  #Update contact attribute
   api_instance.update_attribute(attribute_category, attribute_name, update_attribute)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->update_attribute: #{e}"
@@ -1384,7 +1447,7 @@ nil (empty response body)
 # **update_contact**
 > update_contact(email, update_contact)
 
-Updates a contact
+Update a contact
 
 ### Example
 ```ruby
@@ -1411,7 +1474,7 @@ update_contact = SibApiV3Sdk::UpdateContact.new # UpdateContact | Values to upda
 
 
 begin
-  #Updates a contact
+  #Update a contact
   api_instance.update_contact(email, update_contact)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->update_contact: #{e}"
@@ -1443,7 +1506,7 @@ nil (empty response body)
 # **update_folder**
 > update_folder(folder_id, update_folder)
 
-Update a contact folder
+Update a folder
 
 ### Example
 ```ruby
@@ -1470,7 +1533,7 @@ update_folder = SibApiV3Sdk::CreateUpdateFolder.new # CreateUpdateFolder | Name 
 
 
 begin
-  #Update a contact folder
+  #Update a folder
   api_instance.update_folder(folder_id, update_folder)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->update_folder: #{e}"
