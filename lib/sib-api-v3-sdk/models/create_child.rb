@@ -29,6 +29,31 @@ module SibApiV3Sdk
     # Password for the child account to login
     attr_accessor :password
 
+    # Language of the child account
+    attr_accessor :language
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -36,7 +61,8 @@ module SibApiV3Sdk
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
         :'company_name' => :'companyName',
-        :'password' => :'password'
+        :'password' => :'password',
+        :'language' => :'language'
       }
     end
 
@@ -47,7 +73,8 @@ module SibApiV3Sdk
         :'first_name' => :'String',
         :'last_name' => :'String',
         :'company_name' => :'String',
-        :'password' => :'String'
+        :'password' => :'String',
+        :'language' => :'String'
       }
     end
 
@@ -77,6 +104,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'password')
         self.password = attributes[:'password']
+      end
+
+      if attributes.has_key?(:'language')
+        self.language = attributes[:'language']
       end
     end
 
@@ -115,7 +146,19 @@ module SibApiV3Sdk
       return false if @last_name.nil?
       return false if @company_name.nil?
       return false if @password.nil?
+      language_validator = EnumAttributeValidator.new('String', ['fr', 'es', 'pt', 'it', 'de', 'en'])
+      return false unless language_validator.valid?(@language)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] language Object to be assigned
+    def language=(language)
+      validator = EnumAttributeValidator.new('String', ['fr', 'es', 'pt', 'it', 'de', 'en'])
+      unless validator.valid?(language)
+        fail ArgumentError, 'invalid value for "language", must be one of #{validator.allowable_values}.'
+      end
+      @language = language
     end
 
     # Checks equality by comparing each attribute.
@@ -127,7 +170,8 @@ module SibApiV3Sdk
           first_name == o.first_name &&
           last_name == o.last_name &&
           company_name == o.company_name &&
-          password == o.password
+          password == o.password &&
+          language == o.language
     end
 
     # @see the `==` method
@@ -139,7 +183,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, first_name, last_name, company_name, password].hash
+      [email, first_name, last_name, company_name, password, language].hash
     end
 
     # Builds the object from hash

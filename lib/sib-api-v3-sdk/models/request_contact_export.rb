@@ -22,7 +22,7 @@ module SibApiV3Sdk
 
     attr_accessor :custom_contact_filter
 
-    # Webhook that will be called once the export process is finished
+    # Webhook that will be called once the export process is finished. For reference, https://help.sendinblue.com/hc/en-us/articles/360007666479
     attr_accessor :notify_url
 
     # Attribute mapping from ruby-style variable name to JSON key.

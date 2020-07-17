@@ -69,8 +69,8 @@ describe 'ContactsApi' do
   end
 
   # unit tests for create_doi_contact
-  # Create a contact to trigger the DOI workflow from a Landing Page form
-  # @param create_doi_contact Values to create the DOI contact
+  # Create Contact via DOI (Double-Opt-In) Flow
+  # @param create_doi_contact Values to create the Double opt-in (DOI) contact
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'create_doi_contact test' do

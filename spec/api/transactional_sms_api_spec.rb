@@ -79,7 +79,7 @@ describe 'TransactionalSMSApi' do
   end
 
   # unit tests for send_transac_sms
-  # Send the SMS campaign to a mobile number
+  # Send SMS message to a mobile number
   # @param send_transac_sms Values to send a transactional SMS
   # @param [Hash] opts the optional parameters
   # @return [SendSms]

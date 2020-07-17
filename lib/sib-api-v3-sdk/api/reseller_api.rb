@@ -20,34 +20,34 @@ module SibApiV3Sdk
       @api_client = api_client
     end
     # Add Email and/or SMS credits to a specific child account
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param add_credits Values to post to add credit to a specific child account
     # @param [Hash] opts the optional parameters
     # @return [RemainingCreditModel]
-    def add_credits(child_auth_key, add_credits, opts = {})
-      data, _status_code, _headers = add_credits_with_http_info(child_auth_key, add_credits, opts)
+    def add_credits(child_identifier, add_credits, opts = {})
+      data, _status_code, _headers = add_credits_with_http_info(child_identifier, add_credits, opts)
       data
     end
 
     # Add Email and/or SMS credits to a specific child account
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param add_credits Values to post to add credit to a specific child account
     # @param [Hash] opts the optional parameters
     # @return [Array<(RemainingCreditModel, Fixnum, Hash)>] RemainingCreditModel data, response status code and response headers
-    def add_credits_with_http_info(child_auth_key, add_credits, opts = {})
+    def add_credits_with_http_info(child_identifier, add_credits, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.add_credits ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.add_credits"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.add_credits"
       end
       # verify the required parameter 'add_credits' is set
       if @api_client.config.client_side_validation && add_credits.nil?
         fail ArgumentError, "Missing the required parameter 'add_credits' when calling ResellerApi.add_credits"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}/credits/add'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}/credits/add'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -78,34 +78,34 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Associate a dedicated IP to the child
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param ip IP to associate
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def associate_ip_to_child(child_auth_key, ip, opts = {})
-      associate_ip_to_child_with_http_info(child_auth_key, ip, opts)
+    def associate_ip_to_child(child_identifier, ip, opts = {})
+      associate_ip_to_child_with_http_info(child_identifier, ip, opts)
       nil
     end
 
     # Associate a dedicated IP to the child
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param ip IP to associate
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def associate_ip_to_child_with_http_info(child_auth_key, ip, opts = {})
+    def associate_ip_to_child_with_http_info(child_identifier, ip, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.associate_ip_to_child ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.associate_ip_to_child"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.associate_ip_to_child"
       end
       # verify the required parameter 'ip' is set
       if @api_client.config.client_side_validation && ip.nil?
         fail ArgumentError, "Missing the required parameter 'ip' when calling ResellerApi.associate_ip_to_child"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}/ips/associate'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}/ips/associate'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -135,34 +135,34 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Create a domain for a child account
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param add_child_domain Sender domain to add for a specific child account. This will not be displayed to the parent account.
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def create_child_domain(child_auth_key, add_child_domain, opts = {})
-      create_child_domain_with_http_info(child_auth_key, add_child_domain, opts)
+    def create_child_domain(child_identifier, add_child_domain, opts = {})
+      create_child_domain_with_http_info(child_identifier, add_child_domain, opts)
       nil
     end
 
     # Create a domain for a child account
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param add_child_domain Sender domain to add for a specific child account. This will not be displayed to the parent account.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def create_child_domain_with_http_info(child_auth_key, add_child_domain, opts = {})
+    def create_child_domain_with_http_info(child_identifier, add_child_domain, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.create_child_domain ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.create_child_domain"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.create_child_domain"
       end
       # verify the required parameter 'add_child_domain' is set
       if @api_client.config.client_side_validation && add_child_domain.nil?
         fail ArgumentError, "Missing the required parameter 'add_child_domain' when calling ResellerApi.create_child_domain"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}/domains'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}/domains'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -239,35 +239,35 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Delete the sender domain of the reseller child based on the childAuthKey and domainName passed
-    # @param child_auth_key auth key of reseller&#39;s child
+    # Delete the sender domain of the reseller child based on the childIdentifier and domainName passed
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param domain_name Pass the existing domain that needs to be deleted
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_child_domain(child_auth_key, domain_name, opts = {})
-      delete_child_domain_with_http_info(child_auth_key, domain_name, opts)
+    def delete_child_domain(child_identifier, domain_name, opts = {})
+      delete_child_domain_with_http_info(child_identifier, domain_name, opts)
       nil
     end
 
-    # Delete the sender domain of the reseller child based on the childAuthKey and domainName passed
-    # @param child_auth_key auth key of reseller&#39;s child
+    # Delete the sender domain of the reseller child based on the childIdentifier and domainName passed
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param domain_name Pass the existing domain that needs to be deleted
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def delete_child_domain_with_http_info(child_auth_key, domain_name, opts = {})
+    def delete_child_domain_with_http_info(child_identifier, domain_name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.delete_child_domain ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.delete_child_domain"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.delete_child_domain"
       end
       # verify the required parameter 'domain_name' is set
       if @api_client.config.client_side_validation && domain_name.nil?
         fail ArgumentError, "Missing the required parameter 'domain_name' when calling ResellerApi.delete_child_domain"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}/domains/{domainName}'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s).sub('{' + 'domainName' + '}', domain_name.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}/domains/{domainName}'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s).sub('{' + 'domainName' + '}', domain_name.to_s)
 
       # query parameters
       query_params = {}
@@ -296,29 +296,29 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Delete a single reseller child based on the childAuthKey supplied
-    # @param child_auth_key auth key of reseller&#39;s child
+    # Delete a single reseller child based on the child identifier supplied
+    # @param child_identifier Either auth key or child id of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_reseller_child(child_auth_key, opts = {})
-      delete_reseller_child_with_http_info(child_auth_key, opts)
+    def delete_reseller_child(child_identifier, opts = {})
+      delete_reseller_child_with_http_info(child_identifier, opts)
       nil
     end
 
-    # Delete a single reseller child based on the childAuthKey supplied
-    # @param child_auth_key auth key of reseller&#39;s child
+    # Delete a single reseller child based on the child identifier supplied
+    # @param child_identifier Either auth key or child id of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def delete_reseller_child_with_http_info(child_auth_key, opts = {})
+    def delete_reseller_child_with_http_info(child_identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.delete_reseller_child ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.delete_reseller_child"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.delete_reseller_child"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -348,34 +348,34 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Dissociate a dedicated IP to the child
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param ip IP to dissociate
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def dissociate_ip_from_child(child_auth_key, ip, opts = {})
-      dissociate_ip_from_child_with_http_info(child_auth_key, ip, opts)
+    def dissociate_ip_from_child(child_identifier, ip, opts = {})
+      dissociate_ip_from_child_with_http_info(child_identifier, ip, opts)
       nil
     end
 
     # Dissociate a dedicated IP to the child
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param ip IP to dissociate
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def dissociate_ip_from_child_with_http_info(child_auth_key, ip, opts = {})
+    def dissociate_ip_from_child_with_http_info(child_identifier, ip, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.dissociate_ip_from_child ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.dissociate_ip_from_child"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.dissociate_ip_from_child"
       end
       # verify the required parameter 'ip' is set
       if @api_client.config.client_side_validation && ip.nil?
         fail ArgumentError, "Missing the required parameter 'ip' when calling ResellerApi.dissociate_ip_from_child"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}/ips/dissociate'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}/ips/dissociate'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -404,29 +404,29 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get the status of a reseller's child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
-    # @param child_auth_key auth key of reseller&#39;s child
+    # Get the status of a reseller's child account creation, whether it is successfully created (exists) or not based on the identifier supplied
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [GetChildAccountCreationStatus]
-    def get_child_account_creation_status(child_auth_key, opts = {})
-      data, _status_code, _headers = get_child_account_creation_status_with_http_info(child_auth_key, opts)
+    def get_child_account_creation_status(child_identifier, opts = {})
+      data, _status_code, _headers = get_child_account_creation_status_with_http_info(child_identifier, opts)
       data
     end
 
-    # Get the status of a reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
-    # @param child_auth_key auth key of reseller&#39;s child
+    # Get the status of a reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the identifier supplied
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetChildAccountCreationStatus, Fixnum, Hash)>] GetChildAccountCreationStatus data, response status code and response headers
-    def get_child_account_creation_status_with_http_info(child_auth_key, opts = {})
+    def get_child_account_creation_status_with_http_info(child_identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.get_child_account_creation_status ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.get_child_account_creation_status"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.get_child_account_creation_status"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}/accountCreationStatus'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}/accountCreationStatus'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -457,28 +457,28 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Get all sender domains for a specific child account
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [GetChildDomains]
-    def get_child_domains(child_auth_key, opts = {})
-      data, _status_code, _headers = get_child_domains_with_http_info(child_auth_key, opts)
+    def get_child_domains(child_identifier, opts = {})
+      data, _status_code, _headers = get_child_domains_with_http_info(child_identifier, opts)
       data
     end
 
     # Get all sender domains for a specific child account
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetChildDomains, Fixnum, Hash)>] GetChildDomains data, response status code and response headers
-    def get_child_domains_with_http_info(child_auth_key, opts = {})
+    def get_child_domains_with_http_info(child_identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.get_child_domains ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.get_child_domains"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.get_child_domains"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}/domains'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}/domains'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -509,28 +509,28 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Get a child account's details
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [GetChildInfo]
-    def get_child_info(child_auth_key, opts = {})
-      data, _status_code, _headers = get_child_info_with_http_info(child_auth_key, opts)
+    def get_child_info(child_identifier, opts = {})
+      data, _status_code, _headers = get_child_info_with_http_info(child_identifier, opts)
       data
     end
 
     # Get a child account&#39;s details
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetChildInfo, Fixnum, Hash)>] GetChildInfo data, response status code and response headers
-    def get_child_info_with_http_info(child_auth_key, opts = {})
+    def get_child_info_with_http_info(child_identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.get_child_info ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.get_child_info"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.get_child_info"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -618,29 +618,29 @@ module SibApiV3Sdk
     end
     # Get session token to access Sendinblue (SSO)
     # It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern => https:/email.mydomain.com/login/sso?token=[token]
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [GetSsoToken]
-    def get_sso_token(child_auth_key, opts = {})
-      data, _status_code, _headers = get_sso_token_with_http_info(child_auth_key, opts)
+    def get_sso_token(child_identifier, opts = {})
+      data, _status_code, _headers = get_sso_token_with_http_info(child_identifier, opts)
       data
     end
 
     # Get session token to access Sendinblue (SSO)
     # It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern &#x3D;&gt; https:/email.mydomain.com/login/sso?token&#x3D;[token]
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetSsoToken, Fixnum, Hash)>] GetSsoToken data, response status code and response headers
-    def get_sso_token_with_http_info(child_auth_key, opts = {})
+    def get_sso_token_with_http_info(child_identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.get_sso_token ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.get_sso_token"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.get_sso_token"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}/auth'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}/auth'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -671,34 +671,34 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Remove Email and/or SMS credits from a specific child account
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param remove_credits Values to post to remove email or SMS credits from a specific child account
     # @param [Hash] opts the optional parameters
     # @return [RemainingCreditModel]
-    def remove_credits(child_auth_key, remove_credits, opts = {})
-      data, _status_code, _headers = remove_credits_with_http_info(child_auth_key, remove_credits, opts)
+    def remove_credits(child_identifier, remove_credits, opts = {})
+      data, _status_code, _headers = remove_credits_with_http_info(child_identifier, remove_credits, opts)
       data
     end
 
     # Remove Email and/or SMS credits from a specific child account
-    # @param child_auth_key auth key of reseller&#39;s child
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param remove_credits Values to post to remove email or SMS credits from a specific child account
     # @param [Hash] opts the optional parameters
     # @return [Array<(RemainingCreditModel, Fixnum, Hash)>] RemainingCreditModel data, response status code and response headers
-    def remove_credits_with_http_info(child_auth_key, remove_credits, opts = {})
+    def remove_credits_with_http_info(child_identifier, remove_credits, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.remove_credits ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.remove_credits"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.remove_credits"
       end
       # verify the required parameter 'remove_credits' is set
       if @api_client.config.client_side_validation && remove_credits.nil?
         fail ArgumentError, "Missing the required parameter 'remove_credits' when calling ResellerApi.remove_credits"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}/credits/remove'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}/credits/remove'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -728,35 +728,35 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Update info of reseller's child account status based on the childAuthKey supplied
-    # @param child_auth_key auth key of reseller&#39;s child
+    # Update info of reseller's child account status based on the childIdentifier supplied
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param update_child_account_status values to update in child account status
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def update_child_account_status(child_auth_key, update_child_account_status, opts = {})
-      update_child_account_status_with_http_info(child_auth_key, update_child_account_status, opts)
+    def update_child_account_status(child_identifier, update_child_account_status, opts = {})
+      update_child_account_status_with_http_info(child_identifier, update_child_account_status, opts)
       nil
     end
 
-    # Update info of reseller&#39;s child account status based on the childAuthKey supplied
-    # @param child_auth_key auth key of reseller&#39;s child
+    # Update info of reseller&#39;s child account status based on the childIdentifier supplied
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param update_child_account_status values to update in child account status
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def update_child_account_status_with_http_info(child_auth_key, update_child_account_status, opts = {})
+    def update_child_account_status_with_http_info(child_identifier, update_child_account_status, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.update_child_account_status ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.update_child_account_status"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.update_child_account_status"
       end
       # verify the required parameter 'update_child_account_status' is set
       if @api_client.config.client_side_validation && update_child_account_status.nil?
         fail ArgumentError, "Missing the required parameter 'update_child_account_status' when calling ResellerApi.update_child_account_status"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}/accountStatus'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}/accountStatus'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -785,30 +785,30 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Update the sender domain of reseller's child based on the childAuthKey and domainName passed
-    # @param child_auth_key auth key of reseller&#39;s child
+    # Update the sender domain of reseller's child based on the childIdentifier and domainName passed
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param domain_name Pass the existing domain that needs to be updated
     # @param update_child_domain value to update for sender domain
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def update_child_domain(child_auth_key, domain_name, update_child_domain, opts = {})
-      update_child_domain_with_http_info(child_auth_key, domain_name, update_child_domain, opts)
+    def update_child_domain(child_identifier, domain_name, update_child_domain, opts = {})
+      update_child_domain_with_http_info(child_identifier, domain_name, update_child_domain, opts)
       nil
     end
 
-    # Update the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
-    # @param child_auth_key auth key of reseller&#39;s child
+    # Update the sender domain of reseller&#39;s child based on the childIdentifier and domainName passed
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param domain_name Pass the existing domain that needs to be updated
     # @param update_child_domain value to update for sender domain
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def update_child_domain_with_http_info(child_auth_key, domain_name, update_child_domain, opts = {})
+    def update_child_domain_with_http_info(child_identifier, domain_name, update_child_domain, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.update_child_domain ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.update_child_domain"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.update_child_domain"
       end
       # verify the required parameter 'domain_name' is set
       if @api_client.config.client_side_validation && domain_name.nil?
@@ -819,7 +819,7 @@ module SibApiV3Sdk
         fail ArgumentError, "Missing the required parameter 'update_child_domain' when calling ResellerApi.update_child_domain"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}/domains/{domainName}'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s).sub('{' + 'domainName' + '}', domain_name.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}/domains/{domainName}'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s).sub('{' + 'domainName' + '}', domain_name.to_s)
 
       # query parameters
       query_params = {}
@@ -848,35 +848,35 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Update info of reseller's child based on the childAuthKey supplied
-    # @param child_auth_key auth key of reseller&#39;s child
+    # Update info of reseller's child based on the child identifier supplied
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param reseller_child values to update in child profile
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def update_reseller_child(child_auth_key, reseller_child, opts = {})
-      update_reseller_child_with_http_info(child_auth_key, reseller_child, opts)
+    def update_reseller_child(child_identifier, reseller_child, opts = {})
+      update_reseller_child_with_http_info(child_identifier, reseller_child, opts)
       nil
     end
 
-    # Update info of reseller&#39;s child based on the childAuthKey supplied
-    # @param child_auth_key auth key of reseller&#39;s child
+    # Update info of reseller&#39;s child based on the child identifier supplied
+    # @param child_identifier Either auth key or id of reseller&#39;s child
     # @param reseller_child values to update in child profile
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def update_reseller_child_with_http_info(child_auth_key, reseller_child, opts = {})
+    def update_reseller_child_with_http_info(child_identifier, reseller_child, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ResellerApi.update_reseller_child ...'
       end
-      # verify the required parameter 'child_auth_key' is set
-      if @api_client.config.client_side_validation && child_auth_key.nil?
-        fail ArgumentError, "Missing the required parameter 'child_auth_key' when calling ResellerApi.update_reseller_child"
+      # verify the required parameter 'child_identifier' is set
+      if @api_client.config.client_side_validation && child_identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'child_identifier' when calling ResellerApi.update_reseller_child"
       end
       # verify the required parameter 'reseller_child' is set
       if @api_client.config.client_side_validation && reseller_child.nil?
         fail ArgumentError, "Missing the required parameter 'reseller_child' when calling ResellerApi.update_reseller_child"
       end
       # resource path
-      local_var_path = '/reseller/children/{childAuthKey}'.sub('{' + 'childAuthKey' + '}', child_auth_key.to_s)
+      local_var_path = '/reseller/children/{childIdentifier}'.sub('{' + 'childIdentifier' + '}', child_identifier.to_s)
 
       # query parameters
       query_params = {}

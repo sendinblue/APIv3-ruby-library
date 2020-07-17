@@ -196,8 +196,8 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Create a contact to trigger the DOI workflow from a Landing Page form
-    # @param create_doi_contact Values to create the DOI contact
+    # Create Contact via DOI (Double-Opt-In) Flow
+    # @param create_doi_contact Values to create the Double opt-in (DOI) contact
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def create_doi_contact(create_doi_contact, opts = {})
@@ -205,8 +205,8 @@ module SibApiV3Sdk
       nil
     end
 
-    # Create a contact to trigger the DOI workflow from a Landing Page form
-    # @param create_doi_contact Values to create the DOI contact
+    # Create Contact via DOI (Double-Opt-In) Flow
+    # @param create_doi_contact Values to create the Double opt-in (DOI) contact
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def create_doi_contact_with_http_info(create_doi_contact, opts = {})

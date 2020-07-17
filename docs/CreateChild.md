@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **last_name** | **String** | Last name to use to create the child account | 
 **company_name** | **String** | Company name to use to create the child account | 
 **password** | **String** | Password for the child account to login | 
+**language** | **String** | Language of the child account | [optional] 
 
 

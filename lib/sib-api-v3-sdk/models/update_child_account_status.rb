@@ -23,12 +23,16 @@ module SibApiV3Sdk
     # Status of Marketing Automation Platform activation for your account (true=enabled, false=disabled)
     attr_accessor :marketing_automation
 
+    # Status of SMS Campaign Platform activation for your account (true=enabled, false=disabled)
+    attr_accessor :sms_campaign
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'transactional_email' => :'transactionalEmail',
         :'transactional_sms' => :'transactionalSms',
-        :'marketing_automation' => :'marketingAutomation'
+        :'marketing_automation' => :'marketingAutomation',
+        :'sms_campaign' => :'smsCampaign'
       }
     end
 
@@ -37,7 +41,8 @@ module SibApiV3Sdk
       {
         :'transactional_email' => :'BOOLEAN',
         :'transactional_sms' => :'BOOLEAN',
-        :'marketing_automation' => :'BOOLEAN'
+        :'marketing_automation' => :'BOOLEAN',
+        :'sms_campaign' => :'BOOLEAN'
       }
     end
 
@@ -59,6 +64,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'marketingAutomation')
         self.marketing_automation = attributes[:'marketingAutomation']
+      end
+
+      if attributes.has_key?(:'smsCampaign')
+        self.sms_campaign = attributes[:'smsCampaign']
       end
     end
 
@@ -82,7 +91,8 @@ module SibApiV3Sdk
       self.class == o.class &&
           transactional_email == o.transactional_email &&
           transactional_sms == o.transactional_sms &&
-          marketing_automation == o.marketing_automation
+          marketing_automation == o.marketing_automation &&
+          sms_campaign == o.sms_campaign
     end
 
     # @see the `==` method
@@ -94,7 +104,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [transactional_email, transactional_sms, marketing_automation].hash
+      [transactional_email, transactional_sms, marketing_automation, sms_campaign].hash
     end
 
     # Builds the object from hash

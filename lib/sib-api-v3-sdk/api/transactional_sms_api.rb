@@ -212,7 +212,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Send the SMS campaign to a mobile number
+    # Send SMS message to a mobile number
     # @param send_transac_sms Values to send a transactional SMS
     # @param [Hash] opts the optional parameters
     # @return [SendSms]
@@ -221,7 +221,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Send the SMS campaign to a mobile number
+    # Send SMS message to a mobile number
     # @param send_transac_sms Values to send a transactional SMS
     # @param [Hash] opts the optional parameters
     # @return [Array<(SendSms, Fixnum, Hash)>] SendSms data, response status code and response headers
