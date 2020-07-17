@@ -17,7 +17,7 @@ module SibApiV3Sdk
     # From Name to use for the sender
     attr_accessor :name
 
-    # From Email to use for the sender
+    # From email to use for the sender. A verification email will be sent to this address.
     attr_accessor :email
 
     # Mandatory in case of dedicated IP, IPs to associate to the sender

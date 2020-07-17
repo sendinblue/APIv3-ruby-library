@@ -26,10 +26,10 @@ module SibApiV3Sdk
     # Lists under user account where contact should not be added
     attr_accessor :exclude_list_ids
 
-    # Id of the DOI template
+    # Id of the Double opt-in (DOI) template
     attr_accessor :template_id
 
-    # URL of the web page that user will be redirected to after clicking on the double opt in URL.
+    # URL of the web page that user will be redirected to after clicking on the double opt in URL. When editing your DOI template you can reference this URL by using the tag {{ params.DOIurl }}.
     attr_accessor :redirection_url
 
     # Attribute mapping from ruby-style variable name to JSON key.

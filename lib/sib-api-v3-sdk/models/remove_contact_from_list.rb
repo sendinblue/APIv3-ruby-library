@@ -17,7 +17,7 @@ module SibApiV3Sdk
     # Required if 'all' is false. Emails to remove from a list. You can pass a maximum of 150 emails for removal in one request.
     attr_accessor :emails
 
-    # Required if 'emails' is empty. Remove all existing contacts from a list
+    # Required if 'emails' is empty. Remove all existing contacts from a list.  A process will be created in this scenario. You can fetch the process details to know about the progress
     attr_accessor :all
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -34,7 +34,7 @@ describe 'ResellerApi' do
 
   # unit tests for add_credits
   # Add Email and/or SMS credits to a specific child account
-  # @param child_auth_key auth key of reseller&#39;s child
+  # @param child_identifier Either auth key or id of reseller&#39;s child
   # @param add_credits Values to post to add credit to a specific child account
   # @param [Hash] opts the optional parameters
   # @return [RemainingCreditModel]
@@ -46,7 +46,7 @@ describe 'ResellerApi' do
 
   # unit tests for associate_ip_to_child
   # Associate a dedicated IP to the child
-  # @param child_auth_key auth key of reseller&#39;s child
+  # @param child_identifier Either auth key or id of reseller&#39;s child
   # @param ip IP to associate
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -58,7 +58,7 @@ describe 'ResellerApi' do
 
   # unit tests for create_child_domain
   # Create a domain for a child account
-  # @param child_auth_key auth key of reseller&#39;s child
+  # @param child_identifier Either auth key or id of reseller&#39;s child
   # @param add_child_domain Sender domain to add for a specific child account. This will not be displayed to the parent account.
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -80,8 +80,8 @@ describe 'ResellerApi' do
   end
 
   # unit tests for delete_child_domain
-  # Delete the sender domain of the reseller child based on the childAuthKey and domainName passed
-  # @param child_auth_key auth key of reseller&#39;s child
+  # Delete the sender domain of the reseller child based on the childIdentifier and domainName passed
+  # @param child_identifier Either auth key or id of reseller&#39;s child
   # @param domain_name Pass the existing domain that needs to be deleted
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -92,8 +92,8 @@ describe 'ResellerApi' do
   end
 
   # unit tests for delete_reseller_child
-  # Delete a single reseller child based on the childAuthKey supplied
-  # @param child_auth_key auth key of reseller&#39;s child
+  # Delete a single reseller child based on the child identifier supplied
+  # @param child_identifier Either auth key or child id of reseller&#39;s child
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_reseller_child test' do
@@ -104,7 +104,7 @@ describe 'ResellerApi' do
 
   # unit tests for dissociate_ip_from_child
   # Dissociate a dedicated IP to the child
-  # @param child_auth_key auth key of reseller&#39;s child
+  # @param child_identifier Either auth key or id of reseller&#39;s child
   # @param ip IP to dissociate
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -115,8 +115,8 @@ describe 'ResellerApi' do
   end
 
   # unit tests for get_child_account_creation_status
-  # Get the status of a reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
-  # @param child_auth_key auth key of reseller&#39;s child
+  # Get the status of a reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the identifier supplied
+  # @param child_identifier Either auth key or id of reseller&#39;s child
   # @param [Hash] opts the optional parameters
   # @return [GetChildAccountCreationStatus]
   describe 'get_child_account_creation_status test' do
@@ -127,7 +127,7 @@ describe 'ResellerApi' do
 
   # unit tests for get_child_domains
   # Get all sender domains for a specific child account
-  # @param child_auth_key auth key of reseller&#39;s child
+  # @param child_identifier Either auth key or id of reseller&#39;s child
   # @param [Hash] opts the optional parameters
   # @return [GetChildDomains]
   describe 'get_child_domains test' do
@@ -138,7 +138,7 @@ describe 'ResellerApi' do
 
   # unit tests for get_child_info
   # Get a child account&#39;s details
-  # @param child_auth_key auth key of reseller&#39;s child
+  # @param child_identifier Either auth key or id of reseller&#39;s child
   # @param [Hash] opts the optional parameters
   # @return [GetChildInfo]
   describe 'get_child_info test' do
@@ -162,7 +162,7 @@ describe 'ResellerApi' do
   # unit tests for get_sso_token
   # Get session token to access Sendinblue (SSO)
   # It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern &#x3D;&gt; https:/email.mydomain.com/login/sso?token&#x3D;[token]
-  # @param child_auth_key auth key of reseller&#39;s child
+  # @param child_identifier Either auth key or id of reseller&#39;s child
   # @param [Hash] opts the optional parameters
   # @return [GetSsoToken]
   describe 'get_sso_token test' do
@@ -173,7 +173,7 @@ describe 'ResellerApi' do
 
   # unit tests for remove_credits
   # Remove Email and/or SMS credits from a specific child account
-  # @param child_auth_key auth key of reseller&#39;s child
+  # @param child_identifier Either auth key or id of reseller&#39;s child
   # @param remove_credits Values to post to remove email or SMS credits from a specific child account
   # @param [Hash] opts the optional parameters
   # @return [RemainingCreditModel]
@@ -184,8 +184,8 @@ describe 'ResellerApi' do
   end
 
   # unit tests for update_child_account_status
-  # Update info of reseller&#39;s child account status based on the childAuthKey supplied
-  # @param child_auth_key auth key of reseller&#39;s child
+  # Update info of reseller&#39;s child account status based on the childIdentifier supplied
+  # @param child_identifier Either auth key or id of reseller&#39;s child
   # @param update_child_account_status values to update in child account status
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -196,8 +196,8 @@ describe 'ResellerApi' do
   end
 
   # unit tests for update_child_domain
-  # Update the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
-  # @param child_auth_key auth key of reseller&#39;s child
+  # Update the sender domain of reseller&#39;s child based on the childIdentifier and domainName passed
+  # @param child_identifier Either auth key or id of reseller&#39;s child
   # @param domain_name Pass the existing domain that needs to be updated
   # @param update_child_domain value to update for sender domain
   # @param [Hash] opts the optional parameters
@@ -209,8 +209,8 @@ describe 'ResellerApi' do
   end
 
   # unit tests for update_reseller_child
-  # Update info of reseller&#39;s child based on the childAuthKey supplied
-  # @param child_auth_key auth key of reseller&#39;s child
+  # Update info of reseller&#39;s child based on the child identifier supplied
+  # @param child_identifier Either auth key or id of reseller&#39;s child
   # @param reseller_child values to update in child profile
   # @param [Hash] opts the optional parameters
   # @return [nil]

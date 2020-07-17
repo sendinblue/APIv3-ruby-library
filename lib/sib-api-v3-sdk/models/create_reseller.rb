@@ -17,17 +17,22 @@ module SibApiV3Sdk
     # AuthKey of Reseller child created
     attr_accessor :auth_key
 
+    # Id of Reseller child created
+    attr_accessor :id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'auth_key' => :'authKey'
+        :'auth_key' => :'authKey',
+        :'id' => :'id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'auth_key' => :'String'
+        :'auth_key' => :'String',
+        :'id' => :'Integer'
       }
     end
 
@@ -41,6 +46,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'authKey')
         self.auth_key = attributes[:'authKey']
+      end
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
     end
 
@@ -67,7 +76,8 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          auth_key == o.auth_key
+          auth_key == o.auth_key &&
+          id == o.id
     end
 
     # @see the `==` method
@@ -79,7 +89,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [auth_key].hash
+      [auth_key, id].hash
     end
 
     # Builds the object from hash

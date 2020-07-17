@@ -14,7 +14,7 @@ require 'date'
 
 module SibApiV3Sdk
   class EmailExportRecipients
-    # Webhook called once the export process is finished
+    # Webhook called once the export process is finished. For reference, https://help.sendinblue.com/hc/en-us/articles/360007666479
     attr_accessor :notify_url
 
     # Type of recipients to export for a campaign

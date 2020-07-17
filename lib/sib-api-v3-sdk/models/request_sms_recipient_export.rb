@@ -14,7 +14,7 @@ require 'date'
 
 module SibApiV3Sdk
   class RequestSmsRecipientExport
-    # URL that will be called once the export process is finished
+    # URL that will be called once the export process is finished. For reference, https://help.sendinblue.com/hc/en-us/articles/360007666479
     attr_accessor :notify_url
 
     # Filter the recipients based on how they interacted with the campaign

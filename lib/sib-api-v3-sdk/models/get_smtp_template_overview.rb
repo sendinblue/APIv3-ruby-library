@@ -49,6 +49,9 @@ module SibApiV3Sdk
     # Last modification UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ)
     attr_accessor :modified_at
 
+    # It is true if template is a valid Double opt-in (DOI) template, otherwise it is false. This field will be available only in case of single template detail call.
+    attr_accessor :doi_template
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -63,7 +66,8 @@ module SibApiV3Sdk
         :'tag' => :'tag',
         :'html_content' => :'htmlContent',
         :'created_at' => :'createdAt',
-        :'modified_at' => :'modifiedAt'
+        :'modified_at' => :'modifiedAt',
+        :'doi_template' => :'doiTemplate'
       }
     end
 
@@ -81,7 +85,8 @@ module SibApiV3Sdk
         :'tag' => :'String',
         :'html_content' => :'String',
         :'created_at' => :'DateTime',
-        :'modified_at' => :'DateTime'
+        :'modified_at' => :'DateTime',
+        :'doi_template' => :'BOOLEAN'
       }
     end
 
@@ -139,6 +144,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'modifiedAt')
         self.modified_at = attributes[:'modifiedAt']
+      end
+
+      if attributes.has_key?(:'doiTemplate')
+        self.doi_template = attributes[:'doiTemplate']
       end
     end
 
@@ -231,7 +240,8 @@ module SibApiV3Sdk
           tag == o.tag &&
           html_content == o.html_content &&
           created_at == o.created_at &&
-          modified_at == o.modified_at
+          modified_at == o.modified_at &&
+          doi_template == o.doi_template
     end
 
     # @see the `==` method
@@ -243,7 +253,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, subject, is_active, test_sent, sender, reply_to, to_field, tag, html_content, created_at, modified_at].hash
+      [id, name, subject, is_active, test_sent, sender, reply_to, to_field, tag, html_content, created_at, modified_at, doi_template].hash
     end
 
     # Builds the object from hash

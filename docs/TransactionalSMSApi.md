@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**get_sms_events**](TransactionalSMSApi.md#get_sms_events) | **GET** /transactionalSMS/statistics/events | Get all your SMS activity (unaggregated events)
 [**get_transac_aggregated_sms_report**](TransactionalSMSApi.md#get_transac_aggregated_sms_report) | **GET** /transactionalSMS/statistics/aggregatedReport | Get your SMS activity aggregated over a period of time
 [**get_transac_sms_report**](TransactionalSMSApi.md#get_transac_sms_report) | **GET** /transactionalSMS/statistics/reports | Get your SMS activity aggregated per day
-[**send_transac_sms**](TransactionalSMSApi.md#send_transac_sms) | **POST** /transactionalSMS/sms | Send the SMS campaign to a mobile number
+[**send_transac_sms**](TransactionalSMSApi.md#send_transac_sms) | **POST** /transactionalSMS/sms | Send SMS message to a mobile number
 
 
 # **get_sms_events**
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 # **send_transac_sms**
 > SendSms send_transac_sms(send_transac_sms)
 
-Send the SMS campaign to a mobile number
+Send SMS message to a mobile number
 
 ### Example
 ```ruby
@@ -238,7 +238,7 @@ send_transac_sms = SibApiV3Sdk::SendTransacSms.new # SendTransacSms | Values to 
 
 
 begin
-  #Send the SMS campaign to a mobile number
+  #Send SMS message to a mobile number
   result = api_instance.send_transac_sms(send_transac_sms)
   p result
 rescue SibApiV3Sdk::ApiError => e

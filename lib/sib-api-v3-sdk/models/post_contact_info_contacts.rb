@@ -21,12 +21,16 @@ module SibApiV3Sdk
     # Displays the count of total number of contacts removed from list when user opts for \"all\" option.
     attr_accessor :total
 
+    # Id of the process created to remove contacts from list when user opts for \"all\" option.
+    attr_accessor :process_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'success' => :'success',
         :'failure' => :'failure',
-        :'total' => :'total'
+        :'total' => :'total',
+        :'process_id' => :'processId'
       }
     end
 
@@ -35,7 +39,8 @@ module SibApiV3Sdk
       {
         :'success' => :'Array<String>',
         :'failure' => :'Array<String>',
-        :'total' => :'Integer'
+        :'total' => :'Integer',
+        :'process_id' => :'Integer'
       }
     end
 
@@ -62,6 +67,10 @@ module SibApiV3Sdk
       if attributes.has_key?(:'total')
         self.total = attributes[:'total']
       end
+
+      if attributes.has_key?(:'processId')
+        self.process_id = attributes[:'processId']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -84,7 +93,8 @@ module SibApiV3Sdk
       self.class == o.class &&
           success == o.success &&
           failure == o.failure &&
-          total == o.total
+          total == o.total &&
+          process_id == o.process_id
     end
 
     # @see the `==` method
@@ -96,7 +106,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [success, failure, total].hash
+      [success, failure, total, process_id].hash
     end
 
     # Builds the object from hash

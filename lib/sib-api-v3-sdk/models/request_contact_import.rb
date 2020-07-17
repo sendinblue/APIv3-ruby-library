@@ -23,7 +23,7 @@ module SibApiV3Sdk
     # Mandatory if newList is not defined. Ids of the lists in which the contacts shall be imported. For example, [2, 4, 7].
     attr_accessor :list_ids
 
-    # URL that will be called once the export process is finished
+    # URL that will be called once the import process is finished. For reference, https://help.sendinblue.com/hc/en-us/articles/360007666479
     attr_accessor :notify_url
 
     attr_accessor :new_list
