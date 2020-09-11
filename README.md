@@ -96,12 +96,12 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::ContactsApi* | [**create_folder**](docs/ContactsApi.md#create_folder) | **POST** /contacts/folders | Create a folder
 *SibApiV3Sdk::ContactsApi* | [**create_list**](docs/ContactsApi.md#create_list) | **POST** /contacts/lists | Create a list
 *SibApiV3Sdk::ContactsApi* | [**delete_attribute**](docs/ContactsApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Delete an attribute
-*SibApiV3Sdk::ContactsApi* | [**delete_contact**](docs/ContactsApi.md#delete_contact) | **DELETE** /contacts/{email} | Delete a contact
+*SibApiV3Sdk::ContactsApi* | [**delete_contact**](docs/ContactsApi.md#delete_contact) | **DELETE** /contacts/{identifier} | Delete a contact
 *SibApiV3Sdk::ContactsApi* | [**delete_folder**](docs/ContactsApi.md#delete_folder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
 *SibApiV3Sdk::ContactsApi* | [**delete_list**](docs/ContactsApi.md#delete_list) | **DELETE** /contacts/lists/{listId} | Delete a list
 *SibApiV3Sdk::ContactsApi* | [**get_attributes**](docs/ContactsApi.md#get_attributes) | **GET** /contacts/attributes | List all attributes
-*SibApiV3Sdk::ContactsApi* | [**get_contact_info**](docs/ContactsApi.md#get_contact_info) | **GET** /contacts/{email} | Get a contact's details
-*SibApiV3Sdk::ContactsApi* | [**get_contact_stats**](docs/ContactsApi.md#get_contact_stats) | **GET** /contacts/{email}/campaignStats | Get email campaigns' statistics for a contact
+*SibApiV3Sdk::ContactsApi* | [**get_contact_info**](docs/ContactsApi.md#get_contact_info) | **GET** /contacts/{identifier} | Get a contact's details
+*SibApiV3Sdk::ContactsApi* | [**get_contact_stats**](docs/ContactsApi.md#get_contact_stats) | **GET** /contacts/{identifier}/campaignStats | Get email campaigns' statistics for a contact
 *SibApiV3Sdk::ContactsApi* | [**get_contacts**](docs/ContactsApi.md#get_contacts) | **GET** /contacts | Get all the contacts
 *SibApiV3Sdk::ContactsApi* | [**get_contacts_from_list**](docs/ContactsApi.md#get_contacts_from_list) | **GET** /contacts/lists/{listId}/contacts | Get contacts in a list
 *SibApiV3Sdk::ContactsApi* | [**get_folder**](docs/ContactsApi.md#get_folder) | **GET** /contacts/folders/{folderId} | Returns a folder's details
@@ -113,7 +113,7 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::ContactsApi* | [**remove_contact_from_list**](docs/ContactsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Delete a contact from a list
 *SibApiV3Sdk::ContactsApi* | [**request_contact_export**](docs/ContactsApi.md#request_contact_export) | **POST** /contacts/export | Export contacts
 *SibApiV3Sdk::ContactsApi* | [**update_attribute**](docs/ContactsApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
-*SibApiV3Sdk::ContactsApi* | [**update_contact**](docs/ContactsApi.md#update_contact) | **PUT** /contacts/{email} | Update a contact
+*SibApiV3Sdk::ContactsApi* | [**update_contact**](docs/ContactsApi.md#update_contact) | **PUT** /contacts/{identifier} | Update a contact
 *SibApiV3Sdk::ContactsApi* | [**update_folder**](docs/ContactsApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a folder
 *SibApiV3Sdk::ContactsApi* | [**update_list**](docs/ContactsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
 *SibApiV3Sdk::EmailCampaignsApi* | [**create_email_campaign**](docs/EmailCampaignsApi.md#create_email_campaign) | **POST** /emailCampaigns | Create an email campaign
@@ -172,29 +172,29 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::SMSCampaignsApi* | [**send_test_sms**](docs/SMSCampaignsApi.md#send_test_sms) | **POST** /smsCampaigns/{campaignId}/sendTest | Send a test SMS campaign
 *SibApiV3Sdk::SMSCampaignsApi* | [**update_sms_campaign**](docs/SMSCampaignsApi.md#update_sms_campaign) | **PUT** /smsCampaigns/{campaignId} | Update an SMS campaign
 *SibApiV3Sdk::SMSCampaignsApi* | [**update_sms_campaign_status**](docs/SMSCampaignsApi.md#update_sms_campaign_status) | **PUT** /smsCampaigns/{campaignId}/status | Update a campaign's status
-*SibApiV3Sdk::SMTPApi* | [**create_smtp_template**](docs/SMTPApi.md#create_smtp_template) | **POST** /smtp/templates | Create an email template
-*SibApiV3Sdk::SMTPApi* | [**delete_hardbounces**](docs/SMTPApi.md#delete_hardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
-*SibApiV3Sdk::SMTPApi* | [**delete_smtp_template**](docs/SMTPApi.md#delete_smtp_template) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
-*SibApiV3Sdk::SMTPApi* | [**get_aggregated_smtp_report**](docs/SMTPApi.md#get_aggregated_smtp_report) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
-*SibApiV3Sdk::SMTPApi* | [**get_email_event_report**](docs/SMTPApi.md#get_email_event_report) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
-*SibApiV3Sdk::SMTPApi* | [**get_smtp_report**](docs/SMTPApi.md#get_smtp_report) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
-*SibApiV3Sdk::SMTPApi* | [**get_smtp_template**](docs/SMTPApi.md#get_smtp_template) | **GET** /smtp/templates/{templateId} | Returns the template information
-*SibApiV3Sdk::SMTPApi* | [**get_smtp_templates**](docs/SMTPApi.md#get_smtp_templates) | **GET** /smtp/templates | Get the list of email templates
-*SibApiV3Sdk::SMTPApi* | [**get_transac_blocked_contacts**](docs/SMTPApi.md#get_transac_blocked_contacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
-*SibApiV3Sdk::SMTPApi* | [**get_transac_email_content**](docs/SMTPApi.md#get_transac_email_content) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
-*SibApiV3Sdk::SMTPApi* | [**get_transac_emails_list**](docs/SMTPApi.md#get_transac_emails_list) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
-*SibApiV3Sdk::SMTPApi* | [**send_template**](docs/SMTPApi.md#send_template) | **POST** /smtp/templates/{templateId}/send | Send a template
-*SibApiV3Sdk::SMTPApi* | [**send_test_template**](docs/SMTPApi.md#send_test_template) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
-*SibApiV3Sdk::SMTPApi* | [**send_transac_email**](docs/SMTPApi.md#send_transac_email) | **POST** /smtp/email | Send a transactional email
-*SibApiV3Sdk::SMTPApi* | [**smtp_blocked_contacts_email_delete**](docs/SMTPApi.md#smtp_blocked_contacts_email_delete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
-*SibApiV3Sdk::SMTPApi* | [**smtp_log_message_id_delete**](docs/SMTPApi.md#smtp_log_message_id_delete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
-*SibApiV3Sdk::SMTPApi* | [**update_smtp_template**](docs/SMTPApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Update an email template
 *SibApiV3Sdk::SendersApi* | [**create_sender**](docs/SendersApi.md#create_sender) | **POST** /senders | Create a new sender
 *SibApiV3Sdk::SendersApi* | [**delete_sender**](docs/SendersApi.md#delete_sender) | **DELETE** /senders/{senderId} | Delete a sender
 *SibApiV3Sdk::SendersApi* | [**get_ips**](docs/SendersApi.md#get_ips) | **GET** /senders/ips | Get all the dedicated IPs for your account
 *SibApiV3Sdk::SendersApi* | [**get_ips_from_sender**](docs/SendersApi.md#get_ips_from_sender) | **GET** /senders/{senderId}/ips | Get all the dedicated IPs for a sender
 *SibApiV3Sdk::SendersApi* | [**get_senders**](docs/SendersApi.md#get_senders) | **GET** /senders | Get the list of all your senders
 *SibApiV3Sdk::SendersApi* | [**update_sender**](docs/SendersApi.md#update_sender) | **PUT** /senders/{senderId} | Update a sender
+*SibApiV3Sdk::TransactionalEmailsApi* | [**create_smtp_template**](docs/TransactionalEmailsApi.md#create_smtp_template) | **POST** /smtp/templates | Create an email template
+*SibApiV3Sdk::TransactionalEmailsApi* | [**delete_hardbounces**](docs/TransactionalEmailsApi.md#delete_hardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
+*SibApiV3Sdk::TransactionalEmailsApi* | [**delete_smtp_template**](docs/TransactionalEmailsApi.md#delete_smtp_template) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
+*SibApiV3Sdk::TransactionalEmailsApi* | [**get_aggregated_smtp_report**](docs/TransactionalEmailsApi.md#get_aggregated_smtp_report) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
+*SibApiV3Sdk::TransactionalEmailsApi* | [**get_email_event_report**](docs/TransactionalEmailsApi.md#get_email_event_report) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
+*SibApiV3Sdk::TransactionalEmailsApi* | [**get_smtp_report**](docs/TransactionalEmailsApi.md#get_smtp_report) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
+*SibApiV3Sdk::TransactionalEmailsApi* | [**get_smtp_template**](docs/TransactionalEmailsApi.md#get_smtp_template) | **GET** /smtp/templates/{templateId} | Returns the template information
+*SibApiV3Sdk::TransactionalEmailsApi* | [**get_smtp_templates**](docs/TransactionalEmailsApi.md#get_smtp_templates) | **GET** /smtp/templates | Get the list of email templates
+*SibApiV3Sdk::TransactionalEmailsApi* | [**get_transac_blocked_contacts**](docs/TransactionalEmailsApi.md#get_transac_blocked_contacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
+*SibApiV3Sdk::TransactionalEmailsApi* | [**get_transac_email_content**](docs/TransactionalEmailsApi.md#get_transac_email_content) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
+*SibApiV3Sdk::TransactionalEmailsApi* | [**get_transac_emails_list**](docs/TransactionalEmailsApi.md#get_transac_emails_list) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
+*SibApiV3Sdk::TransactionalEmailsApi* | [**send_template**](docs/TransactionalEmailsApi.md#send_template) | **POST** /smtp/templates/{templateId}/send | Send a template
+*SibApiV3Sdk::TransactionalEmailsApi* | [**send_test_template**](docs/TransactionalEmailsApi.md#send_test_template) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
+*SibApiV3Sdk::TransactionalEmailsApi* | [**send_transac_email**](docs/TransactionalEmailsApi.md#send_transac_email) | **POST** /smtp/email | Send a transactional email
+*SibApiV3Sdk::TransactionalEmailsApi* | [**smtp_blocked_contacts_email_delete**](docs/TransactionalEmailsApi.md#smtp_blocked_contacts_email_delete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
+*SibApiV3Sdk::TransactionalEmailsApi* | [**smtp_log_message_id_delete**](docs/TransactionalEmailsApi.md#smtp_log_message_id_delete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
+*SibApiV3Sdk::TransactionalEmailsApi* | [**update_smtp_template**](docs/TransactionalEmailsApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Update an email template
 *SibApiV3Sdk::TransactionalSMSApi* | [**get_sms_events**](docs/TransactionalSMSApi.md#get_sms_events) | **GET** /transactionalSMS/statistics/events | Get all your SMS activity (unaggregated events)
 *SibApiV3Sdk::TransactionalSMSApi* | [**get_transac_aggregated_sms_report**](docs/TransactionalSMSApi.md#get_transac_aggregated_sms_report) | **GET** /transactionalSMS/statistics/aggregatedReport | Get your SMS activity aggregated over a period of time
 *SibApiV3Sdk::TransactionalSMSApi* | [**get_transac_sms_report**](docs/TransactionalSMSApi.md#get_transac_sms_report) | **GET** /transactionalSMS/statistics/reports | Get your SMS activity aggregated per day
@@ -209,6 +209,11 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [SibApiV3Sdk::AbTestCampaignResult](docs/AbTestCampaignResult.md)
+ - [SibApiV3Sdk::AbTestCampaignResultClickedLinks](docs/AbTestCampaignResultClickedLinks.md)
+ - [SibApiV3Sdk::AbTestCampaignResultStatistics](docs/AbTestCampaignResultStatistics.md)
+ - [SibApiV3Sdk::AbTestVersionClicks](docs/AbTestVersionClicks.md)
+ - [SibApiV3Sdk::AbTestVersionClicksInner](docs/AbTestVersionClicksInner.md)
+ - [SibApiV3Sdk::AbTestVersionStats](docs/AbTestVersionStats.md)
  - [SibApiV3Sdk::AddChildDomain](docs/AddChildDomain.md)
  - [SibApiV3Sdk::AddContactToList](docs/AddContactToList.md)
  - [SibApiV3Sdk::AddCredits](docs/AddCredits.md)

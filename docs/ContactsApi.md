@@ -11,12 +11,12 @@ Method | HTTP request | Description
 [**create_folder**](ContactsApi.md#create_folder) | **POST** /contacts/folders | Create a folder
 [**create_list**](ContactsApi.md#create_list) | **POST** /contacts/lists | Create a list
 [**delete_attribute**](ContactsApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Delete an attribute
-[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /contacts/{email} | Delete a contact
+[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /contacts/{identifier} | Delete a contact
 [**delete_folder**](ContactsApi.md#delete_folder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
 [**delete_list**](ContactsApi.md#delete_list) | **DELETE** /contacts/lists/{listId} | Delete a list
 [**get_attributes**](ContactsApi.md#get_attributes) | **GET** /contacts/attributes | List all attributes
-[**get_contact_info**](ContactsApi.md#get_contact_info) | **GET** /contacts/{email} | Get a contact&#39;s details
-[**get_contact_stats**](ContactsApi.md#get_contact_stats) | **GET** /contacts/{email}/campaignStats | Get email campaigns&#39; statistics for a contact
+[**get_contact_info**](ContactsApi.md#get_contact_info) | **GET** /contacts/{identifier} | Get a contact&#39;s details
+[**get_contact_stats**](ContactsApi.md#get_contact_stats) | **GET** /contacts/{identifier}/campaignStats | Get email campaigns&#39; statistics for a contact
 [**get_contacts**](ContactsApi.md#get_contacts) | **GET** /contacts | Get all the contacts
 [**get_contacts_from_list**](ContactsApi.md#get_contacts_from_list) | **GET** /contacts/lists/{listId}/contacts | Get contacts in a list
 [**get_folder**](ContactsApi.md#get_folder) | **GET** /contacts/folders/{folderId} | Returns a folder&#39;s details
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 [**remove_contact_from_list**](ContactsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Delete a contact from a list
 [**request_contact_export**](ContactsApi.md#request_contact_export) | **POST** /contacts/export | Export contacts
 [**update_attribute**](ContactsApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
-[**update_contact**](ContactsApi.md#update_contact) | **PUT** /contacts/{email} | Update a contact
+[**update_contact**](ContactsApi.md#update_contact) | **PUT** /contacts/{identifier} | Update a contact
 [**update_folder**](ContactsApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a folder
 [**update_list**](ContactsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
 
@@ -59,7 +59,7 @@ api_instance = SibApiV3Sdk::ContactsApi.new
 
 list_id = 789 # Integer | Id of the list
 
-contact_emails = SibApiV3Sdk::AddContactToList.new # AddContactToList | Emails addresses of the contacts
+contact_emails = SibApiV3Sdk::AddContactToList.new # AddContactToList | Emails addresses OR IDs of the contacts
 
 
 begin
@@ -76,7 +76,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **Integer**| Id of the list | 
- **contact_emails** | [**AddContactToList**](AddContactToList.md)| Emails addresses of the contacts | 
+ **contact_emails** | [**AddContactToList**](AddContactToList.md)| Emails addresses OR IDs of the contacts | 
 
 ### Return type
 
@@ -442,7 +442,7 @@ nil (empty response body)
 
 
 # **delete_contact**
-> delete_contact(email)
+> delete_contact(identifier)
 
 Delete a contact
 
@@ -465,12 +465,12 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-email = 'email_example' # String | Email (urlencoded) of the contact
+identifier = 'identifier_example' # String | Email (urlencoded) OR ID of the contact
 
 
 begin
   #Delete a contact
-  api_instance.delete_contact(email)
+  api_instance.delete_contact(identifier)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->delete_contact: #{e}"
 end
@@ -480,7 +480,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| Email (urlencoded) of the contact | 
+ **identifier** | **String**| Email (urlencoded) OR ID of the contact | 
 
 ### Return type
 
@@ -661,7 +661,7 @@ This endpoint does not need any parameter.
 
 
 # **get_contact_info**
-> GetExtendedContactDetails get_contact_info(email)
+> GetExtendedContactDetails get_contact_info(identifier)
 
 Get a contact's details
 
@@ -684,12 +684,12 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-email = 'email_example' # String | Email (urlencoded) of the contact OR its SMS attribute value
+identifier = 'identifier_example' # String | Email (urlencoded) OR ID of the contact OR its SMS attribute value
 
 
 begin
   #Get a contact's details
-  result = api_instance.get_contact_info(email)
+  result = api_instance.get_contact_info(identifier)
   p result
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->get_contact_info: #{e}"
@@ -700,7 +700,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| Email (urlencoded) of the contact OR its SMS attribute value | 
+ **identifier** | **String**| Email (urlencoded) OR ID of the contact OR its SMS attribute value | 
 
 ### Return type
 
@@ -718,7 +718,7 @@ Name | Type | Description  | Notes
 
 
 # **get_contact_stats**
-> GetContactCampaignStats get_contact_stats(email, opts)
+> GetContactCampaignStats get_contact_stats(identifier, opts)
 
 Get email campaigns' statistics for a contact
 
@@ -741,7 +741,7 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-email = 'email_example' # String | Email address (urlencoded) of the contact
+identifier = 'identifier_example' # String | Email (urlencoded) OR ID of the contact
 
 opts = { 
   start_date: Date.parse('2013-10-20'), # Date | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
@@ -750,7 +750,7 @@ opts = {
 
 begin
   #Get email campaigns' statistics for a contact
-  result = api_instance.get_contact_stats(email, opts)
+  result = api_instance.get_contact_stats(identifier, opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->get_contact_stats: #{e}"
@@ -761,7 +761,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| Email address (urlencoded) of the contact | 
+ **identifier** | **String**| Email (urlencoded) OR ID of the contact | 
  **start_date** | **Date**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate | [optional] 
  **end_date** | **Date**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate | [optional] 
 
@@ -1289,7 +1289,7 @@ api_instance = SibApiV3Sdk::ContactsApi.new
 
 list_id = 789 # Integer | Id of the list
 
-contact_emails = SibApiV3Sdk::RemoveContactFromList.new # RemoveContactFromList | Emails adresses of the contact
+contact_emails = SibApiV3Sdk::RemoveContactFromList.new # RemoveContactFromList | Emails addresses OR IDs of the contacts
 
 
 begin
@@ -1306,7 +1306,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **Integer**| Id of the list | 
- **contact_emails** | [**RemoveContactFromList**](RemoveContactFromList.md)| Emails adresses of the contact | 
+ **contact_emails** | [**RemoveContactFromList**](RemoveContactFromList.md)| Emails addresses OR IDs of the contacts | 
 
 ### Return type
 
@@ -1445,7 +1445,7 @@ nil (empty response body)
 
 
 # **update_contact**
-> update_contact(email, update_contact)
+> update_contact(identifier, update_contact)
 
 Update a contact
 
@@ -1468,14 +1468,14 @@ end
 
 api_instance = SibApiV3Sdk::ContactsApi.new
 
-email = 'email_example' # String | Email (urlencoded) of the contact
+identifier = 'identifier_example' # String | Email (urlencoded) OR ID of the contact
 
 update_contact = SibApiV3Sdk::UpdateContact.new # UpdateContact | Values to update a contact
 
 
 begin
   #Update a contact
-  api_instance.update_contact(email, update_contact)
+  api_instance.update_contact(identifier, update_contact)
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->update_contact: #{e}"
 end
@@ -1485,7 +1485,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| Email (urlencoded) of the contact | 
+ **identifier** | **String**| Email (urlencoded) OR ID of the contact | 
  **update_contact** | [**UpdateContact**](UpdateContact.md)| Values to update a contact | 
 
 ### Return type

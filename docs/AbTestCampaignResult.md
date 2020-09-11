@@ -9,5 +9,7 @@ Name | Type | Description | Notes
 **open_rate** | **String** | Open rate for current winning version | [optional] 
 **click_rate** | **String** | Click rate for current winning version | [optional] 
 **winning_version_rate** | **String** | Open/Click rate for the winner version | [optional] 
+**statistics** | [**AbTestCampaignResultStatistics**](AbTestCampaignResultStatistics.md) |  | [optional] 
+**clicked_links** | [**AbTestCampaignResultClickedLinks**](AbTestCampaignResultClickedLinks.md) |  | [optional] 
 
 

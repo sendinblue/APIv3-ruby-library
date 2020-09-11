@@ -35,7 +35,7 @@ describe 'ContactsApi' do
   # unit tests for add_contact_to_list
   # Add existing contacts to a list
   # @param list_id Id of the list
-  # @param contact_emails Emails addresses of the contacts
+  # @param contact_emails Emails addresses OR IDs of the contacts
   # @param [Hash] opts the optional parameters
   # @return [PostContactInfo]
   describe 'add_contact_to_list test' do
@@ -115,7 +115,7 @@ describe 'ContactsApi' do
 
   # unit tests for delete_contact
   # Delete a contact
-  # @param email Email (urlencoded) of the contact
+  # @param identifier Email (urlencoded) OR ID of the contact
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_contact test' do
@@ -158,7 +158,7 @@ describe 'ContactsApi' do
 
   # unit tests for get_contact_info
   # Get a contact&#39;s details
-  # @param email Email (urlencoded) of the contact OR its SMS attribute value
+  # @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value
   # @param [Hash] opts the optional parameters
   # @return [GetExtendedContactDetails]
   describe 'get_contact_info test' do
@@ -169,7 +169,7 @@ describe 'ContactsApi' do
 
   # unit tests for get_contact_stats
   # Get email campaigns&#39; statistics for a contact
-  # @param email Email address (urlencoded) of the contact
+  # @param identifier Email (urlencoded) OR ID of the contact
   # @param [Hash] opts the optional parameters
   # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
   # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate
@@ -281,7 +281,7 @@ describe 'ContactsApi' do
   # unit tests for remove_contact_from_list
   # Delete a contact from a list
   # @param list_id Id of the list
-  # @param contact_emails Emails adresses of the contact
+  # @param contact_emails Emails addresses OR IDs of the contacts
   # @param [Hash] opts the optional parameters
   # @return [PostContactInfo]
   describe 'remove_contact_from_list test' do
@@ -317,7 +317,7 @@ describe 'ContactsApi' do
 
   # unit tests for update_contact
   # Update a contact
-  # @param email Email (urlencoded) of the contact
+  # @param identifier Email (urlencoded) OR ID of the contact
   # @param update_contact Values to update a contact
   # @param [Hash] opts the optional parameters
   # @return [nil]

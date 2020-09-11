@@ -13,58 +13,17 @@ Swagger Codegen version: 2.4.12
 require 'date'
 
 module SibApiV3Sdk
-  class CreateWebhook
-    # URL of the webhook
-    attr_accessor :url
-
-    # Description of the webhook
-    attr_accessor :description
-
-    # Events triggering the webhook. Possible values for Transactional type webhook – `sent` OR `request`, `delivered`, `hardBounce`, `softBounce`, `blocked`, `spam`, `invalid`, `deferred`, `click`, `opened`, `uniqueOpened` and `unsubscribed` and possible values for Marketing type webhook – `spam`, `opened`, `click`, `hardBounce`, `softBounce`, `unsubscribed`, `listAddition` & `delivered`
-    attr_accessor :events
-
-    # Type of the webhook
-    attr_accessor :type
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
+  # Information on clicked links for a particular version
+  class AbTestVersionClicks
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'url' => :'url',
-        :'description' => :'description',
-        :'events' => :'events',
-        :'type' => :'type'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'url' => :'String',
-        :'description' => :'String',
-        :'events' => :'Array<String>',
-        :'type' => :'String'
       }
     end
 
@@ -75,72 +34,26 @@ module SibApiV3Sdk
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'url')
-        self.url = attributes[:'url']
-      end
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'events')
-        if (value = attributes[:'events']).is_a?(Array)
-          self.events = value
-        end
-      end
-
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      else
-        self.type = 'transactional'
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @url.nil?
-        invalid_properties.push('invalid value for "url", url cannot be nil.')
-      end
-
-      if @events.nil?
-        invalid_properties.push('invalid value for "events", events cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @url.nil?
-      return false if @events.nil?
-      type_validator = EnumAttributeValidator.new('String', ['transactional', 'marketing'])
-      return false unless type_validator.valid?(@type)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] type Object to be assigned
-    def type=(type)
-      validator = EnumAttributeValidator.new('String', ['transactional', 'marketing'])
-      unless validator.valid?(type)
-        fail ArgumentError, 'invalid value for "type", must be one of #{validator.allowable_values}.'
-      end
-      @type = type
     end
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
-      self.class == o.class &&
-          url == o.url &&
-          description == o.description &&
-          events == o.events &&
-          type == o.type
+      self.class == o.class
     end
 
     # @see the `==` method
@@ -152,7 +65,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [url, description, events, type].hash
+      [].hash
     end
 
     # Builds the object from hash

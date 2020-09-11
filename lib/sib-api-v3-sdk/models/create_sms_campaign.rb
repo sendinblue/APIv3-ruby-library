@@ -17,7 +17,7 @@ module SibApiV3Sdk
     # Name of the campaign
     attr_accessor :name
 
-    # Name of the sender. The number of characters is limited to 11
+    # Name of the sender. **The number of characters is limited to 11 for alphanumeric characters and 15 for numeric characters**
     attr_accessor :sender
 
     # Content of the message. The maximum characters used per SMS is 160, if used more than that, it will be counted as more than one SMS
@@ -91,8 +91,8 @@ module SibApiV3Sdk
         invalid_properties.push('invalid value for "sender", sender cannot be nil.')
       end
 
-      if @sender.to_s.length > 11
-        invalid_properties.push('invalid value for "sender", the character length must be smaller than or equal to 11.')
+      if @sender.to_s.length > 15
+        invalid_properties.push('invalid value for "sender", the character length must be smaller than or equal to 15.')
       end
 
       if @content.nil?
@@ -107,7 +107,7 @@ module SibApiV3Sdk
     def valid?
       return false if @name.nil?
       return false if @sender.nil?
-      return false if @sender.to_s.length > 11
+      return false if @sender.to_s.length > 15
       return false if @content.nil?
       true
     end
@@ -119,8 +119,8 @@ module SibApiV3Sdk
         fail ArgumentError, 'sender cannot be nil'
       end
 
-      if sender.to_s.length > 11
-        fail ArgumentError, 'invalid value for "sender", the character length must be smaller than or equal to 11.'
+      if sender.to_s.length > 15
+        fail ArgumentError, 'invalid value for "sender", the character length must be smaller than or equal to 15.'
       end
 
       @sender = sender

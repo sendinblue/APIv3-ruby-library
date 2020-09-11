@@ -50,6 +50,9 @@ module SibApiV3Sdk
     # Number of deferred emails for the campaign
     attr_accessor :deferred
 
+    # Total number of non-delivered campaigns for a particular campaign id.
+    attr_accessor :return_bounce
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -64,7 +67,8 @@ module SibApiV3Sdk
         :'unique_views' => :'uniqueViews',
         :'unsubscriptions' => :'unsubscriptions',
         :'viewed' => :'viewed',
-        :'deferred' => :'deferred'
+        :'deferred' => :'deferred',
+        :'return_bounce' => :'returnBounce'
       }
     end
 
@@ -82,7 +86,8 @@ module SibApiV3Sdk
         :'unique_views' => :'Integer',
         :'unsubscriptions' => :'Integer',
         :'viewed' => :'Integer',
-        :'deferred' => :'Integer'
+        :'deferred' => :'Integer',
+        :'return_bounce' => :'Integer'
       }
     end
 
@@ -140,6 +145,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'deferred')
         self.deferred = attributes[:'deferred']
+      end
+
+      if attributes.has_key?(:'returnBounce')
+        self.return_bounce = attributes[:'returnBounce']
       end
     end
 
@@ -222,7 +231,8 @@ module SibApiV3Sdk
           unique_views == o.unique_views &&
           unsubscriptions == o.unsubscriptions &&
           viewed == o.viewed &&
-          deferred == o.deferred
+          deferred == o.deferred &&
+          return_bounce == o.return_bounce
     end
 
     # @see the `==` method
@@ -234,7 +244,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [list_id, unique_clicks, clickers, complaints, delivered, sent, soft_bounces, hard_bounces, unique_views, unsubscriptions, viewed, deferred].hash
+      [list_id, unique_clicks, clickers, complaints, delivered, sent, soft_bounces, hard_bounces, unique_views, unsubscriptions, viewed, deferred, return_bounce].hash
     end
 
     # Builds the object from hash

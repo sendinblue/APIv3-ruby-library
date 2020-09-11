@@ -21,7 +21,7 @@ module SibApiV3Sdk
     end
     # Add existing contacts to a list
     # @param list_id Id of the list
-    # @param contact_emails Emails addresses of the contacts
+    # @param contact_emails Emails addresses OR IDs of the contacts
     # @param [Hash] opts the optional parameters
     # @return [PostContactInfo]
     def add_contact_to_list(list_id, contact_emails, opts = {})
@@ -31,7 +31,7 @@ module SibApiV3Sdk
 
     # Add existing contacts to a list
     # @param list_id Id of the list
-    # @param contact_emails Emails addresses of the contacts
+    # @param contact_emails Emails addresses OR IDs of the contacts
     # @param [Hash] opts the optional parameters
     # @return [Array<(PostContactInfo, Fixnum, Hash)>] PostContactInfo data, response status code and response headers
     def add_contact_to_list_with_http_info(list_id, contact_emails, opts = {})
@@ -413,28 +413,28 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Delete a contact
-    # @param email Email (urlencoded) of the contact
+    # @param identifier Email (urlencoded) OR ID of the contact
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_contact(email, opts = {})
-      delete_contact_with_http_info(email, opts)
+    def delete_contact(identifier, opts = {})
+      delete_contact_with_http_info(identifier, opts)
       nil
     end
 
     # Delete a contact
-    # @param email Email (urlencoded) of the contact
+    # @param identifier Email (urlencoded) OR ID of the contact
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def delete_contact_with_http_info(email, opts = {})
+    def delete_contact_with_http_info(identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContactsApi.delete_contact ...'
       end
-      # verify the required parameter 'email' is set
-      if @api_client.config.client_side_validation && email.nil?
-        fail ArgumentError, "Missing the required parameter 'email' when calling ContactsApi.delete_contact"
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ContactsApi.delete_contact"
       end
       # resource path
-      local_var_path = '/contacts/{email}'.sub('{' + 'email' + '}', email.to_s)
+      local_var_path = '/contacts/{identifier}'.sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -612,28 +612,28 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Get a contact's details
-    # @param email Email (urlencoded) of the contact OR its SMS attribute value
+    # @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value
     # @param [Hash] opts the optional parameters
     # @return [GetExtendedContactDetails]
-    def get_contact_info(email, opts = {})
-      data, _status_code, _headers = get_contact_info_with_http_info(email, opts)
+    def get_contact_info(identifier, opts = {})
+      data, _status_code, _headers = get_contact_info_with_http_info(identifier, opts)
       data
     end
 
     # Get a contact&#39;s details
-    # @param email Email (urlencoded) of the contact OR its SMS attribute value
+    # @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetExtendedContactDetails, Fixnum, Hash)>] GetExtendedContactDetails data, response status code and response headers
-    def get_contact_info_with_http_info(email, opts = {})
+    def get_contact_info_with_http_info(identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContactsApi.get_contact_info ...'
       end
-      # verify the required parameter 'email' is set
-      if @api_client.config.client_side_validation && email.nil?
-        fail ArgumentError, "Missing the required parameter 'email' when calling ContactsApi.get_contact_info"
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ContactsApi.get_contact_info"
       end
       # resource path
-      local_var_path = '/contacts/{email}'.sub('{' + 'email' + '}', email.to_s)
+      local_var_path = '/contacts/{identifier}'.sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -664,32 +664,32 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Get email campaigns' statistics for a contact
-    # @param email Email address (urlencoded) of the contact
+    # @param identifier Email (urlencoded) OR ID of the contact
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
     # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate
     # @return [GetContactCampaignStats]
-    def get_contact_stats(email, opts = {})
-      data, _status_code, _headers = get_contact_stats_with_http_info(email, opts)
+    def get_contact_stats(identifier, opts = {})
+      data, _status_code, _headers = get_contact_stats_with_http_info(identifier, opts)
       data
     end
 
     # Get email campaigns&#39; statistics for a contact
-    # @param email Email address (urlencoded) of the contact
+    # @param identifier Email (urlencoded) OR ID of the contact
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
     # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate
     # @return [Array<(GetContactCampaignStats, Fixnum, Hash)>] GetContactCampaignStats data, response status code and response headers
-    def get_contact_stats_with_http_info(email, opts = {})
+    def get_contact_stats_with_http_info(identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContactsApi.get_contact_stats ...'
       end
-      # verify the required parameter 'email' is set
-      if @api_client.config.client_side_validation && email.nil?
-        fail ArgumentError, "Missing the required parameter 'email' when calling ContactsApi.get_contact_stats"
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ContactsApi.get_contact_stats"
       end
       # resource path
-      local_var_path = '/contacts/{email}/campaignStats'.sub('{' + 'email' + '}', email.to_s)
+      local_var_path = '/contacts/{identifier}/campaignStats'.sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -1187,7 +1187,7 @@ module SibApiV3Sdk
     end
     # Delete a contact from a list
     # @param list_id Id of the list
-    # @param contact_emails Emails adresses of the contact
+    # @param contact_emails Emails addresses OR IDs of the contacts
     # @param [Hash] opts the optional parameters
     # @return [PostContactInfo]
     def remove_contact_from_list(list_id, contact_emails, opts = {})
@@ -1197,7 +1197,7 @@ module SibApiV3Sdk
 
     # Delete a contact from a list
     # @param list_id Id of the list
-    # @param contact_emails Emails adresses of the contact
+    # @param contact_emails Emails addresses OR IDs of the contacts
     # @param [Hash] opts the optional parameters
     # @return [Array<(PostContactInfo, Fixnum, Hash)>] PostContactInfo data, response status code and response headers
     def remove_contact_from_list_with_http_info(list_id, contact_emails, opts = {})
@@ -1365,34 +1365,34 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Update a contact
-    # @param email Email (urlencoded) of the contact
+    # @param identifier Email (urlencoded) OR ID of the contact
     # @param update_contact Values to update a contact
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def update_contact(email, update_contact, opts = {})
-      update_contact_with_http_info(email, update_contact, opts)
+    def update_contact(identifier, update_contact, opts = {})
+      update_contact_with_http_info(identifier, update_contact, opts)
       nil
     end
 
     # Update a contact
-    # @param email Email (urlencoded) of the contact
+    # @param identifier Email (urlencoded) OR ID of the contact
     # @param update_contact Values to update a contact
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def update_contact_with_http_info(email, update_contact, opts = {})
+    def update_contact_with_http_info(identifier, update_contact, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContactsApi.update_contact ...'
       end
-      # verify the required parameter 'email' is set
-      if @api_client.config.client_side_validation && email.nil?
-        fail ArgumentError, "Missing the required parameter 'email' when calling ContactsApi.update_contact"
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ContactsApi.update_contact"
       end
       # verify the required parameter 'update_contact' is set
       if @api_client.config.client_side_validation && update_contact.nil?
         fail ArgumentError, "Missing the required parameter 'update_contact' when calling ContactsApi.update_contact"
       end
       # resource path
-      local_var_path = '/contacts/{email}'.sub('{' + 'email' + '}', email.to_s)
+      local_var_path = '/contacts/{identifier}'.sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}

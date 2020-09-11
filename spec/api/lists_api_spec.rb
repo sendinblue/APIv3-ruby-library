@@ -35,7 +35,7 @@ describe 'ListsApi' do
   # unit tests for add_contact_to_list
   # Add existing contacts to a list
   # @param list_id Id of the list
-  # @param contact_emails Emails addresses of the contacts
+  # @param contact_emails Emails addresses OR IDs of the contacts
   # @param [Hash] opts the optional parameters
   # @return [PostContactInfo]
   describe 'add_contact_to_list test' do
@@ -119,7 +119,7 @@ describe 'ListsApi' do
   # unit tests for remove_contact_from_list
   # Delete a contact from a list
   # @param list_id Id of the list
-  # @param contact_emails Emails adresses of the contact
+  # @param contact_emails Emails addresses OR IDs of the contacts
   # @param [Hash] opts the optional parameters
   # @return [PostContactInfo]
   describe 'remove_contact_from_list test' do

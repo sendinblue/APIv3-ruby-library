@@ -14,20 +14,25 @@ require 'date'
 
 module SibApiV3Sdk
   class AddContactToList
-    # Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
+    # Mandatory if IDs are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
     attr_accessor :emails
+
+    # Mandatory if Emails are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
+    attr_accessor :ids
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'emails' => :'emails'
+        :'emails' => :'emails',
+        :'ids' => :'ids'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'emails' => :'Array<String>'
+        :'emails' => :'Array<String>',
+        :'ids' => :'Array<Integer>'
       }
     end
 
@@ -42,6 +47,12 @@ module SibApiV3Sdk
       if attributes.has_key?(:'emails')
         if (value = attributes[:'emails']).is_a?(Array)
           self.emails = value
+        end
+      end
+
+      if attributes.has_key?(:'ids')
+        if (value = attributes[:'ids']).is_a?(Array)
+          self.ids = value
         end
       end
     end
@@ -64,7 +75,8 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          emails == o.emails
+          emails == o.emails &&
+          ids == o.ids
     end
 
     # @see the `==` method
@@ -76,7 +88,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [emails].hash
+      [emails, ids].hash
     end
 
     # Builds the object from hash

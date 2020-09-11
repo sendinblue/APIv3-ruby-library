@@ -1,26 +1,26 @@
-# SibApiV3Sdk::SMTPApi
+# SibApiV3Sdk::TransactionalEmailsApi
 
 All URIs are relative to *https://api.sendinblue.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_smtp_template**](SMTPApi.md#create_smtp_template) | **POST** /smtp/templates | Create an email template
-[**delete_hardbounces**](SMTPApi.md#delete_hardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
-[**delete_smtp_template**](SMTPApi.md#delete_smtp_template) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
-[**get_aggregated_smtp_report**](SMTPApi.md#get_aggregated_smtp_report) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
-[**get_email_event_report**](SMTPApi.md#get_email_event_report) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
-[**get_smtp_report**](SMTPApi.md#get_smtp_report) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
-[**get_smtp_template**](SMTPApi.md#get_smtp_template) | **GET** /smtp/templates/{templateId} | Returns the template information
-[**get_smtp_templates**](SMTPApi.md#get_smtp_templates) | **GET** /smtp/templates | Get the list of email templates
-[**get_transac_blocked_contacts**](SMTPApi.md#get_transac_blocked_contacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
-[**get_transac_email_content**](SMTPApi.md#get_transac_email_content) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
-[**get_transac_emails_list**](SMTPApi.md#get_transac_emails_list) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
-[**send_template**](SMTPApi.md#send_template) | **POST** /smtp/templates/{templateId}/send | Send a template
-[**send_test_template**](SMTPApi.md#send_test_template) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
-[**send_transac_email**](SMTPApi.md#send_transac_email) | **POST** /smtp/email | Send a transactional email
-[**smtp_blocked_contacts_email_delete**](SMTPApi.md#smtp_blocked_contacts_email_delete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
-[**smtp_log_message_id_delete**](SMTPApi.md#smtp_log_message_id_delete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
-[**update_smtp_template**](SMTPApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Update an email template
+[**create_smtp_template**](TransactionalEmailsApi.md#create_smtp_template) | **POST** /smtp/templates | Create an email template
+[**delete_hardbounces**](TransactionalEmailsApi.md#delete_hardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
+[**delete_smtp_template**](TransactionalEmailsApi.md#delete_smtp_template) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
+[**get_aggregated_smtp_report**](TransactionalEmailsApi.md#get_aggregated_smtp_report) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
+[**get_email_event_report**](TransactionalEmailsApi.md#get_email_event_report) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
+[**get_smtp_report**](TransactionalEmailsApi.md#get_smtp_report) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
+[**get_smtp_template**](TransactionalEmailsApi.md#get_smtp_template) | **GET** /smtp/templates/{templateId} | Returns the template information
+[**get_smtp_templates**](TransactionalEmailsApi.md#get_smtp_templates) | **GET** /smtp/templates | Get the list of email templates
+[**get_transac_blocked_contacts**](TransactionalEmailsApi.md#get_transac_blocked_contacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
+[**get_transac_email_content**](TransactionalEmailsApi.md#get_transac_email_content) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
+[**get_transac_emails_list**](TransactionalEmailsApi.md#get_transac_emails_list) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
+[**send_template**](TransactionalEmailsApi.md#send_template) | **POST** /smtp/templates/{templateId}/send | Send a template
+[**send_test_template**](TransactionalEmailsApi.md#send_test_template) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
+[**send_transac_email**](TransactionalEmailsApi.md#send_transac_email) | **POST** /smtp/email | Send a transactional email
+[**smtp_blocked_contacts_email_delete**](TransactionalEmailsApi.md#smtp_blocked_contacts_email_delete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
+[**smtp_log_message_id_delete**](TransactionalEmailsApi.md#smtp_log_message_id_delete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
+[**update_smtp_template**](TransactionalEmailsApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Update an email template
 
 
 # **create_smtp_template**
@@ -45,7 +45,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 smtp_template = SibApiV3Sdk::CreateSmtpTemplate.new # CreateSmtpTemplate | values to update in transactional email template
 
@@ -55,7 +55,7 @@ begin
   result = api_instance.create_smtp_template(smtp_template)
   p result
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->create_smtp_template: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->create_smtp_template: #{e}"
 end
 ```
 
@@ -104,7 +104,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 opts = { 
   delete_hardbounces: SibApiV3Sdk::DeleteHardbounces.new # DeleteHardbounces | values to delete hardbounces
@@ -114,7 +114,7 @@ begin
   #Delete hardbounces
   api_instance.delete_hardbounces(opts)
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->delete_hardbounces: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->delete_hardbounces: #{e}"
 end
 ```
 
@@ -161,7 +161,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 template_id = 789 # Integer | id of the template
 
@@ -170,7 +170,7 @@ begin
   #Delete an inactive email template
   api_instance.delete_smtp_template(template_id)
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->delete_smtp_template: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->delete_smtp_template: #{e}"
 end
 ```
 
@@ -217,7 +217,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 opts = { 
   start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
@@ -231,7 +231,7 @@ begin
   result = api_instance.get_aggregated_smtp_report(opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->get_aggregated_smtp_report: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->get_aggregated_smtp_report: #{e}"
 end
 ```
 
@@ -281,7 +281,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 opts = { 
   limit: 50, # Integer | Number limitation for the result returned
@@ -301,7 +301,7 @@ begin
   result = api_instance.get_email_event_report(opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->get_email_event_report: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->get_email_event_report: #{e}"
 end
 ```
 
@@ -357,7 +357,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 opts = { 
   limit: 10, # Integer | Number of documents returned per page
@@ -373,7 +373,7 @@ begin
   result = api_instance.get_smtp_report(opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->get_smtp_report: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->get_smtp_report: #{e}"
 end
 ```
 
@@ -425,7 +425,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 template_id = 789 # Integer | id of the template
 
@@ -435,7 +435,7 @@ begin
   result = api_instance.get_smtp_template(template_id)
   p result
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->get_smtp_template: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->get_smtp_template: #{e}"
 end
 ```
 
@@ -482,7 +482,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 opts = { 
   template_status: true, # BOOLEAN | Filter on the status of the template. Active = true, inactive = false
@@ -495,7 +495,7 @@ begin
   result = api_instance.get_smtp_templates(opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->get_smtp_templates: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->get_smtp_templates: #{e}"
 end
 ```
 
@@ -544,7 +544,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 opts = { 
   start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts
@@ -559,7 +559,7 @@ begin
   result = api_instance.get_transac_blocked_contacts(opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->get_transac_blocked_contacts: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->get_transac_blocked_contacts: #{e}"
 end
 ```
 
@@ -610,7 +610,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 uuid = 'uuid_example' # String | Unique id of the transactional email that has been sent to a particular contact
 
@@ -620,7 +620,7 @@ begin
   result = api_instance.get_transac_email_content(uuid)
   p result
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->get_transac_email_content: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->get_transac_email_content: #{e}"
 end
 ```
 
@@ -669,7 +669,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 opts = { 
   email: 'email_example', # String | Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
@@ -684,7 +684,7 @@ begin
   result = api_instance.get_transac_emails_list(opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->get_transac_emails_list: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->get_transac_emails_list: #{e}"
 end
 ```
 
@@ -737,7 +737,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 template_id = 789 # Integer | Id of the template
 
@@ -749,7 +749,7 @@ begin
   result = api_instance.send_template(template_id, send_email)
   p result
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->send_template: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->send_template: #{e}"
 end
 ```
 
@@ -797,7 +797,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 template_id = 789 # Integer | Id of the template
 
@@ -808,7 +808,7 @@ begin
   #Send a template to your test list
   api_instance.send_test_template(template_id, send_test_email)
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->send_test_template: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->send_test_template: #{e}"
 end
 ```
 
@@ -856,7 +856,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 send_smtp_email = SibApiV3Sdk::SendSmtpEmail.new # SendSmtpEmail | Values to send a transactional email
 
@@ -866,7 +866,7 @@ begin
   result = api_instance.send_transac_email(send_smtp_email)
   p result
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->send_transac_email: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->send_transac_email: #{e}"
 end
 ```
 
@@ -913,7 +913,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 email = 'email_example' # String | contact email (urlencoded) to unblock.
 
@@ -922,7 +922,7 @@ begin
   #Unblock or resubscribe a transactional contact
   api_instance.smtp_blocked_contacts_email_delete(email)
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->smtp_blocked_contacts_email_delete: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->smtp_blocked_contacts_email_delete: #{e}"
 end
 ```
 
@@ -969,7 +969,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 message_id = 'message_id_example' # String | MessageId of the transactional log to delete
 
@@ -978,7 +978,7 @@ begin
   #Delete an SMTP transactional log
   api_instance.smtp_log_message_id_delete(message_id)
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->smtp_log_message_id_delete: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->smtp_log_message_id_delete: #{e}"
 end
 ```
 
@@ -1025,7 +1025,7 @@ SibApiV3Sdk.configure do |config|
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
 
-api_instance = SibApiV3Sdk::SMTPApi.new
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 template_id = 789 # Integer | id of the template
 
@@ -1036,7 +1036,7 @@ begin
   #Update an email template
   api_instance.update_smtp_template(template_id, smtp_template)
 rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling SMTPApi->update_smtp_template: #{e}"
+  puts "Exception when calling TransactionalEmailsApi->update_smtp_template: #{e}"
 end
 ```
 

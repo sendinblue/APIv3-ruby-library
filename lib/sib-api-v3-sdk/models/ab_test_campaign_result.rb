@@ -32,6 +32,10 @@ module SibApiV3Sdk
     # Open/Click rate for the winner version
     attr_accessor :winning_version_rate
 
+    attr_accessor :statistics
+
+    attr_accessor :clicked_links
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -62,7 +66,9 @@ module SibApiV3Sdk
         :'winning_subject_line' => :'winningSubjectLine',
         :'open_rate' => :'openRate',
         :'click_rate' => :'clickRate',
-        :'winning_version_rate' => :'winningVersionRate'
+        :'winning_version_rate' => :'winningVersionRate',
+        :'statistics' => :'statistics',
+        :'clicked_links' => :'clickedLinks'
       }
     end
 
@@ -74,7 +80,9 @@ module SibApiV3Sdk
         :'winning_subject_line' => :'String',
         :'open_rate' => :'String',
         :'click_rate' => :'String',
-        :'winning_version_rate' => :'String'
+        :'winning_version_rate' => :'String',
+        :'statistics' => :'AbTestCampaignResultStatistics',
+        :'clicked_links' => :'AbTestCampaignResultClickedLinks'
       }
     end
 
@@ -108,6 +116,14 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'winningVersionRate')
         self.winning_version_rate = attributes[:'winningVersionRate']
+      end
+
+      if attributes.has_key?(:'statistics')
+        self.statistics = attributes[:'statistics']
+      end
+
+      if attributes.has_key?(:'clickedLinks')
+        self.clicked_links = attributes[:'clickedLinks']
       end
     end
 
@@ -158,7 +174,9 @@ module SibApiV3Sdk
           winning_subject_line == o.winning_subject_line &&
           open_rate == o.open_rate &&
           click_rate == o.click_rate &&
-          winning_version_rate == o.winning_version_rate
+          winning_version_rate == o.winning_version_rate &&
+          statistics == o.statistics &&
+          clicked_links == o.clicked_links
     end
 
     # @see the `==` method
@@ -170,7 +188,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [winning_version, winning_criteria, winning_subject_line, open_rate, click_rate, winning_version_rate].hash
+      [winning_version, winning_criteria, winning_subject_line, open_rate, click_rate, winning_version_rate, statistics, clicked_links].hash
     end
 
     # Builds the object from hash

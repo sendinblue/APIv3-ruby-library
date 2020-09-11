@@ -156,77 +156,12 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @range.nil?
-        invalid_properties.push('invalid value for "range", range cannot be nil.')
-      end
-
-      if @requests.nil?
-        invalid_properties.push('invalid value for "requests", requests cannot be nil.')
-      end
-
-      if @delivered.nil?
-        invalid_properties.push('invalid value for "delivered", delivered cannot be nil.')
-      end
-
-      if @hard_bounces.nil?
-        invalid_properties.push('invalid value for "hard_bounces", hard_bounces cannot be nil.')
-      end
-
-      if @soft_bounces.nil?
-        invalid_properties.push('invalid value for "soft_bounces", soft_bounces cannot be nil.')
-      end
-
-      if @clicks.nil?
-        invalid_properties.push('invalid value for "clicks", clicks cannot be nil.')
-      end
-
-      if @unique_clicks.nil?
-        invalid_properties.push('invalid value for "unique_clicks", unique_clicks cannot be nil.')
-      end
-
-      if @opens.nil?
-        invalid_properties.push('invalid value for "opens", opens cannot be nil.')
-      end
-
-      if @unique_opens.nil?
-        invalid_properties.push('invalid value for "unique_opens", unique_opens cannot be nil.')
-      end
-
-      if @spam_reports.nil?
-        invalid_properties.push('invalid value for "spam_reports", spam_reports cannot be nil.')
-      end
-
-      if @blocked.nil?
-        invalid_properties.push('invalid value for "blocked", blocked cannot be nil.')
-      end
-
-      if @invalid.nil?
-        invalid_properties.push('invalid value for "invalid", invalid cannot be nil.')
-      end
-
-      if @unsubscribed.nil?
-        invalid_properties.push('invalid value for "unsubscribed", unsubscribed cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @range.nil?
-      return false if @requests.nil?
-      return false if @delivered.nil?
-      return false if @hard_bounces.nil?
-      return false if @soft_bounces.nil?
-      return false if @clicks.nil?
-      return false if @unique_clicks.nil?
-      return false if @opens.nil?
-      return false if @unique_opens.nil?
-      return false if @spam_reports.nil?
-      return false if @blocked.nil?
-      return false if @invalid.nil?
-      return false if @unsubscribed.nil?
       true
     end
 

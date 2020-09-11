@@ -14,7 +14,7 @@ require 'date'
 
 module SibApiV3Sdk
   class SendTransacSms
-    # Name of the sender. Only alphanumeric characters. No more than 11 characters
+    # Name of the sender. **The number of characters is limited to 11 for alphanumeric characters and 15 for numeric characters**
     attr_accessor :sender
 
     # Mobile number to send SMS with the country code
@@ -121,8 +121,8 @@ module SibApiV3Sdk
         invalid_properties.push('invalid value for "sender", sender cannot be nil.')
       end
 
-      if @sender.to_s.length > 11
-        invalid_properties.push('invalid value for "sender", the character length must be smaller than or equal to 11.')
+      if @sender.to_s.length > 15
+        invalid_properties.push('invalid value for "sender", the character length must be smaller than or equal to 15.')
       end
 
       if @recipient.nil?
@@ -140,7 +140,7 @@ module SibApiV3Sdk
     # @return true if the model is valid
     def valid?
       return false if @sender.nil?
-      return false if @sender.to_s.length > 11
+      return false if @sender.to_s.length > 15
       return false if @recipient.nil?
       return false if @content.nil?
       type_validator = EnumAttributeValidator.new('String', ['transactional', 'marketing'])
@@ -155,8 +155,8 @@ module SibApiV3Sdk
         fail ArgumentError, 'sender cannot be nil'
       end
 
-      if sender.to_s.length > 11
-        fail ArgumentError, 'invalid value for "sender", the character length must be smaller than or equal to 11.'
+      if sender.to_s.length > 15
+        fail ArgumentError, 'invalid value for "sender", the character length must be smaller than or equal to 15.'
       end
 
       @sender = sender
