@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.12
 require 'date'
 
 module SibApiV3Sdk
-  # Mandatory if 'templateId' is not passed. Pass name (optional) and email of sender from which emails will be sent. For example, {\"name\":\"Mary from MyShop\", \"email\":\"no-reply@myshop.com\"}
+  # Mandatory if `templateId` is not passed. Pass name (optional) and email or id of sender from which emails will be sent. `name` will be ignored if passed along with sender `id`. For example, {\"name\":\"Mary from MyShop\", \"email\":\"no-reply@myshop.com\"} or {\"id\":2}
   class SendSmtpEmailSender
     # Name of the sender from which the emails will be sent. Maximum allowed characters are 70.
     attr_accessor :name
@@ -21,11 +21,15 @@ module SibApiV3Sdk
     # Email of the sender from which the emails will be sent
     attr_accessor :email
 
+    # Id of the sender from which the emails will be sent
+    attr_accessor :id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
-        :'email' => :'email'
+        :'email' => :'email',
+        :'id' => :'id'
       }
     end
 
@@ -33,7 +37,8 @@ module SibApiV3Sdk
     def self.swagger_types
       {
         :'name' => :'String',
-        :'email' => :'String'
+        :'email' => :'String',
+        :'id' => :'Integer'
       }
     end
 
@@ -51,6 +56,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'email')
         self.email = attributes[:'email']
+      end
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
     end
 
@@ -78,7 +87,8 @@ module SibApiV3Sdk
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
-          email == o.email
+          email == o.email &&
+          id == o.id
     end
 
     # @see the `==` method
@@ -90,7 +100,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, email].hash
+      [name, email, id].hash
     end
 
     # Builds the object from hash

@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **unsubscriptions** | **Integer** | Number of unsubscription for the campaign | 
 **viewed** | **Integer** | Number of openings for the campaign | 
 **deferred** | **Integer** | Number of deferred emails for the campaign | [optional] 
+**return_bounce** | **Integer** | Total number of non-delivered campaigns for a particular campaign id. | [optional] 
 
 

@@ -17,13 +17,17 @@ module SibApiV3Sdk
     # Required if 'all' is false. Emails to remove from a list. You can pass a maximum of 150 emails for removal in one request.
     attr_accessor :emails
 
-    # Required if 'emails' is empty. Remove all existing contacts from a list.  A process will be created in this scenario. You can fetch the process details to know about the progress
+    # Mandatory if Emails are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
+    attr_accessor :ids
+
+    # Required if none of 'emails' or 'ids' are passed. Remove all existing contacts from a list.  A process will be created in this scenario. You can fetch the process details to know about the progress
     attr_accessor :all
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'emails' => :'emails',
+        :'ids' => :'ids',
         :'all' => :'all'
       }
     end
@@ -32,6 +36,7 @@ module SibApiV3Sdk
     def self.swagger_types
       {
         :'emails' => :'Array<String>',
+        :'ids' => :'Array<Integer>',
         :'all' => :'BOOLEAN'
       }
     end
@@ -47,6 +52,12 @@ module SibApiV3Sdk
       if attributes.has_key?(:'emails')
         if (value = attributes[:'emails']).is_a?(Array)
           self.emails = value
+        end
+      end
+
+      if attributes.has_key?(:'ids')
+        if (value = attributes[:'ids']).is_a?(Array)
+          self.ids = value
         end
       end
 
@@ -74,6 +85,7 @@ module SibApiV3Sdk
       return true if self.equal?(o)
       self.class == o.class &&
           emails == o.emails &&
+          ids == o.ids &&
           all == o.all
     end
 
@@ -86,7 +98,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [emails, all].hash
+      [emails, ids, all].hash
     end
 
     # Builds the object from hash

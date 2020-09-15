@@ -41,7 +41,7 @@ api_instance = SibApiV3Sdk::ListsApi.new
 
 list_id = 789 # Integer | Id of the list
 
-contact_emails = SibApiV3Sdk::AddContactToList.new # AddContactToList | Emails addresses of the contacts
+contact_emails = SibApiV3Sdk::AddContactToList.new # AddContactToList | Emails addresses OR IDs of the contacts
 
 
 begin
@@ -58,7 +58,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **Integer**| Id of the list | 
- **contact_emails** | [**AddContactToList**](AddContactToList.md)| Emails addresses of the contacts | 
+ **contact_emails** | [**AddContactToList**](AddContactToList.md)| Emails addresses OR IDs of the contacts | 
 
 ### Return type
 
@@ -459,7 +459,7 @@ api_instance = SibApiV3Sdk::ListsApi.new
 
 list_id = 789 # Integer | Id of the list
 
-contact_emails = SibApiV3Sdk::RemoveContactFromList.new # RemoveContactFromList | Emails adresses of the contact
+contact_emails = SibApiV3Sdk::RemoveContactFromList.new # RemoveContactFromList | Emails addresses OR IDs of the contacts
 
 
 begin
@@ -476,7 +476,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **Integer**| Id of the list | 
- **contact_emails** | [**RemoveContactFromList**](RemoveContactFromList.md)| Emails adresses of the contact | 
+ **contact_emails** | [**RemoveContactFromList**](RemoveContactFromList.md)| Emails addresses OR IDs of the contacts | 
 
 ### Return type
 

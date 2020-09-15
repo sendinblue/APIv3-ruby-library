@@ -109,6 +109,10 @@ module SibApiV3Sdk
         invalid_properties.push('invalid value for "template_id", template_id cannot be nil.')
       end
 
+      if @redirection_url.nil?
+        invalid_properties.push('invalid value for "redirection_url", redirection_url cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -118,6 +122,7 @@ module SibApiV3Sdk
       return false if @email.nil?
       return false if @include_list_ids.nil?
       return false if @template_id.nil?
+      return false if @redirection_url.nil?
       true
     end
 

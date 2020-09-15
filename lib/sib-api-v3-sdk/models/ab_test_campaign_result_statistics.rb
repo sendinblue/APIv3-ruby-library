@@ -13,58 +13,40 @@ Swagger Codegen version: 2.4.12
 require 'date'
 
 module SibApiV3Sdk
-  class CreateWebhook
-    # URL of the webhook
-    attr_accessor :url
+  class AbTestCampaignResultStatistics
+    attr_accessor :openers
 
-    # Description of the webhook
-    attr_accessor :description
+    attr_accessor :clicks
 
-    # Events triggering the webhook. Possible values for Transactional type webhook – `sent` OR `request`, `delivered`, `hardBounce`, `softBounce`, `blocked`, `spam`, `invalid`, `deferred`, `click`, `opened`, `uniqueOpened` and `unsubscribed` and possible values for Marketing type webhook – `spam`, `opened`, `click`, `hardBounce`, `softBounce`, `unsubscribed`, `listAddition` & `delivered`
-    attr_accessor :events
+    attr_accessor :unsubscribed
 
-    # Type of the webhook
-    attr_accessor :type
+    attr_accessor :hard_bounces
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
+    attr_accessor :soft_bounces
 
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :complaints
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'url' => :'url',
-        :'description' => :'description',
-        :'events' => :'events',
-        :'type' => :'type'
+        :'openers' => :'openers',
+        :'clicks' => :'clicks',
+        :'unsubscribed' => :'unsubscribed',
+        :'hard_bounces' => :'hardBounces',
+        :'soft_bounces' => :'softBounces',
+        :'complaints' => :'complaints'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'url' => :'String',
-        :'description' => :'String',
-        :'events' => :'Array<String>',
-        :'type' => :'String'
+        :'openers' => :'AbTestVersionStats',
+        :'clicks' => :'AbTestVersionStats',
+        :'unsubscribed' => :'AbTestVersionStats',
+        :'hard_bounces' => :'AbTestVersionStats',
+        :'soft_bounces' => :'AbTestVersionStats',
+        :'complaints' => :'AbTestVersionStats'
       }
     end
 
@@ -76,24 +58,28 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'url')
-        self.url = attributes[:'url']
+      if attributes.has_key?(:'openers')
+        self.openers = attributes[:'openers']
       end
 
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.has_key?(:'clicks')
+        self.clicks = attributes[:'clicks']
       end
 
-      if attributes.has_key?(:'events')
-        if (value = attributes[:'events']).is_a?(Array)
-          self.events = value
-        end
+      if attributes.has_key?(:'unsubscribed')
+        self.unsubscribed = attributes[:'unsubscribed']
       end
 
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      else
-        self.type = 'transactional'
+      if attributes.has_key?(:'hardBounces')
+        self.hard_bounces = attributes[:'hardBounces']
+      end
+
+      if attributes.has_key?(:'softBounces')
+        self.soft_bounces = attributes[:'softBounces']
+      end
+
+      if attributes.has_key?(:'complaints')
+        self.complaints = attributes[:'complaints']
       end
     end
 
@@ -101,12 +87,28 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @url.nil?
-        invalid_properties.push('invalid value for "url", url cannot be nil.')
+      if @openers.nil?
+        invalid_properties.push('invalid value for "openers", openers cannot be nil.')
       end
 
-      if @events.nil?
-        invalid_properties.push('invalid value for "events", events cannot be nil.')
+      if @clicks.nil?
+        invalid_properties.push('invalid value for "clicks", clicks cannot be nil.')
+      end
+
+      if @unsubscribed.nil?
+        invalid_properties.push('invalid value for "unsubscribed", unsubscribed cannot be nil.')
+      end
+
+      if @hard_bounces.nil?
+        invalid_properties.push('invalid value for "hard_bounces", hard_bounces cannot be nil.')
+      end
+
+      if @soft_bounces.nil?
+        invalid_properties.push('invalid value for "soft_bounces", soft_bounces cannot be nil.')
+      end
+
+      if @complaints.nil?
+        invalid_properties.push('invalid value for "complaints", complaints cannot be nil.')
       end
 
       invalid_properties
@@ -115,21 +117,13 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @url.nil?
-      return false if @events.nil?
-      type_validator = EnumAttributeValidator.new('String', ['transactional', 'marketing'])
-      return false unless type_validator.valid?(@type)
+      return false if @openers.nil?
+      return false if @clicks.nil?
+      return false if @unsubscribed.nil?
+      return false if @hard_bounces.nil?
+      return false if @soft_bounces.nil?
+      return false if @complaints.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] type Object to be assigned
-    def type=(type)
-      validator = EnumAttributeValidator.new('String', ['transactional', 'marketing'])
-      unless validator.valid?(type)
-        fail ArgumentError, 'invalid value for "type", must be one of #{validator.allowable_values}.'
-      end
-      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -137,10 +131,12 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          url == o.url &&
-          description == o.description &&
-          events == o.events &&
-          type == o.type
+          openers == o.openers &&
+          clicks == o.clicks &&
+          unsubscribed == o.unsubscribed &&
+          hard_bounces == o.hard_bounces &&
+          soft_bounces == o.soft_bounces &&
+          complaints == o.complaints
     end
 
     # @see the `==` method
@@ -152,7 +148,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [url, description, events, type].hash
+      [openers, clicks, unsubscribed, hard_bounces, soft_bounces, complaints].hash
     end
 
     # Builds the object from hash

@@ -21,7 +21,7 @@ module SibApiV3Sdk
     end
     # Add existing contacts to a list
     # @param list_id Id of the list
-    # @param contact_emails Emails addresses of the contacts
+    # @param contact_emails Emails addresses OR IDs of the contacts
     # @param [Hash] opts the optional parameters
     # @return [PostContactInfo]
     def add_contact_to_list(list_id, contact_emails, opts = {})
@@ -31,7 +31,7 @@ module SibApiV3Sdk
 
     # Add existing contacts to a list
     # @param list_id Id of the list
-    # @param contact_emails Emails addresses of the contacts
+    # @param contact_emails Emails addresses OR IDs of the contacts
     # @param [Hash] opts the optional parameters
     # @return [Array<(PostContactInfo, Fixnum, Hash)>] PostContactInfo data, response status code and response headers
     def add_contact_to_list_with_http_info(list_id, contact_emails, opts = {})
@@ -417,7 +417,7 @@ module SibApiV3Sdk
     end
     # Delete a contact from a list
     # @param list_id Id of the list
-    # @param contact_emails Emails adresses of the contact
+    # @param contact_emails Emails addresses OR IDs of the contacts
     # @param [Hash] opts the optional parameters
     # @return [PostContactInfo]
     def remove_contact_from_list(list_id, contact_emails, opts = {})
@@ -427,7 +427,7 @@ module SibApiV3Sdk
 
     # Delete a contact from a list
     # @param list_id Id of the list
-    # @param contact_emails Emails adresses of the contact
+    # @param contact_emails Emails addresses OR IDs of the contacts
     # @param [Hash] opts the optional parameters
     # @return [Array<(PostContactInfo, Fixnum, Hash)>] PostContactInfo data, response status code and response headers
     def remove_contact_from_list_with_http_info(list_id, contact_emails, opts = {})

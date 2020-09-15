@@ -13,58 +13,31 @@ Swagger Codegen version: 2.4.12
 require 'date'
 
 module SibApiV3Sdk
-  class CreateWebhook
-    # URL of the webhook
-    attr_accessor :url
+  class AbTestVersionClicksInner
+    # URL of the link
+    attr_accessor :link
 
-    # Description of the webhook
-    attr_accessor :description
+    # Number of times a link is clicked
+    attr_accessor :clicks_count
 
-    # Events triggering the webhook. Possible values for Transactional type webhook – `sent` OR `request`, `delivered`, `hardBounce`, `softBounce`, `blocked`, `spam`, `invalid`, `deferred`, `click`, `opened`, `uniqueOpened` and `unsubscribed` and possible values for Marketing type webhook – `spam`, `opened`, `click`, `hardBounce`, `softBounce`, `unsubscribed`, `listAddition` & `delivered`
-    attr_accessor :events
-
-    # Type of the webhook
-    attr_accessor :type
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    # Percentage of clicks of link with respect to total clicks
+    attr_accessor :click_rate
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'url' => :'url',
-        :'description' => :'description',
-        :'events' => :'events',
-        :'type' => :'type'
+        :'link' => :'link',
+        :'clicks_count' => :'clicksCount',
+        :'click_rate' => :'clickRate'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'url' => :'String',
-        :'description' => :'String',
-        :'events' => :'Array<String>',
-        :'type' => :'String'
+        :'link' => :'String',
+        :'clicks_count' => :'Float',
+        :'click_rate' => :'String'
       }
     end
 
@@ -76,24 +49,16 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'url')
-        self.url = attributes[:'url']
+      if attributes.has_key?(:'link')
+        self.link = attributes[:'link']
       end
 
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.has_key?(:'clicksCount')
+        self.clicks_count = attributes[:'clicksCount']
       end
 
-      if attributes.has_key?(:'events')
-        if (value = attributes[:'events']).is_a?(Array)
-          self.events = value
-        end
-      end
-
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      else
-        self.type = 'transactional'
+      if attributes.has_key?(:'clickRate')
+        self.click_rate = attributes[:'clickRate']
       end
     end
 
@@ -101,12 +66,16 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @url.nil?
-        invalid_properties.push('invalid value for "url", url cannot be nil.')
+      if @link.nil?
+        invalid_properties.push('invalid value for "link", link cannot be nil.')
       end
 
-      if @events.nil?
-        invalid_properties.push('invalid value for "events", events cannot be nil.')
+      if @clicks_count.nil?
+        invalid_properties.push('invalid value for "clicks_count", clicks_count cannot be nil.')
+      end
+
+      if @click_rate.nil?
+        invalid_properties.push('invalid value for "click_rate", click_rate cannot be nil.')
       end
 
       invalid_properties
@@ -115,21 +84,10 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @url.nil?
-      return false if @events.nil?
-      type_validator = EnumAttributeValidator.new('String', ['transactional', 'marketing'])
-      return false unless type_validator.valid?(@type)
+      return false if @link.nil?
+      return false if @clicks_count.nil?
+      return false if @click_rate.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] type Object to be assigned
-    def type=(type)
-      validator = EnumAttributeValidator.new('String', ['transactional', 'marketing'])
-      unless validator.valid?(type)
-        fail ArgumentError, 'invalid value for "type", must be one of #{validator.allowable_values}.'
-      end
-      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -137,10 +95,9 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          url == o.url &&
-          description == o.description &&
-          events == o.events &&
-          type == o.type
+          link == o.link &&
+          clicks_count == o.clicks_count &&
+          click_rate == o.click_rate
     end
 
     # @see the `==` method
@@ -152,7 +109,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [url, description, events, type].hash
+      [link, clicks_count, click_rate].hash
     end
 
     # Builds the object from hash

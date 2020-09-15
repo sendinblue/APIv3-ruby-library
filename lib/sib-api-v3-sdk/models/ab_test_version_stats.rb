@@ -13,58 +13,27 @@ Swagger Codegen version: 2.4.12
 require 'date'
 
 module SibApiV3Sdk
-  class CreateWebhook
-    # URL of the webhook
-    attr_accessor :url
+  # Percentage of a particular event for both versions
+  class AbTestVersionStats
+    # percentage of an event for version A
+    attr_accessor :version_a
 
-    # Description of the webhook
-    attr_accessor :description
-
-    # Events triggering the webhook. Possible values for Transactional type webhook – `sent` OR `request`, `delivered`, `hardBounce`, `softBounce`, `blocked`, `spam`, `invalid`, `deferred`, `click`, `opened`, `uniqueOpened` and `unsubscribed` and possible values for Marketing type webhook – `spam`, `opened`, `click`, `hardBounce`, `softBounce`, `unsubscribed`, `listAddition` & `delivered`
-    attr_accessor :events
-
-    # Type of the webhook
-    attr_accessor :type
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    # percentage of an event for version B
+    attr_accessor :version_b
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'url' => :'url',
-        :'description' => :'description',
-        :'events' => :'events',
-        :'type' => :'type'
+        :'version_a' => :'Version A',
+        :'version_b' => :'Version B'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'url' => :'String',
-        :'description' => :'String',
-        :'events' => :'Array<String>',
-        :'type' => :'String'
+        :'version_a' => :'String',
+        :'version_b' => :'String'
       }
     end
 
@@ -76,24 +45,12 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'url')
-        self.url = attributes[:'url']
+      if attributes.has_key?(:'Version A')
+        self.version_a = attributes[:'Version A']
       end
 
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'events')
-        if (value = attributes[:'events']).is_a?(Array)
-          self.events = value
-        end
-      end
-
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      else
-        self.type = 'transactional'
+      if attributes.has_key?(:'Version B')
+        self.version_b = attributes[:'Version B']
       end
     end
 
@@ -101,12 +58,12 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @url.nil?
-        invalid_properties.push('invalid value for "url", url cannot be nil.')
+      if @version_a.nil?
+        invalid_properties.push('invalid value for "version_a", version_a cannot be nil.')
       end
 
-      if @events.nil?
-        invalid_properties.push('invalid value for "events", events cannot be nil.')
+      if @version_b.nil?
+        invalid_properties.push('invalid value for "version_b", version_b cannot be nil.')
       end
 
       invalid_properties
@@ -115,21 +72,9 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @url.nil?
-      return false if @events.nil?
-      type_validator = EnumAttributeValidator.new('String', ['transactional', 'marketing'])
-      return false unless type_validator.valid?(@type)
+      return false if @version_a.nil?
+      return false if @version_b.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] type Object to be assigned
-    def type=(type)
-      validator = EnumAttributeValidator.new('String', ['transactional', 'marketing'])
-      unless validator.valid?(type)
-        fail ArgumentError, 'invalid value for "type", must be one of #{validator.allowable_values}.'
-      end
-      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -137,10 +82,8 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          url == o.url &&
-          description == o.description &&
-          events == o.events &&
-          type == o.type
+          version_a == o.version_a &&
+          version_b == o.version_b
     end
 
     # @see the `==` method
@@ -152,7 +95,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [url, description, events, type].hash
+      [version_a, version_b].hash
     end
 
     # Builds the object from hash
