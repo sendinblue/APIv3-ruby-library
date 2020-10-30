@@ -74,10 +74,6 @@ module SibApiV3Sdk
         invalid_properties.push('invalid value for "event_time", event_time cannot be nil.')
       end
 
-      if @ip.nil?
-        invalid_properties.push('invalid value for "ip", ip cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -86,7 +82,6 @@ module SibApiV3Sdk
     def valid?
       return false if @campaign_id.nil?
       return false if @event_time.nil?
-      return false if @ip.nil?
       true
     end
 
