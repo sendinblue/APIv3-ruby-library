@@ -13,56 +13,18 @@ Swagger Codegen version: 2.4.12
 require 'date'
 
 module SibApiV3Sdk
-  # Email sending credentials including subject, body, to, cc etc.
+  # Custom attributes for the report email.
   class SendReportEmail
-    # Subject of the email message
-    attr_accessor :subject
-
     # Email addresses of the recipients
     attr_accessor :to
 
-    # Type of the message body
-    attr_accessor :content_type
-
-    # Email addresses of the recipients in bcc
-    attr_accessor :bcc
-
-    # Email addresses of the recipients in cc
-    attr_accessor :cc
-
-    # Body of the email message
+    # Custom text message to be presented in the report email.
     attr_accessor :body
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'subject' => :'subject',
         :'to' => :'to',
-        :'content_type' => :'contentType',
-        :'bcc' => :'bcc',
-        :'cc' => :'cc',
         :'body' => :'body'
       }
     end
@@ -70,11 +32,7 @@ module SibApiV3Sdk
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'subject' => :'String',
         :'to' => :'Array<String>',
-        :'content_type' => :'String',
-        :'bcc' => :'Array<String>',
-        :'cc' => :'Array<String>',
         :'body' => :'String'
       }
     end
@@ -87,31 +45,9 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'subject')
-        self.subject = attributes[:'subject']
-      end
-
       if attributes.has_key?(:'to')
         if (value = attributes[:'to']).is_a?(Array)
           self.to = value
-        end
-      end
-
-      if attributes.has_key?(:'contentType')
-        self.content_type = attributes[:'contentType']
-      else
-        self.content_type = 'html'
-      end
-
-      if attributes.has_key?(:'bcc')
-        if (value = attributes[:'bcc']).is_a?(Array)
-          self.bcc = value
-        end
-      end
-
-      if attributes.has_key?(:'cc')
-        if (value = attributes[:'cc']).is_a?(Array)
-          self.cc = value
         end
       end
 
@@ -124,10 +60,6 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @subject.nil?
-        invalid_properties.push('invalid value for "subject", subject cannot be nil.')
-      end
-
       if @to.nil?
         invalid_properties.push('invalid value for "to", to cannot be nil.')
       end
@@ -142,22 +74,9 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @subject.nil?
       return false if @to.nil?
-      content_type_validator = EnumAttributeValidator.new('String', ['text', 'html'])
-      return false unless content_type_validator.valid?(@content_type)
       return false if @body.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] content_type Object to be assigned
-    def content_type=(content_type)
-      validator = EnumAttributeValidator.new('String', ['text', 'html'])
-      unless validator.valid?(content_type)
-        fail ArgumentError, 'invalid value for "content_type", must be one of #{validator.allowable_values}.'
-      end
-      @content_type = content_type
     end
 
     # Checks equality by comparing each attribute.
@@ -165,11 +84,7 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          subject == o.subject &&
           to == o.to &&
-          content_type == o.content_type &&
-          bcc == o.bcc &&
-          cc == o.cc &&
           body == o.body
     end
 
@@ -182,7 +97,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [subject, to, content_type, bcc, cc, body].hash
+      [to, body].hash
     end
 
     # Builds the object from hash
