@@ -123,32 +123,12 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @phone_number.nil?
-        invalid_properties.push('invalid value for "phone_number", phone_number cannot be nil.')
-      end
-
-      if @date.nil?
-        invalid_properties.push('invalid value for "date", date cannot be nil.')
-      end
-
-      if @message_id.nil?
-        invalid_properties.push('invalid value for "message_id", message_id cannot be nil.')
-      end
-
-      if @event.nil?
-        invalid_properties.push('invalid value for "event", event cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @phone_number.nil?
-      return false if @date.nil?
-      return false if @message_id.nil?
-      return false if @event.nil?
       event_validator = EnumAttributeValidator.new('String', ['bounces', 'hardBounces', 'softBounces', 'delivered', 'sent', 'accepted', 'unsubscription', 'replies', 'blocked'])
       return false unless event_validator.valid?(@event)
       true

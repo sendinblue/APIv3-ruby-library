@@ -178,10 +178,13 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::SendersApi* | [**get_ips_from_sender**](docs/SendersApi.md#get_ips_from_sender) | **GET** /senders/{senderId}/ips | Get all the dedicated IPs for a sender
 *SibApiV3Sdk::SendersApi* | [**get_senders**](docs/SendersApi.md#get_senders) | **GET** /senders | Get the list of all your senders
 *SibApiV3Sdk::SendersApi* | [**update_sender**](docs/SendersApi.md#update_sender) | **PUT** /senders/{senderId} | Update a sender
+*SibApiV3Sdk::TransactionalEmailsApi* | [**block_new_domain**](docs/TransactionalEmailsApi.md#block_new_domain) | **POST** /smtp/blockedDomains | Add a new domain to the list of blocked domains
 *SibApiV3Sdk::TransactionalEmailsApi* | [**create_smtp_template**](docs/TransactionalEmailsApi.md#create_smtp_template) | **POST** /smtp/templates | Create an email template
+*SibApiV3Sdk::TransactionalEmailsApi* | [**delete_blocked_domain**](docs/TransactionalEmailsApi.md#delete_blocked_domain) | **DELETE** /smtp/blockedDomains/{domain} | Unblock an existing domain from the list of blocked domains
 *SibApiV3Sdk::TransactionalEmailsApi* | [**delete_hardbounces**](docs/TransactionalEmailsApi.md#delete_hardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
 *SibApiV3Sdk::TransactionalEmailsApi* | [**delete_smtp_template**](docs/TransactionalEmailsApi.md#delete_smtp_template) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
 *SibApiV3Sdk::TransactionalEmailsApi* | [**get_aggregated_smtp_report**](docs/TransactionalEmailsApi.md#get_aggregated_smtp_report) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
+*SibApiV3Sdk::TransactionalEmailsApi* | [**get_blocked_domains**](docs/TransactionalEmailsApi.md#get_blocked_domains) | **GET** /smtp/blockedDomains | Get the list of blocked domains
 *SibApiV3Sdk::TransactionalEmailsApi* | [**get_email_event_report**](docs/TransactionalEmailsApi.md#get_email_event_report) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
 *SibApiV3Sdk::TransactionalEmailsApi* | [**get_smtp_report**](docs/TransactionalEmailsApi.md#get_smtp_report) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
 *SibApiV3Sdk::TransactionalEmailsApi* | [**get_smtp_template**](docs/TransactionalEmailsApi.md#get_smtp_template) | **GET** /smtp/templates/{templateId} | Returns the template information
@@ -217,6 +220,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::AddChildDomain](docs/AddChildDomain.md)
  - [SibApiV3Sdk::AddContactToList](docs/AddContactToList.md)
  - [SibApiV3Sdk::AddCredits](docs/AddCredits.md)
+ - [SibApiV3Sdk::BlockDomain](docs/BlockDomain.md)
  - [SibApiV3Sdk::CreateAttribute](docs/CreateAttribute.md)
  - [SibApiV3Sdk::CreateAttributeEnumeration](docs/CreateAttributeEnumeration.md)
  - [SibApiV3Sdk::CreateChild](docs/CreateChild.md)
@@ -251,6 +255,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetAttributes](docs/GetAttributes.md)
  - [SibApiV3Sdk::GetAttributesAttributes](docs/GetAttributesAttributes.md)
  - [SibApiV3Sdk::GetAttributesEnumeration](docs/GetAttributesEnumeration.md)
+ - [SibApiV3Sdk::GetBlockedDomains](docs/GetBlockedDomains.md)
  - [SibApiV3Sdk::GetCampaignOverview](docs/GetCampaignOverview.md)
  - [SibApiV3Sdk::GetCampaignRecipients](docs/GetCampaignRecipients.md)
  - [SibApiV3Sdk::GetCampaignStats](docs/GetCampaignStats.md)

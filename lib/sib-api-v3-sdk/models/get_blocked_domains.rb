@@ -13,25 +13,22 @@ Swagger Codegen version: 2.4.12
 require 'date'
 
 module SibApiV3Sdk
-  class GetSmsCampaigns
-    attr_accessor :campaigns
-
-    # Number of SMS campaigns retrieved
-    attr_accessor :count
+  # list of blocked domains
+  class GetBlockedDomains
+    # List of all blocked domains
+    attr_accessor :domains
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'campaigns' => :'campaigns',
-        :'count' => :'count'
+        :'domains' => :'domains'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'campaigns' => :'Array<Object>',
-        :'count' => :'Integer'
+        :'domains' => :'Array<String>'
       }
     end
 
@@ -43,14 +40,10 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'campaigns')
-        if (value = attributes[:'campaigns']).is_a?(Array)
-          self.campaigns = value
+      if attributes.has_key?(:'domains')
+        if (value = attributes[:'domains']).is_a?(Array)
+          self.domains = value
         end
-      end
-
-      if attributes.has_key?(:'count')
-        self.count = attributes[:'count']
       end
     end
 
@@ -58,12 +51,17 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @domains.nil?
+        invalid_properties.push('invalid value for "domains", domains cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @domains.nil?
       true
     end
 
@@ -72,8 +70,7 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          campaigns == o.campaigns &&
-          count == o.count
+          domains == o.domains
     end
 
     # @see the `==` method
@@ -85,7 +82,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [campaigns, count].hash
+      [domains].hash
     end
 
     # Builds the object from hash

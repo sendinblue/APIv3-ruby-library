@@ -29,6 +29,7 @@ module SibApiV3Sdk
     # @option opts [String] :phone_number Filter the report for a specific phone number
     # @option opts [String] :event Filter the report for specific events
     # @option opts [String] :tags Filter the report for specific tags passed as a serialized urlencoded array
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetSmsEventReport]
     def get_sms_events(opts = {})
       data, _status_code, _headers = get_sms_events_with_http_info(opts)
@@ -45,6 +46,7 @@ module SibApiV3Sdk
     # @option opts [String] :phone_number Filter the report for a specific phone number
     # @option opts [String] :event Filter the report for specific events
     # @option opts [String] :tags Filter the report for specific tags passed as a serialized urlencoded array
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetSmsEventReport, Fixnum, Hash)>] GetSmsEventReport data, response status code and response headers
     def get_sms_events_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -56,6 +58,9 @@ module SibApiV3Sdk
 
       if @api_client.config.client_side_validation && opts[:'event'] && !['bounces', 'hardBounces', 'softBounces', 'delivered', 'sent', 'accepted', 'unsubscription', 'replies', 'blocked'].include?(opts[:'event'])
         fail ArgumentError, 'invalid value for "event", must be one of bounces, hardBounces, softBounces, delivered, sent, accepted, unsubscription, replies, blocked'
+      end
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
       end
       # resource path
       local_var_path = '/transactionalSMS/statistics/events'
@@ -70,6 +75,7 @@ module SibApiV3Sdk
       query_params[:'phoneNumber'] = opts[:'phone_number'] if !opts[:'phone_number'].nil?
       query_params[:'event'] = opts[:'event'] if !opts[:'event'].nil?
       query_params[:'tags'] = opts[:'tags'] if !opts[:'tags'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
@@ -160,6 +166,7 @@ module SibApiV3Sdk
     # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
     # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
     # @option opts [String] :tag Filter on a tag
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetTransacSmsReport]
     def get_transac_sms_report(opts = {})
       data, _status_code, _headers = get_transac_sms_report_with_http_info(opts)
@@ -172,10 +179,14 @@ module SibApiV3Sdk
     # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
     # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
     # @option opts [String] :tag Filter on a tag
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetTransacSmsReport, Fixnum, Hash)>] GetTransacSmsReport data, response status code and response headers
     def get_transac_sms_report_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransactionalSMSApi.get_transac_sms_report ...'
+      end
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
       end
       # resource path
       local_var_path = '/transactionalSMS/statistics/reports'
@@ -186,6 +197,7 @@ module SibApiV3Sdk
       query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
       query_params[:'days'] = opts[:'days'] if !opts[:'days'].nil?
       query_params[:'tag'] = opts[:'tag'] if !opts[:'tag'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}

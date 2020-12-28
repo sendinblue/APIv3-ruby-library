@@ -357,16 +357,8 @@ module SibApiV3Sdk
         invalid_properties.push('invalid value for "reply_to", reply_to cannot be nil.')
       end
 
-      if @to_field.nil?
-        invalid_properties.push('invalid value for "to_field", to_field cannot be nil.')
-      end
-
       if @html_content.nil?
         invalid_properties.push('invalid value for "html_content", html_content cannot be nil.')
-      end
-
-      if @tag.nil?
-        invalid_properties.push('invalid value for "tag", tag cannot be nil.')
       end
 
       if @created_at.nil?
@@ -396,9 +388,7 @@ module SibApiV3Sdk
       return false if @footer.nil?
       return false if @sender.nil?
       return false if @reply_to.nil?
-      return false if @to_field.nil?
       return false if @html_content.nil?
-      return false if @tag.nil?
       return false if @created_at.nil?
       return false if @modified_at.nil?
       true

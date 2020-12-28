@@ -98,6 +98,7 @@ describe 'EmailCampaignsApi' do
   # @option opts [DateTime] :end_date Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [Integer] :offset Index of the first document in the page
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
   # @return [GetEmailCampaigns]
   describe 'get_email_campaigns test' do
     it 'should work' do

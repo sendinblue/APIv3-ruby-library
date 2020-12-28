@@ -75,6 +75,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number limitation for the result returned (default to 10)
     # @option opts [Integer] :offset Beginning point in the list to retrieve from. (default to 0)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetProcesses]
     def get_processes(opts = {})
       data, _status_code, _headers = get_processes_with_http_info(opts)
@@ -85,6 +86,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number limitation for the result returned
     # @option opts [Integer] :offset Beginning point in the list to retrieve from.
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetProcesses, Fixnum, Hash)>] GetProcesses data, response status code and response headers
     def get_processes_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -94,6 +96,9 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ProcessApi.get_processes, must be smaller than or equal to 50.'
       end
 
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
+      end
       # resource path
       local_var_path = '/processes'
 
@@ -101,6 +106,7 @@ module SibApiV3Sdk
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}

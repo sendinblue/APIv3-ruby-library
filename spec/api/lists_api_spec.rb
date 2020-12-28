@@ -73,6 +73,7 @@ describe 'ListsApi' do
   # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [Integer] :offset Index of the first document of the page
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
   # @return [GetContacts]
   describe 'get_contacts_from_list test' do
     it 'should work' do
@@ -86,6 +87,7 @@ describe 'ListsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [Integer] :offset Index of the first document of the page
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
   # @return [GetFolderLists]
   describe 'get_folder_lists test' do
     it 'should work' do
@@ -109,6 +111,7 @@ describe 'ListsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [Integer] :offset Index of the first document of the page
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
   # @return [GetLists]
   describe 'get_lists test' do
     it 'should work' do

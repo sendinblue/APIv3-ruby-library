@@ -210,7 +210,8 @@ folder_id = 789 # Integer | Id of the folder
 
 opts = { 
   limit: 10, # Integer | Number of documents per page
-  offset: 0 # Integer | Index of the first document of the page
+  offset: 0, # Integer | Index of the first document of the page
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
 }
 
 begin
@@ -229,6 +230,7 @@ Name | Type | Description  | Notes
  **folder_id** | **Integer**| Id of the folder | 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 10]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
 
 ### Return type
 
@@ -246,7 +248,7 @@ Name | Type | Description  | Notes
 
 
 # **get_folders**
-> GetFolders get_folders(limit, offset)
+> GetFolders get_folders(limit, offset, opts)
 
 Get all folders
 
@@ -273,10 +275,13 @@ limit = 10 # Integer | Number of documents per page
 
 offset = 0 # Integer | Index of the first document of the page
 
+opts = { 
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+}
 
 begin
   #Get all folders
-  result = api_instance.get_folders(limit, offset)
+  result = api_instance.get_folders(limit, offset, opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling FoldersApi->get_folders: #{e}"
@@ -289,6 +294,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Number of documents per page | [default to 10]
  **offset** | **Integer**| Index of the first document of the page | [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
 
 ### Return type
 

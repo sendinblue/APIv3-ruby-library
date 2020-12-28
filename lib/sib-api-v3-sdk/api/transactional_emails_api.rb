@@ -19,6 +19,59 @@ module SibApiV3Sdk
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Add a new domain to the list of blocked domains
+    # Blocks a new domain in order to avoid messages being sent to the same
+    # @param block_domain 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def block_new_domain(block_domain, opts = {})
+      block_new_domain_with_http_info(block_domain, opts)
+      nil
+    end
+
+    # Add a new domain to the list of blocked domains
+    # Blocks a new domain in order to avoid messages being sent to the same
+    # @param block_domain 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def block_new_domain_with_http_info(block_domain, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TransactionalEmailsApi.block_new_domain ...'
+      end
+      # verify the required parameter 'block_domain' is set
+      if @api_client.config.client_side_validation && block_domain.nil?
+        fail ArgumentError, "Missing the required parameter 'block_domain' when calling TransactionalEmailsApi.block_new_domain"
+      end
+      # resource path
+      local_var_path = '/smtp/blockedDomains'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(block_domain)
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TransactionalEmailsApi#block_new_domain\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Create an email template
     # @param smtp_template values to update in transactional email template
     # @param [Hash] opts the optional parameters
@@ -68,6 +121,59 @@ module SibApiV3Sdk
         :return_type => 'CreateModel')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransactionalEmailsApi#create_smtp_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Unblock an existing domain from the list of blocked domains
+    # Unblocks an existing domain from the list of blocked domains
+    # @param domain The name of the domain to be deleted
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_blocked_domain(domain, opts = {})
+      delete_blocked_domain_with_http_info(domain, opts)
+      nil
+    end
+
+    # Unblock an existing domain from the list of blocked domains
+    # Unblocks an existing domain from the list of blocked domains
+    # @param domain The name of the domain to be deleted
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def delete_blocked_domain_with_http_info(domain, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TransactionalEmailsApi.delete_blocked_domain ...'
+      end
+      # verify the required parameter 'domain' is set
+      if @api_client.config.client_side_validation && domain.nil?
+        fail ArgumentError, "Missing the required parameter 'domain' when calling TransactionalEmailsApi.delete_blocked_domain"
+      end
+      # resource path
+      local_var_path = '/smtp/blockedDomains/{domain}'.sub('{' + 'domain' + '}', domain.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TransactionalEmailsApi#delete_blocked_domain\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -229,6 +335,54 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
+    # Get the list of blocked domains
+    # Get the list of blocked domains
+    # @param [Hash] opts the optional parameters
+    # @return [GetBlockedDomains]
+    def get_blocked_domains(opts = {})
+      data, _status_code, _headers = get_blocked_domains_with_http_info(opts)
+      data
+    end
+
+    # Get the list of blocked domains
+    # Get the list of blocked domains
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetBlockedDomains, Fixnum, Hash)>] GetBlockedDomains data, response status code and response headers
+    def get_blocked_domains_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TransactionalEmailsApi.get_blocked_domains ...'
+      end
+      # resource path
+      local_var_path = '/smtp/blockedDomains'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetBlockedDomains')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TransactionalEmailsApi#get_blocked_domains\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get all your transactional email activity (unaggregated events)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number limitation for the result returned (default to 50)
@@ -241,6 +395,7 @@ module SibApiV3Sdk
     # @option opts [String] :tags Filter the report for tags (serialized and urlencoded array)
     # @option opts [String] :message_id Filter on a specific message id
     # @option opts [Integer] :template_id Filter on a specific template id
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetEmailEventReport]
     def get_email_event_report(opts = {})
       data, _status_code, _headers = get_email_event_report_with_http_info(opts)
@@ -259,6 +414,7 @@ module SibApiV3Sdk
     # @option opts [String] :tags Filter the report for tags (serialized and urlencoded array)
     # @option opts [String] :message_id Filter on a specific message id
     # @option opts [Integer] :template_id Filter on a specific template id
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetEmailEventReport, Fixnum, Hash)>] GetEmailEventReport data, response status code and response headers
     def get_email_event_report_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -268,8 +424,11 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_email_event_report, must be smaller than or equal to 100.'
       end
 
-      if @api_client.config.client_side_validation && opts[:'event'] && !['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed'].include?(opts[:'event'])
-        fail ArgumentError, 'invalid value for "event", must be one of bounces, hardBounces, softBounces, delivered, spam, requests, opened, clicks, invalid, deferred, blocked, unsubscribed'
+      if @api_client.config.client_side_validation && opts[:'event'] && !['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed', 'error'].include?(opts[:'event'])
+        fail ArgumentError, 'invalid value for "event", must be one of bounces, hardBounces, softBounces, delivered, spam, requests, opened, clicks, invalid, deferred, blocked, unsubscribed, error'
+      end
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
       end
       # resource path
       local_var_path = '/smtp/statistics/events'
@@ -286,6 +445,7 @@ module SibApiV3Sdk
       query_params[:'tags'] = opts[:'tags'] if !opts[:'tags'].nil?
       query_params[:'messageId'] = opts[:'message_id'] if !opts[:'message_id'].nil?
       query_params[:'templateId'] = opts[:'template_id'] if !opts[:'template_id'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
@@ -320,6 +480,7 @@ module SibApiV3Sdk
     # @option opts [String] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
     # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
     # @option opts [String] :tag Tag of the emails
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetReports]
     def get_smtp_report(opts = {})
       data, _status_code, _headers = get_smtp_report_with_http_info(opts)
@@ -334,6 +495,7 @@ module SibApiV3Sdk
     # @option opts [String] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
     # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
     # @option opts [String] :tag Tag of the emails
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetReports, Fixnum, Hash)>] GetReports data, response status code and response headers
     def get_smtp_report_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -343,6 +505,9 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_smtp_report, must be smaller than or equal to 30.'
       end
 
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
+      end
       # resource path
       local_var_path = '/smtp/statistics/reports'
 
@@ -354,6 +519,7 @@ module SibApiV3Sdk
       query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
       query_params[:'days'] = opts[:'days'] if !opts[:'days'].nil?
       query_params[:'tag'] = opts[:'tag'] if !opts[:'tag'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
@@ -437,6 +603,7 @@ module SibApiV3Sdk
     # @option opts [BOOLEAN] :template_status Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false
     # @option opts [Integer] :limit Number of documents returned per page (default to 50)
     # @option opts [Integer] :offset Index of the first document in the page (default to 0)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetSmtpTemplates]
     def get_smtp_templates(opts = {})
       data, _status_code, _headers = get_smtp_templates_with_http_info(opts)
@@ -448,6 +615,7 @@ module SibApiV3Sdk
     # @option opts [BOOLEAN] :template_status Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false
     # @option opts [Integer] :limit Number of documents returned per page
     # @option opts [Integer] :offset Index of the first document in the page
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetSmtpTemplates, Fixnum, Hash)>] GetSmtpTemplates data, response status code and response headers
     def get_smtp_templates_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -457,6 +625,9 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_smtp_templates, must be smaller than or equal to 1000.'
       end
 
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
+      end
       # resource path
       local_var_path = '/smtp/templates'
 
@@ -465,6 +636,7 @@ module SibApiV3Sdk
       query_params[:'templateStatus'] = opts[:'template_status'] if !opts[:'template_status'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
@@ -498,6 +670,7 @@ module SibApiV3Sdk
     # @option opts [Integer] :limit Number of documents returned per page (default to 50)
     # @option opts [Integer] :offset Index of the first document on the page (default to 0)
     # @option opts [Array<String>] :senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetTransacBlockedContacts]
     def get_transac_blocked_contacts(opts = {})
       data, _status_code, _headers = get_transac_blocked_contacts_with_http_info(opts)
@@ -511,6 +684,7 @@ module SibApiV3Sdk
     # @option opts [Integer] :limit Number of documents returned per page
     # @option opts [Integer] :offset Index of the first document on the page
     # @option opts [Array<String>] :senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetTransacBlockedContacts, Fixnum, Hash)>] GetTransacBlockedContacts data, response status code and response headers
     def get_transac_blocked_contacts_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -520,6 +694,9 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_transac_blocked_contacts, must be smaller than or equal to 100.'
       end
 
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
+      end
       # resource path
       local_var_path = '/smtp/blockedContacts'
 
@@ -530,6 +707,7 @@ module SibApiV3Sdk
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'senders'] = @api_client.build_collection_param(opts[:'senders'], :csv) if !opts[:'senders'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
@@ -616,6 +794,7 @@ module SibApiV3Sdk
     # @option opts [String] :message_id Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
     # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
     # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetTransacEmailsList]
     def get_transac_emails_list(opts = {})
       data, _status_code, _headers = get_transac_emails_list_with_http_info(opts)
@@ -630,10 +809,14 @@ module SibApiV3Sdk
     # @option opts [String] :message_id Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
     # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
     # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetTransacEmailsList, Fixnum, Hash)>] GetTransacEmailsList data, response status code and response headers
     def get_transac_emails_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransactionalEmailsApi.get_transac_emails_list ...'
+      end
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
       end
       # resource path
       local_var_path = '/smtp/emails'
@@ -645,6 +828,7 @@ module SibApiV3Sdk
       query_params[:'messageId'] = opts[:'message_id'] if !opts[:'message_id'].nil?
       query_params[:'startDate'] = opts[:'start_date'] if !opts[:'start_date'].nil?
       query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}

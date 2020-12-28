@@ -32,12 +32,36 @@ describe 'TransactionalEmailsApi' do
     end
   end
 
+  # unit tests for block_new_domain
+  # Add a new domain to the list of blocked domains
+  # Blocks a new domain in order to avoid messages being sent to the same
+  # @param block_domain 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'block_new_domain test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_smtp_template
   # Create an email template
   # @param smtp_template values to update in transactional email template
   # @param [Hash] opts the optional parameters
   # @return [CreateModel]
   describe 'create_smtp_template test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_blocked_domain
+  # Unblock an existing domain from the list of blocked domains
+  # Unblocks an existing domain from the list of blocked domains
+  # @param domain The name of the domain to be deleted
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_blocked_domain test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -80,6 +104,17 @@ describe 'TransactionalEmailsApi' do
     end
   end
 
+  # unit tests for get_blocked_domains
+  # Get the list of blocked domains
+  # Get the list of blocked domains
+  # @param [Hash] opts the optional parameters
+  # @return [GetBlockedDomains]
+  describe 'get_blocked_domains test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_email_event_report
   # Get all your transactional email activity (unaggregated events)
   # @param [Hash] opts the optional parameters
@@ -93,6 +128,7 @@ describe 'TransactionalEmailsApi' do
   # @option opts [String] :tags Filter the report for tags (serialized and urlencoded array)
   # @option opts [String] :message_id Filter on a specific message id
   # @option opts [Integer] :template_id Filter on a specific template id
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
   # @return [GetEmailEventReport]
   describe 'get_email_event_report test' do
     it 'should work' do
@@ -109,6 +145,7 @@ describe 'TransactionalEmailsApi' do
   # @option opts [String] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
   # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
   # @option opts [String] :tag Tag of the emails
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
   # @return [GetReports]
   describe 'get_smtp_report test' do
     it 'should work' do
@@ -133,6 +170,7 @@ describe 'TransactionalEmailsApi' do
   # @option opts [BOOLEAN] :template_status Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false
   # @option opts [Integer] :limit Number of documents returned per page
   # @option opts [Integer] :offset Index of the first document in the page
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
   # @return [GetSmtpTemplates]
   describe 'get_smtp_templates test' do
     it 'should work' do
@@ -148,6 +186,7 @@ describe 'TransactionalEmailsApi' do
   # @option opts [Integer] :limit Number of documents returned per page
   # @option opts [Integer] :offset Index of the first document on the page
   # @option opts [Array<String>] :senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
   # @return [GetTransacBlockedContacts]
   describe 'get_transac_blocked_contacts test' do
     it 'should work' do
@@ -175,6 +214,7 @@ describe 'TransactionalEmailsApi' do
   # @option opts [String] :message_id Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
   # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
   # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
   # @return [GetTransacEmailsList]
   describe 'get_transac_emails_list test' do
     it 'should work' do

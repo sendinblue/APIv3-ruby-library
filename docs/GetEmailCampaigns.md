@@ -4,6 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **campaigns** | **Array&lt;Object&gt;** |  | [optional] 
-**count** | **Integer** | Number of Email campaigns retrieved | 
+**count** | **Integer** | Number of Email campaigns retrieved | [optional] 
 
 

@@ -129,62 +129,12 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @range.nil?
-        invalid_properties.push('invalid value for "range", range cannot be nil.')
-      end
-
-      if @requests.nil?
-        invalid_properties.push('invalid value for "requests", requests cannot be nil.')
-      end
-
-      if @delivered.nil?
-        invalid_properties.push('invalid value for "delivered", delivered cannot be nil.')
-      end
-
-      if @hard_bounces.nil?
-        invalid_properties.push('invalid value for "hard_bounces", hard_bounces cannot be nil.')
-      end
-
-      if @soft_bounces.nil?
-        invalid_properties.push('invalid value for "soft_bounces", soft_bounces cannot be nil.')
-      end
-
-      if @blocked.nil?
-        invalid_properties.push('invalid value for "blocked", blocked cannot be nil.')
-      end
-
-      if @unsubscribed.nil?
-        invalid_properties.push('invalid value for "unsubscribed", unsubscribed cannot be nil.')
-      end
-
-      if @replied.nil?
-        invalid_properties.push('invalid value for "replied", replied cannot be nil.')
-      end
-
-      if @accepted.nil?
-        invalid_properties.push('invalid value for "accepted", accepted cannot be nil.')
-      end
-
-      if @rejected.nil?
-        invalid_properties.push('invalid value for "rejected", rejected cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @range.nil?
-      return false if @requests.nil?
-      return false if @delivered.nil?
-      return false if @hard_bounces.nil?
-      return false if @soft_bounces.nil?
-      return false if @blocked.nil?
-      return false if @unsubscribed.nil?
-      return false if @replied.nil?
-      return false if @accepted.nil?
-      return false if @rejected.nil?
       true
     end
 

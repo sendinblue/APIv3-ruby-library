@@ -59,7 +59,7 @@ describe 'GetEmailEventReportEvents' do
   describe 'test attribute "event"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["bounces", "hardBounces", "softBounces", "delivered", "spam", "requests", "opened", "clicks", "invalid", "deferred", "blocked", "unsubscribed"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["bounces", "hardBounces", "softBounces", "delivered", "spam", "requests", "opened", "clicks", "invalid", "deferred", "blocked", "unsubscribed", "error"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.event = value }.not_to raise_error
       # end
@@ -91,6 +91,12 @@ describe 'GetEmailEventReportEvents' do
   end
 
   describe 'test attribute "from"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "template_id"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

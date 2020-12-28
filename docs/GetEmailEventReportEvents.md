@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **ip** | **String** | IP from which the user has opened the email or clicked on the link (only available if the event is opened or clicks) | [optional] 
 **link** | **String** | The link which is sent to the user (only available if the event is requests or opened or clicks) | [optional] 
 **from** | **String** | Sender email from which the emails are sent | [optional] 
+**template_id** | **Integer** | ID of the template (only available if the email is template based) | [optional] 
 
 

@@ -726,6 +726,7 @@ module SibApiV3Sdk
     # @option opts [Integer] :limit Number of documents per page (default to 50)
     # @option opts [Integer] :offset Index of the first document of the page (default to 0)
     # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetContacts]
     def get_contacts(opts = {})
       data, _status_code, _headers = get_contacts_with_http_info(opts)
@@ -737,6 +738,7 @@ module SibApiV3Sdk
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [Integer] :offset Index of the first document of the page
     # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetContacts, Fixnum, Hash)>] GetContacts data, response status code and response headers
     def get_contacts_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -746,6 +748,9 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContactsApi.get_contacts, must be smaller than or equal to 1000.'
       end
 
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
+      end
       # resource path
       local_var_path = '/contacts'
 
@@ -754,6 +759,7 @@ module SibApiV3Sdk
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'modifiedSince'] = opts[:'modified_since'] if !opts[:'modified_since'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
@@ -786,6 +792,7 @@ module SibApiV3Sdk
     # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
     # @option opts [Integer] :limit Number of documents per page (default to 50)
     # @option opts [Integer] :offset Index of the first document of the page (default to 0)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetContacts]
     def get_contacts_from_list(list_id, opts = {})
       data, _status_code, _headers = get_contacts_from_list_with_http_info(list_id, opts)
@@ -798,6 +805,7 @@ module SibApiV3Sdk
     # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [Integer] :offset Index of the first document of the page
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetContacts, Fixnum, Hash)>] GetContacts data, response status code and response headers
     def get_contacts_from_list_with_http_info(list_id, opts = {})
       if @api_client.config.debugging
@@ -811,6 +819,9 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContactsApi.get_contacts_from_list, must be smaller than or equal to 500.'
       end
 
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
+      end
       # resource path
       local_var_path = '/contacts/lists/{listId}/contacts'.sub('{' + 'listId' + '}', list_id.to_s)
 
@@ -819,6 +830,7 @@ module SibApiV3Sdk
       query_params[:'modifiedSince'] = opts[:'modified_since'] if !opts[:'modified_since'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
@@ -902,6 +914,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page (default to 10)
     # @option opts [Integer] :offset Index of the first document of the page (default to 0)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetFolderLists]
     def get_folder_lists(folder_id, opts = {})
       data, _status_code, _headers = get_folder_lists_with_http_info(folder_id, opts)
@@ -913,6 +926,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [Integer] :offset Index of the first document of the page
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetFolderLists, Fixnum, Hash)>] GetFolderLists data, response status code and response headers
     def get_folder_lists_with_http_info(folder_id, opts = {})
       if @api_client.config.debugging
@@ -926,6 +940,9 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContactsApi.get_folder_lists, must be smaller than or equal to 50.'
       end
 
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
+      end
       # resource path
       local_var_path = '/contacts/folders/{folderId}/lists'.sub('{' + 'folderId' + '}', folder_id.to_s)
 
@@ -933,6 +950,7 @@ module SibApiV3Sdk
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
@@ -963,6 +981,7 @@ module SibApiV3Sdk
     # @param limit Number of documents per page
     # @param offset Index of the first document of the page
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetFolders]
     def get_folders(limit, offset, opts = {})
       data, _status_code, _headers = get_folders_with_http_info(limit, offset, opts)
@@ -973,6 +992,7 @@ module SibApiV3Sdk
     # @param limit Number of documents per page
     # @param offset Index of the first document of the page
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetFolders, Fixnum, Hash)>] GetFolders data, response status code and response headers
     def get_folders_with_http_info(limit, offset, opts = {})
       if @api_client.config.debugging
@@ -990,6 +1010,9 @@ module SibApiV3Sdk
       if @api_client.config.client_side_validation && offset.nil?
         fail ArgumentError, "Missing the required parameter 'offset' when calling ContactsApi.get_folders"
       end
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
+      end
       # resource path
       local_var_path = '/contacts/folders'
 
@@ -997,6 +1020,7 @@ module SibApiV3Sdk
       query_params = {}
       query_params[:'limit'] = limit
       query_params[:'offset'] = offset
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
@@ -1079,6 +1103,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page (default to 10)
     # @option opts [Integer] :offset Index of the first document of the page (default to 0)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetLists]
     def get_lists(opts = {})
       data, _status_code, _headers = get_lists_with_http_info(opts)
@@ -1089,6 +1114,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [Integer] :offset Index of the first document of the page
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetLists, Fixnum, Hash)>] GetLists data, response status code and response headers
     def get_lists_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1098,6 +1124,9 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContactsApi.get_lists, must be smaller than or equal to 50.'
       end
 
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
+      end
       # resource path
       local_var_path = '/contacts/lists'
 
@@ -1105,6 +1134,7 @@ module SibApiV3Sdk
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
