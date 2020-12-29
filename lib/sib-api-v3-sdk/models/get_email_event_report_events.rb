@@ -1,7 +1,7 @@
 =begin
 #SendinBlue API
 
-#SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+#SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |
 
 OpenAPI spec version: 3.0.0
 Contact: contact@sendinblue.com
@@ -47,6 +47,8 @@ module SibApiV3Sdk
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
+
+      ALLOWABLE_VALUES = %w(bounces hardBounces softBounces delivered spam requests opened clicks invalid deferred blocked unsubscribed)
 
       def initialize(datatype, allowable_values)
         @allowable_values = allowable_values.map do |value|
@@ -177,7 +179,7 @@ module SibApiV3Sdk
       return false if @date.nil?
       return false if @message_id.nil?
       return false if @event.nil?
-      event_validator = EnumAttributeValidator.new('String', ['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed'])
+      event_validator = EnumAttributeValidator.new('String', EnumAttributeValidator::ALLOWABLE_VALUES)
       return false unless event_validator.valid?(@event)
       true
     end
@@ -185,9 +187,9 @@ module SibApiV3Sdk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] event Object to be assigned
     def event=(event)
-      validator = EnumAttributeValidator.new('String', ['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed'])
+      validator = EnumAttributeValidator.new('String', EnumAttributeValidator::ALLOWABLE_VALUES)
       unless validator.valid?(event)
-        fail ArgumentError, 'invalid value for "event", must be one of #{validator.allowable_values}.'
+        fail ArgumentError, "invalid value '#{event}' for 'event', must be one of: #{validator.allowable_values.join(', ')}."
       end
       @event = event
     end
