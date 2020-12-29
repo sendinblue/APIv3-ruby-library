@@ -48,7 +48,7 @@ module SibApiV3Sdk
       attr_reader :datatype
       attr_reader :allowable_values
 
-      ALLOWABLE_VALUES = %w(bounces hardBounces softBounces delivered spam requests opened clicks invalid deferred blocked unsubscribed)
+      ALLOWABLE_VALUES = %w(bounces hardBounces softBounces delivered spam requests opened clicks invalid deferred blocked unsubscribed error)
 
       def initialize(datatype, allowable_values)
         @allowable_values = allowable_values.map do |value|
