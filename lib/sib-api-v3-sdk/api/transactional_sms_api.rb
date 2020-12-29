@@ -19,6 +19,16 @@ module SibApiV3Sdk
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+
+    # Set custom user_agent if explicitly passed in api
+    # default will still remain Swagger-Codegen/#{VERSION}/ruby
+    def setUserAgent(user_agent)
+      @user_agent = user_agent
+      if user_agent.is_a?(String) && user_agent.downcase.start_with?('sendinblue_')
+        @api_client.default_headers['User-Agent'] = @user_agent
+      end
+    end
+    
     # Get all your SMS activity (unaggregated events)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page (default to 50)

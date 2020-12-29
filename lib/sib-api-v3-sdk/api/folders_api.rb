@@ -19,6 +19,16 @@ module SibApiV3Sdk
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+
+    # Set custom user_agent if explicitly passed in api
+    # default will still remain Swagger-Codegen/#{VERSION}/ruby
+    def setUserAgent(user_agent)
+      @user_agent = user_agent
+      if user_agent.is_a?(String) && user_agent.downcase.start_with?('sendinblue_')
+        @api_client.default_headers['User-Agent'] = @user_agent
+      end
+    end
+    
     # Create a folder
     # @param create_folder Name of the folder
     # @param [Hash] opts the optional parameters
