@@ -13,25 +13,21 @@ Swagger Codegen version: 2.4.12
 require 'date'
 
 module SibApiV3Sdk
-  class GetSmsCampaigns
-    attr_accessor :campaigns
-
-    # Number of SMS campaigns retrieved
-    attr_accessor :count
+  class BlockDomain
+    # name of the domain to be blocked
+    attr_accessor :domain
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'campaigns' => :'campaigns',
-        :'count' => :'count'
+        :'domain' => :'domain'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'campaigns' => :'Array<Object>',
-        :'count' => :'Integer'
+        :'domain' => :'String'
       }
     end
 
@@ -43,14 +39,8 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'campaigns')
-        if (value = attributes[:'campaigns']).is_a?(Array)
-          self.campaigns = value
-        end
-      end
-
-      if attributes.has_key?(:'count')
-        self.count = attributes[:'count']
+      if attributes.has_key?(:'domain')
+        self.domain = attributes[:'domain']
       end
     end
 
@@ -58,12 +48,17 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @domain.nil?
+        invalid_properties.push('invalid value for "domain", domain cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @domain.nil?
       true
     end
 
@@ -72,8 +67,7 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          campaigns == o.campaigns &&
-          count == o.count
+          domain == o.domain
     end
 
     # @see the `==` method
@@ -85,7 +79,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [campaigns, count].hash
+      [domain].hash
     end
 
     # Builds the object from hash

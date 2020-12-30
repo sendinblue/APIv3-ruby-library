@@ -165,10 +165,6 @@ module SibApiV3Sdk
         invalid_properties.push('invalid value for "content", content cannot be nil.')
       end
 
-      if @scheduled_at.nil?
-        invalid_properties.push('invalid value for "scheduled_at", scheduled_at cannot be nil.')
-      end
-
       if @sender.nil?
         invalid_properties.push('invalid value for "sender", sender cannot be nil.')
       end
@@ -201,7 +197,6 @@ module SibApiV3Sdk
       status_validator = EnumAttributeValidator.new('String', ['draft', 'sent', 'archive', 'queued', 'suspended', 'inProcess'])
       return false unless status_validator.valid?(@status)
       return false if @content.nil?
-      return false if @scheduled_at.nil?
       return false if @sender.nil?
       return false if @created_at.nil?
       return false if @modified_at.nil?

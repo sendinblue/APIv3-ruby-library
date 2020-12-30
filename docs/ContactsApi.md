@@ -807,7 +807,8 @@ api_instance = SibApiV3Sdk::ContactsApi.new
 opts = { 
   limit: 50, # Integer | Number of documents per page
   offset: 0, # Integer | Index of the first document of the page
-  modified_since: DateTime.parse('2013-10-20T19:20:30+01:00') # DateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+  modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
 }
 
 begin
@@ -826,6 +827,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| Number of documents per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
  **modified_since** | **DateTime**| Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. | [optional] 
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
 
 ### Return type
 
@@ -871,7 +873,8 @@ list_id = 789 # Integer | Id of the list
 opts = { 
   modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
   limit: 50, # Integer | Number of documents per page
-  offset: 0 # Integer | Index of the first document of the page
+  offset: 0, # Integer | Index of the first document of the page
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
 }
 
 begin
@@ -891,6 +894,7 @@ Name | Type | Description  | Notes
  **modified_since** | **DateTime**| Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. | [optional] 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
 
 ### Return type
 
@@ -992,7 +996,8 @@ folder_id = 789 # Integer | Id of the folder
 
 opts = { 
   limit: 10, # Integer | Number of documents per page
-  offset: 0 # Integer | Index of the first document of the page
+  offset: 0, # Integer | Index of the first document of the page
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
 }
 
 begin
@@ -1011,6 +1016,7 @@ Name | Type | Description  | Notes
  **folder_id** | **Integer**| Id of the folder | 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 10]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
 
 ### Return type
 
@@ -1028,7 +1034,7 @@ Name | Type | Description  | Notes
 
 
 # **get_folders**
-> GetFolders get_folders(limit, offset)
+> GetFolders get_folders(limit, offset, opts)
 
 Get all folders
 
@@ -1055,10 +1061,13 @@ limit = 10 # Integer | Number of documents per page
 
 offset = 0 # Integer | Index of the first document of the page
 
+opts = { 
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+}
 
 begin
   #Get all folders
-  result = api_instance.get_folders(limit, offset)
+  result = api_instance.get_folders(limit, offset, opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->get_folders: #{e}"
@@ -1071,6 +1080,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Number of documents per page | [default to 10]
  **offset** | **Integer**| Index of the first document of the page | [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
 
 ### Return type
 
@@ -1170,7 +1180,8 @@ api_instance = SibApiV3Sdk::ContactsApi.new
 
 opts = { 
   limit: 10, # Integer | Number of documents per page
-  offset: 0 # Integer | Index of the first document of the page
+  offset: 0, # Integer | Index of the first document of the page
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
 }
 
 begin
@@ -1188,6 +1199,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Number of documents per page | [optional] [default to 10]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
 
 ### Return type
 

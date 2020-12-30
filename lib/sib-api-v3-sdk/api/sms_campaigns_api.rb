@@ -19,6 +19,16 @@ module SibApiV3Sdk
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+
+    # Set custom user_agent if explicitly passed in api
+    # default will still remain Swagger-Codegen/#{VERSION}/ruby
+    def setUserAgent(user_agent)
+      @user_agent = user_agent
+      if user_agent.is_a?(String) && user_agent.downcase.start_with?('sendinblue_')
+        @api_client.default_headers['User-Agent'] = @user_agent
+      end
+    end
+    
     # Creates an SMS campaign
     # @param create_sms_campaign Values to create an SMS Campaign
     # @param [Hash] opts the optional parameters
@@ -181,6 +191,7 @@ module SibApiV3Sdk
     # @option opts [DateTime] :end_date Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
     # @option opts [Integer] :limit Number limitation for the result returned (default to 500)
     # @option opts [Integer] :offset Beginning point in the list to retrieve from. (default to 0)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
     # @return [GetSmsCampaigns]
     def get_sms_campaigns(opts = {})
       data, _status_code, _headers = get_sms_campaigns_with_http_info(opts)
@@ -194,6 +205,7 @@ module SibApiV3Sdk
     # @option opts [DateTime] :end_date Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
     # @option opts [Integer] :limit Number limitation for the result returned
     # @option opts [Integer] :offset Beginning point in the list to retrieve from.
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
     # @return [Array<(GetSmsCampaigns, Fixnum, Hash)>] GetSmsCampaigns data, response status code and response headers
     def get_sms_campaigns_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -206,6 +218,9 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SMSCampaignsApi.get_sms_campaigns, must be smaller than or equal to 1000.'
       end
 
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
+      end
       # resource path
       local_var_path = '/smsCampaigns'
 
@@ -216,6 +231,7 @@ module SibApiV3Sdk
       query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}

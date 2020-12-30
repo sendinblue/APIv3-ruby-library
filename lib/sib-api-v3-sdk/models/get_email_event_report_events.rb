@@ -44,6 +44,9 @@ module SibApiV3Sdk
     # Sender email from which the emails are sent
     attr_accessor :from
 
+    # ID of the template (only available if the email is template based)
+    attr_accessor :template_id
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -78,7 +81,8 @@ module SibApiV3Sdk
         :'tag' => :'tag',
         :'ip' => :'ip',
         :'link' => :'link',
-        :'from' => :'from'
+        :'from' => :'from',
+        :'template_id' => :'templateId'
       }
     end
 
@@ -94,7 +98,8 @@ module SibApiV3Sdk
         :'tag' => :'String',
         :'ip' => :'String',
         :'link' => :'String',
-        :'from' => :'String'
+        :'from' => :'String',
+        :'template_id' => :'Integer'
       }
     end
 
@@ -145,6 +150,10 @@ module SibApiV3Sdk
       if attributes.has_key?(:'from')
         self.from = attributes[:'from']
       end
+
+      if attributes.has_key?(:'templateId')
+        self.template_id = attributes[:'templateId']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -177,7 +186,7 @@ module SibApiV3Sdk
       return false if @date.nil?
       return false if @message_id.nil?
       return false if @event.nil?
-      event_validator = EnumAttributeValidator.new('String', ['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed'])
+      event_validator = EnumAttributeValidator.new('String', ['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed', 'error'])
       return false unless event_validator.valid?(@event)
       true
     end
@@ -185,7 +194,7 @@ module SibApiV3Sdk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] event Object to be assigned
     def event=(event)
-      validator = EnumAttributeValidator.new('String', ['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed'])
+      validator = EnumAttributeValidator.new('String', ['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed', 'error'])
       unless validator.valid?(event)
         fail ArgumentError, 'invalid value for "event", must be one of #{validator.allowable_values}.'
       end
@@ -206,7 +215,8 @@ module SibApiV3Sdk
           tag == o.tag &&
           ip == o.ip &&
           link == o.link &&
-          from == o.from
+          from == o.from &&
+          template_id == o.template_id
     end
 
     # @see the `==` method
@@ -218,7 +228,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, date, subject, message_id, event, reason, tag, ip, link, from].hash
+      [email, date, subject, message_id, event, reason, tag, ip, link, from, template_id].hash
     end
 
     # Builds the object from hash

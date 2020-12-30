@@ -13,15 +13,15 @@ Swagger Codegen version: 2.4.12
 require 'date'
 
 module SibApiV3Sdk
-  # Mandatory if `templateId` is not passed. Pass name (optional) and email or id of sender from which emails will be sent. `name` will be ignored if passed along with sender `id`. For example, {\"name\":\"Mary from MyShop\", \"email\":\"no-reply@myshop.com\"} or {\"id\":2}
+  # Mandatory if `templateId` is not passed. Pass `name` (optional) and `email` OR `id` of sender from which emails will be sent. `name` will be ignored if passed along with sender `id`. For example, {\"name\":\"Mary from MyShop\", \"email\":\"no-reply@myshop.com\"} or {\"id\":2}
   class SendSmtpEmailSender
-    # Name of the sender from which the emails will be sent. Maximum allowed characters are 70.
+    # Name of the sender from which the emails will be sent. Maximum allowed characters are 70. Applicable only when email is passed.
     attr_accessor :name
 
-    # Email of the sender from which the emails will be sent
+    # Email of the sender from which the emails will be sent. Mandatory if sender id is not passed.
     attr_accessor :email
 
-    # Id of the sender from which the emails will be sent
+    # Id of the sender from which the emails will be sent. In order to select a sender with specific pool of IP’s, dedicated ip users shall pass id (instead of email). Mandatory if email is not passed.
     attr_accessor :id
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -67,17 +67,12 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @email.nil?
-        invalid_properties.push('invalid value for "email", email cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @email.nil?
       true
     end
 

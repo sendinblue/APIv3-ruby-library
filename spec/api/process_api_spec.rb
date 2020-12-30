@@ -48,6 +48,7 @@ describe 'ProcessApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number limitation for the result returned
   # @option opts [Integer] :offset Beginning point in the list to retrieve from.
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
   # @return [GetProcesses]
   describe 'get_processes test' do
     it 'should work' do

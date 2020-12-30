@@ -4,10 +4,13 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**block_new_domain**](TransactionalEmailsApi.md#block_new_domain) | **POST** /smtp/blockedDomains | Add a new domain to the list of blocked domains
 [**create_smtp_template**](TransactionalEmailsApi.md#create_smtp_template) | **POST** /smtp/templates | Create an email template
+[**delete_blocked_domain**](TransactionalEmailsApi.md#delete_blocked_domain) | **DELETE** /smtp/blockedDomains/{domain} | Unblock an existing domain from the list of blocked domains
 [**delete_hardbounces**](TransactionalEmailsApi.md#delete_hardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
 [**delete_smtp_template**](TransactionalEmailsApi.md#delete_smtp_template) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
 [**get_aggregated_smtp_report**](TransactionalEmailsApi.md#get_aggregated_smtp_report) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
+[**get_blocked_domains**](TransactionalEmailsApi.md#get_blocked_domains) | **GET** /smtp/blockedDomains | Get the list of blocked domains
 [**get_email_event_report**](TransactionalEmailsApi.md#get_email_event_report) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
 [**get_smtp_report**](TransactionalEmailsApi.md#get_smtp_report) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
 [**get_smtp_template**](TransactionalEmailsApi.md#get_smtp_template) | **GET** /smtp/templates/{templateId} | Returns the template information
@@ -21,6 +24,64 @@ Method | HTTP request | Description
 [**smtp_blocked_contacts_email_delete**](TransactionalEmailsApi.md#smtp_blocked_contacts_email_delete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
 [**smtp_log_message_id_delete**](TransactionalEmailsApi.md#smtp_log_message_id_delete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
 [**update_smtp_template**](TransactionalEmailsApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Update an email template
+
+
+# **block_new_domain**
+> block_new_domain(block_domain)
+
+Add a new domain to the list of blocked domains
+
+Blocks a new domain in order to avoid messages being sent to the same
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
+
+block_domain = SibApiV3Sdk::BlockDomain.new # BlockDomain | 
+
+
+begin
+  #Add a new domain to the list of blocked domains
+  api_instance.block_new_domain(block_domain)
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling TransactionalEmailsApi->block_new_domain: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **block_domain** | [**BlockDomain**](BlockDomain.md)|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 
 # **create_smtp_template**
@@ -68,6 +129,64 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateModel**](CreateModel.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **delete_blocked_domain**
+> delete_blocked_domain(domain)
+
+Unblock an existing domain from the list of blocked domains
+
+Unblocks an existing domain from the list of blocked domains
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
+
+domain = 'domain_example' # String | The name of the domain to be deleted
+
+
+begin
+  #Unblock an existing domain from the list of blocked domains
+  api_instance.delete_blocked_domain(domain)
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling TransactionalEmailsApi->delete_blocked_domain: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain** | **String**| The name of the domain to be deleted | 
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 
@@ -259,6 +378,59 @@ Name | Type | Description  | Notes
 
 
 
+# **get_blocked_domains**
+> GetBlockedDomains get_blocked_domains
+
+Get the list of blocked domains
+
+Get the list of blocked domains
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
+
+begin
+  #Get the list of blocked domains
+  result = api_instance.get_blocked_domains
+  p result
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling TransactionalEmailsApi->get_blocked_domains: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetBlockedDomains**](GetBlockedDomains.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
 # **get_email_event_report**
 > GetEmailEventReport get_email_event_report(opts)
 
@@ -293,7 +465,8 @@ opts = {
   event: 'event_example', # String | Filter the report for a specific event type
   tags: 'tags_example', # String | Filter the report for tags (serialized and urlencoded array)
   message_id: 'message_id_example', # String | Filter on a specific message id
-  template_id: 789 # Integer | Filter on a specific template id
+  template_id: 789, # Integer | Filter on a specific template id
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
 }
 
 begin
@@ -319,6 +492,7 @@ Name | Type | Description  | Notes
  **tags** | **String**| Filter the report for tags (serialized and urlencoded array) | [optional] 
  **message_id** | **String**| Filter on a specific message id | [optional] 
  **template_id** | **Integer**| Filter on a specific template id | [optional] 
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
 
 ### Return type
 
@@ -365,7 +539,8 @@ opts = {
   start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD)
   end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
   days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
-  tag: 'tag_example' # String | Tag of the emails
+  tag: 'tag_example', # String | Tag of the emails
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
 }
 
 begin
@@ -387,6 +562,7 @@ Name | Type | Description  | Notes
  **end_date** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) | [optional] 
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional] 
  **tag** | **String**| Tag of the emails | [optional] 
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
 
 ### Return type
 
@@ -487,7 +663,8 @@ api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 opts = { 
   template_status: true, # BOOLEAN | Filter on the status of the template. Active = true, inactive = false
   limit: 50, # Integer | Number of documents returned per page
-  offset: 0 # Integer | Index of the first document in the page
+  offset: 0, # Integer | Index of the first document in the page
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
 }
 
 begin
@@ -506,6 +683,7 @@ Name | Type | Description  | Notes
  **template_status** | **BOOLEAN**| Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false | [optional] 
  **limit** | **Integer**| Number of documents returned per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document in the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
 
 ### Return type
 
@@ -551,7 +729,8 @@ opts = {
   end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts
   limit: 50, # Integer | Number of documents returned per page
   offset: 0, # Integer | Index of the first document on the page
-  senders: ['senders_example'] # Array<String> | Comma separated list of emails of the senders from which contacts are blocked or unsubscribed
+  senders: ['senders_example'], # Array<String> | Comma separated list of emails of the senders from which contacts are blocked or unsubscribed
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
 }
 
 begin
@@ -572,6 +751,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| Number of documents returned per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document on the page | [optional] [default to 0]
  **senders** | [**Array&lt;String&gt;**](String.md)| Comma separated list of emails of the senders from which contacts are blocked or unsubscribed | [optional] 
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
 
 ### Return type
 
@@ -676,7 +856,8 @@ opts = {
   template_id: 789, # Integer | Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email.
   message_id: 'message_id_example', # String | Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
   start_date: Date.parse('2013-10-20'), # Date | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
-  end_date: Date.parse('2013-10-20') # Date | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+  end_date: Date.parse('2013-10-20'), # Date | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
 }
 
 begin
@@ -697,6 +878,7 @@ Name | Type | Description  | Notes
  **message_id** | **String**| Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. | [optional] 
  **start_date** | **Date**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. | [optional] 
  **end_date** | **Date**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. | [optional] 
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
 
 ### Return type
 

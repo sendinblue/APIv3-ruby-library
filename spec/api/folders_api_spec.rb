@@ -71,6 +71,7 @@ describe 'FoldersApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [Integer] :offset Index of the first document of the page
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
   # @return [GetFolderLists]
   describe 'get_folder_lists test' do
     it 'should work' do
@@ -83,6 +84,7 @@ describe 'FoldersApi' do
   # @param limit Number of documents per page
   # @param offset Index of the first document of the page
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
   # @return [GetFolders]
   describe 'get_folders test' do
     it 'should work' do
