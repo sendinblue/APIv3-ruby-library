@@ -92,7 +92,7 @@ api_instance = SibApiV3Sdk::ProcessApi.new
 opts = { 
   limit: 10, # Integer | Number limitation for the result returned
   offset: 0, # Integer | Beginning point in the list to retrieve from.
-  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
 
 begin
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Number limitation for the result returned | [optional] [default to 10]
  **offset** | **Integer**| Beginning point in the list to retrieve from. | [optional] [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
 ### Return type
 

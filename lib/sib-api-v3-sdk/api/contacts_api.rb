@@ -736,7 +736,7 @@ module SibApiV3Sdk
     # @option opts [Integer] :limit Number of documents per page (default to 50)
     # @option opts [Integer] :offset Index of the first document of the page (default to 0)
     # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetContacts]
     def get_contacts(opts = {})
       data, _status_code, _headers = get_contacts_with_http_info(opts)
@@ -748,7 +748,7 @@ module SibApiV3Sdk
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [Integer] :offset Index of the first document of the page
     # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetContacts, Fixnum, Hash)>] GetContacts data, response status code and response headers
     def get_contacts_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -802,7 +802,7 @@ module SibApiV3Sdk
     # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
     # @option opts [Integer] :limit Number of documents per page (default to 50)
     # @option opts [Integer] :offset Index of the first document of the page (default to 0)
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetContacts]
     def get_contacts_from_list(list_id, opts = {})
       data, _status_code, _headers = get_contacts_from_list_with_http_info(list_id, opts)
@@ -815,7 +815,7 @@ module SibApiV3Sdk
     # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [Integer] :offset Index of the first document of the page
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetContacts, Fixnum, Hash)>] GetContacts data, response status code and response headers
     def get_contacts_from_list_with_http_info(list_id, opts = {})
       if @api_client.config.debugging
@@ -924,7 +924,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page (default to 10)
     # @option opts [Integer] :offset Index of the first document of the page (default to 0)
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetFolderLists]
     def get_folder_lists(folder_id, opts = {})
       data, _status_code, _headers = get_folder_lists_with_http_info(folder_id, opts)
@@ -936,7 +936,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [Integer] :offset Index of the first document of the page
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetFolderLists, Fixnum, Hash)>] GetFolderLists data, response status code and response headers
     def get_folder_lists_with_http_info(folder_id, opts = {})
       if @api_client.config.debugging
@@ -991,7 +991,7 @@ module SibApiV3Sdk
     # @param limit Number of documents per page
     # @param offset Index of the first document of the page
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetFolders]
     def get_folders(limit, offset, opts = {})
       data, _status_code, _headers = get_folders_with_http_info(limit, offset, opts)
@@ -1002,7 +1002,7 @@ module SibApiV3Sdk
     # @param limit Number of documents per page
     # @param offset Index of the first document of the page
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetFolders, Fixnum, Hash)>] GetFolders data, response status code and response headers
     def get_folders_with_http_info(limit, offset, opts = {})
       if @api_client.config.debugging
@@ -1113,7 +1113,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page (default to 10)
     # @option opts [Integer] :offset Index of the first document of the page (default to 0)
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetLists]
     def get_lists(opts = {})
       data, _status_code, _headers = get_lists_with_http_info(opts)
@@ -1124,7 +1124,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [Integer] :offset Index of the first document of the page
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetLists, Fixnum, Hash)>] GetLists data, response status code and response headers
     def get_lists_with_http_info(opts = {})
       if @api_client.config.debugging

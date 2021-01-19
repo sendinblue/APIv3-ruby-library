@@ -300,7 +300,7 @@ module SibApiV3Sdk
     # @option opts [DateTime] :end_date Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
     # @option opts [Integer] :limit Number of documents per page (default to 500)
     # @option opts [Integer] :offset Index of the first document in the page (default to 0)
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetEmailCampaigns]
     def get_email_campaigns(opts = {})
       data, _status_code, _headers = get_email_campaigns_with_http_info(opts)
@@ -315,7 +315,7 @@ module SibApiV3Sdk
     # @option opts [DateTime] :end_date Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
     # @option opts [Integer] :limit Number of documents per page
     # @option opts [Integer] :offset Index of the first document in the page
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetEmailCampaigns, Fixnum, Hash)>] GetEmailCampaigns data, response status code and response headers
     def get_email_campaigns_with_http_info(opts = {})
       if @api_client.config.debugging

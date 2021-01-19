@@ -466,7 +466,7 @@ opts = {
   tags: 'tags_example', # String | Filter the report for tags (serialized and urlencoded array)
   message_id: 'message_id_example', # String | Filter on a specific message id
   template_id: 789, # Integer | Filter on a specific template id
-  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
 
 begin
@@ -492,7 +492,7 @@ Name | Type | Description  | Notes
  **tags** | **String**| Filter the report for tags (serialized and urlencoded array) | [optional] 
  **message_id** | **String**| Filter on a specific message id | [optional] 
  **template_id** | **Integer**| Filter on a specific template id | [optional] 
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
 ### Return type
 
@@ -540,7 +540,7 @@ opts = {
   end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
   days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
   tag: 'tag_example', # String | Tag of the emails
-  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
 
 begin
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
  **end_date** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) | [optional] 
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional] 
  **tag** | **String**| Tag of the emails | [optional] 
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
 ### Return type
 
@@ -664,7 +664,7 @@ opts = {
   template_status: true, # BOOLEAN | Filter on the status of the template. Active = true, inactive = false
   limit: 50, # Integer | Number of documents returned per page
   offset: 0, # Integer | Index of the first document in the page
-  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
 
 begin
@@ -683,7 +683,7 @@ Name | Type | Description  | Notes
  **template_status** | **BOOLEAN**| Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false | [optional] 
  **limit** | **Integer**| Number of documents returned per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document in the page | [optional] [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
 ### Return type
 
@@ -730,7 +730,7 @@ opts = {
   limit: 50, # Integer | Number of documents returned per page
   offset: 0, # Integer | Index of the first document on the page
   senders: ['senders_example'], # Array<String> | Comma separated list of emails of the senders from which contacts are blocked or unsubscribed
-  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
 
 begin
@@ -751,7 +751,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| Number of documents returned per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document on the page | [optional] [default to 0]
  **senders** | [**Array&lt;String&gt;**](String.md)| Comma separated list of emails of the senders from which contacts are blocked or unsubscribed | [optional] 
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
 ### Return type
 
@@ -857,7 +857,7 @@ opts = {
   message_id: 'message_id_example', # String | Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
   start_date: Date.parse('2013-10-20'), # Date | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
   end_date: Date.parse('2013-10-20'), # Date | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
-  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
 
 begin
@@ -878,7 +878,7 @@ Name | Type | Description  | Notes
  **message_id** | **String**| Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. | [optional] 
  **start_date** | **Date**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. | [optional] 
  **end_date** | **Date**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. | [optional] 
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
 ### Return type
 

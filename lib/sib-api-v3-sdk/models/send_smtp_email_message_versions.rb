@@ -13,25 +13,45 @@ Swagger Codegen version: 2.4.12
 require 'date'
 
 module SibApiV3Sdk
-  class CreateSmtpEmail
-    # Message ID of the transactional email sent
-    attr_accessor :message_id
+  class SendSmtpEmailMessageVersions
+    # List of email addresses and names (_optional_) of the recipients. For example, [{\"name\":\"Jimmy\", \"email\":\"jimmy98@example.com\"}, {\"name\":\"Joe\", \"email\":\"joe@example.com\"}]
+    attr_accessor :to
 
-    attr_accessor :message_ids
+    # Pass the set of attributes to customize the template. For example, {\"FNAME\":\"Joe\", \"LNAME\":\"Doe\"}. It's considered only if template is in New Template Language format.
+    attr_accessor :params
+
+    # List of email addresses and names (optional) of the recipients in bcc
+    attr_accessor :bcc
+
+    # List of email addresses and names (optional) of the recipients in cc
+    attr_accessor :cc
+
+    attr_accessor :reply_to
+
+    # Custom subject specific to message version 
+    attr_accessor :subject
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'message_id' => :'messageId',
-        :'message_ids' => :'messageIds'
+        :'to' => :'to',
+        :'params' => :'params',
+        :'bcc' => :'bcc',
+        :'cc' => :'cc',
+        :'reply_to' => :'replyTo',
+        :'subject' => :'subject'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'message_id' => :'String',
-        :'message_ids' => :'Array<String>'
+        :'to' => :'Array<SendSmtpEmailTo1>',
+        :'params' => :'Hash<String, Object>',
+        :'bcc' => :'Array<SendSmtpEmailBcc>',
+        :'cc' => :'Array<SendSmtpEmailCc>',
+        :'reply_to' => :'SendSmtpEmailReplyTo1',
+        :'subject' => :'String'
       }
     end
 
@@ -43,14 +63,36 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'messageId')
-        self.message_id = attributes[:'messageId']
+      if attributes.has_key?(:'to')
+        if (value = attributes[:'to']).is_a?(Array)
+          self.to = value
+        end
       end
 
-      if attributes.has_key?(:'messageIds')
-        if (value = attributes[:'messageIds']).is_a?(Array)
-          self.message_ids = value
+      if attributes.has_key?(:'params')
+        if (value = attributes[:'params']).is_a?(Hash)
+          self.params = value
         end
+      end
+
+      if attributes.has_key?(:'bcc')
+        if (value = attributes[:'bcc']).is_a?(Array)
+          self.bcc = value
+        end
+      end
+
+      if attributes.has_key?(:'cc')
+        if (value = attributes[:'cc']).is_a?(Array)
+          self.cc = value
+        end
+      end
+
+      if attributes.has_key?(:'replyTo')
+        self.reply_to = attributes[:'replyTo']
+      end
+
+      if attributes.has_key?(:'subject')
+        self.subject = attributes[:'subject']
       end
     end
 
@@ -58,12 +100,17 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @to.nil?
+        invalid_properties.push('invalid value for "to", to cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @to.nil?
       true
     end
 
@@ -72,8 +119,12 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          message_id == o.message_id &&
-          message_ids == o.message_ids
+          to == o.to &&
+          params == o.params &&
+          bcc == o.bcc &&
+          cc == o.cc &&
+          reply_to == o.reply_to &&
+          subject == o.subject
     end
 
     # @see the `==` method
@@ -85,7 +136,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [message_id, message_ids].hash
+      [to, params, bcc, cc, reply_to, subject].hash
     end
 
     # Builds the object from hash

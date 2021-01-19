@@ -218,7 +218,7 @@ opts = {
   modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
   limit: 50, # Integer | Number of documents per page
   offset: 0, # Integer | Index of the first document of the page
-  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
 
 begin
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
  **modified_since** | **DateTime**| Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. | [optional] 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
 ### Return type
 
@@ -284,7 +284,7 @@ folder_id = 789 # Integer | Id of the folder
 opts = { 
   limit: 10, # Integer | Number of documents per page
   offset: 0, # Integer | Index of the first document of the page
-  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
 
 begin
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
  **folder_id** | **Integer**| Id of the folder | 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 10]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
 ### Return type
 
@@ -404,7 +404,7 @@ api_instance = SibApiV3Sdk::ListsApi.new
 opts = { 
   limit: 10, # Integer | Number of documents per page
   offset: 0, # Integer | Index of the first document of the page
-  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
 
 begin
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Number of documents per page | [optional] [default to 10]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
 ### Return type
 
