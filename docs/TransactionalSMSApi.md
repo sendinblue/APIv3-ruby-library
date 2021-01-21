@@ -43,7 +43,7 @@ opts = {
   phone_number: 'phone_number_example', # String | Filter the report for a specific phone number
   event: 'event_example', # String | Filter the report for specific events
   tags: 'tags_example', # String | Filter the report for specific tags passed as a serialized urlencoded array
-  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
 
 begin
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
  **phone_number** | **String**| Filter the report for a specific phone number | [optional] 
  **event** | **String**| Filter the report for specific events | [optional] 
  **tags** | **String**| Filter the report for specific tags passed as a serialized urlencoded array | [optional] 
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
 ### Return type
 
@@ -177,7 +177,7 @@ opts = {
   end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
   days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
   tag: 'tag_example', # String | Filter on a tag
-  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
 
 begin
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
  **end_date** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report | [optional] 
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional] 
  **tag** | **String**| Filter on a tag | [optional] 
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
 ### Return type
 

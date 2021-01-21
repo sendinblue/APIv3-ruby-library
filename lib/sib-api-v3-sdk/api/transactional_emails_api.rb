@@ -405,7 +405,7 @@ module SibApiV3Sdk
     # @option opts [String] :tags Filter the report for tags (serialized and urlencoded array)
     # @option opts [String] :message_id Filter on a specific message id
     # @option opts [Integer] :template_id Filter on a specific template id
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetEmailEventReport]
     def get_email_event_report(opts = {})
       data, _status_code, _headers = get_email_event_report_with_http_info(opts)
@@ -424,7 +424,7 @@ module SibApiV3Sdk
     # @option opts [String] :tags Filter the report for tags (serialized and urlencoded array)
     # @option opts [String] :message_id Filter on a specific message id
     # @option opts [Integer] :template_id Filter on a specific template id
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetEmailEventReport, Fixnum, Hash)>] GetEmailEventReport data, response status code and response headers
     def get_email_event_report_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -490,7 +490,7 @@ module SibApiV3Sdk
     # @option opts [String] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
     # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
     # @option opts [String] :tag Tag of the emails
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetReports]
     def get_smtp_report(opts = {})
       data, _status_code, _headers = get_smtp_report_with_http_info(opts)
@@ -505,7 +505,7 @@ module SibApiV3Sdk
     # @option opts [String] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
     # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
     # @option opts [String] :tag Tag of the emails
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetReports, Fixnum, Hash)>] GetReports data, response status code and response headers
     def get_smtp_report_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -613,7 +613,7 @@ module SibApiV3Sdk
     # @option opts [BOOLEAN] :template_status Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false
     # @option opts [Integer] :limit Number of documents returned per page (default to 50)
     # @option opts [Integer] :offset Index of the first document in the page (default to 0)
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetSmtpTemplates]
     def get_smtp_templates(opts = {})
       data, _status_code, _headers = get_smtp_templates_with_http_info(opts)
@@ -625,7 +625,7 @@ module SibApiV3Sdk
     # @option opts [BOOLEAN] :template_status Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false
     # @option opts [Integer] :limit Number of documents returned per page
     # @option opts [Integer] :offset Index of the first document in the page
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetSmtpTemplates, Fixnum, Hash)>] GetSmtpTemplates data, response status code and response headers
     def get_smtp_templates_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -680,7 +680,7 @@ module SibApiV3Sdk
     # @option opts [Integer] :limit Number of documents returned per page (default to 50)
     # @option opts [Integer] :offset Index of the first document on the page (default to 0)
     # @option opts [Array<String>] :senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetTransacBlockedContacts]
     def get_transac_blocked_contacts(opts = {})
       data, _status_code, _headers = get_transac_blocked_contacts_with_http_info(opts)
@@ -694,7 +694,7 @@ module SibApiV3Sdk
     # @option opts [Integer] :limit Number of documents returned per page
     # @option opts [Integer] :offset Index of the first document on the page
     # @option opts [Array<String>] :senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetTransacBlockedContacts, Fixnum, Hash)>] GetTransacBlockedContacts data, response status code and response headers
     def get_transac_blocked_contacts_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -804,7 +804,7 @@ module SibApiV3Sdk
     # @option opts [String] :message_id Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
     # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
     # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetTransacEmailsList]
     def get_transac_emails_list(opts = {})
       data, _status_code, _headers = get_transac_emails_list_with_http_info(opts)
@@ -819,7 +819,7 @@ module SibApiV3Sdk
     # @option opts [String] :message_id Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
     # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
     # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetTransacEmailsList, Fixnum, Hash)>] GetTransacEmailsList data, response status code and response headers
     def get_transac_emails_list_with_http_info(opts = {})
       if @api_client.config.debugging

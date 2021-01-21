@@ -186,7 +186,7 @@ describe 'ContactsApi' do
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [Integer] :offset Index of the first document of the page
   # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
-  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
   # @return [GetContacts]
   describe 'get_contacts test' do
     it 'should work' do
@@ -201,7 +201,7 @@ describe 'ContactsApi' do
   # @option opts [DateTime] :modified_since Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [Integer] :offset Index of the first document of the page
-  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
   # @return [GetContacts]
   describe 'get_contacts_from_list test' do
     it 'should work' do
@@ -226,7 +226,7 @@ describe 'ContactsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [Integer] :offset Index of the first document of the page
-  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
   # @return [GetFolderLists]
   describe 'get_folder_lists test' do
     it 'should work' do
@@ -239,7 +239,7 @@ describe 'ContactsApi' do
   # @param limit Number of documents per page
   # @param offset Index of the first document of the page
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
   # @return [GetFolders]
   describe 'get_folders test' do
     it 'should work' do
@@ -263,7 +263,7 @@ describe 'ContactsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number of documents per page
   # @option opts [Integer] :offset Index of the first document of the page
-  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
   # @return [GetLists]
   describe 'get_lists test' do
     it 'should work' do

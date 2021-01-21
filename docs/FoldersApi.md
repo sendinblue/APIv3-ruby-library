@@ -211,7 +211,7 @@ folder_id = 789 # Integer | Id of the folder
 opts = { 
   limit: 10, # Integer | Number of documents per page
   offset: 0, # Integer | Index of the first document of the page
-  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
 
 begin
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
  **folder_id** | **Integer**| Id of the folder | 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 10]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
 ### Return type
 
@@ -276,7 +276,7 @@ limit = 10 # Integer | Number of documents per page
 offset = 0 # Integer | Index of the first document of the page
 
 opts = { 
-  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation
+  sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
 
 begin
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Number of documents per page | [default to 10]
  **offset** | **Integer**| Index of the first document of the page | [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
 ### Return type
 

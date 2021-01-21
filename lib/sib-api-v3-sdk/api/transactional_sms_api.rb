@@ -39,7 +39,7 @@ module SibApiV3Sdk
     # @option opts [String] :phone_number Filter the report for a specific phone number
     # @option opts [String] :event Filter the report for specific events
     # @option opts [String] :tags Filter the report for specific tags passed as a serialized urlencoded array
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetSmsEventReport]
     def get_sms_events(opts = {})
       data, _status_code, _headers = get_sms_events_with_http_info(opts)
@@ -56,7 +56,7 @@ module SibApiV3Sdk
     # @option opts [String] :phone_number Filter the report for a specific phone number
     # @option opts [String] :event Filter the report for specific events
     # @option opts [String] :tags Filter the report for specific tags passed as a serialized urlencoded array
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetSmsEventReport, Fixnum, Hash)>] GetSmsEventReport data, response status code and response headers
     def get_sms_events_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -176,7 +176,7 @@ module SibApiV3Sdk
     # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
     # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
     # @option opts [String] :tag Filter on a tag
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetTransacSmsReport]
     def get_transac_sms_report(opts = {})
       data, _status_code, _headers = get_transac_sms_report_with_http_info(opts)
@@ -189,7 +189,7 @@ module SibApiV3Sdk
     # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
     # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
     # @option opts [String] :tag Filter on a tag
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetTransacSmsReport, Fixnum, Hash)>] GetTransacSmsReport data, response status code and response headers
     def get_transac_sms_report_with_http_info(opts = {})
       if @api_client.config.debugging

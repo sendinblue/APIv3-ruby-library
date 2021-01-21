@@ -128,7 +128,7 @@ describe 'TransactionalEmailsApi' do
   # @option opts [String] :tags Filter the report for tags (serialized and urlencoded array)
   # @option opts [String] :message_id Filter on a specific message id
   # @option opts [Integer] :template_id Filter on a specific template id
-  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
   # @return [GetEmailEventReport]
   describe 'get_email_event_report test' do
     it 'should work' do
@@ -145,7 +145,7 @@ describe 'TransactionalEmailsApi' do
   # @option opts [String] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
   # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
   # @option opts [String] :tag Tag of the emails
-  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
   # @return [GetReports]
   describe 'get_smtp_report test' do
     it 'should work' do
@@ -170,7 +170,7 @@ describe 'TransactionalEmailsApi' do
   # @option opts [BOOLEAN] :template_status Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false
   # @option opts [Integer] :limit Number of documents returned per page
   # @option opts [Integer] :offset Index of the first document in the page
-  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
   # @return [GetSmtpTemplates]
   describe 'get_smtp_templates test' do
     it 'should work' do
@@ -186,7 +186,7 @@ describe 'TransactionalEmailsApi' do
   # @option opts [Integer] :limit Number of documents returned per page
   # @option opts [Integer] :offset Index of the first document on the page
   # @option opts [Array<String>] :senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed
-  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
   # @return [GetTransacBlockedContacts]
   describe 'get_transac_blocked_contacts test' do
     it 'should work' do
@@ -214,7 +214,7 @@ describe 'TransactionalEmailsApi' do
   # @option opts [String] :message_id Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
   # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
   # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
-  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
   # @return [GetTransacEmailsList]
   describe 'get_transac_emails_list test' do
     it 'should work' do

@@ -85,7 +85,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number limitation for the result returned (default to 10)
     # @option opts [Integer] :offset Beginning point in the list to retrieve from. (default to 0)
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation (default to desc)
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetProcesses]
     def get_processes(opts = {})
       data, _status_code, _headers = get_processes_with_http_info(opts)
@@ -96,7 +96,7 @@ module SibApiV3Sdk
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number limitation for the result returned
     # @option opts [Integer] :offset Beginning point in the list to retrieve from.
-    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
     # @return [Array<(GetProcesses, Fixnum, Hash)>] GetProcesses data, response status code and response headers
     def get_processes_with_http_info(opts = {})
       if @api_client.config.debugging

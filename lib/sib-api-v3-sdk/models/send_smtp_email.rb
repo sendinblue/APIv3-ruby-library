@@ -16,7 +16,7 @@ module SibApiV3Sdk
   class SendSmtpEmail
     attr_accessor :sender
 
-    # List of email addresses and names (optional) of the recipients. For example, [{\"name\":\"Jimmy\", \"email\":\"jimmy98@example.com\"}, {\"name\":\"Joe\", \"email\":\"joe@example.com\"}]
+    # Mandatory if messageVersions are not passed, ignored if messageVersions are passed. List of email addresses and names (optional) of the recipients. For example, [{\"name\":\"Jimmy\", \"email\":\"jimmy98@example.com\"}, {\"name\":\"Joe\", \"email\":\"joe@example.com\"}]
     attr_accessor :to
 
     # List of email addresses and names (optional) of the recipients in bcc
@@ -42,11 +42,14 @@ module SibApiV3Sdk
     # Pass the set of custom headers (not the standard headers) that shall be sent along the mail headers in the original email. 'sender.ip' header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. Headers are allowed in `This-Case-Only` (i.e. words separated by hyphen with first letter of each word in capital letter), they will be converted to such case styling if not in this format in the request payload. For example, `{\"sender.ip\":\"1.2.3.4\", \"X-Mailin-custom\":\"some_custom_header\"}`.
     attr_accessor :headers
 
-    # Id of the template
+    # Id of the template. Mandatory if messageVersions are passed
     attr_accessor :template_id
 
     # Pass the set of attributes to customize the template. For example, {\"FNAME\":\"Joe\", \"LNAME\":\"Doe\"}. It's considered only if template is in New Template Language format.
     attr_accessor :params
+
+    # You can customize and send out multiple versions of a templateId. Some global parameters such as **to(mandatory), bcc, cc, replyTo, subject** can also be customized specific to each version. The size of individual params in all the messageVersions shall not exceed 100 KB limit and that of cumulative params shall not exceed 1000 KB. This feature is currently in its beta version. You can follow this **step-by-step guide** on how to use **messageVersions** to batch send emails - https://developers.sendinblue.com/docs/batch-send-transactional-emails
+    attr_accessor :message_versions
 
     # Tag your emails to find them more easily
     attr_accessor :tags
@@ -66,6 +69,7 @@ module SibApiV3Sdk
         :'headers' => :'headers',
         :'template_id' => :'templateId',
         :'params' => :'params',
+        :'message_versions' => :'messageVersions',
         :'tags' => :'tags'
       }
     end
@@ -85,6 +89,7 @@ module SibApiV3Sdk
         :'headers' => :'Object',
         :'template_id' => :'Integer',
         :'params' => :'Object',
+        :'message_versions' => :'Array<SendSmtpEmailMessageVersions>',
         :'tags' => :'Array<String>'
       }
     end
@@ -153,6 +158,12 @@ module SibApiV3Sdk
         self.params = attributes[:'params']
       end
 
+      if attributes.has_key?(:'messageVersions')
+        if (value = attributes[:'messageVersions']).is_a?(Array)
+          self.message_versions = value
+        end
+      end
+
       if attributes.has_key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -164,17 +175,12 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @to.nil?
-        invalid_properties.push('invalid value for "to", to cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @to.nil?
       true
     end
 
@@ -195,6 +201,7 @@ module SibApiV3Sdk
           headers == o.headers &&
           template_id == o.template_id &&
           params == o.params &&
+          message_versions == o.message_versions &&
           tags == o.tags
     end
 
@@ -207,7 +214,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [sender, to, bcc, cc, html_content, text_content, subject, reply_to, attachment, headers, template_id, params, tags].hash
+      [sender, to, bcc, cc, html_content, text_content, subject, reply_to, attachment, headers, template_id, params, message_versions, tags].hash
     end
 
     # Builds the object from hash

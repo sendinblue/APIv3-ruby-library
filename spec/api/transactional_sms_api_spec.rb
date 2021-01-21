@@ -43,7 +43,7 @@ describe 'TransactionalSMSApi' do
   # @option opts [String] :phone_number Filter the report for a specific phone number
   # @option opts [String] :event Filter the report for specific events
   # @option opts [String] :tags Filter the report for specific tags passed as a serialized urlencoded array
-  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
   # @return [GetSmsEventReport]
   describe 'get_sms_events test' do
     it 'should work' do
@@ -72,7 +72,7 @@ describe 'TransactionalSMSApi' do
   # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
   # @option opts [Integer] :days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39;
   # @option opts [String] :tag Filter on a tag
-  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
   # @return [GetTransacSmsReport]
   describe 'get_transac_sms_report test' do
     it 'should work' do

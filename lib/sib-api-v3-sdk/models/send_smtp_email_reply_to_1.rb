@@ -13,25 +13,27 @@ Swagger Codegen version: 2.4.12
 require 'date'
 
 module SibApiV3Sdk
-  class CreateSmtpEmail
-    # Message ID of the transactional email sent
-    attr_accessor :message_id
+  # Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, {\"email\":\"ann6533@example.com\", \"name\":\"Ann\"}
+  class SendSmtpEmailReplyTo1
+    # Email address in reply to
+    attr_accessor :email
 
-    attr_accessor :message_ids
+    # Name in reply to. Maximum allowed characters are 70.
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'message_id' => :'messageId',
-        :'message_ids' => :'messageIds'
+        :'email' => :'email',
+        :'name' => :'name'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'message_id' => :'String',
-        :'message_ids' => :'Array<String>'
+        :'email' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -43,14 +45,12 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'messageId')
-        self.message_id = attributes[:'messageId']
+      if attributes.has_key?(:'email')
+        self.email = attributes[:'email']
       end
 
-      if attributes.has_key?(:'messageIds')
-        if (value = attributes[:'messageIds']).is_a?(Array)
-          self.message_ids = value
-        end
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -58,12 +58,17 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @email.nil?
+        invalid_properties.push('invalid value for "email", email cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @email.nil?
       true
     end
 
@@ -72,8 +77,8 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          message_id == o.message_id &&
-          message_ids == o.message_ids
+          email == o.email &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -85,7 +90,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [message_id, message_ids].hash
+      [email, name].hash
     end
 
     # Builds the object from hash
