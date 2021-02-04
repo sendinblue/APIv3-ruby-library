@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**global_stats** | **Object** | Overall statistics of the campaign | 
+**global_stats** | [**GetExtendedCampaignStatsGlobalStats**](GetExtendedCampaignStatsGlobalStats.md) |  | 
 **campaign_stats** | **Array&lt;Object&gt;** | List-wise statistics of the campaign. | 
 **mirror_click** | **Integer** | Number of clicks on mirror link | 
 **remaining** | **Integer** | Number of remaning emails to send | 

@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **to_field** | **String** | Customisation of the \&quot;to\&quot; field for the template | 
 **tag** | **String** | Tag of the template | 
 **html_content** | **String** | HTML content of the template | 
-**created_at** | **DateTime** | Creation UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
-**modified_at** | **DateTime** | Last modification UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
+**created_at** | **String** | Creation UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
+**modified_at** | **String** | Last modification UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
 **doi_template** | **BOOLEAN** | It is true if template is a valid Double opt-in (DOI) template, otherwise it is false. This field will be available only in case of single template detail call. | [optional] 
 
 

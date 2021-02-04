@@ -341,7 +341,7 @@ api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 opts = { 
   start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
   end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
-  days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
+  days: 789, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
   tag: 'tag_example' # String | Tag of the emails
 }
 
@@ -460,7 +460,7 @@ opts = {
   offset: 0, # Integer | Beginning point in the list to retrieve from.
   start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
   end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
-  days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
+  days: 789, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
   email: 'email_example', # String | Filter the report for a specific email addresses
   event: 'event_example', # String | Filter the report for a specific event type
   tags: 'tags_example', # String | Filter the report for tags (serialized and urlencoded array)
@@ -538,7 +538,7 @@ opts = {
   offset: 0, # Integer | Index of the first document on the page
   start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD)
   end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
-  days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
+  days: 789, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
   tag: 'tag_example', # String | Tag of the emails
   sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }

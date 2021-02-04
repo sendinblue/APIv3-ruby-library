@@ -39,7 +39,7 @@ opts = {
   start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
   end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
   offset: 0, # Integer | Index of the first document of the page
-  days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
+  days: 789, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
   phone_number: 'phone_number_example', # String | Filter the report for a specific phone number
   event: 'event_example', # String | Filter the report for specific events
   tags: 'tags_example', # String | Filter the report for specific tags passed as a serialized urlencoded array
@@ -111,7 +111,7 @@ api_instance = SibApiV3Sdk::TransactionalSMSApi.new
 opts = { 
   start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
   end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
-  days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with startDate and endDate
+  days: 789, # Integer | Number of days in the past including today (positive integer). Not compatible with startDate and endDate
   tag: 'tag_example' # String | Filter on a tag
 }
 
@@ -175,7 +175,7 @@ api_instance = SibApiV3Sdk::TransactionalSMSApi.new
 opts = { 
   start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
   end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
-  days: 56, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
+  days: 789, # Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
   tag: 'tag_example', # String | Filter on a tag
   sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
