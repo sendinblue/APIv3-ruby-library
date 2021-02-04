@@ -215,7 +215,7 @@ api_instance = SibApiV3Sdk::ListsApi.new
 list_id = 789 # Integer | Id of the list
 
 opts = { 
-  modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+  modified_since: 'modified_since_example', # String | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
   limit: 50, # Integer | Number of documents per page
   offset: 0, # Integer | Index of the first document of the page
   sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
@@ -235,7 +235,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **Integer**| Id of the list | 
- **modified_since** | **DateTime**| Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. | [optional] 
+ **modified_since** | **String**| Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. | [optional] 
  **limit** | **Integer**| Number of documents per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document of the page | [optional] [default to 0]
  **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
