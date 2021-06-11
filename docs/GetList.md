@@ -7,5 +7,6 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the list | 
 **total_blacklisted** | **Integer** | Number of blacklisted contacts in the list | 
 **total_subscribers** | **Integer** | Number of contacts in the list | 
+**unique_subscribers** | **Integer** | Number of unique contacts in the list | 
 
 

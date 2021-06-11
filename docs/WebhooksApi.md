@@ -206,7 +206,8 @@ end
 api_instance = SibApiV3Sdk::WebhooksApi.new
 
 opts = { 
-  type: 'transactional' # String | Filter on webhook type
+  type: 'transactional', # String | Filter on webhook type
+  sort: 'desc' # String | Sort the results in the ascending/descending order of webhook creation
 }
 
 begin
@@ -223,6 +224,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | **String**| Filter on webhook type | [optional] [default to transactional]
+ **sort** | **String**| Sort the results in the ascending/descending order of webhook creation | [optional] [default to desc]
 
 ### Return type
 
