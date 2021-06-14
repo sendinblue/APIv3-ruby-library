@@ -195,8 +195,8 @@ module SibApiV3Sdk
         :'recurring' => :'BOOLEAN',
         :'sent_date' => :'String',
         :'return_bounce' => :'Integer',
-        :'recipients' => :'GetSmsCampaignRecipients',
-        :'statistics' => :'GetSmsCampaignRecipients'
+        :'recipients' => :'GetCampaignRecipients',
+        :'statistics' => :'GetExtendedCampaignStats'
       }
     end
 

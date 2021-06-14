@@ -109,7 +109,8 @@ module SibApiV3Sdk
         :ssl_verifyhost => _verify_ssl_host,
         :sslcert => @config.cert_file,
         :sslkey => @config.key_file,
-        :verbose => @config.debugging
+        :verbose => @config.debugging,
+        :http_version => :httpv1_1
       }
 
       req_opts.merge!(multipart: true) if header_params['Content-Type'].start_with? "multipart/"
