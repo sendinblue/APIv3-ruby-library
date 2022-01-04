@@ -41,6 +41,9 @@ module SibApiV3Sdk
     # Number of unique openings for the campaign
     attr_accessor :unique_views
 
+    # Recipients without any privacy protection option enabled in their email client
+    attr_accessor :trackable_views
+
     # Number of unsubscription for the campaign
     attr_accessor :unsubscriptions
 
@@ -65,6 +68,7 @@ module SibApiV3Sdk
         :'soft_bounces' => :'softBounces',
         :'hard_bounces' => :'hardBounces',
         :'unique_views' => :'uniqueViews',
+        :'trackable_views' => :'trackableViews',
         :'unsubscriptions' => :'unsubscriptions',
         :'viewed' => :'viewed',
         :'deferred' => :'deferred',
@@ -84,6 +88,7 @@ module SibApiV3Sdk
         :'soft_bounces' => :'Integer',
         :'hard_bounces' => :'Integer',
         :'unique_views' => :'Integer',
+        :'trackable_views' => :'Integer',
         :'unsubscriptions' => :'Integer',
         :'viewed' => :'Integer',
         :'deferred' => :'Integer',
@@ -133,6 +138,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'uniqueViews')
         self.unique_views = attributes[:'uniqueViews']
+      end
+
+      if attributes.has_key?(:'trackableViews')
+        self.trackable_views = attributes[:'trackableViews']
       end
 
       if attributes.has_key?(:'unsubscriptions')
@@ -188,6 +197,10 @@ module SibApiV3Sdk
         invalid_properties.push('invalid value for "unique_views", unique_views cannot be nil.')
       end
 
+      if @trackable_views.nil?
+        invalid_properties.push('invalid value for "trackable_views", trackable_views cannot be nil.')
+      end
+
       if @unsubscriptions.nil?
         invalid_properties.push('invalid value for "unsubscriptions", unsubscriptions cannot be nil.')
       end
@@ -210,6 +223,7 @@ module SibApiV3Sdk
       return false if @soft_bounces.nil?
       return false if @hard_bounces.nil?
       return false if @unique_views.nil?
+      return false if @trackable_views.nil?
       return false if @unsubscriptions.nil?
       return false if @viewed.nil?
       true
@@ -229,6 +243,7 @@ module SibApiV3Sdk
           soft_bounces == o.soft_bounces &&
           hard_bounces == o.hard_bounces &&
           unique_views == o.unique_views &&
+          trackable_views == o.trackable_views &&
           unsubscriptions == o.unsubscriptions &&
           viewed == o.viewed &&
           deferred == o.deferred &&
@@ -244,7 +259,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [list_id, unique_clicks, clickers, complaints, delivered, sent, soft_bounces, hard_bounces, unique_views, unsubscriptions, viewed, deferred, return_bounce].hash
+      [list_id, unique_clicks, clickers, complaints, delivered, sent, soft_bounces, hard_bounces, unique_views, trackable_views, unsubscriptions, viewed, deferred, return_bounce].hash
     end
 
     # Builds the object from hash

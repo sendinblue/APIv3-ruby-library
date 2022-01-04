@@ -288,6 +288,7 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Get your transactional email activity aggregated over a period of time
+    # This endpoint will show the aggregated stats for past 90 days by default if `startDate` and `endDate` OR `days` is not passed. The date range can not exceed 90 days
     # @param [Hash] opts the optional parameters
     # @option opts [String] :start_date Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
     # @option opts [String] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
@@ -300,6 +301,7 @@ module SibApiV3Sdk
     end
 
     # Get your transactional email activity aggregated over a period of time
+    # This endpoint will show the aggregated stats for past 90 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
     # @param [Hash] opts the optional parameters
     # @option opts [String] :start_date Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
     # @option opts [String] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
@@ -394,6 +396,7 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Get all your transactional email activity (unaggregated events)
+    # This endpoint will show the aggregated stats for past 30 days by default if `startDate` and `endDate` OR `days` is not passed. The date range can not exceed 90 days
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number limitation for the result returned (default to 50)
     # @option opts [Integer] :offset Beginning point in the list to retrieve from. (default to 0)
@@ -413,6 +416,7 @@ module SibApiV3Sdk
     end
 
     # Get all your transactional email activity (unaggregated events)
+    # This endpoint will show the aggregated stats for past 30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number limitation for the result returned
     # @option opts [Integer] :offset Beginning point in the list to retrieve from.
@@ -872,66 +876,6 @@ module SibApiV3Sdk
         :return_type => 'GetTransacEmailsList')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransactionalEmailsApi#get_transac_emails_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Send a template
-    # This endpoint is deprecated. Prefer v3/smtp/email instead.
-    # @param template_id Id of the template
-    # @param send_email 
-    # @param [Hash] opts the optional parameters
-    # @return [SendTemplateEmail]
-    def send_template(template_id, send_email, opts = {})
-      data, _status_code, _headers = send_template_with_http_info(template_id, send_email, opts)
-      data
-    end
-
-    # Send a template
-    # This endpoint is deprecated. Prefer v3/smtp/email instead.
-    # @param template_id Id of the template
-    # @param send_email 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(SendTemplateEmail, Fixnum, Hash)>] SendTemplateEmail data, response status code and response headers
-    def send_template_with_http_info(template_id, send_email, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TransactionalEmailsApi.send_template ...'
-      end
-      # verify the required parameter 'template_id' is set
-      if @api_client.config.client_side_validation && template_id.nil?
-        fail ArgumentError, "Missing the required parameter 'template_id' when calling TransactionalEmailsApi.send_template"
-      end
-      # verify the required parameter 'send_email' is set
-      if @api_client.config.client_side_validation && send_email.nil?
-        fail ArgumentError, "Missing the required parameter 'send_email' when calling TransactionalEmailsApi.send_template"
-      end
-      # resource path
-      local_var_path = '/smtp/templates/{templateId}/send'.sub('{' + 'templateId' + '}', template_id.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(send_email)
-      auth_names = ['api-key', 'partner-key']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'SendTemplateEmail')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TransactionalEmailsApi#send_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

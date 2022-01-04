@@ -28,6 +28,9 @@ module SibApiV3Sdk
     # UTC date-time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
     attr_accessor :scheduled_at
 
+    # Format of the message. It indicates whether the content should be treated as unicode or not.
+    attr_accessor :unicode_enabled
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -35,7 +38,8 @@ module SibApiV3Sdk
         :'sender' => :'sender',
         :'content' => :'content',
         :'recipients' => :'recipients',
-        :'scheduled_at' => :'scheduledAt'
+        :'scheduled_at' => :'scheduledAt',
+        :'unicode_enabled' => :'unicodeEnabled'
       }
     end
 
@@ -46,7 +50,8 @@ module SibApiV3Sdk
         :'sender' => :'String',
         :'content' => :'String',
         :'recipients' => :'CreateSmsCampaignRecipients',
-        :'scheduled_at' => :'String'
+        :'scheduled_at' => :'String',
+        :'unicode_enabled' => :'BOOLEAN'
       }
     end
 
@@ -76,6 +81,12 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'scheduledAt')
         self.scheduled_at = attributes[:'scheduledAt']
+      end
+
+      if attributes.has_key?(:'unicodeEnabled')
+        self.unicode_enabled = attributes[:'unicodeEnabled']
+      else
+        self.unicode_enabled = false
       end
     end
 
@@ -116,7 +127,8 @@ module SibApiV3Sdk
           sender == o.sender &&
           content == o.content &&
           recipients == o.recipients &&
-          scheduled_at == o.scheduled_at
+          scheduled_at == o.scheduled_at &&
+          unicode_enabled == o.unicode_enabled
     end
 
     # @see the `==` method
@@ -128,7 +140,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, sender, content, recipients, scheduled_at].hash
+      [name, sender, content, recipients, scheduled_at, unicode_enabled].hash
     end
 
     # Builds the object from hash

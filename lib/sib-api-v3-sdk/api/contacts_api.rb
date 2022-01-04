@@ -622,6 +622,7 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Get a contact's details
+    # Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
     # @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value
     # @param [Hash] opts the optional parameters
     # @return [GetExtendedContactDetails]
@@ -631,6 +632,7 @@ module SibApiV3Sdk
     end
 
     # Get a contact&#39;s details
+    # Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
     # @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetExtendedContactDetails, Fixnum, Hash)>] GetExtendedContactDetails data, response status code and response headers
@@ -677,7 +679,7 @@ module SibApiV3Sdk
     # @param identifier Email (urlencoded) OR ID of the contact
     # @param [Hash] opts the optional parameters
     # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
-    # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate
+    # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days
     # @return [GetContactCampaignStats]
     def get_contact_stats(identifier, opts = {})
       data, _status_code, _headers = get_contact_stats_with_http_info(identifier, opts)
@@ -688,7 +690,7 @@ module SibApiV3Sdk
     # @param identifier Email (urlencoded) OR ID of the contact
     # @param [Hash] opts the optional parameters
     # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
-    # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate
+    # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days
     # @return [Array<(GetContactCampaignStats, Fixnum, Hash)>] GetContactCampaignStats data, response status code and response headers
     def get_contact_stats_with_http_info(identifier, opts = {})
       if @api_client.config.debugging
@@ -1401,6 +1403,57 @@ module SibApiV3Sdk
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ContactsApi#update_attribute\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update multiple contacts
+    # @param update_batch_contacts Values to update multiple contacts
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def update_batch_contacts(update_batch_contacts, opts = {})
+      update_batch_contacts_with_http_info(update_batch_contacts, opts)
+      nil
+    end
+
+    # Update multiple contacts
+    # @param update_batch_contacts Values to update multiple contacts
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def update_batch_contacts_with_http_info(update_batch_contacts, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ContactsApi.update_batch_contacts ...'
+      end
+      # verify the required parameter 'update_batch_contacts' is set
+      if @api_client.config.client_side_validation && update_batch_contacts.nil?
+        fail ArgumentError, "Missing the required parameter 'update_batch_contacts' when calling ContactsApi.update_batch_contacts"
+      end
+      # resource path
+      local_var_path = '/contacts/batch'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(update_batch_contacts)
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ContactsApi#update_batch_contacts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

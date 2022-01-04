@@ -20,11 +20,14 @@ module SibApiV3Sdk
     # Description of the webhook
     attr_accessor :description
 
-    # Events triggering the webhook. Possible values for Transactional type webhook – `sent` OR `request`, `delivered`, `hardBounce`, `softBounce`, `blocked`, `spam`, `invalid`, `deferred`, `click`, `opened`, `uniqueOpened` and `unsubscribed` and possible values for Marketing type webhook – `spam`, `opened`, `click`, `hardBounce`, `softBounce`, `unsubscribed`, `listAddition` & `delivered`
+    # - Events triggering the webhook. Possible values for **Transactional** type webhook: #### `sent` OR `request`, `delivered`, `hardBounce`, `softBounce`, `blocked`, `spam`, `invalid`, `deferred`, `click`, `opened`, `uniqueOpened` and `unsubscribed` - Possible values for **Marketing** type webhook: #### `spam`, `opened`, `click`, `hardBounce`, `softBounce`, `unsubscribed`, `listAddition` & `delivered` - Possible values for **Inbound** type webhook: #### `inboundEmailProcessed` 
     attr_accessor :events
 
     # Type of the webhook
     attr_accessor :type
+
+    # Inbound domain of webhook, required in case of event type `inbound`
+    attr_accessor :domain
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -54,7 +57,8 @@ module SibApiV3Sdk
         :'url' => :'url',
         :'description' => :'description',
         :'events' => :'events',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'domain' => :'domain'
       }
     end
 
@@ -64,7 +68,8 @@ module SibApiV3Sdk
         :'url' => :'String',
         :'description' => :'String',
         :'events' => :'Array<String>',
-        :'type' => :'String'
+        :'type' => :'String',
+        :'domain' => :'String'
       }
     end
 
@@ -95,6 +100,10 @@ module SibApiV3Sdk
       else
         self.type = 'transactional'
       end
+
+      if attributes.has_key?(:'domain')
+        self.domain = attributes[:'domain']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -117,7 +126,7 @@ module SibApiV3Sdk
     def valid?
       return false if @url.nil?
       return false if @events.nil?
-      type_validator = EnumAttributeValidator.new('String', ['transactional', 'marketing'])
+      type_validator = EnumAttributeValidator.new('String', ['transactional', 'marketing', 'inbound'])
       return false unless type_validator.valid?(@type)
       true
     end
@@ -125,7 +134,7 @@ module SibApiV3Sdk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ['transactional', 'marketing'])
+      validator = EnumAttributeValidator.new('String', ['transactional', 'marketing', 'inbound'])
       unless validator.valid?(type)
         fail ArgumentError, 'invalid value for "type", must be one of #{validator.allowable_values}.'
       end
@@ -140,7 +149,8 @@ module SibApiV3Sdk
           url == o.url &&
           description == o.description &&
           events == o.events &&
-          type == o.type
+          type == o.type &&
+          domain == o.domain
     end
 
     # @see the `==` method
@@ -152,7 +162,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [url, description, events, type].hash
+      [url, description, events, type, domain].hash
     end
 
     # Builds the object from hash

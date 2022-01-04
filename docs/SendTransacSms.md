@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **type** | **String** | Type of the SMS. Marketing SMS messages are those sent typically with marketing content. Transactional SMS messages are sent to individuals and are triggered in response to some action, such as a sign-up, purchase, etc. | [optional] [default to &#39;transactional&#39;]
 **tag** | **String** | Tag of the message | [optional] 
 **web_url** | **String** | Webhook to call for each event triggered by the message (delivered etc.) | [optional] 
+**unicode_enabled** | **BOOLEAN** | Format of the message. It indicates whether the content should be treated as unicode or not. | [optional] [default to false]
 
 

@@ -32,6 +32,9 @@ module SibApiV3Sdk
     # Webhook to call for each event triggered by the message (delivered etc.)
     attr_accessor :web_url
 
+    # Format of the message. It indicates whether the content should be treated as unicode or not.
+    attr_accessor :unicode_enabled
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -62,7 +65,8 @@ module SibApiV3Sdk
         :'content' => :'content',
         :'type' => :'type',
         :'tag' => :'tag',
-        :'web_url' => :'webUrl'
+        :'web_url' => :'webUrl',
+        :'unicode_enabled' => :'unicodeEnabled'
       }
     end
 
@@ -74,7 +78,8 @@ module SibApiV3Sdk
         :'content' => :'String',
         :'type' => :'String',
         :'tag' => :'String',
-        :'web_url' => :'String'
+        :'web_url' => :'String',
+        :'unicode_enabled' => :'BOOLEAN'
       }
     end
 
@@ -110,6 +115,12 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'webUrl')
         self.web_url = attributes[:'webUrl']
+      end
+
+      if attributes.has_key?(:'unicodeEnabled')
+        self.unicode_enabled = attributes[:'unicodeEnabled']
+      else
+        self.unicode_enabled = false
       end
     end
 
@@ -182,7 +193,8 @@ module SibApiV3Sdk
           content == o.content &&
           type == o.type &&
           tag == o.tag &&
-          web_url == o.web_url
+          web_url == o.web_url &&
+          unicode_enabled == o.unicode_enabled
     end
 
     # @see the `==` method
@@ -194,7 +206,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [sender, recipient, content, type, tag, web_url].hash
+      [sender, recipient, content, type, tag, web_url, unicode_enabled].hash
     end
 
     # Builds the object from hash
