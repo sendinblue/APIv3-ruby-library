@@ -89,6 +89,18 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::AttributesApi* | [**delete_attribute**](docs/AttributesApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Delete an attribute
 *SibApiV3Sdk::AttributesApi* | [**get_attributes**](docs/AttributesApi.md#get_attributes) | **GET** /contacts/attributes | List all attributes
 *SibApiV3Sdk::AttributesApi* | [**update_attribute**](docs/AttributesApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
+*SibApiV3Sdk::CRMApi* | [**crm_files_id_data_get**](docs/CRMApi.md#crm_files_id_data_get) | **GET** /crm/files/{id}/data | Get file data by id.
+*SibApiV3Sdk::CRMApi* | [**crm_files_id_delete**](docs/CRMApi.md#crm_files_id_delete) | **DELETE** /crm/files/{id} | Delete file.
+*SibApiV3Sdk::CRMApi* | [**crm_files_id_get**](docs/CRMApi.md#crm_files_id_get) | **GET** /crm/files/{id} | Download file by id.
+*SibApiV3Sdk::CRMApi* | [**crm_files_post**](docs/CRMApi.md#crm_files_post) | **POST** /crm/files | Upload and create file.
+*SibApiV3Sdk::CRMApi* | [**crm_notes_id_delete**](docs/CRMApi.md#crm_notes_id_delete) | **DELETE** /crm/notes/{id} | Delete Note by ID
+*SibApiV3Sdk::CRMApi* | [**crm_notes_id_get**](docs/CRMApi.md#crm_notes_id_get) | **GET** /crm/notes/{id} | Get one Note by ID
+*SibApiV3Sdk::CRMApi* | [**crm_notes_id_patch**](docs/CRMApi.md#crm_notes_id_patch) | **PATCH** /crm/notes/{id} | Update a note
+*SibApiV3Sdk::CRMApi* | [**crm_notes_post**](docs/CRMApi.md#crm_notes_post) | **POST** /crm/notes | Create a new Note
+*SibApiV3Sdk::CRMApi* | [**crm_tasks_id_delete**](docs/CRMApi.md#crm_tasks_id_delete) | **DELETE** /crm/tasks/{id} | Delete Task by id
+*SibApiV3Sdk::CRMApi* | [**crm_tasks_id_get**](docs/CRMApi.md#crm_tasks_id_get) | **GET** /crm/tasks/{id} | Get one Task by ID
+*SibApiV3Sdk::CRMApi* | [**crm_tasks_id_patch**](docs/CRMApi.md#crm_tasks_id_patch) | **PATCH** /crm/tasks/{id} | Update partial existing task
+*SibApiV3Sdk::CRMApi* | [**crm_tasks_post**](docs/CRMApi.md#crm_tasks_post) | **POST** /crm/tasks | Create a new Task
 *SibApiV3Sdk::ContactsApi* | [**add_contact_to_list**](docs/ContactsApi.md#add_contact_to_list) | **POST** /contacts/lists/{listId}/contacts/add | Add existing contacts to a list
 *SibApiV3Sdk::ContactsApi* | [**create_attribute**](docs/ContactsApi.md#create_attribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Create contact attribute
 *SibApiV3Sdk::ContactsApi* | [**create_contact**](docs/ContactsApi.md#create_contact) | **POST** /contacts | Create a contact
@@ -113,6 +125,7 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::ContactsApi* | [**remove_contact_from_list**](docs/ContactsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Delete a contact from a list
 *SibApiV3Sdk::ContactsApi* | [**request_contact_export**](docs/ContactsApi.md#request_contact_export) | **POST** /contacts/export | Export contacts
 *SibApiV3Sdk::ContactsApi* | [**update_attribute**](docs/ContactsApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
+*SibApiV3Sdk::ContactsApi* | [**update_batch_contacts**](docs/ContactsApi.md#update_batch_contacts) | **POST** /contacts/batch | Update multiple contacts
 *SibApiV3Sdk::ContactsApi* | [**update_contact**](docs/ContactsApi.md#update_contact) | **PUT** /contacts/{identifier} | Update a contact
 *SibApiV3Sdk::ContactsApi* | [**update_folder**](docs/ContactsApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a folder
 *SibApiV3Sdk::ContactsApi* | [**update_list**](docs/ContactsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
@@ -135,6 +148,8 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::FoldersApi* | [**get_folder_lists**](docs/FoldersApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get lists in a folder
 *SibApiV3Sdk::FoldersApi* | [**get_folders**](docs/FoldersApi.md#get_folders) | **GET** /contacts/folders | Get all folders
 *SibApiV3Sdk::FoldersApi* | [**update_folder**](docs/FoldersApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a folder
+*SibApiV3Sdk::InboundParsingApi* | [**get_inbound_email_events**](docs/InboundParsingApi.md#get_inbound_email_events) | **GET** /inbound/events | Get the list of all the events for the received emails.
+*SibApiV3Sdk::InboundParsingApi* | [**get_inbound_email_events_by_uuid**](docs/InboundParsingApi.md#get_inbound_email_events_by_uuid) | **GET** /inbound/events/{uuid} | Fetch all events history for one particular received email.
 *SibApiV3Sdk::ListsApi* | [**add_contact_to_list**](docs/ListsApi.md#add_contact_to_list) | **POST** /contacts/lists/{listId}/contacts/add | Add existing contacts to a list
 *SibApiV3Sdk::ListsApi* | [**create_list**](docs/ListsApi.md#create_list) | **POST** /contacts/lists | Create a list
 *SibApiV3Sdk::ListsApi* | [**delete_list**](docs/ListsApi.md#delete_list) | **DELETE** /contacts/lists/{listId} | Delete a list
@@ -144,6 +159,12 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::ListsApi* | [**get_lists**](docs/ListsApi.md#get_lists) | **GET** /contacts/lists | Get all the lists
 *SibApiV3Sdk::ListsApi* | [**remove_contact_from_list**](docs/ListsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Delete a contact from a list
 *SibApiV3Sdk::ListsApi* | [**update_list**](docs/ListsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
+*SibApiV3Sdk::MasterAccountApi* | [**corporate_master_account_get**](docs/MasterAccountApi.md#corporate_master_account_get) | **GET** /corporate/masterAccount | Get the details of requested master account
+*SibApiV3Sdk::MasterAccountApi* | [**corporate_sub_account_get**](docs/MasterAccountApi.md#corporate_sub_account_get) | **GET** /corporate/subAccount | Get the list of all the sub-accounts of the master account.
+*SibApiV3Sdk::MasterAccountApi* | [**corporate_sub_account_id_get**](docs/MasterAccountApi.md#corporate_sub_account_id_get) | **GET** /corporate/subAccount/{id} | Get sub-account details
+*SibApiV3Sdk::MasterAccountApi* | [**corporate_sub_account_id_plan_put**](docs/MasterAccountApi.md#corporate_sub_account_id_plan_put) | **PUT** /corporate/subAccount/{id}/plan | Update sub-account plan
+*SibApiV3Sdk::MasterAccountApi* | [**corporate_sub_account_post**](docs/MasterAccountApi.md#corporate_sub_account_post) | **POST** /corporate/subAccount | Create a new sub-account under a master account.
+*SibApiV3Sdk::MasterAccountApi* | [**corporate_sub_account_sso_token_post**](docs/MasterAccountApi.md#corporate_sub_account_sso_token_post) | **POST** /corporate/subAccount/ssoToken | Generate SSO token to access Sendinblue
 *SibApiV3Sdk::ProcessApi* | [**get_process**](docs/ProcessApi.md#get_process) | **GET** /processes/{processId} | Return the informations for a process
 *SibApiV3Sdk::ProcessApi* | [**get_processes**](docs/ProcessApi.md#get_processes) | **GET** /processes | Return all the processes for your account
 *SibApiV3Sdk::ResellerApi* | [**add_credits**](docs/ResellerApi.md#add_credits) | **POST** /reseller/children/{childIdentifier}/credits/add | Add Email and/or SMS credits to a specific child account
@@ -192,7 +213,6 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::TransactionalEmailsApi* | [**get_transac_blocked_contacts**](docs/TransactionalEmailsApi.md#get_transac_blocked_contacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
 *SibApiV3Sdk::TransactionalEmailsApi* | [**get_transac_email_content**](docs/TransactionalEmailsApi.md#get_transac_email_content) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
 *SibApiV3Sdk::TransactionalEmailsApi* | [**get_transac_emails_list**](docs/TransactionalEmailsApi.md#get_transac_emails_list) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
-*SibApiV3Sdk::TransactionalEmailsApi* | [**send_template**](docs/TransactionalEmailsApi.md#send_template) | **POST** /smtp/templates/{templateId}/send | Send a template
 *SibApiV3Sdk::TransactionalEmailsApi* | [**send_test_template**](docs/TransactionalEmailsApi.md#send_test_template) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
 *SibApiV3Sdk::TransactionalEmailsApi* | [**send_transac_email**](docs/TransactionalEmailsApi.md#send_transac_email) | **POST** /smtp/email | Send a transactional email
 *SibApiV3Sdk::TransactionalEmailsApi* | [**smtp_blocked_contacts_email_delete**](docs/TransactionalEmailsApi.md#smtp_blocked_contacts_email_delete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
@@ -221,6 +241,9 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::AddContactToList](docs/AddContactToList.md)
  - [SibApiV3Sdk::AddCredits](docs/AddCredits.md)
  - [SibApiV3Sdk::BlockDomain](docs/BlockDomain.md)
+ - [SibApiV3Sdk::Body](docs/Body.md)
+ - [SibApiV3Sdk::Body1](docs/Body1.md)
+ - [SibApiV3Sdk::Contact](docs/Contact.md)
  - [SibApiV3Sdk::CreateAttribute](docs/CreateAttribute.md)
  - [SibApiV3Sdk::CreateAttributeEnumeration](docs/CreateAttributeEnumeration.md)
  - [SibApiV3Sdk::CreateChild](docs/CreateChild.md)
@@ -240,6 +263,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::CreateSmtpEmail](docs/CreateSmtpEmail.md)
  - [SibApiV3Sdk::CreateSmtpTemplate](docs/CreateSmtpTemplate.md)
  - [SibApiV3Sdk::CreateSmtpTemplateSender](docs/CreateSmtpTemplateSender.md)
+ - [SibApiV3Sdk::CreateSubAccount](docs/CreateSubAccount.md)
  - [SibApiV3Sdk::CreateUpdateContactModel](docs/CreateUpdateContactModel.md)
  - [SibApiV3Sdk::CreateUpdateFolder](docs/CreateUpdateFolder.md)
  - [SibApiV3Sdk::CreateWebhook](docs/CreateWebhook.md)
@@ -247,6 +271,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::DeleteHardbounces](docs/DeleteHardbounces.md)
  - [SibApiV3Sdk::EmailExportRecipients](docs/EmailExportRecipients.md)
  - [SibApiV3Sdk::ErrorModel](docs/ErrorModel.md)
+ - [SibApiV3Sdk::FileData](docs/FileData.md)
  - [SibApiV3Sdk::GetAccount](docs/GetAccount.md)
  - [SibApiV3Sdk::GetAccountMarketingAutomation](docs/GetAccountMarketingAutomation.md)
  - [SibApiV3Sdk::GetAccountPlan](docs/GetAccountPlan.md)
@@ -292,6 +317,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetExtendedContactDetails](docs/GetExtendedContactDetails.md)
  - [SibApiV3Sdk::GetExtendedContactDetailsStatistics](docs/GetExtendedContactDetailsStatistics.md)
  - [SibApiV3Sdk::GetExtendedContactDetailsStatisticsClicked](docs/GetExtendedContactDetailsStatisticsClicked.md)
+ - [SibApiV3Sdk::GetExtendedContactDetailsStatisticsDelivered](docs/GetExtendedContactDetailsStatisticsDelivered.md)
  - [SibApiV3Sdk::GetExtendedContactDetailsStatisticsLinks](docs/GetExtendedContactDetailsStatisticsLinks.md)
  - [SibApiV3Sdk::GetExtendedContactDetailsStatisticsMessagesSent](docs/GetExtendedContactDetailsStatisticsMessagesSent.md)
  - [SibApiV3Sdk::GetExtendedContactDetailsStatisticsOpened](docs/GetExtendedContactDetailsStatisticsOpened.md)
@@ -303,6 +329,11 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetFolder](docs/GetFolder.md)
  - [SibApiV3Sdk::GetFolderLists](docs/GetFolderLists.md)
  - [SibApiV3Sdk::GetFolders](docs/GetFolders.md)
+ - [SibApiV3Sdk::GetInboundEmailEvents](docs/GetInboundEmailEvents.md)
+ - [SibApiV3Sdk::GetInboundEmailEventsByUuid](docs/GetInboundEmailEventsByUuid.md)
+ - [SibApiV3Sdk::GetInboundEmailEventsByUuidAttachments](docs/GetInboundEmailEventsByUuidAttachments.md)
+ - [SibApiV3Sdk::GetInboundEmailEventsByUuidLogs](docs/GetInboundEmailEventsByUuidLogs.md)
+ - [SibApiV3Sdk::GetInboundEmailEventsEvents](docs/GetInboundEmailEventsEvents.md)
  - [SibApiV3Sdk::GetIp](docs/GetIp.md)
  - [SibApiV3Sdk::GetIpFromSender](docs/GetIpFromSender.md)
  - [SibApiV3Sdk::GetIps](docs/GetIps.md)
@@ -344,6 +375,14 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::GetWebhook](docs/GetWebhook.md)
  - [SibApiV3Sdk::GetWebhooks](docs/GetWebhooks.md)
  - [SibApiV3Sdk::ManageIp](docs/ManageIp.md)
+ - [SibApiV3Sdk::MasterDetailsResponse](docs/MasterDetailsResponse.md)
+ - [SibApiV3Sdk::MasterDetailsResponseBillingInfo](docs/MasterDetailsResponseBillingInfo.md)
+ - [SibApiV3Sdk::MasterDetailsResponseBillingInfoAddress](docs/MasterDetailsResponseBillingInfoAddress.md)
+ - [SibApiV3Sdk::MasterDetailsResponseBillingInfoName](docs/MasterDetailsResponseBillingInfoName.md)
+ - [SibApiV3Sdk::MasterDetailsResponsePlanInfo](docs/MasterDetailsResponsePlanInfo.md)
+ - [SibApiV3Sdk::MasterDetailsResponsePlanInfoFeatures](docs/MasterDetailsResponsePlanInfoFeatures.md)
+ - [SibApiV3Sdk::Note](docs/Note.md)
+ - [SibApiV3Sdk::NoteData](docs/NoteData.md)
  - [SibApiV3Sdk::PostContactInfo](docs/PostContactInfo.md)
  - [SibApiV3Sdk::PostContactInfoContacts](docs/PostContactInfoContacts.md)
  - [SibApiV3Sdk::PostSendFailed](docs/PostSendFailed.md)
@@ -358,8 +397,6 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::RequestContactImport](docs/RequestContactImport.md)
  - [SibApiV3Sdk::RequestContactImportNewList](docs/RequestContactImportNewList.md)
  - [SibApiV3Sdk::RequestSmsRecipientExport](docs/RequestSmsRecipientExport.md)
- - [SibApiV3Sdk::SendEmail](docs/SendEmail.md)
- - [SibApiV3Sdk::SendEmailAttachment](docs/SendEmailAttachment.md)
  - [SibApiV3Sdk::SendReport](docs/SendReport.md)
  - [SibApiV3Sdk::SendReportEmail](docs/SendReportEmail.md)
  - [SibApiV3Sdk::SendSms](docs/SendSms.md)
@@ -373,12 +410,30 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::SendSmtpEmailSender](docs/SendSmtpEmailSender.md)
  - [SibApiV3Sdk::SendSmtpEmailTo](docs/SendSmtpEmailTo.md)
  - [SibApiV3Sdk::SendSmtpEmailTo1](docs/SendSmtpEmailTo1.md)
- - [SibApiV3Sdk::SendTemplateEmail](docs/SendTemplateEmail.md)
  - [SibApiV3Sdk::SendTestEmail](docs/SendTestEmail.md)
  - [SibApiV3Sdk::SendTestSms](docs/SendTestSms.md)
  - [SibApiV3Sdk::SendTransacSms](docs/SendTransacSms.md)
+ - [SibApiV3Sdk::SsoTokenRequest](docs/SsoTokenRequest.md)
+ - [SibApiV3Sdk::SubAccountDetailsResponse](docs/SubAccountDetailsResponse.md)
+ - [SibApiV3Sdk::SubAccountDetailsResponsePlanInfo](docs/SubAccountDetailsResponsePlanInfo.md)
+ - [SibApiV3Sdk::SubAccountDetailsResponsePlanInfoCredits](docs/SubAccountDetailsResponsePlanInfoCredits.md)
+ - [SibApiV3Sdk::SubAccountDetailsResponsePlanInfoCreditsEmails](docs/SubAccountDetailsResponsePlanInfoCreditsEmails.md)
+ - [SibApiV3Sdk::SubAccountDetailsResponsePlanInfoFeatures](docs/SubAccountDetailsResponsePlanInfoFeatures.md)
+ - [SibApiV3Sdk::SubAccountDetailsResponsePlanInfoFeaturesInbox](docs/SubAccountDetailsResponsePlanInfoFeaturesInbox.md)
+ - [SibApiV3Sdk::SubAccountDetailsResponsePlanInfoFeaturesLandingPage](docs/SubAccountDetailsResponsePlanInfoFeaturesLandingPage.md)
+ - [SibApiV3Sdk::SubAccountDetailsResponsePlanInfoFeaturesUsers](docs/SubAccountDetailsResponsePlanInfoFeaturesUsers.md)
+ - [SibApiV3Sdk::SubAccountUpdatePlanRequest](docs/SubAccountUpdatePlanRequest.md)
+ - [SibApiV3Sdk::SubAccountUpdatePlanRequestCredits](docs/SubAccountUpdatePlanRequestCredits.md)
+ - [SibApiV3Sdk::SubAccountUpdatePlanRequestFeatures](docs/SubAccountUpdatePlanRequestFeatures.md)
+ - [SibApiV3Sdk::SubAccountsResponse](docs/SubAccountsResponse.md)
+ - [SibApiV3Sdk::SubAccountsResponseSubAccounts](docs/SubAccountsResponseSubAccounts.md)
+ - [SibApiV3Sdk::Task](docs/Task.md)
+ - [SibApiV3Sdk::TaskReminder](docs/TaskReminder.md)
  - [SibApiV3Sdk::UpdateAttribute](docs/UpdateAttribute.md)
  - [SibApiV3Sdk::UpdateAttributeEnumeration](docs/UpdateAttributeEnumeration.md)
+ - [SibApiV3Sdk::UpdateBatchContacts](docs/UpdateBatchContacts.md)
+ - [SibApiV3Sdk::UpdateBatchContactsContacts](docs/UpdateBatchContactsContacts.md)
+ - [SibApiV3Sdk::UpdateBatchContactsModel](docs/UpdateBatchContactsModel.md)
  - [SibApiV3Sdk::UpdateCampaignStatus](docs/UpdateCampaignStatus.md)
  - [SibApiV3Sdk::UpdateChild](docs/UpdateChild.md)
  - [SibApiV3Sdk::UpdateChildAccountStatus](docs/UpdateChildAccountStatus.md)

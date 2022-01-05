@@ -92,6 +92,7 @@ describe 'TransactionalEmailsApi' do
 
   # unit tests for get_aggregated_smtp_report
   # Get your transactional email activity aggregated over a period of time
+  # This endpoint will show the aggregated stats for past 90 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
   # @param [Hash] opts the optional parameters
   # @option opts [String] :start_date Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
   # @option opts [String] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
@@ -117,6 +118,7 @@ describe 'TransactionalEmailsApi' do
 
   # unit tests for get_email_event_report
   # Get all your transactional email activity (unaggregated events)
+  # This endpoint will show the aggregated stats for past 30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Number limitation for the result returned
   # @option opts [Integer] :offset Beginning point in the list to retrieve from.
@@ -219,19 +221,6 @@ describe 'TransactionalEmailsApi' do
   # @option opts [Integer] :offset Index of the first document in the page
   # @return [GetTransacEmailsList]
   describe 'get_transac_emails_list test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for send_template
-  # Send a template
-  # This endpoint is deprecated. Prefer v3/smtp/email instead.
-  # @param template_id Id of the template
-  # @param send_email 
-  # @param [Hash] opts the optional parameters
-  # @return [SendTemplateEmail]
-  describe 'send_template test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

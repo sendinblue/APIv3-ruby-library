@@ -203,8 +203,8 @@ module SibApiV3Sdk
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksApi.get_webhooks ...'
       end
-      if @api_client.config.client_side_validation && opts[:'type'] && !['marketing', 'transactional'].include?(opts[:'type'])
-        fail ArgumentError, 'invalid value for "type", must be one of marketing, transactional'
+      if @api_client.config.client_side_validation && opts[:'type'] && !['marketing', 'transactional', 'inbound'].include?(opts[:'type'])
+        fail ArgumentError, 'invalid value for "type", must be one of marketing, transactional, inbound'
       end
       if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
         fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'

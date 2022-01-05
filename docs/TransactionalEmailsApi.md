@@ -18,7 +18,6 @@ Method | HTTP request | Description
 [**get_transac_blocked_contacts**](TransactionalEmailsApi.md#get_transac_blocked_contacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
 [**get_transac_email_content**](TransactionalEmailsApi.md#get_transac_email_content) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
 [**get_transac_emails_list**](TransactionalEmailsApi.md#get_transac_emails_list) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
-[**send_template**](TransactionalEmailsApi.md#send_template) | **POST** /smtp/templates/{templateId}/send | Send a template
 [**send_test_template**](TransactionalEmailsApi.md#send_test_template) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
 [**send_transac_email**](TransactionalEmailsApi.md#send_transac_email) | **POST** /smtp/email | Send a transactional email
 [**smtp_blocked_contacts_email_delete**](TransactionalEmailsApi.md#smtp_blocked_contacts_email_delete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
@@ -319,6 +318,8 @@ nil (empty response body)
 
 Get your transactional email activity aggregated over a period of time
 
+This endpoint will show the aggregated stats for past 90 days by default if `startDate` and `endDate` OR `days` is not passed. The date range can not exceed 90 days
+
 ### Example
 ```ruby
 # load the gem
@@ -435,6 +436,8 @@ This endpoint does not need any parameter.
 > GetEmailEventReport get_email_event_report(opts)
 
 Get all your transactional email activity (unaggregated events)
+
+This endpoint will show the aggregated stats for past 30 days by default if `startDate` and `endDate` OR `days` is not passed. The date range can not exceed 90 days
 
 ### Example
 ```ruby
@@ -887,68 +890,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetTransacEmailsList**](GetTransacEmailsList.md)
-
-### Authorization
-
-[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-
-# **send_template**
-> SendTemplateEmail send_template(template_id, send_email)
-
-Send a template
-
-This endpoint is deprecated. Prefer v3/smtp/email instead.
-
-### Example
-```ruby
-# load the gem
-require 'sib-api-v3-sdk'
-# setup authorization
-SibApiV3Sdk.configure do |config|
-  # Configure API key authorization: api-key
-  config.api_key['api-key'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['api-key'] = 'Bearer'
-
-  # Configure API key authorization: partner-key
-  config.api_key['partner-key'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['partner-key'] = 'Bearer'
-end
-
-api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
-
-template_id = 789 # Integer | Id of the template
-
-send_email = SibApiV3Sdk::SendEmail.new # SendEmail | 
-
-
-begin
-  #Send a template
-  result = api_instance.send_template(template_id, send_email)
-  p result
-rescue SibApiV3Sdk::ApiError => e
-  puts "Exception when calling TransactionalEmailsApi->send_template: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **template_id** | **Integer**| Id of the template | 
- **send_email** | [**SendEmail**](SendEmail.md)|  | 
-
-### Return type
-
-[**SendTemplateEmail**](SendTemplateEmail.md)
 
 ### Authorization
 

@@ -86,6 +86,12 @@ describe 'GetCampaignStats' do
     end
   end
 
+  describe 'test attribute "trackable_views"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "unsubscriptions"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

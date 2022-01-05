@@ -38,6 +38,9 @@ module SibApiV3Sdk
     # Listing of the transactional attributes for the contact
     attr_accessor :transac_attributes
 
+    # Listing of the delivered campaign for the contact
+    attr_accessor :delivered
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -48,7 +51,8 @@ module SibApiV3Sdk
         :'unsubscriptions' => :'unsubscriptions',
         :'opened' => :'opened',
         :'clicked' => :'clicked',
-        :'transac_attributes' => :'transacAttributes'
+        :'transac_attributes' => :'transacAttributes',
+        :'delivered' => :'delivered'
       }
     end
 
@@ -62,7 +66,8 @@ module SibApiV3Sdk
         :'unsubscriptions' => :'GetExtendedContactDetailsStatisticsUnsubscriptions',
         :'opened' => :'Array<GetExtendedContactDetailsStatisticsOpened>',
         :'clicked' => :'Array<GetExtendedContactDetailsStatisticsClicked>',
-        :'transac_attributes' => :'Array<Object>'
+        :'transac_attributes' => :'Array<Object>',
+        :'delivered' => :'Array<GetExtendedContactDetailsStatisticsDelivered>'
       }
     end
 
@@ -119,6 +124,12 @@ module SibApiV3Sdk
           self.transac_attributes = value
         end
       end
+
+      if attributes.has_key?(:'delivered')
+        if (value = attributes[:'delivered']).is_a?(Array)
+          self.delivered = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -146,7 +157,8 @@ module SibApiV3Sdk
           unsubscriptions == o.unsubscriptions &&
           opened == o.opened &&
           clicked == o.clicked &&
-          transac_attributes == o.transac_attributes
+          transac_attributes == o.transac_attributes &&
+          delivered == o.delivered
     end
 
     # @see the `==` method
@@ -158,7 +170,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [messages_sent, hard_bounces, soft_bounces, complaints, unsubscriptions, opened, clicked, transac_attributes].hash
+      [messages_sent, hard_bounces, soft_bounces, complaints, unsubscriptions, opened, clicked, transac_attributes, delivered].hash
     end
 
     # Builds the object from hash

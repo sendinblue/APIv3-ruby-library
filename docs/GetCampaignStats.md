@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **soft_bounces** | **Integer** | Number of softbounce for the campaign | 
 **hard_bounces** | **Integer** | Number of harbounce for the campaign | 
 **unique_views** | **Integer** | Number of unique openings for the campaign | 
+**trackable_views** | **Integer** | Recipients without any privacy protection option enabled in their email client | 
 **unsubscriptions** | **Integer** | Number of unsubscription for the campaign | 
 **viewed** | **Integer** | Number of openings for the campaign | 
 **deferred** | **Integer** | Number of deferred emails for the campaign | [optional] 

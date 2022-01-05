@@ -28,6 +28,7 @@ Method | HTTP request | Description
 [**remove_contact_from_list**](ContactsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Delete a contact from a list
 [**request_contact_export**](ContactsApi.md#request_contact_export) | **POST** /contacts/export | Export contacts
 [**update_attribute**](ContactsApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
+[**update_batch_contacts**](ContactsApi.md#update_batch_contacts) | **POST** /contacts/batch | Update multiple contacts
 [**update_contact**](ContactsApi.md#update_contact) | **PUT** /contacts/{identifier} | Update a contact
 [**update_folder**](ContactsApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a folder
 [**update_list**](ContactsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
@@ -665,6 +666,8 @@ This endpoint does not need any parameter.
 
 Get a contact's details
 
+Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
+
 ### Example
 ```ruby
 # load the gem
@@ -745,7 +748,7 @@ identifier = 'identifier_example' # String | Email (urlencoded) OR ID of the con
 
 opts = { 
   start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
-  end_date: 'end_date_example' # String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate
+  end_date: 'end_date_example' # String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days
 }
 
 begin
@@ -763,7 +766,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier** | **String**| Email (urlencoded) OR ID of the contact | 
  **start_date** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate | [optional] 
- **end_date** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate | [optional] 
+ **end_date** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days | [optional] 
 
 ### Return type
 
@@ -1440,6 +1443,62 @@ Name | Type | Description  | Notes
  **attribute_category** | **String**| Category of the attribute | 
  **attribute_name** | **String**| Name of the existing attribute | 
  **update_attribute** | [**UpdateAttribute**](UpdateAttribute.md)| Values to update an attribute | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **update_batch_contacts**
+> update_batch_contacts(update_batch_contacts)
+
+Update multiple contacts
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::ContactsApi.new
+
+update_batch_contacts = SibApiV3Sdk::UpdateBatchContacts.new # UpdateBatchContacts | Values to update multiple contacts
+
+
+begin
+  #Update multiple contacts
+  api_instance.update_batch_contacts(update_batch_contacts)
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling ContactsApi->update_batch_contacts: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **update_batch_contacts** | [**UpdateBatchContacts**](UpdateBatchContacts.md)| Values to update multiple contacts | 
 
 ### Return type
 

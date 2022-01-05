@@ -17,9 +17,6 @@ module SibApiV3Sdk
     # List of all the attributes that you want to export. These attributes must be present in your contact database. For example, ['fname', 'lname', 'email'].
     attr_accessor :export_attributes
 
-    # This attribute has been deprecated and will be removed by January 1st, 2021. Only one of the two filter options (contactFilter or customContactFilter) can be passed in the request. Set the filter for the contacts to be exported. For example, {\"blacklisted\":true} will export all the blacklisted contacts. 
-    attr_accessor :contact_filter
-
     attr_accessor :custom_contact_filter
 
     # Webhook that will be called once the export process is finished. For reference, https://help.sendinblue.com/hc/en-us/articles/360007666479
@@ -29,7 +26,6 @@ module SibApiV3Sdk
     def self.attribute_map
       {
         :'export_attributes' => :'exportAttributes',
-        :'contact_filter' => :'contactFilter',
         :'custom_contact_filter' => :'customContactFilter',
         :'notify_url' => :'notifyUrl'
       }
@@ -39,7 +35,6 @@ module SibApiV3Sdk
     def self.swagger_types
       {
         :'export_attributes' => :'Array<String>',
-        :'contact_filter' => :'Object',
         :'custom_contact_filter' => :'RequestContactExportCustomContactFilter',
         :'notify_url' => :'String'
       }
@@ -59,10 +54,6 @@ module SibApiV3Sdk
         end
       end
 
-      if attributes.has_key?(:'contactFilter')
-        self.contact_filter = attributes[:'contactFilter']
-      end
-
       if attributes.has_key?(:'customContactFilter')
         self.custom_contact_filter = attributes[:'customContactFilter']
       end
@@ -76,12 +67,17 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @custom_contact_filter.nil?
+        invalid_properties.push('invalid value for "custom_contact_filter", custom_contact_filter cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @custom_contact_filter.nil?
       true
     end
 
@@ -91,7 +87,6 @@ module SibApiV3Sdk
       return true if self.equal?(o)
       self.class == o.class &&
           export_attributes == o.export_attributes &&
-          contact_filter == o.contact_filter &&
           custom_contact_filter == o.custom_contact_filter &&
           notify_url == o.notify_url
     end
@@ -105,7 +100,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [export_attributes, contact_filter, custom_contact_filter, notify_url].hash
+      [export_attributes, custom_contact_filter, notify_url].hash
     end
 
     # Builds the object from hash

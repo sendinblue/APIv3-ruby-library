@@ -158,6 +158,7 @@ describe 'ContactsApi' do
 
   # unit tests for get_contact_info
   # Get a contact&#39;s details
+  # Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
   # @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value
   # @param [Hash] opts the optional parameters
   # @return [GetExtendedContactDetails]
@@ -172,7 +173,7 @@ describe 'ContactsApi' do
   # @param identifier Email (urlencoded) OR ID of the contact
   # @param [Hash] opts the optional parameters
   # @option opts [String] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
-  # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate
+  # @option opts [String] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days
   # @return [GetContactCampaignStats]
   describe 'get_contact_stats test' do
     it 'should work' do
@@ -315,6 +316,17 @@ describe 'ContactsApi' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'update_attribute test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_batch_contacts
+  # Update multiple contacts
+  # @param update_batch_contacts Values to update multiple contacts
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'update_batch_contacts test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -20,8 +20,11 @@ module SibApiV3Sdk
     # Description of the webhook
     attr_accessor :description
 
-    # Events triggering the webhook. Possible values for Transactional type webhook – `sent` OR `request`, `delivered`, `hardBounce`, `softBounce`, `blocked`, `spam`, `invalid`, `deferred`, `click`, `opened`, `uniqueOpened` and `unsubscribed` and possible values for Marketing type webhook – `spam`, `opened`, `click`, `hardBounce`, `softBounce`, `unsubscribed`, `listAddition` and `delivered`
+    # - Events triggering the webhook. Possible values for **Transactional** type webhook: #### `sent` OR `request`, `delivered`, `hardBounce`, `softBounce`, `blocked`, `spam`, `invalid`, `deferred`, `click`, `opened`, `uniqueOpened` and `unsubscribed` - Possible values for **Marketing** type webhook: #### `spam`, `opened`, `click`, `hardBounce`, `softBounce`, `unsubscribed`, `listAddition` & `delivered` - Possible values for **Inbound** type webhook: #### `inboundEmailProcessed` 
     attr_accessor :events
+
+    # Inbound domain of webhook, used in case of event type `inbound`
+    attr_accessor :domain
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -50,7 +53,8 @@ module SibApiV3Sdk
       {
         :'url' => :'url',
         :'description' => :'description',
-        :'events' => :'events'
+        :'events' => :'events',
+        :'domain' => :'domain'
       }
     end
 
@@ -59,7 +63,8 @@ module SibApiV3Sdk
       {
         :'url' => :'String',
         :'description' => :'String',
-        :'events' => :'Array<String>'
+        :'events' => :'Array<String>',
+        :'domain' => :'String'
       }
     end
 
@@ -84,6 +89,10 @@ module SibApiV3Sdk
           self.events = value
         end
       end
+
+      if attributes.has_key?(:'domain')
+        self.domain = attributes[:'domain']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -106,7 +115,8 @@ module SibApiV3Sdk
       self.class == o.class &&
           url == o.url &&
           description == o.description &&
-          events == o.events
+          events == o.events &&
+          domain == o.domain
     end
 
     # @see the `==` method
@@ -118,7 +128,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [url, description, events].hash
+      [url, description, events, domain].hash
     end
 
     # Builds the object from hash
