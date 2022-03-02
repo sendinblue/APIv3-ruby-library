@@ -13,58 +13,32 @@ Swagger Codegen version: 2.4.19
 require 'date'
 
 module SibApiV3Sdk
-  class CreateSubAccount
-    # Name of the organization
-    attr_accessor :company_name
+  # Task types details
+  class TaskTypes
+    # Id of task type
+    attr_accessor :id
 
-    # Email address for the organization
-    attr_accessor :email
+    # Icon of task type
+    attr_accessor :icon
 
-    # Language for identifying localization information
-    attr_accessor :language
-
-    # Request timezone of the client
-    attr_accessor :timezone
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    # Title of task type
+    attr_accessor :title
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'company_name' => :'companyName',
-        :'email' => :'email',
-        :'language' => :'language',
-        :'timezone' => :'timezone'
+        :'id' => :'id',
+        :'icon' => :'icon',
+        :'title' => :'title'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'company_name' => :'String',
-        :'email' => :'String',
-        :'language' => :'String',
-        :'timezone' => :'String'
+        :'id' => :'String',
+        :'icon' => :'String',
+        :'title' => :'String'
       }
     end
 
@@ -76,20 +50,16 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'companyName')
-        self.company_name = attributes[:'companyName']
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
+      if attributes.has_key?(:'icon')
+        self.icon = attributes[:'icon']
       end
 
-      if attributes.has_key?(:'language')
-        self.language = attributes[:'language']
-      end
-
-      if attributes.has_key?(:'timezone')
-        self.timezone = attributes[:'timezone']
+      if attributes.has_key?(:'title')
+        self.title = attributes[:'title']
       end
     end
 
@@ -97,35 +67,13 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @company_name.nil?
-        invalid_properties.push('invalid value for "company_name", company_name cannot be nil.')
-      end
-
-      if @email.nil?
-        invalid_properties.push('invalid value for "email", email cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @company_name.nil?
-      return false if @email.nil?
-      language_validator = EnumAttributeValidator.new('String', ['en', 'fr', 'it', 'es', 'pt', 'de'])
-      return false unless language_validator.valid?(@language)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] language Object to be assigned
-    def language=(language)
-      validator = EnumAttributeValidator.new('String', ['en', 'fr', 'it', 'es', 'pt', 'de'])
-      unless validator.valid?(language)
-        fail ArgumentError, 'invalid value for "language", must be one of #{validator.allowable_values}.'
-      end
-      @language = language
     end
 
     # Checks equality by comparing each attribute.
@@ -133,10 +81,9 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          company_name == o.company_name &&
-          email == o.email &&
-          language == o.language &&
-          timezone == o.timezone
+          id == o.id &&
+          icon == o.icon &&
+          title == o.title
     end
 
     # @see the `==` method
@@ -148,7 +95,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [company_name, email, language, timezone].hash
+      [id, icon, title].hash
     end
 
     # Builds the object from hash

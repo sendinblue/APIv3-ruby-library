@@ -438,8 +438,8 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_email_event_report, must be smaller than or equal to 100.'
       end
 
-      if @api_client.config.client_side_validation && opts[:'event'] && !['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed', 'error'].include?(opts[:'event'])
-        fail ArgumentError, 'invalid value for "event", must be one of bounces, hardBounces, softBounces, delivered, spam, requests, opened, clicks, invalid, deferred, blocked, unsubscribed, error'
+      if @api_client.config.client_side_validation && opts[:'event'] && !['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed', 'error', 'loadedByProxy'].include?(opts[:'event'])
+        fail ArgumentError, 'invalid value for "event", must be one of bounces, hardBounces, softBounces, delivered, spam, requests, opened, clicks, invalid, deferred, blocked, unsubscribed, error, loadedByProxy'
       end
       if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
         fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'

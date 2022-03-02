@@ -30,7 +30,7 @@ module SibApiV3Sdk
     end
 
     
-    # Get file data by id.
+    # Get file details.
     # @param id File id to get file data.
     # @param [Hash] opts the optional parameters
     # @return [FileData]
@@ -39,7 +39,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get file data by id.
+    # Get file details
     # @param id File id to get file data.
     # @param [Hash] opts the optional parameters
     # @return [Array<(FileData, Fixnum, Hash)>] FileData data, response status code and response headers
@@ -82,7 +82,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Delete file.
+    # Delete a file
     # @param id File id to delete.
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -91,7 +91,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Delete file.
+    # Delete a file
     # @param id File id to delete.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
@@ -133,7 +133,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Download file by id.
+    # Download a file
     # @param id File id to download.
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -142,7 +142,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Download file by id.
+    # Download a file
     # @param id File id to download.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
@@ -184,7 +184,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Upload and create file.
+    # Upload a file
     # @param file File data to create a file.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :deals_ids Deal ids linked to a file
@@ -194,7 +194,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Upload and create file.
+    # Upload a file
     # @param file File data to create a file.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :deals_ids Deal ids linked to a file
@@ -240,7 +240,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Delete Note by ID
+    # Delete a note
     # @param id Note ID to delete
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -249,7 +249,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Delete Note by ID
+    # Delete a note
     # @param id Note ID to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
@@ -291,7 +291,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get one Note by ID
+    # Get a note
     # @param id Note ID to get
     # @param [Hash] opts the optional parameters
     # @return [Note]
@@ -300,7 +300,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get one Note by ID
+    # Get a note
     # @param id Note ID to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(Note, Fixnum, Hash)>] Note data, response status code and response headers
@@ -401,7 +401,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Create a new Note
+    # Create a note
     # @param body Note data to create a note.
     # @param [Hash] opts the optional parameters
     # @return [Note]
@@ -410,7 +410,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Create a new Note
+    # Create a note
     # @param body Note data to create a note.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Note, Fixnum, Hash)>] Note data, response status code and response headers
@@ -453,7 +453,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Delete Task by id
+    # Delete a task
     # @param id 
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -462,7 +462,7 @@ module SibApiV3Sdk
       nil
     end
 
-    # Delete Task by id
+    # Delete a task
     # @param id 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
@@ -504,7 +504,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Get one Task by ID
+    # Get a task
     # @param id 
     # @param [Hash] opts the optional parameters
     # @return [Task]
@@ -513,7 +513,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Get one Task by ID
+    # Get a task
     # @param id 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Task, Fixnum, Hash)>] Task data, response status code and response headers
@@ -556,7 +556,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Update partial existing task
+    # Update a task
     # @param id 
     # @param body Updated task details.
     # @param [Hash] opts the optional parameters
@@ -566,7 +566,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Update partial existing task
+    # Update a task
     # @param id 
     # @param body Updated task details.
     # @param [Hash] opts the optional parameters
@@ -614,7 +614,7 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
-    # Create a new Task
+    # Create a task
     # @param body Task name.
     # @param [Hash] opts the optional parameters
     # @return [Task]
@@ -623,7 +623,7 @@ module SibApiV3Sdk
       data
     end
 
-    # Create a new Task
+    # Create a task
     # @param body Task name.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Task, Fixnum, Hash)>] Task data, response status code and response headers
@@ -663,6 +663,52 @@ module SibApiV3Sdk
         :return_type => 'Task')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CRMApi#crm_tasks_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get all task types
+    # @param [Hash] opts the optional parameters
+    # @return [TaskTypes]
+    def crm_tasktypes_get(opts = {})
+      data, _status_code, _headers = crm_tasktypes_get_with_http_info(opts)
+      data
+    end
+
+    # Get all task types
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TaskTypes, Fixnum, Hash)>] TaskTypes data, response status code and response headers
+    def crm_tasktypes_get_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CRMApi.crm_tasktypes_get ...'
+      end
+      # resource path
+      local_var_path = '/crm/tasktypes'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'TaskTypes')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CRMApi#crm_tasktypes_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

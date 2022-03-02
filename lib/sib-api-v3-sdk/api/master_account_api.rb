@@ -140,6 +140,57 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
+    # Delete a sub-account
+    # @param id Id of the sub-account organization to be deleted
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def corporate_sub_account_id_delete(id, opts = {})
+      corporate_sub_account_id_delete_with_http_info(id, opts)
+      nil
+    end
+
+    # Delete a sub-account
+    # @param id Id of the sub-account organization to be deleted
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def corporate_sub_account_id_delete_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MasterAccountApi.corporate_sub_account_id_delete ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling MasterAccountApi.corporate_sub_account_id_delete"
+      end
+      # resource path
+      local_var_path = '/corporate/subAccount/{id}'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MasterAccountApi#corporate_sub_account_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get sub-account details
     # This endpoint will provide the details of specified sub-account organization
     # @param id Id of the sub-account organization

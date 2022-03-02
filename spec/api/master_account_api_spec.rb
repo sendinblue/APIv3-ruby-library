@@ -56,6 +56,17 @@ describe 'MasterAccountApi' do
     end
   end
 
+  # unit tests for corporate_sub_account_id_delete
+  # Delete a sub-account
+  # @param id Id of the sub-account organization to be deleted
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'corporate_sub_account_id_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for corporate_sub_account_id_get
   # Get sub-account details
   # This endpoint will provide the details of specified sub-account organization
