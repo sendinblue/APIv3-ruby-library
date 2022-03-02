@@ -89,18 +89,19 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::AttributesApi* | [**delete_attribute**](docs/AttributesApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Delete an attribute
 *SibApiV3Sdk::AttributesApi* | [**get_attributes**](docs/AttributesApi.md#get_attributes) | **GET** /contacts/attributes | List all attributes
 *SibApiV3Sdk::AttributesApi* | [**update_attribute**](docs/AttributesApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
-*SibApiV3Sdk::CRMApi* | [**crm_files_id_data_get**](docs/CRMApi.md#crm_files_id_data_get) | **GET** /crm/files/{id}/data | Get file data by id.
-*SibApiV3Sdk::CRMApi* | [**crm_files_id_delete**](docs/CRMApi.md#crm_files_id_delete) | **DELETE** /crm/files/{id} | Delete file.
-*SibApiV3Sdk::CRMApi* | [**crm_files_id_get**](docs/CRMApi.md#crm_files_id_get) | **GET** /crm/files/{id} | Download file by id.
-*SibApiV3Sdk::CRMApi* | [**crm_files_post**](docs/CRMApi.md#crm_files_post) | **POST** /crm/files | Upload and create file.
-*SibApiV3Sdk::CRMApi* | [**crm_notes_id_delete**](docs/CRMApi.md#crm_notes_id_delete) | **DELETE** /crm/notes/{id} | Delete Note by ID
-*SibApiV3Sdk::CRMApi* | [**crm_notes_id_get**](docs/CRMApi.md#crm_notes_id_get) | **GET** /crm/notes/{id} | Get one Note by ID
+*SibApiV3Sdk::CRMApi* | [**crm_files_id_data_get**](docs/CRMApi.md#crm_files_id_data_get) | **GET** /crm/files/{id}/data | Get file details
+*SibApiV3Sdk::CRMApi* | [**crm_files_id_delete**](docs/CRMApi.md#crm_files_id_delete) | **DELETE** /crm/files/{id} | Delete a file
+*SibApiV3Sdk::CRMApi* | [**crm_files_id_get**](docs/CRMApi.md#crm_files_id_get) | **GET** /crm/files/{id} | Download a file
+*SibApiV3Sdk::CRMApi* | [**crm_files_post**](docs/CRMApi.md#crm_files_post) | **POST** /crm/files | Upload a file
+*SibApiV3Sdk::CRMApi* | [**crm_notes_id_delete**](docs/CRMApi.md#crm_notes_id_delete) | **DELETE** /crm/notes/{id} | Delete a note
+*SibApiV3Sdk::CRMApi* | [**crm_notes_id_get**](docs/CRMApi.md#crm_notes_id_get) | **GET** /crm/notes/{id} | Get a note
 *SibApiV3Sdk::CRMApi* | [**crm_notes_id_patch**](docs/CRMApi.md#crm_notes_id_patch) | **PATCH** /crm/notes/{id} | Update a note
-*SibApiV3Sdk::CRMApi* | [**crm_notes_post**](docs/CRMApi.md#crm_notes_post) | **POST** /crm/notes | Create a new Note
-*SibApiV3Sdk::CRMApi* | [**crm_tasks_id_delete**](docs/CRMApi.md#crm_tasks_id_delete) | **DELETE** /crm/tasks/{id} | Delete Task by id
-*SibApiV3Sdk::CRMApi* | [**crm_tasks_id_get**](docs/CRMApi.md#crm_tasks_id_get) | **GET** /crm/tasks/{id} | Get one Task by ID
-*SibApiV3Sdk::CRMApi* | [**crm_tasks_id_patch**](docs/CRMApi.md#crm_tasks_id_patch) | **PATCH** /crm/tasks/{id} | Update partial existing task
-*SibApiV3Sdk::CRMApi* | [**crm_tasks_post**](docs/CRMApi.md#crm_tasks_post) | **POST** /crm/tasks | Create a new Task
+*SibApiV3Sdk::CRMApi* | [**crm_notes_post**](docs/CRMApi.md#crm_notes_post) | **POST** /crm/notes | Create a note
+*SibApiV3Sdk::CRMApi* | [**crm_tasks_id_delete**](docs/CRMApi.md#crm_tasks_id_delete) | **DELETE** /crm/tasks/{id} | Delete a task
+*SibApiV3Sdk::CRMApi* | [**crm_tasks_id_get**](docs/CRMApi.md#crm_tasks_id_get) | **GET** /crm/tasks/{id} | Get a task
+*SibApiV3Sdk::CRMApi* | [**crm_tasks_id_patch**](docs/CRMApi.md#crm_tasks_id_patch) | **PATCH** /crm/tasks/{id} | Update a task
+*SibApiV3Sdk::CRMApi* | [**crm_tasks_post**](docs/CRMApi.md#crm_tasks_post) | **POST** /crm/tasks | Create a task
+*SibApiV3Sdk::CRMApi* | [**crm_tasktypes_get**](docs/CRMApi.md#crm_tasktypes_get) | **GET** /crm/tasktypes | Get all task types
 *SibApiV3Sdk::ContactsApi* | [**add_contact_to_list**](docs/ContactsApi.md#add_contact_to_list) | **POST** /contacts/lists/{listId}/contacts/add | Add existing contacts to a list
 *SibApiV3Sdk::ContactsApi* | [**create_attribute**](docs/ContactsApi.md#create_attribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Create contact attribute
 *SibApiV3Sdk::ContactsApi* | [**create_contact**](docs/ContactsApi.md#create_contact) | **POST** /contacts | Create a contact
@@ -161,6 +162,7 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::ListsApi* | [**update_list**](docs/ListsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
 *SibApiV3Sdk::MasterAccountApi* | [**corporate_master_account_get**](docs/MasterAccountApi.md#corporate_master_account_get) | **GET** /corporate/masterAccount | Get the details of requested master account
 *SibApiV3Sdk::MasterAccountApi* | [**corporate_sub_account_get**](docs/MasterAccountApi.md#corporate_sub_account_get) | **GET** /corporate/subAccount | Get the list of all the sub-accounts of the master account.
+*SibApiV3Sdk::MasterAccountApi* | [**corporate_sub_account_id_delete**](docs/MasterAccountApi.md#corporate_sub_account_id_delete) | **DELETE** /corporate/subAccount/{id} | Delete a sub-account
 *SibApiV3Sdk::MasterAccountApi* | [**corporate_sub_account_id_get**](docs/MasterAccountApi.md#corporate_sub_account_id_get) | **GET** /corporate/subAccount/{id} | Get sub-account details
 *SibApiV3Sdk::MasterAccountApi* | [**corporate_sub_account_id_plan_put**](docs/MasterAccountApi.md#corporate_sub_account_id_plan_put) | **PUT** /corporate/subAccount/{id}/plan | Update sub-account plan
 *SibApiV3Sdk::MasterAccountApi* | [**corporate_sub_account_post**](docs/MasterAccountApi.md#corporate_sub_account_post) | **POST** /corporate/subAccount | Create a new sub-account under a master account.
@@ -429,6 +431,7 @@ Class | Method | HTTP request | Description
  - [SibApiV3Sdk::SubAccountsResponseSubAccounts](docs/SubAccountsResponseSubAccounts.md)
  - [SibApiV3Sdk::Task](docs/Task.md)
  - [SibApiV3Sdk::TaskReminder](docs/TaskReminder.md)
+ - [SibApiV3Sdk::TaskTypes](docs/TaskTypes.md)
  - [SibApiV3Sdk::UpdateAttribute](docs/UpdateAttribute.md)
  - [SibApiV3Sdk::UpdateAttributeEnumeration](docs/UpdateAttributeEnumeration.md)
  - [SibApiV3Sdk::UpdateBatchContacts](docs/UpdateBatchContacts.md)

@@ -33,7 +33,7 @@ describe 'CRMApi' do
   end
 
   # unit tests for crm_files_id_data_get
-  # Get file data by id.
+  # Get file details
   # @param id File id to get file data.
   # @param [Hash] opts the optional parameters
   # @return [FileData]
@@ -44,7 +44,7 @@ describe 'CRMApi' do
   end
 
   # unit tests for crm_files_id_delete
-  # Delete file.
+  # Delete a file
   # @param id File id to delete.
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -55,7 +55,7 @@ describe 'CRMApi' do
   end
 
   # unit tests for crm_files_id_get
-  # Download file by id.
+  # Download a file
   # @param id File id to download.
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -66,7 +66,7 @@ describe 'CRMApi' do
   end
 
   # unit tests for crm_files_post
-  # Upload and create file.
+  # Upload a file
   # @param file File data to create a file.
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :deals_ids Deal ids linked to a file
@@ -78,7 +78,7 @@ describe 'CRMApi' do
   end
 
   # unit tests for crm_notes_id_delete
-  # Delete Note by ID
+  # Delete a note
   # @param id Note ID to delete
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -89,7 +89,7 @@ describe 'CRMApi' do
   end
 
   # unit tests for crm_notes_id_get
-  # Get one Note by ID
+  # Get a note
   # @param id Note ID to get
   # @param [Hash] opts the optional parameters
   # @return [Note]
@@ -112,7 +112,7 @@ describe 'CRMApi' do
   end
 
   # unit tests for crm_notes_post
-  # Create a new Note
+  # Create a note
   # @param body Note data to create a note.
   # @param [Hash] opts the optional parameters
   # @return [Note]
@@ -123,7 +123,7 @@ describe 'CRMApi' do
   end
 
   # unit tests for crm_tasks_id_delete
-  # Delete Task by id
+  # Delete a task
   # @param id 
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -134,7 +134,7 @@ describe 'CRMApi' do
   end
 
   # unit tests for crm_tasks_id_get
-  # Get one Task by ID
+  # Get a task
   # @param id 
   # @param [Hash] opts the optional parameters
   # @return [Task]
@@ -145,7 +145,7 @@ describe 'CRMApi' do
   end
 
   # unit tests for crm_tasks_id_patch
-  # Update partial existing task
+  # Update a task
   # @param id 
   # @param body Updated task details.
   # @param [Hash] opts the optional parameters
@@ -157,11 +157,21 @@ describe 'CRMApi' do
   end
 
   # unit tests for crm_tasks_post
-  # Create a new Task
+  # Create a task
   # @param body Task name.
   # @param [Hash] opts the optional parameters
   # @return [Task]
   describe 'crm_tasks_post test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for crm_tasktypes_get
+  # Get all task types
+  # @param [Hash] opts the optional parameters
+  # @return [TaskTypes]
+  describe 'crm_tasktypes_get test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

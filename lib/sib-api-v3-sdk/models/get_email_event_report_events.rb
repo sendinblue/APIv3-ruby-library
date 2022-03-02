@@ -186,7 +186,7 @@ module SibApiV3Sdk
       return false if @date.nil?
       return false if @message_id.nil?
       return false if @event.nil?
-      event_validator = EnumAttributeValidator.new('String', ['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed', 'error'])
+      event_validator = EnumAttributeValidator.new('String', ['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed', 'error', 'loadedByProxy'])
       return false unless event_validator.valid?(@event)
       true
     end
@@ -194,7 +194,7 @@ module SibApiV3Sdk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] event Object to be assigned
     def event=(event)
-      validator = EnumAttributeValidator.new('String', ['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed', 'error'])
+      validator = EnumAttributeValidator.new('String', ['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed', 'error', 'loadedByProxy'])
       unless validator.valid?(event)
         fail ArgumentError, 'invalid value for "event", must be one of #{validator.allowable_values}.'
       end

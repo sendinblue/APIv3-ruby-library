@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**corporate_master_account_get**](MasterAccountApi.md#corporate_master_account_get) | **GET** /corporate/masterAccount | Get the details of requested master account
 [**corporate_sub_account_get**](MasterAccountApi.md#corporate_sub_account_get) | **GET** /corporate/subAccount | Get the list of all the sub-accounts of the master account.
+[**corporate_sub_account_id_delete**](MasterAccountApi.md#corporate_sub_account_id_delete) | **DELETE** /corporate/subAccount/{id} | Delete a sub-account
 [**corporate_sub_account_id_get**](MasterAccountApi.md#corporate_sub_account_id_get) | **GET** /corporate/subAccount/{id} | Get sub-account details
 [**corporate_sub_account_id_plan_put**](MasterAccountApi.md#corporate_sub_account_id_plan_put) | **PUT** /corporate/subAccount/{id}/plan | Update sub-account plan
 [**corporate_sub_account_post**](MasterAccountApi.md#corporate_sub_account_post) | **POST** /corporate/subAccount | Create a new sub-account under a master account.
@@ -115,6 +116,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SubAccountsResponse**](SubAccountsResponse.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **corporate_sub_account_id_delete**
+> corporate_sub_account_id_delete(id)
+
+Delete a sub-account
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::MasterAccountApi.new
+
+id = 789 # Integer | Id of the sub-account organization to be deleted
+
+
+begin
+  #Delete a sub-account
+  api_instance.corporate_sub_account_id_delete(id)
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling MasterAccountApi->corporate_sub_account_id_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**| Id of the sub-account organization to be deleted | 
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 

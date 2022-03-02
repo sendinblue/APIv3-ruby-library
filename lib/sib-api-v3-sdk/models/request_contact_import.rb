@@ -14,11 +14,14 @@ require 'date'
 
 module SibApiV3Sdk
   class RequestContactImport
-    # Mandatory if fileBody is not defined. URL of the file to be imported (no local file). Possible file formats: .txt, .csv
+    # Mandatory if fileBody or jsonBody is not defined. URL of the file to be imported (no local file). Possible file formats: .txt, .csv, .json
     attr_accessor :file_url
 
-    # Mandatory if fileUrl is not defined. CSV content to be imported. Use semicolon to separate multiple attributes. Maximum allowed file body size is 10MB . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of file body size while parsing. Please use fileUrl instead to import bigger files.
+    # Mandatory if fileUrl and jsonBody is not defined. CSV content to be imported. Use semicolon to separate multiple attributes. Maximum allowed file body size is 10MB . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of file body size while parsing. Please use fileUrl instead to import bigger files.
     attr_accessor :file_body
+
+    # **Mandatory if fileUrl and fileBody is not defined.** JSON content to be imported. **Maximum allowed json body size is 10MB** . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of json body size while parsing. Please use fileUrl instead to import bigger files. 
+    attr_accessor :json_body
 
     # Mandatory if newList is not defined. Ids of the lists in which the contacts shall be imported. For example, [2, 4, 7].
     attr_accessor :list_ids
@@ -45,6 +48,7 @@ module SibApiV3Sdk
       {
         :'file_url' => :'fileUrl',
         :'file_body' => :'fileBody',
+        :'json_body' => :'jsonBody',
         :'list_ids' => :'listIds',
         :'notify_url' => :'notifyUrl',
         :'new_list' => :'newList',
@@ -60,6 +64,7 @@ module SibApiV3Sdk
       {
         :'file_url' => :'String',
         :'file_body' => :'String',
+        :'json_body' => :'Array<Hash<String, Object>>',
         :'list_ids' => :'Array<Integer>',
         :'notify_url' => :'String',
         :'new_list' => :'RequestContactImportNewList',
@@ -84,6 +89,12 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'fileBody')
         self.file_body = attributes[:'fileBody']
+      end
+
+      if attributes.has_key?(:'jsonBody')
+        if (value = attributes[:'jsonBody']).is_a?(Array)
+          self.json_body = value
+        end
       end
 
       if attributes.has_key?(:'listIds')
@@ -145,6 +156,7 @@ module SibApiV3Sdk
       self.class == o.class &&
           file_url == o.file_url &&
           file_body == o.file_body &&
+          json_body == o.json_body &&
           list_ids == o.list_ids &&
           notify_url == o.notify_url &&
           new_list == o.new_list &&
@@ -163,7 +175,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [file_url, file_body, list_ids, notify_url, new_list, email_blacklist, sms_blacklist, update_existing_contacts, empty_contacts_attributes].hash
+      [file_url, file_body, json_body, list_ids, notify_url, new_list, email_blacklist, sms_blacklist, update_existing_contacts, empty_contacts_attributes].hash
     end
 
     # Builds the object from hash
