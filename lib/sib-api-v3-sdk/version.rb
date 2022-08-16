@@ -11,5 +11,5 @@ Swagger Codegen version: 2.4.19
 =end
 
 module SibApiV3Sdk
-  VERSION = "8.2.0"
+  VERSION = "9.0.0"
 end
