@@ -19,6 +19,25 @@ module SibApiV3Sdk
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Retrieve inbound attachment with download token.
+    # This endpoint will retrieve inbound attachment with download token.
+    # @param download_token Token to fetch a particular attachment
+    # @param [Hash] opts the optional parameters
+    # @return [File]
+    def get_inbound_email_attachment(download_token, opts = {})
+      data, _status_code, _headers = get_inbound_email_attachment_with_http_info(download_token, opts)
+      data
+    end
+
+    # Retrieve inbound attachment with download token.
+    # This endpoint will retrieve inbound attachment with download token.
+    # @param download_token Token to fetch a particular attachment
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(File, Fixnum, Hash)>] File data, response status code and response headers
+    def get_inbound_email_attachment_with_http_info(download_token, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InboundParsingApi.get_inbound_email_attachment ...'
+      end
 
     # Set custom user_agent if explicitly passed in api
     # default will still remain Swagger-Codegen/#{VERSION}/ruby
@@ -27,9 +46,41 @@ module SibApiV3Sdk
       if user_agent.is_a?(String) && user_agent.downcase.start_with?('sendinblue_')
         @api_client.default_headers['User-Agent'] = @user_agent
       end
-    end
+      # verify the required parameter 'download_token' is set
+      if @api_client.config.client_side_validation && download_token.nil?
+        fail ArgumentError, "Missing the required parameter 'download_token' when calling InboundParsingApi.get_inbound_email_attachment"
+      end
+      # resource path
+      local_var_path = '/inbound/attachments/{downloadToken}'.sub('{' + 'downloadToken' + '}', download_token.to_s)
 
-    
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'File')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InboundParsingApi#get_inbound_email_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get the list of all the events for the received emails.
     # This endpoint will show the list of all the events for the received emails.
     # @param [Hash] opts the optional parameters

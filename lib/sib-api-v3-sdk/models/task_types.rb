@@ -18,9 +18,6 @@ module SibApiV3Sdk
     # Id of task type
     attr_accessor :id
 
-    # Icon of task type
-    attr_accessor :icon
-
     # Title of task type
     attr_accessor :title
 
@@ -28,7 +25,6 @@ module SibApiV3Sdk
     def self.attribute_map
       {
         :'id' => :'id',
-        :'icon' => :'icon',
         :'title' => :'title'
       }
     end
@@ -37,7 +33,6 @@ module SibApiV3Sdk
     def self.swagger_types
       {
         :'id' => :'String',
-        :'icon' => :'String',
         :'title' => :'String'
       }
     end
@@ -52,10 +47,6 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'icon')
-        self.icon = attributes[:'icon']
       end
 
       if attributes.has_key?(:'title')
@@ -82,7 +73,6 @@ module SibApiV3Sdk
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          icon == o.icon &&
           title == o.title
     end
 
@@ -95,7 +85,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, icon, title].hash
+      [id, title].hash
     end
 
     # Builds the object from hash

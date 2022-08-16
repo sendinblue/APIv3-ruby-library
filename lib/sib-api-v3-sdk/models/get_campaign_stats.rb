@@ -44,6 +44,12 @@ module SibApiV3Sdk
     # Recipients without any privacy protection option enabled in their email client
     attr_accessor :trackable_views
 
+    # Rate of recipients without any privacy protection option enabled in their email client
+    attr_accessor :trackable_views_rate
+
+    # Rate of recipients without any privacy protection option enabled in their email client, applied to all delivered emails
+    attr_accessor :estimated_views
+
     # Number of unsubscription for the campaign
     attr_accessor :unsubscriptions
 
@@ -69,6 +75,8 @@ module SibApiV3Sdk
         :'hard_bounces' => :'hardBounces',
         :'unique_views' => :'uniqueViews',
         :'trackable_views' => :'trackableViews',
+        :'trackable_views_rate' => :'trackableViewsRate',
+        :'estimated_views' => :'estimatedViews',
         :'unsubscriptions' => :'unsubscriptions',
         :'viewed' => :'viewed',
         :'deferred' => :'deferred',
@@ -89,6 +97,8 @@ module SibApiV3Sdk
         :'hard_bounces' => :'Integer',
         :'unique_views' => :'Integer',
         :'trackable_views' => :'Integer',
+        :'trackable_views_rate' => :'Float',
+        :'estimated_views' => :'Integer',
         :'unsubscriptions' => :'Integer',
         :'viewed' => :'Integer',
         :'deferred' => :'Integer',
@@ -142,6 +152,14 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'trackableViews')
         self.trackable_views = attributes[:'trackableViews']
+      end
+
+      if attributes.has_key?(:'trackableViewsRate')
+        self.trackable_views_rate = attributes[:'trackableViewsRate']
+      end
+
+      if attributes.has_key?(:'estimatedViews')
+        self.estimated_views = attributes[:'estimatedViews']
       end
 
       if attributes.has_key?(:'unsubscriptions')
@@ -244,6 +262,8 @@ module SibApiV3Sdk
           hard_bounces == o.hard_bounces &&
           unique_views == o.unique_views &&
           trackable_views == o.trackable_views &&
+          trackable_views_rate == o.trackable_views_rate &&
+          estimated_views == o.estimated_views &&
           unsubscriptions == o.unsubscriptions &&
           viewed == o.viewed &&
           deferred == o.deferred &&
@@ -259,7 +279,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [list_id, unique_clicks, clickers, complaints, delivered, sent, soft_bounces, hard_bounces, unique_views, trackable_views, unsubscriptions, viewed, deferred, return_bounce].hash
+      [list_id, unique_clicks, clickers, complaints, delivered, sent, soft_bounces, hard_bounces, unique_views, trackable_views, trackable_views_rate, estimated_views, unsubscriptions, viewed, deferred, return_bounce].hash
     end
 
     # Builds the object from hash

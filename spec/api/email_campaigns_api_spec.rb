@@ -182,7 +182,7 @@ describe 'EmailCampaignsApi' do
   # Upload an image to your account&#39;s image gallery
   # @param upload_image Parameters to upload an image
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [UploadImageModel]
   describe 'upload_image_to_gallery test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

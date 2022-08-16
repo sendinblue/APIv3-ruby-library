@@ -14,16 +14,16 @@ require 'date'
 
 module SibApiV3Sdk
   class SubAccountsResponseSubAccounts
-    # client id of sub-account organization
+    # id of the sub-account
     attr_accessor :id
 
-    # Name of sub-account organization
+    # Name of the sub-account company
     attr_accessor :company_name
 
-    # Whether organization is active or not
+    # Whether the sub-account is active or not
     attr_accessor :active
 
-    # timestamp when the organization was created
+    # Timestamp when the sub-account was created
     attr_accessor :created_at
 
     # Attribute mapping from ruby-style variable name to JSON key.

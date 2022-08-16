@@ -13,57 +13,70 @@ Swagger Codegen version: 2.4.19
 require 'date'
 
 module SibApiV3Sdk
-  # Contact Details
-  class Contact
-    # Next incomplete task of contact
-    attr_accessor :virtual_next_task
+  class Body6
+    # Name of task
+    attr_accessor :name
 
-    # Contact email
-    attr_accessor :email
+    # Duration of task in milliseconds [1 minute = 60000 ms]
+    attr_accessor :duration
 
-    # User id to whom contact is assigned
+    # Id for type of task e.g Call / Email / Meeting etc.
+    attr_accessor :task_type_id
+
+    # Task due date and time
+    attr_accessor :date
+
+    # Notes added to a task
+    attr_accessor :notes
+
+    # Task marked as done
+    attr_accessor :done
+
+    # User id to whom task is assigned
     attr_accessor :assign_to_id
 
-    # Contact id
-    attr_accessor :contacts_id
+    # Contact ids for contacts linked to this task
+    attr_accessor :contacts_ids
 
-    # CRM lists in which contact is added
-    attr_accessor :crm_lists
+    # Deal ids for deals a task is linked to
+    attr_accessor :deals_ids
 
-    # Contact attributes e.g firstname / lastname / SMS etc.
-    attr_accessor :attributes
+    # Companies ids for companies a task is linked to
+    attr_accessor :companies_ids
 
-    # Contact created date/time
-    attr_accessor :created_at
-
-    # Contact updated date/time
-    attr_accessor :updated_at
+    attr_accessor :reminder
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'virtual_next_task' => :'virtualNextTask',
-        :'email' => :'email',
+        :'name' => :'name',
+        :'duration' => :'duration',
+        :'task_type_id' => :'taskTypeId',
+        :'date' => :'date',
+        :'notes' => :'notes',
+        :'done' => :'done',
         :'assign_to_id' => :'assignToId',
-        :'contacts_id' => :'contactsId',
-        :'crm_lists' => :'crmLists',
-        :'attributes' => :'attributes',
-        :'created_at' => :'createdAt',
-        :'updated_at' => :'updatedAt'
+        :'contacts_ids' => :'contactsIds',
+        :'deals_ids' => :'dealsIds',
+        :'companies_ids' => :'companiesIds',
+        :'reminder' => :'reminder'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'virtual_next_task' => :'Object',
-        :'email' => :'String',
+        :'name' => :'String',
+        :'duration' => :'Integer',
+        :'task_type_id' => :'String',
+        :'date' => :'DateTime',
+        :'notes' => :'String',
+        :'done' => :'BOOLEAN',
         :'assign_to_id' => :'String',
-        :'contacts_id' => :'Integer',
-        :'crm_lists' => :'Object',
-        :'attributes' => :'Object',
-        :'created_at' => :'DateTime',
-        :'updated_at' => :'DateTime'
+        :'contacts_ids' => :'Array<Integer>',
+        :'deals_ids' => :'Array<String>',
+        :'companies_ids' => :'Array<String>',
+        :'reminder' => :'TaskReminder'
       }
     end
 
@@ -75,36 +88,54 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'virtualNextTask')
-        self.virtual_next_task = attributes[:'virtualNextTask']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
+      if attributes.has_key?(:'duration')
+        self.duration = attributes[:'duration']
+      end
+
+      if attributes.has_key?(:'taskTypeId')
+        self.task_type_id = attributes[:'taskTypeId']
+      end
+
+      if attributes.has_key?(:'date')
+        self.date = attributes[:'date']
+      end
+
+      if attributes.has_key?(:'notes')
+        self.notes = attributes[:'notes']
+      end
+
+      if attributes.has_key?(:'done')
+        self.done = attributes[:'done']
       end
 
       if attributes.has_key?(:'assignToId')
         self.assign_to_id = attributes[:'assignToId']
       end
 
-      if attributes.has_key?(:'contactsId')
-        self.contacts_id = attributes[:'contactsId']
+      if attributes.has_key?(:'contactsIds')
+        if (value = attributes[:'contactsIds']).is_a?(Array)
+          self.contacts_ids = value
+        end
       end
 
-      if attributes.has_key?(:'crmLists')
-        self.crm_lists = attributes[:'crmLists']
+      if attributes.has_key?(:'dealsIds')
+        if (value = attributes[:'dealsIds']).is_a?(Array)
+          self.deals_ids = value
+        end
       end
 
-      if attributes.has_key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.has_key?(:'companiesIds')
+        if (value = attributes[:'companiesIds']).is_a?(Array)
+          self.companies_ids = value
+        end
       end
 
-      if attributes.has_key?(:'createdAt')
-        self.created_at = attributes[:'createdAt']
-      end
-
-      if attributes.has_key?(:'updatedAt')
-        self.updated_at = attributes[:'updatedAt']
+      if attributes.has_key?(:'reminder')
+        self.reminder = attributes[:'reminder']
       end
     end
 
@@ -112,12 +143,20 @@ module SibApiV3Sdk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @email.nil?
-        invalid_properties.push('invalid value for "email", email cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @crm_lists.nil?
-        invalid_properties.push('invalid value for "crm_lists", crm_lists cannot be nil.')
+      if !@duration.nil? && @duration < 0
+        invalid_properties.push('invalid value for "duration", must be greater than or equal to 0.')
+      end
+
+      if @task_type_id.nil?
+        invalid_properties.push('invalid value for "task_type_id", task_type_id cannot be nil.')
+      end
+
+      if @date.nil?
+        invalid_properties.push('invalid value for "date", date cannot be nil.')
       end
 
       invalid_properties
@@ -126,9 +165,21 @@ module SibApiV3Sdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @email.nil?
-      return false if @crm_lists.nil?
+      return false if @name.nil?
+      return false if !@duration.nil? && @duration < 0
+      return false if @task_type_id.nil?
+      return false if @date.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] duration Value to be assigned
+    def duration=(duration)
+      if !duration.nil? && duration < 0
+        fail ArgumentError, 'invalid value for "duration", must be greater than or equal to 0.'
+      end
+
+      @duration = duration
     end
 
     # Checks equality by comparing each attribute.
@@ -136,14 +187,17 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          virtual_next_task == o.virtual_next_task &&
-          email == o.email &&
+          name == o.name &&
+          duration == o.duration &&
+          task_type_id == o.task_type_id &&
+          date == o.date &&
+          notes == o.notes &&
+          done == o.done &&
           assign_to_id == o.assign_to_id &&
-          contacts_id == o.contacts_id &&
-          crm_lists == o.crm_lists &&
-          attributes == o.attributes &&
-          created_at == o.created_at &&
-          updated_at == o.updated_at
+          contacts_ids == o.contacts_ids &&
+          deals_ids == o.deals_ids &&
+          companies_ids == o.companies_ids &&
+          reminder == o.reminder
     end
 
     # @see the `==` method
@@ -155,7 +209,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [virtual_next_task, email, assign_to_id, contacts_id, crm_lists, attributes, created_at, updated_at].hash
+      [name, duration, task_type_id, date, notes, done, assign_to_id, contacts_ids, deals_ids, companies_ids, reminder].hash
     end
 
     # Builds the object from hash

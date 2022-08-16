@@ -54,6 +54,12 @@ module SibApiV3Sdk
     # Tag your emails to find them more easily
     attr_accessor :tags
 
+    # UTC date-time on which the email has to schedule (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for scheduling. There can be an expected delay of +5 minutes in scheduled email delivery. **Please note this feature is currently a public beta**.
+    attr_accessor :scheduled_at
+
+    # Valid UUIDv4 batch id to identify the scheduled batches transactional email. If not passed we will create a valid UUIDv4 batch id at our end.
+    attr_accessor :batch_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -70,7 +76,9 @@ module SibApiV3Sdk
         :'template_id' => :'templateId',
         :'params' => :'params',
         :'message_versions' => :'messageVersions',
-        :'tags' => :'tags'
+        :'tags' => :'tags',
+        :'scheduled_at' => :'scheduledAt',
+        :'batch_id' => :'batchId'
       }
     end
 
@@ -90,7 +98,9 @@ module SibApiV3Sdk
         :'template_id' => :'Integer',
         :'params' => :'Object',
         :'message_versions' => :'Array<SendSmtpEmailMessageVersions>',
-        :'tags' => :'Array<String>'
+        :'tags' => :'Array<String>',
+        :'scheduled_at' => :'DateTime',
+        :'batch_id' => :'String'
       }
     end
 
@@ -169,6 +179,14 @@ module SibApiV3Sdk
           self.tags = value
         end
       end
+
+      if attributes.has_key?(:'scheduledAt')
+        self.scheduled_at = attributes[:'scheduledAt']
+      end
+
+      if attributes.has_key?(:'batchId')
+        self.batch_id = attributes[:'batchId']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -202,7 +220,9 @@ module SibApiV3Sdk
           template_id == o.template_id &&
           params == o.params &&
           message_versions == o.message_versions &&
-          tags == o.tags
+          tags == o.tags &&
+          scheduled_at == o.scheduled_at &&
+          batch_id == o.batch_id
     end
 
     # @see the `==` method
@@ -214,7 +234,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [sender, to, bcc, cc, html_content, text_content, subject, reply_to, attachment, headers, template_id, params, message_versions, tags].hash
+      [sender, to, bcc, cc, html_content, text_content, subject, reply_to, attachment, headers, template_id, params, message_versions, tags, scheduled_at, batch_id].hash
     end
 
     # Builds the object from hash

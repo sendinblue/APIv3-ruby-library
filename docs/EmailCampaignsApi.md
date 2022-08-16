@@ -338,7 +338,7 @@ opts = {
   status: 'status_example', # String | Filter on the status of the campaign
   start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
   end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
-  limit: 500, # Integer | Number of documents per page
+  limit: 50, # Integer | Number of documents per page
   offset: 0, # Integer | Index of the first document in the page
   sort: 'desc' # String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 }
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
  **status** | **String**| Filter on the status of the campaign | [optional] 
  **start_date** | **String**| Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional] 
  **end_date** | **String**| Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional] 
- **limit** | **Integer**| Number of documents per page | [optional] [default to 500]
+ **limit** | **Integer**| Number of documents per page | [optional] [default to 50]
  **offset** | **Integer**| Index of the first document in the page | [optional] [default to 0]
  **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
 
@@ -733,7 +733,7 @@ nil (empty response body)
 
 
 # **upload_image_to_gallery**
-> upload_image_to_gallery(upload_image)
+> UploadImageModel upload_image_to_gallery(upload_image)
 
 Upload an image to your account's image gallery
 
@@ -761,7 +761,8 @@ upload_image = SibApiV3Sdk::UploadImageToGallery.new # UploadImageToGallery | Pa
 
 begin
   #Upload an image to your account's image gallery
-  api_instance.upload_image_to_gallery(upload_image)
+  result = api_instance.upload_image_to_gallery(upload_image)
+  p result
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling EmailCampaignsApi->upload_image_to_gallery: #{e}"
 end
@@ -775,7 +776,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+[**UploadImageModel**](UploadImageModel.md)
 
 ### Authorization
 

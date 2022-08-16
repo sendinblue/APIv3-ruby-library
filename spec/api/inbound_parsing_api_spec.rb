@@ -32,6 +32,18 @@ describe 'InboundParsingApi' do
     end
   end
 
+  # unit tests for get_inbound_email_attachment
+  # Retrieve inbound attachment with download token.
+  # This endpoint will retrieve inbound attachment with download token.
+  # @param download_token Token to fetch a particular attachment
+  # @param [Hash] opts the optional parameters
+  # @return [File]
+  describe 'get_inbound_email_attachment test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_inbound_email_events
   # Get the list of all the events for the received emails.
   # This endpoint will show the list of all the events for the received emails.

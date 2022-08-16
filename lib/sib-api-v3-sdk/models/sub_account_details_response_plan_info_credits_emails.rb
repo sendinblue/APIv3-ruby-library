@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.19
 require 'date'
 
 module SibApiV3Sdk
-  # Email quota details of the sub-account
+  # Email credits remaining on the sub-account
   class SubAccountDetailsResponsePlanInfoCreditsEmails
     # Quantity of email messaging limits provided
     attr_accessor :quantity
