@@ -625,6 +625,8 @@ module SibApiV3Sdk
     # Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
     # @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :start_date **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate 
+    # @option opts [Object] :end_date **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. 
     # @return [GetExtendedContactDetails]
     def get_contact_info(identifier, opts = {})
       data, _status_code, _headers = get_contact_info_with_http_info(identifier, opts)
@@ -635,6 +637,8 @@ module SibApiV3Sdk
     # Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
     # @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :start_date **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate 
+    # @option opts [Object] :end_date **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. 
     # @return [Array<(GetExtendedContactDetails, Fixnum, Hash)>] GetExtendedContactDetails data, response status code and response headers
     def get_contact_info_with_http_info(identifier, opts = {})
       if @api_client.config.debugging
@@ -649,6 +653,8 @@ module SibApiV3Sdk
 
       # query parameters
       query_params = {}
+      query_params[:'startDate'] = opts[:'start_date'] if !opts[:'start_date'].nil?
+      query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
 
       # header parameters
       header_params = {}

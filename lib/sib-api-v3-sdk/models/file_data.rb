@@ -15,65 +15,50 @@ require 'date'
 module SibApiV3Sdk
   # File data that is uploaded
   class FileData
-    # Url of uploaded file
-    attr_accessor :url
-
-    # Id of uploaded file
-    attr_accessor :id
-
     # Name of uploaded file
     attr_accessor :name
 
     # Account id of user which created the file
     attr_accessor :author_id
 
-    # Account details of user which created the file
-    attr_accessor :author
-
     # Contact id of contact on which file is uploaded
     attr_accessor :contact_id
 
-    # Deal ids linked to a file
-    attr_accessor :deal_ids
+    # Deal id linked to a file
+    attr_accessor :deal_id
 
-    # Size of file uploaded
+    # Company id linked to a file
+    attr_accessor :company_id
+
+    # Size of file in bytes
     attr_accessor :size
 
     # File created date/time
     attr_accessor :created_at
 
-    # File updated date/time
-    attr_accessor :updated_at
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'url' => :'url',
-        :'id' => :'id',
         :'name' => :'name',
         :'author_id' => :'authorId',
-        :'author' => :'author',
         :'contact_id' => :'contactId',
-        :'deal_ids' => :'dealIds',
+        :'deal_id' => :'dealId',
+        :'company_id' => :'companyId',
         :'size' => :'size',
-        :'created_at' => :'createdAt',
-        :'updated_at' => :'updatedAt'
+        :'created_at' => :'createdAt'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'url' => :'String',
-        :'id' => :'String',
         :'name' => :'String',
         :'author_id' => :'String',
-        :'author' => :'Object',
         :'contact_id' => :'Integer',
-        :'deal_ids' => :'Array<String>',
+        :'deal_id' => :'String',
+        :'company_id' => :'String',
         :'size' => :'Integer',
-        :'created_at' => :'DateTime',
-        :'updated_at' => :'DateTime'
+        :'created_at' => :'DateTime'
       }
     end
 
@@ -85,14 +70,6 @@ module SibApiV3Sdk
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'url')
-        self.url = attributes[:'url']
-      end
-
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
       end
@@ -101,18 +78,16 @@ module SibApiV3Sdk
         self.author_id = attributes[:'authorId']
       end
 
-      if attributes.has_key?(:'author')
-        self.author = attributes[:'author']
-      end
-
       if attributes.has_key?(:'contactId')
         self.contact_id = attributes[:'contactId']
       end
 
-      if attributes.has_key?(:'dealIds')
-        if (value = attributes[:'dealIds']).is_a?(Array)
-          self.deal_ids = value
-        end
+      if attributes.has_key?(:'dealId')
+        self.deal_id = attributes[:'dealId']
+      end
+
+      if attributes.has_key?(:'companyId')
+        self.company_id = attributes[:'companyId']
       end
 
       if attributes.has_key?(:'size')
@@ -121,10 +96,6 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'createdAt')
         self.created_at = attributes[:'createdAt']
-      end
-
-      if attributes.has_key?(:'updatedAt')
-        self.updated_at = attributes[:'updatedAt']
       end
     end
 
@@ -146,16 +117,13 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          url == o.url &&
-          id == o.id &&
           name == o.name &&
           author_id == o.author_id &&
-          author == o.author &&
           contact_id == o.contact_id &&
-          deal_ids == o.deal_ids &&
+          deal_id == o.deal_id &&
+          company_id == o.company_id &&
           size == o.size &&
-          created_at == o.created_at &&
-          updated_at == o.updated_at
+          created_at == o.created_at
     end
 
     # @see the `==` method
@@ -167,7 +135,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [url, id, name, author_id, author, contact_id, deal_ids, size, created_at, updated_at].hash
+      [name, author_id, contact_id, deal_id, company_id, size, created_at].hash
     end
 
     # Builds the object from hash

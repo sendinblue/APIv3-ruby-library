@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.19
 require 'date'
 
 module SibApiV3Sdk
-  # Sub-account features and addons quota details
+  # Features available on the sub-account
   class SubAccountDetailsResponsePlanInfoFeatures
     attr_accessor :inbox
 

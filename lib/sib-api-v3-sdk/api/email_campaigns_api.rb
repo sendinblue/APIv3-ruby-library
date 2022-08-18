@@ -298,7 +298,7 @@ module SibApiV3Sdk
     # @option opts [String] :status Filter on the status of the campaign
     # @option opts [String] :start_date Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
     # @option opts [String] :end_date Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; )
-    # @option opts [Integer] :limit Number of documents per page (default to 500)
+    # @option opts [Integer] :limit Number of documents per page (default to 50)
     # @option opts [Integer] :offset Index of the first document in the page (default to 0)
     # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
     # @return [GetEmailCampaigns]
@@ -327,8 +327,8 @@ module SibApiV3Sdk
       if @api_client.config.client_side_validation && opts[:'status'] && !['suspended', 'archive', 'sent', 'queued', 'draft', 'inProcess'].include?(opts[:'status'])
         fail ArgumentError, 'invalid value for "status", must be one of suspended, archive, sent, queued, draft, inProcess'
       end
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling EmailCampaignsApi.get_email_campaigns, must be smaller than or equal to 1000.'
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling EmailCampaignsApi.get_email_campaigns, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
@@ -710,16 +710,16 @@ module SibApiV3Sdk
     # Upload an image to your account's image gallery
     # @param upload_image Parameters to upload an image
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [UploadImageModel]
     def upload_image_to_gallery(upload_image, opts = {})
-      upload_image_to_gallery_with_http_info(upload_image, opts)
-      nil
+      data, _status_code, _headers = upload_image_to_gallery_with_http_info(upload_image, opts)
+      data
     end
 
     # Upload an image to your account&#39;s image gallery
     # @param upload_image Parameters to upload an image
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    # @return [Array<(UploadImageModel, Fixnum, Hash)>] UploadImageModel data, response status code and response headers
     def upload_image_to_gallery_with_http_info(upload_image, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmailCampaignsApi.upload_image_to_gallery ...'
@@ -752,7 +752,8 @@ module SibApiV3Sdk
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names)
+        :auth_names => auth_names,
+        :return_type => 'UploadImageModel')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EmailCampaignsApi#upload_image_to_gallery\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

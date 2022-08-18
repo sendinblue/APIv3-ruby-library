@@ -14,16 +14,16 @@ require 'date'
 
 module SibApiV3Sdk
   class CreateSubAccount
-    # Name of the organization
+    # Set the name of the sub-account company
     attr_accessor :company_name
 
     # Email address for the organization
     attr_accessor :email
 
-    # Language for identifying localization information
+    # Set the language of the sub-account
     attr_accessor :language
 
-    # Request timezone of the client
+    # Set the timezone of the sub-account
     attr_accessor :timezone
 
     class EnumAttributeValidator

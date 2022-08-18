@@ -15,8 +15,6 @@ require 'date'
 module SibApiV3Sdk
   # Task Details
   class Task
-    attr_accessor :first_contact
-
     # Unique task id
     attr_accessor :id
 
@@ -29,84 +27,33 @@ module SibApiV3Sdk
     # Contact ids for contacts linked to this task
     attr_accessor :contacts_ids
 
-    # Contact details for contacts linked to this task
-    attr_accessor :contacts
-
     # Deal ids for deals a task is linked to
     attr_accessor :deals_ids
 
     # Companies ids for companies a task is linked to
     attr_accessor :companies_ids
 
-    # User id to whom task is assigned
-    attr_accessor :assign_to_id
-
-    # Task date/time
-    attr_accessor :date
-
-    # Duration of task
-    attr_accessor :duration
-
-    # Notes added to a task
-    attr_accessor :notes
-
-    # Task marked as done
-    attr_accessor :done
-
-    # Task reminder date/time for a task
-    attr_accessor :reminder
-
-    # Task created date/time
-    attr_accessor :created_at
-
-    # Task update date/time
-    attr_accessor :updated_at
-
-    attr_accessor :refs
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'first_contact' => :'firstContact',
         :'id' => :'id',
         :'task_type_id' => :'taskTypeId',
         :'name' => :'name',
         :'contacts_ids' => :'contactsIds',
-        :'contacts' => :'contacts',
         :'deals_ids' => :'dealsIds',
-        :'companies_ids' => :'companiesIds',
-        :'assign_to_id' => :'assignToId',
-        :'date' => :'date',
-        :'duration' => :'duration',
-        :'notes' => :'notes',
-        :'done' => :'done',
-        :'reminder' => :'reminder',
-        :'created_at' => :'createdAt',
-        :'updated_at' => :'updatedAt',
-        :'refs' => :'refs'
+        :'companies_ids' => :'companiesIds'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'first_contact' => :'Contact',
         :'id' => :'String',
         :'task_type_id' => :'String',
         :'name' => :'String',
         :'contacts_ids' => :'Array<Integer>',
-        :'contacts' => :'Array<Contact>',
         :'deals_ids' => :'Array<String>',
-        :'companies_ids' => :'Array<String>',
-        :'assign_to_id' => :'String',
-        :'date' => :'DateTime',
-        :'duration' => :'Integer',
-        :'notes' => :'String',
-        :'done' => :'BOOLEAN',
-        :'reminder' => :'TaskReminder',
-        :'created_at' => :'DateTime',
-        :'updated_at' => :'DateTime',
-        :'refs' => :'Object'
+        :'companies_ids' => :'Array<String>'
       }
     end
 
@@ -117,10 +64,6 @@ module SibApiV3Sdk
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'firstContact')
-        self.first_contact = attributes[:'firstContact']
-      end
 
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
@@ -140,12 +83,6 @@ module SibApiV3Sdk
         end
       end
 
-      if attributes.has_key?(:'contacts')
-        if (value = attributes[:'contacts']).is_a?(Array)
-          self.contacts = value
-        end
-      end
-
       if attributes.has_key?(:'dealsIds')
         if (value = attributes[:'dealsIds']).is_a?(Array)
           self.deals_ids = value
@@ -156,42 +93,6 @@ module SibApiV3Sdk
         if (value = attributes[:'companiesIds']).is_a?(Array)
           self.companies_ids = value
         end
-      end
-
-      if attributes.has_key?(:'assignToId')
-        self.assign_to_id = attributes[:'assignToId']
-      end
-
-      if attributes.has_key?(:'date')
-        self.date = attributes[:'date']
-      end
-
-      if attributes.has_key?(:'duration')
-        self.duration = attributes[:'duration']
-      end
-
-      if attributes.has_key?(:'notes')
-        self.notes = attributes[:'notes']
-      end
-
-      if attributes.has_key?(:'done')
-        self.done = attributes[:'done']
-      end
-
-      if attributes.has_key?(:'reminder')
-        self.reminder = attributes[:'reminder']
-      end
-
-      if attributes.has_key?(:'createdAt')
-        self.created_at = attributes[:'createdAt']
-      end
-
-      if attributes.has_key?(:'updatedAt')
-        self.updated_at = attributes[:'updatedAt']
-      end
-
-      if attributes.has_key?(:'refs')
-        self.refs = attributes[:'refs']
       end
     end
 
@@ -207,10 +108,6 @@ module SibApiV3Sdk
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @date.nil?
-        invalid_properties.push('invalid value for "date", date cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -219,7 +116,6 @@ module SibApiV3Sdk
     def valid?
       return false if @task_type_id.nil?
       return false if @name.nil?
-      return false if @date.nil?
       true
     end
 
@@ -228,23 +124,12 @@ module SibApiV3Sdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          first_contact == o.first_contact &&
           id == o.id &&
           task_type_id == o.task_type_id &&
           name == o.name &&
           contacts_ids == o.contacts_ids &&
-          contacts == o.contacts &&
           deals_ids == o.deals_ids &&
-          companies_ids == o.companies_ids &&
-          assign_to_id == o.assign_to_id &&
-          date == o.date &&
-          duration == o.duration &&
-          notes == o.notes &&
-          done == o.done &&
-          reminder == o.reminder &&
-          created_at == o.created_at &&
-          updated_at == o.updated_at &&
-          refs == o.refs
+          companies_ids == o.companies_ids
     end
 
     # @see the `==` method
@@ -256,7 +141,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [first_contact, id, task_type_id, name, contacts_ids, contacts, deals_ids, companies_ids, assign_to_id, date, duration, notes, done, reminder, created_at, updated_at, refs].hash
+      [id, task_type_id, name, contacts_ids, deals_ids, companies_ids].hash
     end
 
     # Builds the object from hash

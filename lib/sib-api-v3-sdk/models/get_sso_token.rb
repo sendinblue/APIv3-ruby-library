@@ -14,7 +14,7 @@ require 'date'
 
 module SibApiV3Sdk
   class GetSsoToken
-    # Session token. It will remain valid for a short period of time only.
+    # Session token, it will remain valid for 15 days.
     attr_accessor :token
 
     # Attribute mapping from ruby-style variable name to JSON key.

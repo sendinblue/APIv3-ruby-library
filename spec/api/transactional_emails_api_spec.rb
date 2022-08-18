@@ -79,6 +79,18 @@ describe 'TransactionalEmailsApi' do
     end
   end
 
+  # unit tests for delete_scheduled_email_by_id
+  # Delete scheduled emails by batchId or messageId
+  # Delete scheduled batch of emails by batchId or single scheduled email by messageId
+  # @param identifier The &#x60;batchId&#x60; of scheduled emails batch (Should be a valid UUIDv4) or the &#x60;messageId&#x60; of scheduled email.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_scheduled_email_by_id test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for delete_smtp_template
   # Delete an inactive email template
   # @param template_id id of the template
@@ -133,6 +145,38 @@ describe 'TransactionalEmailsApi' do
   # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
   # @return [GetEmailEventReport]
   describe 'get_email_event_report test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_scheduled_email_by_batch_id
+  # Fetch scheduled emails by batchId
+  # Fetch scheduled batch of emails by batchId (Can retrieve data upto 30 days old)
+  # @param batch_id The batchId of scheduled emails batch (Should be a valid UUIDv4)
+  # @param [Hash] opts the optional parameters
+  # @option opts [Date] :start_date Mandatory if &#x60;endDate&#x60; is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date.
+  # @option opts [Date] :end_date Mandatory if &#x60;startDate&#x60; is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+  # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
+  # @option opts [String] :status Filter the records by &#x60;status&#x60; of the scheduled email batch or message.
+  # @option opts [Integer] :limit Number of documents returned per page
+  # @option opts [Integer] :offset Index of the first document on the page
+  # @return [GetScheduledEmailByBatchId]
+  describe 'get_scheduled_email_by_batch_id test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_scheduled_email_by_message_id
+  # Fetch scheduled email by messageId
+  # Fetch scheduled email by messageId (Can retrieve data upto 30 days old)
+  # @param message_id The messageId of scheduled email
+  # @param [Hash] opts the optional parameters
+  # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date.
+  # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+  # @return [GetScheduledEmailByMessageId]
+  describe 'get_scheduled_email_by_message_id test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

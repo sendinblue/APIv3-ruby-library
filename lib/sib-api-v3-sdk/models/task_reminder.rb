@@ -21,7 +21,7 @@ module SibApiV3Sdk
     # Unit of time before reminder is to be sent
     attr_accessor :unit
 
-    # Type of task reminder
+    # Type of task reminder e.g email, push
     attr_accessor :types
 
     class EnumAttributeValidator

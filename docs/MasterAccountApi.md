@@ -92,7 +92,7 @@ end
 
 api_instance = SibApiV3Sdk::MasterAccountApi.new
 
-offset = 56 # Integer | Page number of sub-accounts listing
+offset = 56 # Integer | Index of the first sub-account in the page
 
 limit = 56 # Integer | Number of sub-accounts to be displayed on each page
 
@@ -110,7 +110,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **offset** | **Integer**| Page number of sub-accounts listing | 
+ **offset** | **Integer**| Index of the first sub-account in the page | 
  **limit** | **Integer**| Number of sub-accounts to be displayed on each page | 
 
 ### Return type
@@ -189,7 +189,7 @@ nil (empty response body)
 
 Get sub-account details
 
-This endpoint will provide the details of specified sub-account organization
+This endpoint will provide the details for the specified sub-account company
 
 ### Example
 ```ruby
@@ -305,7 +305,7 @@ nil (empty response body)
 
 
 # **corporate_sub_account_post**
-> CreateModel corporate_sub_account_post(sub_account_create)
+> CreateSubAccountResponse corporate_sub_account_post(sub_account_create)
 
 Create a new sub-account under a master account.
 
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateModel**](CreateModel.md)
+[**CreateSubAccountResponse**](CreateSubAccountResponse.md)
 
 ### Authorization
 
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 Generate SSO token to access Sendinblue
 
-This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced with actual token.
+This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
 
 ### Example
 ```ruby

@@ -80,7 +80,7 @@ module SibApiV3Sdk
     end
     # Get the list of all the sub-accounts of the master account.
     # This endpoint will provide the list all the sub-accounts of the master account.
-    # @param offset Page number of sub-accounts listing
+    # @param offset Index of the first sub-account in the page
     # @param limit Number of sub-accounts to be displayed on each page
     # @param [Hash] opts the optional parameters
     # @return [SubAccountsResponse]
@@ -91,7 +91,7 @@ module SibApiV3Sdk
 
     # Get the list of all the sub-accounts of the master account.
     # This endpoint will provide the list all the sub-accounts of the master account.
-    # @param offset Page number of sub-accounts listing
+    # @param offset Index of the first sub-account in the page
     # @param limit Number of sub-accounts to be displayed on each page
     # @param [Hash] opts the optional parameters
     # @return [Array<(SubAccountsResponse, Fixnum, Hash)>] SubAccountsResponse data, response status code and response headers
@@ -192,7 +192,7 @@ module SibApiV3Sdk
       return data, status_code, headers
     end
     # Get sub-account details
-    # This endpoint will provide the details of specified sub-account organization
+    # This endpoint will provide the details for the specified sub-account company
     # @param id Id of the sub-account organization
     # @param [Hash] opts the optional parameters
     # @return [SubAccountDetailsResponse]
@@ -202,7 +202,7 @@ module SibApiV3Sdk
     end
 
     # Get sub-account details
-    # This endpoint will provide the details of specified sub-account organization
+    # This endpoint will provide the details for the specified sub-account company
     # @param id Id of the sub-account organization
     # @param [Hash] opts the optional parameters
     # @return [Array<(SubAccountDetailsResponse, Fixnum, Hash)>] SubAccountDetailsResponse data, response status code and response headers
@@ -308,7 +308,7 @@ module SibApiV3Sdk
     # This endpoint will create a new sub-account under a master account
     # @param sub_account_create values to create new sub-account
     # @param [Hash] opts the optional parameters
-    # @return [CreateModel]
+    # @return [CreateSubAccountResponse]
     def corporate_sub_account_post(sub_account_create, opts = {})
       data, _status_code, _headers = corporate_sub_account_post_with_http_info(sub_account_create, opts)
       data
@@ -318,7 +318,7 @@ module SibApiV3Sdk
     # This endpoint will create a new sub-account under a master account
     # @param sub_account_create values to create new sub-account
     # @param [Hash] opts the optional parameters
-    # @return [Array<(CreateModel, Fixnum, Hash)>] CreateModel data, response status code and response headers
+    # @return [Array<(CreateSubAccountResponse, Fixnum, Hash)>] CreateSubAccountResponse data, response status code and response headers
     def corporate_sub_account_post_with_http_info(sub_account_create, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MasterAccountApi.corporate_sub_account_post ...'
@@ -352,14 +352,14 @@ module SibApiV3Sdk
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'CreateModel')
+        :return_type => 'CreateSubAccountResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MasterAccountApi#corporate_sub_account_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Generate SSO token to access Sendinblue
-    # This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced with actual token.
+    # This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
     # @param sso_token_request Values to generate SSO token for sub-account
     # @param [Hash] opts the optional parameters
     # @return [GetSsoToken]
@@ -369,7 +369,7 @@ module SibApiV3Sdk
     end
 
     # Generate SSO token to access Sendinblue
-    # This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced with actual token.
+    # This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
     # @param sso_token_request Values to generate SSO token for sub-account
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetSsoToken, Fixnum, Hash)>] GetSsoToken data, response status code and response headers

@@ -46,7 +46,7 @@ describe 'MasterAccountApi' do
   # unit tests for corporate_sub_account_get
   # Get the list of all the sub-accounts of the master account.
   # This endpoint will provide the list all the sub-accounts of the master account.
-  # @param offset Page number of sub-accounts listing
+  # @param offset Index of the first sub-account in the page
   # @param limit Number of sub-accounts to be displayed on each page
   # @param [Hash] opts the optional parameters
   # @return [SubAccountsResponse]
@@ -69,7 +69,7 @@ describe 'MasterAccountApi' do
 
   # unit tests for corporate_sub_account_id_get
   # Get sub-account details
-  # This endpoint will provide the details of specified sub-account organization
+  # This endpoint will provide the details for the specified sub-account company
   # @param id Id of the sub-account organization
   # @param [Hash] opts the optional parameters
   # @return [SubAccountDetailsResponse]
@@ -97,7 +97,7 @@ describe 'MasterAccountApi' do
   # This endpoint will create a new sub-account under a master account
   # @param sub_account_create values to create new sub-account
   # @param [Hash] opts the optional parameters
-  # @return [CreateModel]
+  # @return [CreateSubAccountResponse]
   describe 'corporate_sub_account_post test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -106,7 +106,7 @@ describe 'MasterAccountApi' do
 
   # unit tests for corporate_sub_account_sso_token_post
   # Generate SSO token to access Sendinblue
-  # This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced with actual token.
+  # This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
   # @param sso_token_request Values to generate SSO token for sub-account
   # @param [Hash] opts the optional parameters
   # @return [GetSsoToken]

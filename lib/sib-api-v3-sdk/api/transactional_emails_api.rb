@@ -236,6 +236,59 @@ module SibApiV3Sdk
       end
       return data, status_code, headers
     end
+    # Delete scheduled emails by batchId or messageId
+    # Delete scheduled batch of emails by batchId or single scheduled email by messageId
+    # @param identifier The &#x60;batchId&#x60; of scheduled emails batch (Should be a valid UUIDv4) or the &#x60;messageId&#x60; of scheduled email.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_scheduled_email_by_id(identifier, opts = {})
+      delete_scheduled_email_by_id_with_http_info(identifier, opts)
+      nil
+    end
+
+    # Delete scheduled emails by batchId or messageId
+    # Delete scheduled batch of emails by batchId or single scheduled email by messageId
+    # @param identifier The &#x60;batchId&#x60; of scheduled emails batch (Should be a valid UUIDv4) or the &#x60;messageId&#x60; of scheduled email.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def delete_scheduled_email_by_id_with_http_info(identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TransactionalEmailsApi.delete_scheduled_email_by_id ...'
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling TransactionalEmailsApi.delete_scheduled_email_by_id"
+      end
+      # resource path
+      local_var_path = '/smtp/email/{identifier}'.sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TransactionalEmailsApi#delete_scheduled_email_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Delete an inactive email template
     # @param template_id id of the template
     # @param [Hash] opts the optional parameters
@@ -483,6 +536,148 @@ module SibApiV3Sdk
         :return_type => 'GetEmailEventReport')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransactionalEmailsApi#get_email_event_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Fetch scheduled emails by batchId
+    # Fetch scheduled batch of emails by batchId (Can retrieve data upto 30 days old)
+    # @param batch_id The batchId of scheduled emails batch (Should be a valid UUIDv4)
+    # @param [Hash] opts the optional parameters
+    # @option opts [Date] :start_date Mandatory if &#x60;endDate&#x60; is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date.
+    # @option opts [Date] :end_date Mandatory if &#x60;startDate&#x60; is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (default to desc)
+    # @option opts [String] :status Filter the records by &#x60;status&#x60; of the scheduled email batch or message.
+    # @option opts [Integer] :limit Number of documents returned per page (default to 100)
+    # @option opts [Integer] :offset Index of the first document on the page (default to 0)
+    # @return [GetScheduledEmailByBatchId]
+    def get_scheduled_email_by_batch_id(batch_id, opts = {})
+      data, _status_code, _headers = get_scheduled_email_by_batch_id_with_http_info(batch_id, opts)
+      data
+    end
+
+    # Fetch scheduled emails by batchId
+    # Fetch scheduled batch of emails by batchId (Can retrieve data upto 30 days old)
+    # @param batch_id The batchId of scheduled emails batch (Should be a valid UUIDv4)
+    # @param [Hash] opts the optional parameters
+    # @option opts [Date] :start_date Mandatory if &#x60;endDate&#x60; is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date.
+    # @option opts [Date] :end_date Mandatory if &#x60;startDate&#x60; is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+    # @option opts [String] :sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed
+    # @option opts [String] :status Filter the records by &#x60;status&#x60; of the scheduled email batch or message.
+    # @option opts [Integer] :limit Number of documents returned per page
+    # @option opts [Integer] :offset Index of the first document on the page
+    # @return [Array<(GetScheduledEmailByBatchId, Fixnum, Hash)>] GetScheduledEmailByBatchId data, response status code and response headers
+    def get_scheduled_email_by_batch_id_with_http_info(batch_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TransactionalEmailsApi.get_scheduled_email_by_batch_id ...'
+      end
+      # verify the required parameter 'batch_id' is set
+      if @api_client.config.client_side_validation && batch_id.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling TransactionalEmailsApi.get_scheduled_email_by_batch_id"
+      end
+      if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
+        fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
+      end
+      if @api_client.config.client_side_validation && opts[:'status'] && !['processed', 'inProgress', 'queued'].include?(opts[:'status'])
+        fail ArgumentError, 'invalid value for "status", must be one of processed, inProgress, queued'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_scheduled_email_by_batch_id, must be smaller than or equal to 500.'
+      end
+
+      # resource path
+      local_var_path = '/smtp/emailStatus/{batchId}'.sub('{' + 'batchId' + '}', batch_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'startDate'] = opts[:'start_date'] if !opts[:'start_date'].nil?
+      query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetScheduledEmailByBatchId')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TransactionalEmailsApi#get_scheduled_email_by_batch_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Fetch scheduled email by messageId
+    # Fetch scheduled email by messageId (Can retrieve data upto 30 days old)
+    # @param message_id The messageId of scheduled email
+    # @param [Hash] opts the optional parameters
+    # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date.
+    # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+    # @return [GetScheduledEmailByMessageId]
+    def get_scheduled_email_by_message_id(message_id, opts = {})
+      data, _status_code, _headers = get_scheduled_email_by_message_id_with_http_info(message_id, opts)
+      data
+    end
+
+    # Fetch scheduled email by messageId
+    # Fetch scheduled email by messageId (Can retrieve data upto 30 days old)
+    # @param message_id The messageId of scheduled email
+    # @param [Hash] opts the optional parameters
+    # @option opts [Date] :start_date Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date.
+    # @option opts [Date] :end_date Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+    # @return [Array<(GetScheduledEmailByMessageId, Fixnum, Hash)>] GetScheduledEmailByMessageId data, response status code and response headers
+    def get_scheduled_email_by_message_id_with_http_info(message_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TransactionalEmailsApi.get_scheduled_email_by_message_id ...'
+      end
+      # verify the required parameter 'message_id' is set
+      if @api_client.config.client_side_validation && message_id.nil?
+        fail ArgumentError, "Missing the required parameter 'message_id' when calling TransactionalEmailsApi.get_scheduled_email_by_message_id"
+      end
+      # resource path
+      local_var_path = '/smtp/emailStatus/{messageId}'.sub('{' + 'messageId' + '}', message_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'startDate'] = opts[:'start_date'] if !opts[:'start_date'].nil?
+      query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api-key', 'partner-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetScheduledEmailByMessageId')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TransactionalEmailsApi#get_scheduled_email_by_message_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

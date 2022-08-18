@@ -14,52 +14,17 @@ require 'date'
 
 module SibApiV3Sdk
   class Body
-    # Name of task
+    # Name of company
     attr_accessor :name
 
-    # Duration of task
-    attr_accessor :duration
-
-    # Id for type of task e.g Call / Email / Meeting etc.
-    attr_accessor :task_type_id
-
-    # Task date/time
-    attr_accessor :date
-
-    # Notes added to a task
-    attr_accessor :notes
-
-    # Task marked as done
-    attr_accessor :done
-
-    # User id to whom task is assigned
-    attr_accessor :assign_to_id
-
-    # Contact ids for contacts linked to this task
-    attr_accessor :contacts_ids
-
-    # Deal ids for deals a task is linked to
-    attr_accessor :deals_ids
-
-    # Companies ids for companies a task is linked to
-    attr_accessor :companies_ids
-
-    attr_accessor :reminder
+    # Attributes for company creation
+    attr_accessor :attributes
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
-        :'duration' => :'duration',
-        :'task_type_id' => :'taskTypeId',
-        :'date' => :'date',
-        :'notes' => :'notes',
-        :'done' => :'done',
-        :'assign_to_id' => :'assignToId',
-        :'contacts_ids' => :'contactsIds',
-        :'deals_ids' => :'dealsIds',
-        :'companies_ids' => :'companiesIds',
-        :'reminder' => :'reminder'
+        :'attributes' => :'attributes'
       }
     end
 
@@ -67,16 +32,7 @@ module SibApiV3Sdk
     def self.swagger_types
       {
         :'name' => :'String',
-        :'duration' => :'Integer',
-        :'task_type_id' => :'String',
-        :'date' => :'DateTime',
-        :'notes' => :'String',
-        :'done' => :'BOOLEAN',
-        :'assign_to_id' => :'String',
-        :'contacts_ids' => :'Array<Integer>',
-        :'deals_ids' => :'Array<String>',
-        :'companies_ids' => :'Array<String>',
-        :'reminder' => :'TaskReminder'
+        :'attributes' => :'Object'
       }
     end
 
@@ -92,50 +48,8 @@ module SibApiV3Sdk
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'duration')
-        self.duration = attributes[:'duration']
-      end
-
-      if attributes.has_key?(:'taskTypeId')
-        self.task_type_id = attributes[:'taskTypeId']
-      end
-
-      if attributes.has_key?(:'date')
-        self.date = attributes[:'date']
-      end
-
-      if attributes.has_key?(:'notes')
-        self.notes = attributes[:'notes']
-      end
-
-      if attributes.has_key?(:'done')
-        self.done = attributes[:'done']
-      end
-
-      if attributes.has_key?(:'assignToId')
-        self.assign_to_id = attributes[:'assignToId']
-      end
-
-      if attributes.has_key?(:'contactsIds')
-        if (value = attributes[:'contactsIds']).is_a?(Array)
-          self.contacts_ids = value
-        end
-      end
-
-      if attributes.has_key?(:'dealsIds')
-        if (value = attributes[:'dealsIds']).is_a?(Array)
-          self.deals_ids = value
-        end
-      end
-
-      if attributes.has_key?(:'companiesIds')
-        if (value = attributes[:'companiesIds']).is_a?(Array)
-          self.companies_ids = value
-        end
-      end
-
-      if attributes.has_key?(:'reminder')
-        self.reminder = attributes[:'reminder']
+      if attributes.has_key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
     end
 
@@ -147,14 +61,6 @@ module SibApiV3Sdk
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @task_type_id.nil?
-        invalid_properties.push('invalid value for "task_type_id", task_type_id cannot be nil.')
-      end
-
-      if @date.nil?
-        invalid_properties.push('invalid value for "date", date cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -162,8 +68,6 @@ module SibApiV3Sdk
     # @return true if the model is valid
     def valid?
       return false if @name.nil?
-      return false if @task_type_id.nil?
-      return false if @date.nil?
       true
     end
 
@@ -173,16 +77,7 @@ module SibApiV3Sdk
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
-          duration == o.duration &&
-          task_type_id == o.task_type_id &&
-          date == o.date &&
-          notes == o.notes &&
-          done == o.done &&
-          assign_to_id == o.assign_to_id &&
-          contacts_ids == o.contacts_ids &&
-          deals_ids == o.deals_ids &&
-          companies_ids == o.companies_ids &&
-          reminder == o.reminder
+          attributes == o.attributes
     end
 
     # @see the `==` method
@@ -194,7 +89,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, duration, task_type_id, date, notes, done, assign_to_id, contacts_ids, deals_ids, companies_ids, reminder].hash
+      [name, attributes].hash
     end
 
     # Builds the object from hash

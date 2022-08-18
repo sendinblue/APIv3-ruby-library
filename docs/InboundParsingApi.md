@@ -4,8 +4,68 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**get_inbound_email_attachment**](InboundParsingApi.md#get_inbound_email_attachment) | **GET** /inbound/attachments/{downloadToken} | Retrieve inbound attachment with download token.
 [**get_inbound_email_events**](InboundParsingApi.md#get_inbound_email_events) | **GET** /inbound/events | Get the list of all the events for the received emails.
 [**get_inbound_email_events_by_uuid**](InboundParsingApi.md#get_inbound_email_events_by_uuid) | **GET** /inbound/events/{uuid} | Fetch all events history for one particular received email.
+
+
+# **get_inbound_email_attachment**
+> File get_inbound_email_attachment(download_token)
+
+Retrieve inbound attachment with download token.
+
+This endpoint will retrieve inbound attachment with download token.
+
+### Example
+```ruby
+# load the gem
+require 'sib-api-v3-sdk'
+# setup authorization
+SibApiV3Sdk.configure do |config|
+  # Configure API key authorization: api-key
+  config.api_key['api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-key'] = 'Bearer'
+
+  # Configure API key authorization: partner-key
+  config.api_key['partner-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['partner-key'] = 'Bearer'
+end
+
+api_instance = SibApiV3Sdk::InboundParsingApi.new
+
+download_token = 'download_token_example' # String | Token to fetch a particular attachment
+
+
+begin
+  #Retrieve inbound attachment with download token.
+  result = api_instance.get_inbound_email_attachment(download_token)
+  p result
+rescue SibApiV3Sdk::ApiError => e
+  puts "Exception when calling InboundParsingApi->get_inbound_email_attachment: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **download_token** | **String**| Token to fetch a particular attachment | 
+
+### Return type
+
+**File**
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 
 # **get_inbound_email_events**

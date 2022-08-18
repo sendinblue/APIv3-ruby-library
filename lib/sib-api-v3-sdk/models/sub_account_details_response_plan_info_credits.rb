@@ -13,9 +13,9 @@ Swagger Codegen version: 2.4.19
 require 'date'
 
 module SibApiV3Sdk
-  # Sub-account messaging quota details
+  # Credits quota and remaining credits on the sub-account
   class SubAccountDetailsResponsePlanInfoCredits
-    # Sms quota of the sub-account
+    # SMS credits remaining on the sub-account
     attr_accessor :sms
 
     attr_accessor :emails

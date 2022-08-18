@@ -161,6 +161,8 @@ describe 'ContactsApi' do
   # Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
   # @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :start_date **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate 
+  # @option opts [Object] :end_date **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. 
   # @return [GetExtendedContactDetails]
   describe 'get_contact_info test' do
     it 'should work' do

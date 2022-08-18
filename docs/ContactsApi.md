@@ -662,7 +662,7 @@ This endpoint does not need any parameter.
 
 
 # **get_contact_info**
-> GetExtendedContactDetails get_contact_info(identifier)
+> GetExtendedContactDetails get_contact_info(identifier, opts)
 
 Get a contact's details
 
@@ -689,10 +689,14 @@ api_instance = SibApiV3Sdk::ContactsApi.new
 
 identifier = 'identifier_example' # String | Email (urlencoded) OR ID of the contact OR its SMS attribute value
 
+opts = { 
+  start_date: nil, # Object | **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate 
+  end_date: nil # Object | **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. 
+}
 
 begin
   #Get a contact's details
-  result = api_instance.get_contact_info(identifier)
+  result = api_instance.get_contact_info(identifier, opts)
   p result
 rescue SibApiV3Sdk::ApiError => e
   puts "Exception when calling ContactsApi->get_contact_info: #{e}"
@@ -704,6 +708,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier** | **String**| Email (urlencoded) OR ID of the contact OR its SMS attribute value | 
+ **start_date** | [**Object**](.md)| **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  | [optional] 
+ **end_date** | [**Object**](.md)| **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  | [optional] 
 
 ### Return type
 
