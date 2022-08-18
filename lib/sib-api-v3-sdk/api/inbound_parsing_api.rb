@@ -19,6 +19,15 @@ module SibApiV3Sdk
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+
+    # Set custom user_agent if explicitly passed in api
+    # default will still remain Swagger-Codegen/#{VERSION}/ruby
+    def setUserAgent(user_agent)
+      @user_agent = user_agent
+      if user_agent.is_a?(String) && user_agent.downcase.start_with?('sendinblue_')
+        @api_client.default_headers['User-Agent'] = @user_agent
+      end
+    end
     # Retrieve inbound attachment with download token.
     # This endpoint will retrieve inbound attachment with download token.
     # @param download_token Token to fetch a particular attachment
@@ -37,14 +46,6 @@ module SibApiV3Sdk
     def get_inbound_email_attachment_with_http_info(download_token, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InboundParsingApi.get_inbound_email_attachment ...'
-      end
-
-    # Set custom user_agent if explicitly passed in api
-    # default will still remain Swagger-Codegen/#{VERSION}/ruby
-    def setUserAgent(user_agent)
-      @user_agent = user_agent
-      if user_agent.is_a?(String) && user_agent.downcase.start_with?('sendinblue_')
-        @api_client.default_headers['User-Agent'] = @user_agent
       end
       # verify the required parameter 'download_token' is set
       if @api_client.config.client_side_validation && download_token.nil?
