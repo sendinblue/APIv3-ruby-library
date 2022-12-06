@@ -14,7 +14,7 @@ require 'date'
 
 module SibApiV3Sdk
   class Body12
-    # agent ID. It can be found on agent’s page or received from a webhook. Alternatively, you can use `agentEmail` + `agentName` + `receivedFrom` instead (all 3 fields required).
+    # agent ID. It can be found on agent’s page or received <a href=\"https://developers.sendinblue.com/docs/conversations-webhooks\">from a webhook</a>. Alternatively, you can use `agentEmail` + `agentName` + `receivedFrom` instead (all 3 fields required).
     attr_accessor :agent_id
 
     # mark your messages to distinguish messages created by you from the others.

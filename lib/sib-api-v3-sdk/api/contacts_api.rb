@@ -766,6 +766,10 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContactsApi.get_contacts, must be smaller than or equal to 1000.'
       end
 
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContactsApi.get_contacts, must be greater than or equal to 0.'
+      end
+
       if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
         fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
       end
@@ -835,6 +839,10 @@ module SibApiV3Sdk
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContactsApi.get_contacts_from_list, must be smaller than or equal to 500.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContactsApi.get_contacts_from_list, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
@@ -958,6 +966,10 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContactsApi.get_folder_lists, must be smaller than or equal to 50.'
       end
 
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContactsApi.get_folder_lists, must be greater than or equal to 0.'
+      end
+
       if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
         fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
       end
@@ -1022,6 +1034,10 @@ module SibApiV3Sdk
       end
       if @api_client.config.client_side_validation && limit > 50
         fail ArgumentError, 'invalid value for "limit" when calling ContactsApi.get_folders, must be smaller than or equal to 50.'
+      end
+
+      if @api_client.config.client_side_validation && limit < 0
+        fail ArgumentError, 'invalid value for "limit" when calling ContactsApi.get_folders, must be greater than or equal to 0.'
       end
 
       # verify the required parameter 'offset' is set
@@ -1140,6 +1156,10 @@ module SibApiV3Sdk
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 50
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContactsApi.get_lists, must be smaller than or equal to 50.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContactsApi.get_lists, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])

@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.19
 require 'date'
 
 module SibApiV3Sdk
-  # List ids to include/exclude from campaign
+  # Segment ids and List ids to include/exclude from campaign
   class CreateEmailCampaignRecipients
     # List ids to exclude from the campaign
     attr_accessor :exclusion_list_ids
@@ -21,11 +21,15 @@ module SibApiV3Sdk
     # Mandatory if scheduledAt is not empty. List Ids to send the campaign to
     attr_accessor :list_ids
 
+    # Mandatory if listIds are not used. Segment ids to send the campaign to.
+    attr_accessor :segment_ids
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'exclusion_list_ids' => :'exclusionListIds',
-        :'list_ids' => :'listIds'
+        :'list_ids' => :'listIds',
+        :'segment_ids' => :'segmentIds'
       }
     end
 
@@ -33,7 +37,8 @@ module SibApiV3Sdk
     def self.swagger_types
       {
         :'exclusion_list_ids' => :'Array<Integer>',
-        :'list_ids' => :'Array<Integer>'
+        :'list_ids' => :'Array<Integer>',
+        :'segment_ids' => :'Array<Integer>'
       }
     end
 
@@ -54,6 +59,12 @@ module SibApiV3Sdk
       if attributes.has_key?(:'listIds')
         if (value = attributes[:'listIds']).is_a?(Array)
           self.list_ids = value
+        end
+      end
+
+      if attributes.has_key?(:'segmentIds')
+        if (value = attributes[:'segmentIds']).is_a?(Array)
+          self.segment_ids = value
         end
       end
     end
@@ -77,7 +88,8 @@ module SibApiV3Sdk
       return true if self.equal?(o)
       self.class == o.class &&
           exclusion_list_ids == o.exclusion_list_ids &&
-          list_ids == o.list_ids
+          list_ids == o.list_ids &&
+          segment_ids == o.segment_ids
     end
 
     # @see the `==` method
@@ -89,7 +101,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [exclusion_list_ids, list_ids].hash
+      [exclusion_list_ids, list_ids, segment_ids].hash
     end
 
     # Builds the object from hash

@@ -24,12 +24,16 @@ module SibApiV3Sdk
     # Deal Ids linked to a note
     attr_accessor :deal_ids
 
+    # Company Ids linked to a note
+    attr_accessor :company_ids
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'text' => :'text',
         :'contact_ids' => :'contactIds',
-        :'deal_ids' => :'dealIds'
+        :'deal_ids' => :'dealIds',
+        :'company_ids' => :'companyIds'
       }
     end
 
@@ -38,7 +42,8 @@ module SibApiV3Sdk
       {
         :'text' => :'String',
         :'contact_ids' => :'Array<Integer>',
-        :'deal_ids' => :'Array<String>'
+        :'deal_ids' => :'Array<String>',
+        :'company_ids' => :'Array<String>'
       }
     end
 
@@ -63,6 +68,12 @@ module SibApiV3Sdk
       if attributes.has_key?(:'dealIds')
         if (value = attributes[:'dealIds']).is_a?(Array)
           self.deal_ids = value
+        end
+      end
+
+      if attributes.has_key?(:'companyIds')
+        if (value = attributes[:'companyIds']).is_a?(Array)
+          self.company_ids = value
         end
       end
     end
@@ -120,7 +131,8 @@ module SibApiV3Sdk
       self.class == o.class &&
           text == o.text &&
           contact_ids == o.contact_ids &&
-          deal_ids == o.deal_ids
+          deal_ids == o.deal_ids &&
+          company_ids == o.company_ids
     end
 
     # @see the `==` method
@@ -132,7 +144,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [text, contact_ids, deal_ids].hash
+      [text, contact_ids, deal_ids, company_ids].hash
     end
 
     # Builds the object from hash

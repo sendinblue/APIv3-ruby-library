@@ -593,6 +593,10 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ResellerApi.get_reseller_childs, must be smaller than or equal to 20.'
       end
 
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ResellerApi.get_reseller_childs, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = '/reseller/children'
 

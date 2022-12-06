@@ -20,11 +20,15 @@ module SibApiV3Sdk
     # Attributes for company creation
     attr_accessor :attributes
 
+    # Country code if phone_number is passed in attributes.
+    attr_accessor :country_code
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
-        :'attributes' => :'attributes'
+        :'attributes' => :'attributes',
+        :'country_code' => :'countryCode'
       }
     end
 
@@ -32,7 +36,8 @@ module SibApiV3Sdk
     def self.swagger_types
       {
         :'name' => :'String',
-        :'attributes' => :'Object'
+        :'attributes' => :'Object',
+        :'country_code' => :'Integer'
       }
     end
 
@@ -50,6 +55,10 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'attributes')
         self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.has_key?(:'countryCode')
+        self.country_code = attributes[:'countryCode']
       end
     end
 
@@ -77,7 +86,8 @@ module SibApiV3Sdk
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
-          attributes == o.attributes
+          attributes == o.attributes &&
+          country_code == o.country_code
     end
 
     # @see the `==` method
@@ -89,7 +99,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, attributes].hash
+      [name, attributes, country_code].hash
     end
 
     # Builds the object from hash
