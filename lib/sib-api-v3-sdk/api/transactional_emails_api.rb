@@ -451,7 +451,7 @@ module SibApiV3Sdk
     # Get all your transactional email activity (unaggregated events)
     # This endpoint will show the aggregated stats for past 30 days by default if `startDate` and `endDate` OR `days` is not passed. The date range can not exceed 90 days
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit Number limitation for the result returned (default to 50)
+    # @option opts [Integer] :limit Number limitation for the result returned (default to 2500)
     # @option opts [Integer] :offset Beginning point in the list to retrieve from. (default to 0)
     # @option opts [String] :start_date Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
     # @option opts [String] :end_date Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
@@ -487,8 +487,12 @@ module SibApiV3Sdk
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransactionalEmailsApi.get_email_event_report ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_email_event_report, must be smaller than or equal to 100.'
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_email_event_report, must be smaller than or equal to 5000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_email_event_report, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && opts[:'event'] && !['bounces', 'hardBounces', 'softBounces', 'delivered', 'spam', 'requests', 'opened', 'clicks', 'invalid', 'deferred', 'blocked', 'unsubscribed', 'error', 'loadedByProxy'].include?(opts[:'event'])
@@ -582,6 +586,10 @@ module SibApiV3Sdk
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_scheduled_email_by_batch_id, must be smaller than or equal to 500.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_scheduled_email_by_batch_id, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -714,6 +722,10 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_smtp_report, must be smaller than or equal to 30.'
       end
 
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_smtp_report, must be greater than or equal to 0.'
+      end
+
       if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
         fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
       end
@@ -834,6 +846,10 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_smtp_templates, must be smaller than or equal to 1000.'
       end
 
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_smtp_templates, must be greater than or equal to 0.'
+      end
+
       if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
         fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
       end
@@ -901,6 +917,10 @@ module SibApiV3Sdk
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_transac_blocked_contacts, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_transac_blocked_contacts, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
@@ -1033,6 +1053,10 @@ module SibApiV3Sdk
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_transac_emails_list, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TransactionalEmailsApi.get_transac_emails_list, must be greater than or equal to 0.'
       end
 
       # resource path

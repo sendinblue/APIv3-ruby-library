@@ -85,10 +85,6 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *SibApiV3Sdk::AccountApi* | [**get_account**](docs/AccountApi.md#get_account) | **GET** /account | Get your account information, plan and credits details
-*SibApiV3Sdk::AttributesApi* | [**create_attribute**](docs/AttributesApi.md#create_attribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Create contact attribute
-*SibApiV3Sdk::AttributesApi* | [**delete_attribute**](docs/AttributesApi.md#delete_attribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Delete an attribute
-*SibApiV3Sdk::AttributesApi* | [**get_attributes**](docs/AttributesApi.md#get_attributes) | **GET** /contacts/attributes | List all attributes
-*SibApiV3Sdk::AttributesApi* | [**update_attribute**](docs/AttributesApi.md#update_attribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
 *SibApiV3Sdk::CompaniesApi* | [**companies_attributes_get**](docs/CompaniesApi.md#companies_attributes_get) | **GET** /companies/attributes | Get company attributes
 *SibApiV3Sdk::CompaniesApi* | [**companies_get**](docs/CompaniesApi.md#companies_get) | **GET** /companies | Get all companies
 *SibApiV3Sdk::CompaniesApi* | [**companies_id_delete**](docs/CompaniesApi.md#companies_id_delete) | **DELETE** /companies/{id} | Delete a company
@@ -159,24 +155,9 @@ Class | Method | HTTP request | Description
 *SibApiV3Sdk::FilesApi* | [**crm_files_id_delete**](docs/FilesApi.md#crm_files_id_delete) | **DELETE** /crm/files/{id} | Delete a file
 *SibApiV3Sdk::FilesApi* | [**crm_files_id_get**](docs/FilesApi.md#crm_files_id_get) | **GET** /crm/files/{id} | Download a file
 *SibApiV3Sdk::FilesApi* | [**crm_files_post**](docs/FilesApi.md#crm_files_post) | **POST** /crm/files | Upload a file
-*SibApiV3Sdk::FoldersApi* | [**create_folder**](docs/FoldersApi.md#create_folder) | **POST** /contacts/folders | Create a folder
-*SibApiV3Sdk::FoldersApi* | [**delete_folder**](docs/FoldersApi.md#delete_folder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
-*SibApiV3Sdk::FoldersApi* | [**get_folder**](docs/FoldersApi.md#get_folder) | **GET** /contacts/folders/{folderId} | Returns a folder's details
-*SibApiV3Sdk::FoldersApi* | [**get_folder_lists**](docs/FoldersApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get lists in a folder
-*SibApiV3Sdk::FoldersApi* | [**get_folders**](docs/FoldersApi.md#get_folders) | **GET** /contacts/folders | Get all folders
-*SibApiV3Sdk::FoldersApi* | [**update_folder**](docs/FoldersApi.md#update_folder) | **PUT** /contacts/folders/{folderId} | Update a folder
 *SibApiV3Sdk::InboundParsingApi* | [**get_inbound_email_attachment**](docs/InboundParsingApi.md#get_inbound_email_attachment) | **GET** /inbound/attachments/{downloadToken} | Retrieve inbound attachment with download token.
 *SibApiV3Sdk::InboundParsingApi* | [**get_inbound_email_events**](docs/InboundParsingApi.md#get_inbound_email_events) | **GET** /inbound/events | Get the list of all the events for the received emails.
 *SibApiV3Sdk::InboundParsingApi* | [**get_inbound_email_events_by_uuid**](docs/InboundParsingApi.md#get_inbound_email_events_by_uuid) | **GET** /inbound/events/{uuid} | Fetch all events history for one particular received email.
-*SibApiV3Sdk::ListsApi* | [**add_contact_to_list**](docs/ListsApi.md#add_contact_to_list) | **POST** /contacts/lists/{listId}/contacts/add | Add existing contacts to a list
-*SibApiV3Sdk::ListsApi* | [**create_list**](docs/ListsApi.md#create_list) | **POST** /contacts/lists | Create a list
-*SibApiV3Sdk::ListsApi* | [**delete_list**](docs/ListsApi.md#delete_list) | **DELETE** /contacts/lists/{listId} | Delete a list
-*SibApiV3Sdk::ListsApi* | [**get_contacts_from_list**](docs/ListsApi.md#get_contacts_from_list) | **GET** /contacts/lists/{listId}/contacts | Get contacts in a list
-*SibApiV3Sdk::ListsApi* | [**get_folder_lists**](docs/ListsApi.md#get_folder_lists) | **GET** /contacts/folders/{folderId}/lists | Get lists in a folder
-*SibApiV3Sdk::ListsApi* | [**get_list**](docs/ListsApi.md#get_list) | **GET** /contacts/lists/{listId} | Get a list's details
-*SibApiV3Sdk::ListsApi* | [**get_lists**](docs/ListsApi.md#get_lists) | **GET** /contacts/lists | Get all the lists
-*SibApiV3Sdk::ListsApi* | [**remove_contact_from_list**](docs/ListsApi.md#remove_contact_from_list) | **POST** /contacts/lists/{listId}/contacts/remove | Delete a contact from a list
-*SibApiV3Sdk::ListsApi* | [**update_list**](docs/ListsApi.md#update_list) | **PUT** /contacts/lists/{listId} | Update a list
 *SibApiV3Sdk::MasterAccountApi* | [**corporate_master_account_get**](docs/MasterAccountApi.md#corporate_master_account_get) | **GET** /corporate/masterAccount | Get the details of requested master account
 *SibApiV3Sdk::MasterAccountApi* | [**corporate_sub_account_get**](docs/MasterAccountApi.md#corporate_sub_account_get) | **GET** /corporate/subAccount | Get the list of all the sub-accounts of the master account.
 *SibApiV3Sdk::MasterAccountApi* | [**corporate_sub_account_id_delete**](docs/MasterAccountApi.md#corporate_sub_account_id_delete) | **DELETE** /corporate/subAccount/{id} | Delete a sub-account

@@ -520,7 +520,7 @@ end
 api_instance = SibApiV3Sdk::TransactionalEmailsApi.new
 
 opts = { 
-  limit: 50, # Integer | Number limitation for the result returned
+  limit: 2500, # Integer | Number limitation for the result returned
   offset: 0, # Integer | Beginning point in the list to retrieve from.
   start_date: 'start_date_example', # String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
   end_date: 'end_date_example', # String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
@@ -546,7 +546,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **Integer**| Number limitation for the result returned | [optional] [default to 50]
+ **limit** | **Integer**| Number limitation for the result returned | [optional] [default to 2500]
  **offset** | **Integer**| Beginning point in the list to retrieve from. | [optional] [default to 0]
  **start_date** | **String**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate | [optional] 
  **end_date** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional] 

@@ -218,6 +218,10 @@ module SibApiV3Sdk
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SMSCampaignsApi.get_sms_campaigns, must be smaller than or equal to 1000.'
       end
 
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SMSCampaignsApi.get_sms_campaigns, must be greater than or equal to 0.'
+      end
+
       if @api_client.config.client_side_validation && opts[:'sort'] && !['asc', 'desc'].include?(opts[:'sort'])
         fail ArgumentError, 'invalid value for "sort", must be one of asc, desc'
       end

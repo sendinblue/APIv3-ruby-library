@@ -96,6 +96,12 @@ module SibApiV3Sdk
     # Mandatory if ipWarmupEnable is set to true. Set a percentage increase rate for warming up your ip. We recommend you set the increase rate to 30% per day. If you want to send the same number of emails every day, set the daily increase value to 0%.
     attr_accessor :increase_rate
 
+    # Enter an unsubscription page id. The page id is a 24 digit alphanumeric id that can be found in the URL when editing the page. If not entered, then the default unsubscription page will be used.
+    attr_accessor :unsubscription_page_id
+
+    # Mandatory if templateId is used containing the {{ update_profile }} tag. Enter an update profile form id. The form id is a 24 digit alphanumeric id that can be found in the URL when editing the form. If not entered, then the default update profile form will be used.
+    attr_accessor :update_form_id
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -148,7 +154,9 @@ module SibApiV3Sdk
         :'winner_delay' => :'winnerDelay',
         :'ip_warmup_enable' => :'ipWarmupEnable',
         :'initial_quota' => :'initialQuota',
-        :'increase_rate' => :'increaseRate'
+        :'increase_rate' => :'increaseRate',
+        :'unsubscription_page_id' => :'unsubscriptionPageId',
+        :'update_form_id' => :'updateFormId'
       }
     end
 
@@ -182,7 +190,9 @@ module SibApiV3Sdk
         :'winner_delay' => :'Integer',
         :'ip_warmup_enable' => :'BOOLEAN',
         :'initial_quota' => :'Integer',
-        :'increase_rate' => :'Integer'
+        :'increase_rate' => :'Integer',
+        :'unsubscription_page_id' => :'String',
+        :'update_form_id' => :'String'
       }
     end
 
@@ -312,6 +322,14 @@ module SibApiV3Sdk
 
       if attributes.has_key?(:'increaseRate')
         self.increase_rate = attributes[:'increaseRate']
+      end
+
+      if attributes.has_key?(:'unsubscriptionPageId')
+        self.unsubscription_page_id = attributes[:'unsubscriptionPageId']
+      end
+
+      if attributes.has_key?(:'updateFormId')
+        self.update_form_id = attributes[:'updateFormId']
       end
     end
 
@@ -454,7 +472,9 @@ module SibApiV3Sdk
           winner_delay == o.winner_delay &&
           ip_warmup_enable == o.ip_warmup_enable &&
           initial_quota == o.initial_quota &&
-          increase_rate == o.increase_rate
+          increase_rate == o.increase_rate &&
+          unsubscription_page_id == o.unsubscription_page_id &&
+          update_form_id == o.update_form_id
     end
 
     # @see the `==` method
@@ -466,7 +486,7 @@ module SibApiV3Sdk
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [tag, sender, name, html_content, html_url, template_id, scheduled_at, subject, reply_to, to_field, recipients, attachment_url, inline_image_activation, mirror_active, footer, header, utm_campaign, params, send_at_best_time, ab_testing, subject_a, subject_b, split_rule, winner_criteria, winner_delay, ip_warmup_enable, initial_quota, increase_rate].hash
+      [tag, sender, name, html_content, html_url, template_id, scheduled_at, subject, reply_to, to_field, recipients, attachment_url, inline_image_activation, mirror_active, footer, header, utm_campaign, params, send_at_best_time, ab_testing, subject_a, subject_b, split_rule, winner_criteria, winner_delay, ip_warmup_enable, initial_quota, increase_rate, unsubscription_page_id, update_form_id].hash
     end
 
     # Builds the object from hash
