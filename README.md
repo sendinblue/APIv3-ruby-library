@@ -1,4 +1,5 @@
 # [DEPRECATED:warning:] api-v3-sdk
+Please upgrade to [brevo-ruby](https://github.com/getbrevo/brevo-ruby)
 # SendinBlue's API v3 Ruby Library
 
 SendinBlue's API exposes the entire SendinBlue features via a standardized programmatic interface. Please refer to the full [documentation](https://developers.sendinblue.com) to learn more.
